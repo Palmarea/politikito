@@ -10,7 +10,9 @@ namespace Game.Systems.Input
         private bool initialized = false;
 
         // Events
+        public event Action OnSelectStarted;
         public event Action OnSelectPerformed;
+        public event Action OnSelectCanceled;
 
         private void Awake()
         {
@@ -34,8 +36,9 @@ namespace Game.Systems.Input
 
             InputSystem.Enable();
 
-            // Select
-            InputSystem.Game.Select.performed += (InputAction.CallbackContext obj) => OnSelectPerformed?.Invoke();
+            InputSystem.Game.Select.started += ctx => OnSelectStarted?.Invoke();
+            InputSystem.Game.Select.performed += ctx => OnSelectPerformed?.Invoke();
+            InputSystem.Game.Select.canceled += ctx => OnSelectCanceled?.Invoke();
 
             initialized = true;
         }
@@ -44,8 +47,9 @@ namespace Game.Systems.Input
         {
             InputSystem.Disable();
 
-            //Select
-            InputSystem.Game.Select.performed -= (InputAction.CallbackContext obj) => OnSelectPerformed?.Invoke();
+            InputSystem.Game.Select.started -= ctx => OnSelectStarted?.Invoke();
+            InputSystem.Game.Select.performed -= ctx => OnSelectPerformed?.Invoke();
+            InputSystem.Game.Select.canceled -= ctx => OnSelectCanceled?.Invoke();
         }
 
         #region Input System
