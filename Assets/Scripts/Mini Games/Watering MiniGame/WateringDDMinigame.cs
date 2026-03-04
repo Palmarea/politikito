@@ -44,6 +44,16 @@ namespace Game.Systems.Minigames
             DDObject.StopDragging();
             CharacterMovement.StopFlee();
             CharacterMovement.SetSpeedMultiplier(1f);
+            Receiver.UpdateActive(false);
+        }
+
+        public override void CloseMinigame()
+        {
+            base.CloseMinigame();
+            DDObject.StopDragging();
+            CharacterMovement.StopFlee();
+            CharacterMovement.SetSpeedMultiplier(1f);
+            Receiver.UpdateActive(false);
         }
 
         private void OnDrawGizmos()

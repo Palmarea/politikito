@@ -1,4 +1,5 @@
 using Game.Managers.Mouse;
+using Game.Systems.Interaction.DragNDrop;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +34,9 @@ namespace Game.Systems.Minigames
         [SerializeField] private Slider ProgressBar;
         [SerializeField] private Button CloseButton;
 
+        [Header("Dependencies")]
+        [SerializeField] protected DragDropReceiver Receiver;
+
         protected float currentProgress = 0f;
         protected bool isActive = false;
 
@@ -43,6 +47,7 @@ namespace Game.Systems.Minigames
         {
             CloseButton.onClick.AddListener(CloseMinigame);
             MinigameUI.SetActive(false);
+            Receiver.UpdateActive(false);
         }
 
         protected virtual void Update()
@@ -59,7 +64,7 @@ namespace Game.Systems.Minigames
             isActive = true;
             MinigameUI.SetActive(true);
 
-            //MouseManager.Instance.UpdateOcuppiedState(true);
+            MinigameManager.Instance.StartMinigame(this);
         }
 
         protected abstract void UpdateMinigame();
@@ -70,8 +75,9 @@ namespace Game.Systems.Minigames
 
             isActive = false;
             MinigameUI.SetActive(false);
+            Receiver.UpdateActive(false);
 
-            //MouseManager.Instance.UpdateOcuppiedState(false);
+            MinigameManager.Instance.EndMinigame();
 
             OnMinigameClosed?.Invoke();
         }
@@ -104,7 +110,10 @@ namespace Game.Systems.Minigames
             MinigameUI.SetActive(false);
             MouseManager.Instance.UpdateOcuppiedState(false);
 
+            MinigameManager.Instance.EndMinigame();
+
             OnMinigameCompleted?.Invoke();
+            Receiver.UpdateActive(false);
 
             // Lo que pase después es responsabilidad del minijuego concreto
             OnCompleted();

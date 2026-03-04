@@ -1,4 +1,5 @@
 using Game.Systems.Input;
+using Game.Systems.Minigames;
 using UnityEngine;
 
 namespace Game.Systems.Interaction.DragNDrop
@@ -8,10 +9,20 @@ namespace Game.Systems.Interaction.DragNDrop
         private bool isBeingDragged = false;
         private Vector2 offset;
         private Vector3 initialPosition;
+        private bool suscribed = false;
 
         private void Awake()
         {
             initialPosition = transform.position;
+        }
+
+        private void Start()
+        {
+            if (!suscribed)
+            {
+                InputManager.Instance.OnSelectCanceled += StopDragging;
+                suscribed = true;
+            }
         }
 
         private void Update()
@@ -43,7 +54,11 @@ namespace Game.Systems.Interaction.DragNDrop
 
         private void OnEnable()
         {
-            InputManager.Instance.OnSelectCanceled += StopDragging;
+            if (InputManager.Instance != null)
+            {
+                InputManager.Instance.OnSelectCanceled += StopDragging;
+                suscribed = true;
+            }
         }
 
         private void OnDisable()
