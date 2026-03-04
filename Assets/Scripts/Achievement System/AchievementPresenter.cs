@@ -42,12 +42,12 @@ namespace Game.Systems.Achievement
 
         private void OnEnable()
         {
-            MainSystem.OnAchievementRequested += ShowNotification;
+            MainSystem.OnNextAchievement += ShowNotification;
         }
 
         private void OnDisable()
         {
-            MainSystem.OnAchievementRequested -= ShowNotification;
+            MainSystem.OnNextAchievement -= ShowNotification;
         }
     }
 }

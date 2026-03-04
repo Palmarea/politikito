@@ -10,56 +10,82 @@ namespace Game.Systems.Achievement
         [SerializeField] private AchievementCreator Creator;
 
         [Header("Parameters")]
-        [SerializeField] TextAsset AchievementJSON;
+        [SerializeField] private TextAsset AchievementJSON;
         [SerializeField] private int MaxAchievementList = 3;
 
-        private Dictionary<int, List<Achievement>> AchievementDictionary = new Dictionary<int, List<Achievement>>();
+        private Dictionary<int, List<Achievement>> AchievementDictionary = new();
         private int currentAchievementLevel = 1;
         private int currentAchievementOrder = 0;
 
-        // Events
-        public event Action<Achievement> OnAchievementRequested;
+        // Nuevo evento
+        public event Action<Achievement> OnNextAchievement;
 
         private void Awake()
         {
-            for (int i = 1; i < MaxAchievementList + 1; i++)
+            for (int i = 1; i <= MaxAchievementList; i++)
             {
-                AchievementDictionary[i] = Creator.CreateAchievementListByLevel(AchievementJSON, i);
-
-                for (int j = 0; j < AchievementDictionary[i].Count; j++)
-                {
-                    Debug.Log(AchievementDictionary[i][j].ToString());
-                }
+                AchievementDictionary[i] =
+                    Creator.CreateAchievementListByLevel(AchievementJSON, i);
             }
+        }
+
+        private void Start()
+        {
+            // Solo mostramos el inicial si quieres
+            OnNextAchievement?.Invoke(GetCurrentAchievement());
         }
 
         public Achievement GetCurrentAchievement()
         {
-            OnAchievementRequested?.Invoke(AchievementDictionary[currentAchievementLevel][currentAchievementOrder]);
+            if (!AchievementDictionary.ContainsKey(currentAchievementLevel))
+                return null;
+
             return AchievementDictionary[currentAchievementLevel][currentAchievementOrder];
         }
 
-        public Achievement GetNextAchievement()
+        public void AdvanceAchievement()
         {
-            if (currentAchievementOrder >= AchievementDictionary[currentAchievementLevel].Count - 1)
+            Achievement next = MoveNextInternal();
+
+            if (next != null)
+                OnNextAchievement?.Invoke(next);
+        }
+
+        public Achievement AdvanceAndGetAchievement()
+        {
+            Achievement next = MoveNextInternal();
+
+            if (next != null)
+                OnNextAchievement?.Invoke(next);
+
+            return next;
+        }
+
+        private Achievement MoveNextInternal()
+        {
+            if (!AchievementDictionary.ContainsKey(currentAchievementLevel))
+                return null;
+
+            var currentList = AchievementDictionary[currentAchievementLevel];
+
+            if (currentAchievementOrder < currentList.Count - 1)
             {
-                if (currentAchievementLevel >= AchievementDictionary.Count)
-                {
-                    return null;
-                }
-                else
+                currentAchievementOrder++;
+            }
+            else
+            {
+                if (currentAchievementLevel < MaxAchievementList)
                 {
                     currentAchievementLevel++;
                     currentAchievementOrder = 0;
                 }
-            }
-            else
-            {
-                currentAchievementOrder++;
+                else
+                {
+                    return null;
+                }
             }
 
             return GetCurrentAchievement();
         }
     }
-
 }
