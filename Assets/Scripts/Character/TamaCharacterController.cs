@@ -15,14 +15,17 @@ namespace Game.Character
 
         private void Update()
         {
-            if (MovementHandler != null)
-            {
-                MovementHandler.Move();
-            }
-
             if (AnimationHandler != null)
             {
                 AnimationHandler.Animate();
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if (MovementHandler != null)
+            {
+                MovementHandler.Move();
             }
         }
     }

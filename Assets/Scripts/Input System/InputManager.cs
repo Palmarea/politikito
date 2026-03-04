@@ -10,6 +10,8 @@ namespace Game.Systems.Input
 
         // Events
         public event Action OnSelectPerformed;
+        public event Action OnSelectStarted;
+        public event Action OnSelectCanceled;
 
         #region Singleton
         private void Awake()
@@ -33,11 +35,15 @@ namespace Game.Systems.Input
         private void OnEnable()
         {
             InputHandler.OnSelectPerformed += () => OnSelectPerformed?.Invoke();
+            InputHandler.OnSelectStarted += () => OnSelectStarted?.Invoke();
+            InputHandler.OnSelectCanceled += () => OnSelectCanceled?.Invoke();
         }
 
         private void OnDisable()
         {
             InputHandler.OnSelectPerformed -= () => OnSelectPerformed?.Invoke();
+            InputHandler.OnSelectStarted -= () => OnSelectStarted?.Invoke();
+            InputHandler.OnSelectCanceled -= () => OnSelectCanceled?.Invoke();
         }
     }
 }
