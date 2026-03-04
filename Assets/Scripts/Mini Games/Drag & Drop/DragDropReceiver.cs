@@ -21,17 +21,17 @@ namespace Game.Systems.Interaction.DragNDrop
         {
             receiveActive = state;
 
-            int draggableLayer = Mathf.RoundToInt(Mathf.Log(DraggableLayer.value, 2));
-            int interactableLayer = Mathf.RoundToInt(Mathf.Log(InteractableLayer.value, 2));
+            //int draggableLayer = Mathf.RoundToInt(Mathf.Log(DraggableLayer.value, 2));
+            //int interactableLayer = Mathf.RoundToInt(Mathf.Log(InteractableLayer.value, 2));
 
-            foreach (var col in Colliders)
-            {
-                int playerLayer = col.gameObject.layer;
+            //foreach (var col in Colliders)
+            //{
+            //    int playerLayer = col.gameObject.layer;
 
-                // Si receiveActive es false -> ignoramos colisión
-                Physics2D.IgnoreLayerCollision(playerLayer, draggableLayer, !receiveActive);
-                Physics2D.IgnoreLayerCollision(playerLayer, interactableLayer, !receiveActive);
-            }
+            //    // Si receiveActive es false -> ignoramos colisión
+            //    Physics2D.IgnoreLayerCollision(playerLayer, draggableLayer, !receiveActive);
+            //    Physics2D.IgnoreLayerCollision(playerLayer, interactableLayer, !receiveActive);
+            //}
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -40,7 +40,7 @@ namespace Game.Systems.Interaction.DragNDrop
             
             var draggable = other.GetComponent<DragDropObject>();
             if (draggable == null) return;
-            Debug.Log("Called");
+
             draggable.StopDragging();
             OnObjectDropped?.Invoke(draggable);
         }

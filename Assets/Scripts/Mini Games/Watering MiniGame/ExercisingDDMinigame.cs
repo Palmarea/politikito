@@ -1,4 +1,5 @@
 using Game.Character;
+using Game.Character.StateMachine.States;
 using Game.Systems.Interaction.DragNDrop;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +9,9 @@ namespace Game.Systems.Minigames
     public class ExercisingDDMinigame : DragDropMinigameBase
     {
         [Header("Dependencies")]
+        [SerializeField] private TamaCharacterController Character;
         [SerializeField] private Transform DumbbellOriginPoint;
         [SerializeField] private DragDropObject DDObject;
-        [SerializeField] private TamaCharacterMovement CharacterMovement;
-
         [SerializeField] private Button FlexButton;
 
         [Header("Minigame Parameters")]
@@ -23,7 +23,6 @@ namespace Game.Systems.Minigames
         protected override void Awake()
         {
             base.Awake();
-
             FlexButton.gameObject.SetActive(false);
         }
 
@@ -31,11 +30,16 @@ namespace Game.Systems.Minigames
         {
             base.StartMinigame();
 
-            Receiver.UpdateActive(true);
-            Receiver.OnObjectDropped += OnObjectDelivered;
             objectDelivered = false;
+
+            Receiver.UpdateActive(true);
+            Receiver.OnObjectDropped -= OnObjectDelivered;
+            Receiver.OnObjectDropped += OnObjectDelivered;
+
             FlexButton.gameObject.SetActive(false);
-            CharacterMovement.ForceFlee(DumbbellOriginPoint);
+
+            // Personaje huye de la mancuerna
+            Character.ChangeState(new FleeState(Character, DumbbellOriginPoint));
         }
 
         protected override void UpdateMinigame()
@@ -47,26 +51,13 @@ namespace Game.Systems.Minigames
 
         protected override void OnCompleted()
         {
-            FlexButton.onClick.RemoveListener(OnClickFlex);
-            FlexButton.gameObject.SetActive(false);
-            
-            DDObject.gameObject.SetActive(true);
-            DDObject.BackToOrigin();
-            
-            CharacterMovement.SetSpeedMultiplier(1f);
+            Cleanup();
         }
 
         public override void CloseMinigame()
         {
             base.CloseMinigame();
-            
-            FlexButton.onClick.RemoveListener(OnClickFlex);
-            FlexButton.gameObject.SetActive(false);
-
-            DDObject.gameObject.SetActive(true);
-            DDObject.BackToOrigin();
-            
-            CharacterMovement.SetSpeedMultiplier(1f);
+            Cleanup();
         }
 
         private void OnObjectDelivered(DragDropObject obj)
@@ -76,17 +67,35 @@ namespace Game.Systems.Minigames
             objectDelivered = true;
 
             DDObject.gameObject.SetActive(false);
-            FlexButton.gameObject.SetActive(true);
 
-            FlexButton.onClick.AddListener(OnClickFlex);
-            CharacterMovement.StopFlee();
-            CharacterMovement.SetSpeedMultiplier(0f);
             Receiver.UpdateActive(false);
+
+            FlexButton.gameObject.SetActive(true);
+            FlexButton.onClick.RemoveAllListeners();
+            FlexButton.onClick.AddListener(OnClickFlex);
+
+            // Se queda quieto mientras hace ejercicio
+            Character.ChangeState(new FrozenState(Character));
         }
 
         private void OnClickFlex()
         {
             AddProgress(PointsPerClick.GetValue(0));
+        }
+
+        private void Cleanup()
+        {
+            FlexButton.onClick.RemoveListener(OnClickFlex);
+            FlexButton.gameObject.SetActive(false);
+
+            DDObject.gameObject.SetActive(true);
+            DDObject.BackToOrigin();
+
+            Receiver.UpdateActive(false);
+            Receiver.OnObjectDropped -= OnObjectDelivered;
+
+            // Regresa a roam normal
+            Character.ChangeState(new RoamState(Character));
         }
 
         private void OnDestroy()

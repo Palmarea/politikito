@@ -58,6 +58,10 @@ namespace Game.Systems.Minigames
 
         public virtual void StartMinigame()
         {
+            if (isActive) return;
+
+            isActive = true;
+
             currentProgress = 0f;
             UpdateProgressUI();
 

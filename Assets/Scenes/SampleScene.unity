@@ -651,7 +651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &310439864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,7 +664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5021778a16f76a459bb619c7fcab241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.DragNDrop.DragDropObject
-  ownerMinigame: {fileID: 0}
 --- !u!114 &310439865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,7 +828,7 @@ Transform:
   m_GameObject: {fileID: 310439863}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.06, y: 0, z: 0}
+  m_LocalPosition: {x: 7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -867,7 +866,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5021778a16f76a459bb619c7fcab241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.DragNDrop.DragDropObject
-  ownerMinigame: {fileID: 1323785655}
 --- !u!114 &365263005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,7 +1026,7 @@ Transform:
   m_GameObject: {fileID: 365263003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.008, y: 0, z: 0}
+  m_LocalPosition: {x: 7, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2273,6 +2271,194 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2018517616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &884095219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884095224}
+  - component: {fileID: 884095223}
+  - component: {fileID: 884095222}
+  - component: {fileID: 884095221}
+  - component: {fileID: 884095220}
+  m_Layer: 7
+  m_Name: Circle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &884095220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884095219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5021778a16f76a459bb619c7fcab241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.DragNDrop.DragDropObject
+--- !u!114 &884095221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884095219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ea13cd63dcd864cab67ca53f6e2f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.ClickableObject
+  OnClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 884095220}
+        m_TargetAssemblyTypeName: Game.Systems.Interaction.DragNDrop.DragDropObject,
+          Assembly-CSharp
+        m_MethodName: StartDragging
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1323785659}
+        m_TargetAssemblyTypeName: Game.Systems.Minigames.FeedingDDMinigame, Assembly-CSharp
+        m_MethodName: StartMinigame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHover:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOffHover:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!58 &884095222
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884095219}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!212 &884095223
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884095219}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &884095224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884095219}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &985951239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2862,14 +3048,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character.TamaCharacterMovement
   MinBounds: {x: -8, y: -4}
-  MaxBounds: {x: 8, y: 4}
+  MaxBounds: {x: 5.5, y: 4}
   BaseSpeed: 2
-  MoveDurationRange: {x: 1, y: 3}
-  IdleDurationRange: {x: 0.5, y: 2}
-  NoiseSpeed: 0.8
-  NoiseScale: 1.5
-  VerticalNoiseAmount: 0.4
-  RoamNoiseAmount: 0.3
 --- !u!114 &1254595392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3003,8 +3183,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1323785656}
+  - component: {fileID: 1323785658}
   - component: {fileID: 1323785655}
   - component: {fileID: 1323785657}
+  - component: {fileID: 1323785659}
   m_Layer: 0
   m_Name: Minigames Systems
   m_TagString: Untagged
@@ -3027,9 +3209,10 @@ MonoBehaviour:
   MinigameUI: {fileID: 1224255476}
   ProgressBar: {fileID: 1635073198}
   CloseButton: {fileID: 985951241}
+  Receiver: {fileID: 2109842855}
+  Character: {fileID: 1254595392}
   WateringOriginPoint: {fileID: 365263008}
   DDObject: {fileID: 365263004}
-  CharacterMovement: {fileID: 1254595391}
   RayLength: 3
   InteractableMasks:
     serializedVersion: 2
@@ -3037,9 +3220,6 @@ MonoBehaviour:
   PointsPerFrame:
     valuesPerLevel:
     - 50
-  CharacterMovementSpeed:
-    valuesPerLevel:
-    - 1.1
   ProgressBarDepletitionPerFrame:
     valuesPerLevel:
     - -10
@@ -3065,7 +3245,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323785654}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22a55c40e57f702498ab1465ac9011be, type: 3}
   m_Name: 
@@ -3073,10 +3253,10 @@ MonoBehaviour:
   MinigameUI: {fileID: 1224255476}
   ProgressBar: {fileID: 1635073198}
   CloseButton: {fileID: 985951241}
+  Receiver: {fileID: 2109842855}
+  Character: {fileID: 1254595392}
   DumbbellOriginPoint: {fileID: 310439868}
   DDObject: {fileID: 310439864}
-  Receiver: {fileID: 2109842855}
-  CharacterMovement: {fileID: 1254595391}
   FlexButton: {fileID: 773153806}
   PointsPerClick:
     valuesPerLevel:
@@ -3084,6 +3264,64 @@ MonoBehaviour:
   ProgressBarDepletitionPerSecond:
     valuesPerLevel:
     - -10
+--- !u!114 &1323785658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323785654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ba8eb04ea0586429acac724d48290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Minigames.MinigameManager
+  MinigameDefinitions:
+  - DragDropMinigame: {fileID: 1323785655}
+    DragDropObject: {fileID: 365263004}
+  - DragDropMinigame: {fileID: 1323785657}
+    DragDropObject: {fileID: 310439864}
+  - DragDropMinigame: {fileID: 1323785659}
+    DragDropObject: {fileID: 884095220}
+--- !u!114 &1323785659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323785654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfca865eff36114891b198940596b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Minigames.FeedingDDMinigame
+  MinigameUI: {fileID: 1224255476}
+  ProgressBar: {fileID: 1635073198}
+  CloseButton: {fileID: 985951241}
+  Receiver: {fileID: 2109842855}
+  Character: {fileID: 1254595392}
+  DDObject: {fileID: 884095220}
+  ProgressPerFeed:
+    valuesPerLevel:
+    - 30
+  ProgressBarDepletitionPerFrame:
+    valuesPerLevel:
+    - -10
+  TimeRunning:
+    valuesPerLevel:
+    - 2
+  TimeStopped:
+    valuesPerLevel:
+    - 4
+  MouthOpenDuration:
+    valuesPerLevel:
+    - 5
+  MouthOpenCooldown:
+    valuesPerLevel:
+    - 2
+  MouthOpenRepeats:
+    valuesPerLevel:
+    - 3
 --- !u!1 &1624686168
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,8 +3655,8 @@ GameObject:
   - component: {fileID: 2109842854}
   - component: {fileID: 2109842856}
   - component: {fileID: 2109842855}
-  m_Layer: 8
-  m_Name: DraggableZone
+  m_Layer: 9
+  m_Name: DropZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3451,6 +3689,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722602b93d5c08f4da8a43f1bb5577e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.DragNDrop.DragDropReceiver
+  Colliders:
+  - {fileID: 2109842856}
+  - {fileID: 1254595394}
+  DraggableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  InteractableLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!70 &2109842856
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3505,6 +3752,7 @@ SceneRoots:
   - {fileID: 1196003549}
   - {fileID: 365263008}
   - {fileID: 310439868}
+  - {fileID: 884095224}
   - {fileID: 417531925}
   - {fileID: 1224255480}
   - {fileID: 555835202}

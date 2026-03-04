@@ -13,8 +13,8 @@ TagManager:
   - UI
   - Interactable Objects
   - Draggable Objects
-  - Player
-  - 
+  - PlayerBody
+  - DropZone
   - 
   - 
   - 

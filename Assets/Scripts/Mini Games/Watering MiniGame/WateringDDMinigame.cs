@@ -1,4 +1,5 @@
 using Game.Character;
+using Game.Character.StateMachine.States;
 using Game.Systems.Interaction.DragNDrop;
 using UnityEngine;
 
@@ -7,9 +8,9 @@ namespace Game.Systems.Minigames
     public class WateringDDMinigame : DragDropMinigameBase
     {
         [Header("Dependencies")]
+        [SerializeField] private TamaCharacterController Character;
         [SerializeField] private Transform WateringOriginPoint;
         [SerializeField] private DragDropObject DDObject;
-        [SerializeField] private TamaCharacterMovement CharacterMovement;
 
         [Header("Parameters")]
         [SerializeField] private float RayLength = 3f;
@@ -17,19 +18,23 @@ namespace Game.Systems.Minigames
 
         [Header("Minigame Parameters")]
         [SerializeField] private DifficultyValue PointsPerFrame;
-        [SerializeField] private DifficultyValue CharacterMovementSpeed;
         [SerializeField] private DifficultyValue ProgressBarDepletitionPerFrame;
 
         public override void StartMinigame()
         {
             base.StartMinigame();
-            CharacterMovement.ForceFlee(WateringOriginPoint);
-            CharacterMovement.SetSpeedMultiplier(CharacterMovementSpeed.GetValue(0));
+
+            // Empieza huyendo del agua
+            Character.ChangeState(new FleeState(Character, WateringOriginPoint));
         }
 
         protected override void UpdateMinigame()
         {
-            RaycastHit2D hit = Physics2D.Raycast(WateringOriginPoint.position, Vector2.down, RayLength, InteractableMasks);
+            RaycastHit2D hit = Physics2D.Raycast(
+                WateringOriginPoint.position,
+                Vector2.down,
+                RayLength,
+                InteractableMasks);
 
             if (hit)
             {
@@ -41,19 +46,23 @@ namespace Game.Systems.Minigames
 
         protected override void OnCompleted()
         {
-            DDObject.StopDragging();
-            CharacterMovement.StopFlee();
-            CharacterMovement.SetSpeedMultiplier(1f);
-            Receiver.UpdateActive(false);
+            Cleanup();
         }
 
         public override void CloseMinigame()
         {
             base.CloseMinigame();
+            Cleanup();
+        }
+
+        private void Cleanup()
+        {
             DDObject.StopDragging();
-            CharacterMovement.StopFlee();
-            CharacterMovement.SetSpeedMultiplier(1f);
+
             Receiver.UpdateActive(false);
+
+            // Regresa al comportamiento normal
+            Character.ChangeState(new RoamState(Character));
         }
 
         private void OnDrawGizmos()
