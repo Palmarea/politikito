@@ -44,15 +44,19 @@ namespace Game.Character
             DecayPerSecond = 0.35f
         };
 
-        [Header("Acciones del Jugador")]
+        [Header("Player Actions")]
         [SerializeField] private float waterAmount = 15f;
         [SerializeField] private float cleanAmount = 12f;
         [SerializeField] private float inspireAmount = 10f;
 
-        [Header("Cooldowns (segundos)")]
+        [Header("Cooldowns (seconds)")]
         [SerializeField] private float waterCooldown = 5f;
         [SerializeField] private float cleanCooldown = 4f;
         [SerializeField] private float inspireCooldown = 6f;
+
+        [Header("Decay")]
+        [Tooltip("Uncheck to disable stat decay. Enable for cinematic ending.")]
+        [SerializeField] private bool decayEnabled = false;
 
         private float waterTimer = 0f;
         private float cleanTimer = 0f;
@@ -75,27 +79,39 @@ namespace Game.Character
         public float WaterCooldownRemaining => waterTimer;
         public float CleanCooldownRemaining => cleanTimer;
         public float InspireCooldownRemaining => inspireTimer;
+        public bool DecayEnabled => decayEnabled;
 
         private void Update()
         {
             if (isDead) return;
 
-            float dt = Time.deltaTime * decayMultiplier;
-            CharismaStat.ReduceToValue(CharismaStat.DecayPerSecond * dt);
-            HonestyStat.ReduceToValue(HonestyStat.DecayPerSecond * dt);
-            WillPowerStat.ReduceToValue(WillPowerStat.DecayPerSecond * dt);
+            // Only decay if enabled
+            if (decayEnabled)
+            {
+                float dt = Time.deltaTime * decayMultiplier;
+                CharismaStat.ReduceToValue(CharismaStat.DecayPerSecond * dt);
+                HonestyStat.ReduceToValue(HonestyStat.DecayPerSecond * dt);
+                WillPowerStat.ReduceToValue(WillPowerStat.DecayPerSecond * dt);
+            }
 
             if (waterTimer > 0f) waterTimer -= Time.deltaTime;
             if (cleanTimer > 0f) cleanTimer -= Time.deltaTime;
             if (inspireTimer > 0f) inspireTimer -= Time.deltaTime;
 
             OnStatsChanged?.Invoke(CharismaStat, HonestyStat, WillPowerStat);
-            CheckDepleted();
+
+            if (decayEnabled)
+                CheckDepleted();
         }
 
         public void SetDecayMultiplier(float multiplier)
         {
             decayMultiplier = multiplier;
+        }
+
+        public void EnableDecay(bool enable)
+        {
+            decayEnabled = enable;
         }
 
         public void Water()
