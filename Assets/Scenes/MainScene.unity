@@ -6257,10 +6257,18 @@ MonoBehaviour:
     m_Bits: 256
   PointsPerFrame:
     valuesPerLevel:
+    - 90
+    - 70
+    - 60
     - 50
+    - 0
   ProgressBarDepletitionPerFrame:
     valuesPerLevel:
+    - -1
+    - -5
     - -10
+    - -15
+    - -100
 --- !u!4 &1323785656
 Transform:
   m_ObjectHideFlags: 0
@@ -6299,9 +6307,17 @@ MonoBehaviour:
   FlexButton: {fileID: 773153806}
   PointsPerClick:
     valuesPerLevel:
+    - 30
+    - 20
+    - 15
     - 10
+    - 30
   ProgressBarDepletitionPerSecond:
     valuesPerLevel:
+    - -10
+    - -13
+    - -12
+    - -7
     - -10
 --- !u!114 &1323785658
 MonoBehaviour:
@@ -6343,25 +6359,53 @@ MonoBehaviour:
   DDObject: {fileID: 884095220}
   ProgressPerFeed:
     valuesPerLevel:
-    - 50
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
   ProgressBarDepletitionPerFrame:
     valuesPerLevel:
-    - -5
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
   TimeRunning:
     valuesPerLevel:
-    - 2
+    - 0
+    - 3
+    - 4
+    - 5
+    - 5
   TimeStopped:
     valuesPerLevel:
     - 4
+    - 4
+    - 2
+    - 1
+    - 4
   MouthOpenDuration:
     valuesPerLevel:
-    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+    - 10
   MouthOpenCooldown:
     valuesPerLevel:
     - 2
+    - 2
+    - 2
+    - 2
+    - 2
   MouthOpenRepeats:
     valuesPerLevel:
-    - 3
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
 --- !u!1 &1351984787
 GameObject:
   m_ObjectHideFlags: 0
