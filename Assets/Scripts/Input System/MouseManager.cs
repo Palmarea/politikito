@@ -113,23 +113,6 @@ namespace Game.Managers.Mouse
             OnOcuppiedStateChanged?.Invoke(ocuppied);
         }
 
-        private void HandleDepleted()
-        {
-            if (currentHover != null)
-            {
-                currentHover.SetHover(false);
-                currentHover = null;
-            }
-
-            clickBlocked = true;
-            UpdateOcuppiedState(false);
-        }
-
-        private void HandleRefilled()
-        {
-            clickBlocked = false;
-        }
-
         private void OnEnable()
         {
             if (InputManager.Instance != null)
