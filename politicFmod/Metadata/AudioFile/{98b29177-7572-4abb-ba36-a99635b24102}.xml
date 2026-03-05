@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{98b29177-7572-4abb-ba36-a99635b24102}">
+		<property name="assetPath">
+			<value>sfx/uiCookie.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.39183673469387753</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0ade9136-e2d5-40b5-b3e5-358f03186621}</destination>
+		</relationship>
+	</object>
+</objects>

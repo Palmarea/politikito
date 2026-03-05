@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{c9395b4e-c58f-4e85-86cb-7849fe24b2a1}">
+		<property name="assetPath">
+			<value>sfx/uiDumbellCrunch.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.0448979591836736</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0ade9136-e2d5-40b5-b3e5-358f03186621}</destination>
+		</relationship>
+	</object>
+</objects>

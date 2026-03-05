@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{38b9a6fa-3e7b-44d2-9a19-db0ebad2dd87}">
+		<property name="name">
+			<value>Growth</value>
+		</property>
+		<relationship name="folder">
+			<destination>{fbb148b0-37f9-4e5a-8b1f-e27b6eaa058d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{f43e3860-588c-4b2b-a3d4-ac901c858764}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{f43e3860-588c-4b2b-a3d4-ac901c858764}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Early</value>
+			<value>Trans1</value>
+			<value>Run</value>
+			<value>Trans2</value>
+			<value>Evil</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="automators">
+			<destination>{ec972a9e-b624-4cd9-a7c3-f186636c9eae}</destination>
+		</relationship>
+		<relationship name="modulators">
+			<destination>{efc7ad6a-70f9-40af-b7af-e4b731bf37c6}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{ec972a9e-b624-4cd9-a7c3-f186636c9eae}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>cursorPosition</value>
+		</property>
+	</object>
+	<object class="SeekModulator" id="{efc7ad6a-70f9-40af-b7af-e4b731bf37c6}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>cursorPosition</value>
+		</property>
+	</object>
+</objects>
