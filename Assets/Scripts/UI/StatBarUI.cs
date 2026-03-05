@@ -7,36 +7,32 @@ namespace Game.UI
 {
     public class StatBarUI : MonoBehaviour
     {
-        [SerializeField] private Image fillImage;
-        [SerializeField] private TMP_Text labelText;
-        [SerializeField] private TMP_Text valueText;
+        [Header("References")]
+        [SerializeField] private Slider Slider;
+        [SerializeField] private TMP_Text LevelText;
 
-        [Header("Colores")]
-        [SerializeField] private Color healthyColor = new Color(0.2f, 0.8f, 0.2f);
-        [SerializeField] private Color warningColor = new Color(0.9f, 0.9f, 0.1f);
-        [SerializeField] private Color dangerColor = new Color(0.9f, 0.1f, 0.1f);
+        [Header("Parameters")]
+        [SerializeField] private float VisualMaxValue = 125f;
+        //[SerializeField] private TMP_Text valueText;
+
+        private void Awake()
+        {
+            if (Slider != null)
+                Slider.maxValue = VisualMaxValue;
+        }
 
         public void UpdateBar(TamaStat stat)
         {
-            float normalized = stat.Normalized;
-
-            if (fillImage != null)
+            if (Slider != null)
             {
-                fillImage.fillAmount = normalized;
-
-                if (normalized <= 0.25f)
-                    fillImage.color = dangerColor;
-                else if (normalized <= 0.5f)
-                    fillImage.color = warningColor;
-                else
-                    fillImage.color = healthyColor;
+                Slider.value = stat.Value;
             }
 
-            if (labelText != null)
-                labelText.text = stat.Name;
+            if (LevelText != null)
+                LevelText.text = $"LVL {stat.Level}";
 
-            if (valueText != null)
-                valueText.text = Mathf.RoundToInt(stat.Value).ToString();
+            //if (valueText != null)
+            //    valueText.text = Mathf.RoundToInt(stat.Value).ToString();
         }
     }
 }

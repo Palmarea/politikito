@@ -15,7 +15,12 @@ namespace Game.Systems.Achievement
         [SerializeField] private GameObject NotificationUI;
         [SerializeField] private TextMeshProUGUI NotificationTitle;
         [SerializeField] private TextMeshProUGUI NotificationDescription;
-        
+
+        [Header("Parameters")]
+        [SerializeField] private float NotificationDuration = 3f;
+
+        private Coroutine hideRoutine;
+
         private void Awake()
         {
             if (MainSystem == null) MainSystem = GetComponent<AchievementSystem>();
@@ -24,11 +29,26 @@ namespace Game.Systems.Achievement
 
         private void ShowNotification(Achievement achievement)
         {
-            if (!NotificationCanvasUI.activeInHierarchy) NotificationCanvasUI.SetActive(true);
-            if (!NotificationUI.activeInHierarchy) NotificationUI.SetActive(true);
+            if (!NotificationCanvasUI.activeInHierarchy)
+                NotificationCanvasUI.SetActive(true);
+
+            if (!NotificationUI.activeInHierarchy)
+                NotificationUI.SetActive(true);
 
             NotificationTitle.text = achievement.title;
             NotificationDescription.text = achievement.description;
+
+            // Si ya hay una coroutine corriendo, la cancelamos
+            if (hideRoutine != null)
+                StopCoroutine(hideRoutine);
+
+            hideRoutine = StartCoroutine(HideAfterDelay());
+        }
+
+        private IEnumerator HideAfterDelay()
+        {
+            yield return new WaitForSeconds(NotificationDuration);
+            HideNotification();
         }
 
         private void HideNotification()

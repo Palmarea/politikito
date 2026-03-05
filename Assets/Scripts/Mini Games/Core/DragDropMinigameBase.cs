@@ -1,3 +1,4 @@
+using Game.Character;
 using Game.Managers.Mouse;
 using Game.Systems.Interaction.DragNDrop;
 using System;
@@ -35,6 +36,7 @@ namespace Game.Systems.Minigames
         [SerializeField] private Button CloseButton;
 
         [Header("Dependencies")]
+        [SerializeField] protected TamaCharacterStats CharacterStats;
         [SerializeField] protected DragDropReceiver Receiver;
 
         protected float currentProgress = 0f;

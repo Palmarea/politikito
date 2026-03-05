@@ -15,7 +15,7 @@ namespace Game.Systems.Achievement
 
         private Dictionary<int, List<Achievement>> AchievementDictionary = new();
         private int currentAchievementLevel = 1;
-        private int currentAchievementOrder = 0;
+        private int currentAchievementOrder = -1;
 
         // Nuevo evento
         public event Action<Achievement> OnNextAchievement;
@@ -27,12 +27,6 @@ namespace Game.Systems.Achievement
                 AchievementDictionary[i] =
                     Creator.CreateAchievementListByLevel(AchievementJSON, i);
             }
-        }
-
-        private void Start()
-        {
-            // Solo mostramos el inicial si quieres
-            OnNextAchievement?.Invoke(GetCurrentAchievement());
         }
 
         public Achievement GetCurrentAchievement()

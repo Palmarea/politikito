@@ -19,6 +19,7 @@ namespace Game.Systems.Minigames
         [SerializeField] private DifficultyValue ProgressBarDepletitionPerSecond;
 
         private bool objectDelivered = false;
+        private int level;
 
         protected override void Awake()
         {
@@ -29,6 +30,8 @@ namespace Game.Systems.Minigames
         public override void StartMinigame()
         {
             base.StartMinigame();
+
+            level = CharacterStats.WillPower.Level;
 
             objectDelivered = false;
 
@@ -46,12 +49,13 @@ namespace Game.Systems.Minigames
         {
             if (!objectDelivered) return;
 
-            AddProgress(ProgressBarDepletitionPerSecond.GetValue(0) * Time.deltaTime);
+            AddProgress(ProgressBarDepletitionPerSecond.GetValue(level) * Time.deltaTime);
         }
 
         protected override void OnCompleted()
         {
             Cleanup();
+            CharacterStats.HandleExercisingAction();
         }
 
         public override void CloseMinigame()
@@ -80,7 +84,7 @@ namespace Game.Systems.Minigames
 
         private void OnClickFlex()
         {
-            AddProgress(PointsPerClick.GetValue(0));
+            AddProgress(PointsPerClick.GetValue(level));
         }
 
         private void Cleanup()

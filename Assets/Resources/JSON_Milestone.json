@@ -1,0 +1,24 @@
+{
+  "milestones": [
+    {
+      "level": 1,
+      "title": "Delegado del Aula",
+      "description": "Es elegido representante de su salón en primaria, mostrando sus primeras habilidades de liderazgo."
+    },
+    {
+      "level": 2,
+      "title": "Defensor del Recreo",
+      "description": "Organiza a sus compañeros para solicitar mejoras en el horario escolar, aprendiendo sobre negociación."
+    },
+    {
+      "level": 3,
+      "title": "Promesa Escolar",
+      "description": "Destaca en un concurso de oratoria sobre justicia, despertando su interés por lo público."
+    },
+    {
+      "level": 4,
+      "title": "Líder Universitario",
+      "description": "Es elegido presidente del centro de estudiantes, impulsando reformas académicas."
+    }
+  ]
+}

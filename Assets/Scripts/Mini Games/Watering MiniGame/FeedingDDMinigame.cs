@@ -43,7 +43,7 @@ namespace Game.Systems.Minigames
             Receiver.OnObjectDropped += OnFoodGiven;
             Receiver.UpdateActive(false);
 
-            level = 0;
+            level = CharacterStats.Wisdom.Level;
 
             StartRunningPhase();
         }
@@ -156,6 +156,7 @@ namespace Game.Systems.Minigames
         protected override void OnCompleted()
         {
             Cleanup();
+            CharacterStats.HandleFeedingAction();
         }
 
         public override void CloseMinigame()

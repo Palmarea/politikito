@@ -20,11 +20,14 @@ namespace Game.Systems.Minigames
         [SerializeField] private DifficultyValue PointsPerFrame;
         [SerializeField] private DifficultyValue ProgressBarDepletitionPerFrame;
 
+        private int level;
+
         public override void StartMinigame()
         {
             base.StartMinigame();
 
             // Empieza huyendo del agua
+            int level = CharacterStats.Charisma.Level;
             Character.ChangeState(new FleeState(Character, WateringOriginPoint));
         }
 
@@ -38,15 +41,16 @@ namespace Game.Systems.Minigames
 
             if (hit)
             {
-                AddProgress(PointsPerFrame.GetValue(0) * Time.deltaTime);
+                AddProgress(PointsPerFrame.GetValue(level) * Time.deltaTime);
             }
 
-            AddProgress(ProgressBarDepletitionPerFrame.GetValue(0) * Time.deltaTime);
+            AddProgress(ProgressBarDepletitionPerFrame.GetValue(level) * Time.deltaTime);
         }
 
         protected override void OnCompleted()
         {
             Cleanup();
+            CharacterStats.HandleWateringAction();
         }
 
         public override void CloseMinigame()
