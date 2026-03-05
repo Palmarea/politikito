@@ -27,7 +27,8 @@ namespace Game.Systems.Minigames
             base.StartMinigame();
 
             // Empieza huyendo del agua
-            int level = CharacterStats.Charisma.Level;
+            level = CharacterStats.Charisma.Level;
+            Debug.Log(level);
             Character.ChangeState(new FleeState(Character, WateringOriginPoint));
         }
 
@@ -45,6 +46,7 @@ namespace Game.Systems.Minigames
             }
 
             AddProgress(ProgressBarDepletitionPerFrame.GetValue(level) * Time.deltaTime);
+            Debug.Log(ProgressBarDepletitionPerFrame.GetValue(level));
         }
 
         protected override void OnCompleted()
