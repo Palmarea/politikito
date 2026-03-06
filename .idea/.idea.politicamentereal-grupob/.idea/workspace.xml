@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc7e3626-7942-4a8f-b042-8d061ad5e926" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Start alt.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Start alt.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Start alt.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Start alt.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Start.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Start.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Start.PNG.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Start.PNG.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/titulito.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/titulito.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/titulito.PNG.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/titulito.PNG.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.politicamentereal-grupob/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.politicamentereal-grupob/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TitleScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TitleScreen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Titlescreencontroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Titlescreencontroller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TutorialScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TutorialScreen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
