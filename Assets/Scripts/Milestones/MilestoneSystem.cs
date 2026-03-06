@@ -23,8 +23,11 @@ namespace Game.Systems.Milestone
             foreach (var milestone in milestones)
             {
                 MilestoneDictionary[milestone.level] = milestone;
-            }
-            
+            }   
+        }
+
+        private void Start()
+        {
             Context.TutorialData.CompleteTutorialStep(TutorialData.CHARACTER_STEP_INDEX);
         }
 
