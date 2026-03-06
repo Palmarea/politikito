@@ -118,7 +118,7 @@ namespace Game.UI
 
             PlayerName = nameInput != null ? nameInput.text : "Politiko";
             SelectedOutfit = currentOutfitIndex;
-
+            GameData.Instance.PlayerName = PlayerName;
             SceneManager.LoadScene(nextSceneName);
         }
 

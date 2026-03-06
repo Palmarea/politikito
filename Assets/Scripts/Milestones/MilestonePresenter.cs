@@ -18,6 +18,7 @@ namespace Game.Systems.Milestone
         [SerializeField] private GameObject MilestoneCanvasUI;
         [SerializeField] private Image MilestoneImageUI;
         [SerializeField] private Button MilestoneNext;
+        [SerializeField] private GameObject TutorialPostIt;
 
         [Header("Milestone Images")]
         [SerializeField] private List<Sprite> MilestoneImages;
@@ -25,6 +26,8 @@ namespace Game.Systems.Milestone
         public event Action<int> OnMilestoneShown;
         private Milestone currentMilestone;
         private bool hasBeenRequested = false;
+
+        int counter = 0;
 
         private void Awake()
         {
@@ -59,6 +62,12 @@ namespace Game.Systems.Milestone
             MilestoneNext.onClick.RemoveListener(OnNextPressed);
             MilestoneNext.onClick.AddListener(OnNextPressed);
             OnMilestoneShown?.Invoke(currentMilestone.level);
+
+            if (counter == 0)
+            {
+                TutorialPostIt.SetActive(false);
+                counter++;
+            }
         }
 
         private void OnNextPressed()

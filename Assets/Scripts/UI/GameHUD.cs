@@ -13,7 +13,7 @@ namespace Game.UI
         [SerializeField] private StatRadialBarUI WillpowerBar;
 
         [Header("Info")]
-        [SerializeField] private TMP_Text dayText;
+        [SerializeField] private TMP_Text PlayerLabel;
 
         [Header("References")]
         [SerializeField] private TamaCharacterStats characterStats;
@@ -22,12 +22,12 @@ namespace Game.UI
         private void Start()
         {
             RefreshBars();
+            SetPlayerLabel(0);
         }
 
-        public void SetDay(int day)
+        public void SetPlayerLabel(int level)
         {
-            if (dayText != null)
-                dayText.text = "Dia " + day;
+            PlayerLabel.text = $"{GameData.Instance.PlayerName} - NIVEL {level}";
         }
 
         private void RefreshBars()
@@ -44,6 +44,8 @@ namespace Game.UI
             CharismaBar?.ResetBar();
             WisdomBar?.ResetBar();
             WillpowerBar?.ResetBar();
+
+            SetPlayerLabel(level);
         }
 
         private void OnEnable()
