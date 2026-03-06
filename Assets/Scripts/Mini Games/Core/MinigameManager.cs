@@ -9,6 +9,7 @@ namespace Game.Systems.Minigames
     {
         public DragDropMinigameBase DragDropMinigame;
         public DragDropObject DragDropObject;
+        public GameObject DragDropButton;
     }
     
     public class MinigameManager : MonoBehaviour
@@ -37,6 +38,7 @@ namespace Game.Systems.Minigames
                 {
                     definition.DragDropMinigame.enabled = false;
                     definition.DragDropObject.gameObject.SetActive(false);
+                    definition.DragDropButton.gameObject.SetActive(false);
                 }
             }
         }
@@ -49,6 +51,7 @@ namespace Game.Systems.Minigames
             {
                 definition.DragDropMinigame.enabled = true;
                 definition.DragDropObject.gameObject.SetActive(true);
+                definition.DragDropButton.gameObject.SetActive(true);
             }
         }
     }
