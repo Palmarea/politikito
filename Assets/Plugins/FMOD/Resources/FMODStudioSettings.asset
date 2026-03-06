@@ -753,10 +753,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: FMODUnity::FMODUnity.Settings
   switchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
-  sourceProjectPath: politicFmod/politicFmod.fspro
-  sourceBankPath: politicFmod/Build
+  HasSourceProject: 0
+  HasPlatforms: 0
+  sourceProjectPath: Assets/FMOD_project/minipoli/minipoli.fspro
+  sourceBankPath: Assets/FMOD_project/minipoli/Build/Desktop
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -780,8 +780,7 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks:
-  - SFX
+  Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
