@@ -1,7 +1,6 @@
 ﻿using Game.Systems.Achievement;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,25 +8,26 @@ namespace Game.Systems.Milestone
 {
     public class MilestonePresenter : MonoBehaviour
     {
+        [Header("Dependencies")]
+        [SerializeField] private Animator Animator;
+
         [Header("UI References")]
         [SerializeField] private MilestoneSystem MainSystem;
         [SerializeField] private AchievementPresenter PairSystem;
         [SerializeField] private GameObject MilestoneCanvasUI;
         [SerializeField] private Image MilestoneImageUI;
+        [SerializeField] private Button MilestoneNext;
 
         [Header("Milestone Images")]
         [SerializeField] private List<Sprite> MilestoneImages;
 
-        [Header("Parameters")]
-        [SerializeField] private float NotificationDuration = 3f;
-
-        private Coroutine hideRoutine;
         private Milestone currentMilestone;
         private bool hasBeenRequested = false;
 
         private void Awake()
         {
             MilestoneCanvasUI.SetActive(false);
+            MilestoneNext.gameObject.SetActive(false);
         }
 
         private void RequestButWait(Milestone milestone)
@@ -39,24 +39,35 @@ namespace Game.Systems.Milestone
         private void ShowMilestone()
         {
             if (!hasBeenRequested) return;
-            
+
             MilestoneCanvasUI.SetActive(true);
-            //MilestoneImageUI.sprite = MilestoneImages[milestone.level - 1];
+
+            MilestoneImageUI.sprite = MilestoneImages[currentMilestone.level - 1];
             MilestoneImageUI.gameObject.SetActive(true);
 
-            //NotificationTitle.text = milestone.title;
-            //NotificationDescription.text = milestone.description;
+            MilestoneNext.gameObject.SetActive(false);
 
-            // Si ya hay una coroutine corriendo, la cancelamos
-            if (hideRoutine != null)
-                StopCoroutine(hideRoutine);
-
-            hideRoutine = StartCoroutine(HideAfterDelay());
+            Animator.SetTrigger("PresentNews");
         }
 
-        private IEnumerator HideAfterDelay()
+        // llamado por Animation Event al terminar PresentNews
+        public void OnPresentAnimationFinished()
         {
-            yield return new WaitForSeconds(NotificationDuration);
+            MilestoneNext.gameObject.SetActive(true);
+            MilestoneNext.onClick.RemoveListener(OnNextPressed);
+            MilestoneNext.onClick.AddListener(OnNextPressed);
+        }
+
+        private void OnNextPressed()
+        {
+            MilestoneNext.onClick.RemoveListener(OnNextPressed);
+            MilestoneNext.gameObject.SetActive(false);
+            Animator.SetTrigger("HideNews");
+        }
+
+        // llamado por Animation Event al terminar HideNews
+        public void OnHideAnimationFinished()
+        {
             HideMilestone();
         }
 

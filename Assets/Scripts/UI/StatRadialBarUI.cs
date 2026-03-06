@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using TMPro;
 using Game.Character;
+using System.Collections;
 
 namespace Game.UI
 {
@@ -13,7 +14,9 @@ namespace Game.UI
 
         [Header("Parameters")]
         [SerializeField] private float VisualMaxValue = 25f;
+        [SerializeField] private float FillSpeed = 40f;
         //[SerializeField] private TMP_Text valueText;
+        private Coroutine fillRoutine;
 
         private void Awake()
         {
@@ -23,14 +26,35 @@ namespace Game.UI
 
         public void UpdateBar(TamaStat stat)
         {
+            float levelStart = stat.Level * VisualMaxValue;
+            float targetValue = stat.Value - levelStart;
+
             if (Slider != null)
             {
-                float levelProgress = stat.Value % VisualMaxValue;
-                Slider.value = levelProgress;
+                if (fillRoutine != null)
+                    StopCoroutine(fillRoutine);
+
+                fillRoutine = StartCoroutine(AnimateBar(targetValue));
             }
 
             //if (LevelText != null)
             //    LevelText.text = $"LVL {stat.Level}";
+        }
+
+        private IEnumerator AnimateBar(float target)
+        {
+            while (Mathf.Abs(Slider.value - target) > 0.01f)
+            {
+                Slider.value = Mathf.MoveTowards(
+                    Slider.value,
+                    target,
+                    FillSpeed * Time.deltaTime
+                );
+
+                yield return null;
+            }
+
+            Slider.value = target;
         }
     }
 }
