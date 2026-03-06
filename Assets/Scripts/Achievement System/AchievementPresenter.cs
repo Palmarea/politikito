@@ -19,6 +19,8 @@ namespace Game.Systems.Achievement
         [Header("Parameters")]
         [SerializeField] private float NotificationDuration = 3f;
 
+        public event Action OnAchievementNotificationHided;
+
         private Coroutine hideRoutine;
 
         private void Awake()
@@ -58,6 +60,8 @@ namespace Game.Systems.Achievement
 
             NotificationTitle.text = "";
             NotificationDescription.text = "";
+
+            OnAchievementNotificationHided?.Invoke();
         }
 
         private void OnEnable()
