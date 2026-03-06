@@ -40,6 +40,9 @@ namespace Game.Systems.Achievement
             NotificationTitle.text = achievement.title;
             NotificationDescription.text = achievement.description;
 
+            //SFX
+            SFXCaller.Play("event:/LevelUpSmall");
+
             // Si ya hay una coroutine corriendo, la cancelamos
             if (hideRoutine != null)
                 StopCoroutine(hideRoutine);

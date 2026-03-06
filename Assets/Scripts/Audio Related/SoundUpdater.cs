@@ -13,7 +13,8 @@ public class SoundUpdater : MonoBehaviour
     public float leadVol;
     [Range(0f, 1f)]
     public float stringVol;
-    [Range(0, 4)]
+
+    [Range(0, 5)]
     public int Growth;
 
     void Start()

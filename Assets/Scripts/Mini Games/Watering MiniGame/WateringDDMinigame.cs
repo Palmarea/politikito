@@ -61,6 +61,7 @@ namespace Game.Systems.Minigames
             }
             
             Cleanup();
+            SFXCaller.Play("event:/actionWater");
             CharacterStats.HandleWateringAction();
         }
 

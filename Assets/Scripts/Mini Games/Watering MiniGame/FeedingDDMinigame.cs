@@ -21,6 +21,7 @@ namespace Game.Systems.Minigames
         [SerializeField] private DifficultyValue MouthOpenCooldown;
         [SerializeField] private DifficultyValue MouthOpenRepeats;
 
+
         private float stateTimer;
         private float cooldownTimer;
 
@@ -154,6 +155,9 @@ namespace Game.Systems.Minigames
 
             AddProgress(ProgressPerFeed.GetValue(level));
 
+            //SFX
+            SFXCaller.Play("event:/actionBite");
+
             DDObject.BackToOrigin();
         }
 
@@ -168,6 +172,7 @@ namespace Game.Systems.Minigames
             
             Cleanup();
             CharacterStats.HandleFeedingAction();
+
         }
 
         public override void CloseMinigame()

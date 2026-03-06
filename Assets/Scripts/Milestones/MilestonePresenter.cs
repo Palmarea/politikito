@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -65,7 +66,8 @@ namespace Game.Systems.Milestone
             MilestoneImageUI.gameObject.SetActive(true);
 
             MilestoneNext.gameObject.SetActive(false);
-
+            
+            SFXCaller.Play("event:/LevelUpGrande");
             Animator.SetTrigger("PresentNews");
         }
 
@@ -82,6 +84,8 @@ namespace Game.Systems.Milestone
                 TutorialPostIt.SetActive(false);
                 counter++;
             }
+
+            
         }
 
         private void OnNextPressed()

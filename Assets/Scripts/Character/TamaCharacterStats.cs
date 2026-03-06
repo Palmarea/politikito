@@ -191,6 +191,7 @@ namespace Game.Character
                 WisdomStat.Level == WillPowerStat.Level)
             {
                 OnAllStatsReachedSameLevel?.Invoke(CharismaStat.Level);
+                
             }
         }
 

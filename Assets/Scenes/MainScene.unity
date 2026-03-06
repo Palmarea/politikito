@@ -1494,7 +1494,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: event:/actionWeightGrab
+          m_StringArgument: event:/uiPickup
           m_BoolArgument: 0
         m_CallState: 2
   OnHover:
@@ -1683,6 +1683,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1138200881}
+        m_TargetAssemblyTypeName: SFXCaller, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: event:/uiPickup
           m_BoolArgument: 0
         m_CallState: 2
   OnHover:
@@ -5469,6 +5481,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1138200881}
+        m_TargetAssemblyTypeName: SFXCaller, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: event:/uiPickup
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHover:
     m_PersistentCalls:
       m_Calls: []
@@ -5637,11 +5661,13 @@ MonoBehaviour:
   MilestoneCanvasUI: {fileID: 943818754}
   MilestoneImageUI: {fileID: 964553026}
   MilestoneNext: {fileID: 291740132}
+  TutorialPostIt: {fileID: 0}
   MilestoneImages:
   - {fileID: 21300000, guid: 577235a00929c8e4791fefc56055a783, type: 3}
   - {fileID: 21300000, guid: 5984dbba897396f4aacda882ba2a7b8d, type: 3}
   - {fileID: 21300000, guid: 7319936ce23bf684dbd552cdf0854e4d, type: 3}
   - {fileID: 21300000, guid: 15e461b379332e1489821901c0229c91, type: 3}
+  fallbackDelay: 5
 --- !u!114 &942613044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7319,6 +7345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea3b80a0b7a6c142bb23955a5892b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character.TamaCharacterAnimation
+  Animator: {fileID: 0}
 --- !u!114 &1254595391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7440,25 +7467,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character.Visual.TamaCharacterVisual
   AnimationHandler: {fileID: 1254595390}
+  MilestonePresenter: {fileID: 942613043}
   CharacterLevelAOC:
-  - CharacterType: 0
-    EvolutionsAOC:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - CharacterType: 1
-    EvolutionsAOC:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - CharacterType: 2
-    EvolutionsAOC:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1313103830
 GameObject:
   m_ObjectHideFlags: 0
@@ -7528,6 +7541,7 @@ MonoBehaviour:
   CharacterStats: {fileID: 1254595389}
   Receiver: {fileID: 2109842855}
   Character: {fileID: 1254595392}
+  CharacterAnimator: {fileID: 0}
   WateringOriginPoint: {fileID: 365263008}
   DDObject: {fileID: 365263004}
   RayLength: 3
@@ -7581,9 +7595,10 @@ MonoBehaviour:
   CharacterStats: {fileID: 1254595389}
   Receiver: {fileID: 2109842855}
   Character: {fileID: 1254595392}
+  CharacterAnimator: {fileID: 0}
   DumbbellOriginPoint: {fileID: 884095224}
   DDObject: {fileID: 884095220}
-  FlexButton: {fileID: 773153806}
+  FlexButton: {fileID: 0}
   PointsPerClick:
     valuesPerLevel:
     - 30
@@ -7638,6 +7653,7 @@ MonoBehaviour:
   CharacterStats: {fileID: 1254595389}
   Receiver: {fileID: 2109842855}
   Character: {fileID: 1254595392}
+  CharacterAnimator: {fileID: 0}
   DDObject: {fileID: 310439864}
   ProgressPerFeed:
     valuesPerLevel:
@@ -7688,6 +7704,7 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+  SFXCaller: {fileID: 1138200881}
 --- !u!1 &1351984787
 GameObject:
   m_ObjectHideFlags: 0
@@ -9678,8 +9695,9 @@ MonoBehaviour:
   CharismaBar: {fileID: 2048447539}
   WisdomBar: {fileID: 1388588416}
   WillpowerBar: {fileID: 721326552}
-  dayText: {fileID: 493364115}
+  PlayerLabel: {fileID: 0}
   characterStats: {fileID: 1254595389}
+  MilestonePresenter: {fileID: 0}
 --- !u!1 &1844890136
 GameObject:
   m_ObjectHideFlags: 0
