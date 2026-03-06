@@ -7,9 +7,9 @@ namespace Game.UI
     public class GameHUD : MonoBehaviour
     {
         [Header("Stat Bars")]
-        [SerializeField] private StatBarUI CharismaBar;
-        [SerializeField] private StatBarUI WisdomBar;
-        [SerializeField] private StatBarUI WillpowerBar;
+        [SerializeField] private StatRadialBarUI CharismaBar;
+        [SerializeField] private StatRadialBarUI WisdomBar;
+        [SerializeField] private StatRadialBarUI WillpowerBar;
 
         [Header("Info")]
         [SerializeField] private TMP_Text dayText;

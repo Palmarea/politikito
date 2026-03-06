@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Systems.Achievement;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Game.Systems.Milestone
     {
         [Header("UI References")]
         [SerializeField] private MilestoneSystem MainSystem;
+        [SerializeField] private AchievementPresenter PairSystem;
         [SerializeField] private GameObject MilestoneCanvasUI;
         [SerializeField] private Image MilestoneImageUI;
 
@@ -20,14 +22,24 @@ namespace Game.Systems.Milestone
         [SerializeField] private float NotificationDuration = 3f;
 
         private Coroutine hideRoutine;
+        private Milestone currentMilestone;
+        private bool hasBeenRequested = false;
 
         private void Awake()
         {
             MilestoneCanvasUI.SetActive(false);
         }
 
-        private void ShowMilestone(Milestone milestone)
+        private void RequestButWait(Milestone milestone)
         {
+            hasBeenRequested = true;
+            currentMilestone = milestone;
+        }
+
+        private void ShowMilestone()
+        {
+            if (!hasBeenRequested) return;
+            
             MilestoneCanvasUI.SetActive(true);
             //MilestoneImageUI.sprite = MilestoneImages[milestone.level - 1];
             MilestoneImageUI.gameObject.SetActive(true);
@@ -52,16 +64,19 @@ namespace Game.Systems.Milestone
         {
             MilestoneCanvasUI.SetActive(false);
             MilestoneImageUI.gameObject.SetActive(false);
+            hasBeenRequested = false;
         }
 
         private void OnEnable()
         {
-            MainSystem.OnMilestoneReached += ShowMilestone;
+            MainSystem.OnMilestoneReached += RequestButWait;
+            PairSystem.OnAchievementNotificationHided += ShowMilestone;
         }
 
         private void OnDisable()
         {
-            MainSystem.OnMilestoneReached -= ShowMilestone;
+            MainSystem.OnMilestoneReached -= RequestButWait;
+            PairSystem.OnAchievementNotificationHided -= ShowMilestone;
         }
     }
 }

@@ -41,11 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1669987713
+    locked: 0
   - name: Character
     uniqueID: 3190160207
     locked: 0
-  - name: UI
-    uniqueID: 2466843763
+  - name: Sprite UI
+    uniqueID: 1116953813
+    locked: 0
+  - name: Canvas UI
+    uniqueID: 3933036365
     locked: 0
   m_RenderingLayers:
   - Default
