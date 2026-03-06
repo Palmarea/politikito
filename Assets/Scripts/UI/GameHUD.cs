@@ -53,7 +53,7 @@ namespace Game.UI
             if (characterStats != null)
             {
                 characterStats.OnStatsChanged += RefreshBars;
-                MilestonePresenter.OnMilestoneShown += ResetBars;
+                //MilestonePresenter.OnMilestoneShown += ResetBars;
             }
         }
 
@@ -62,7 +62,7 @@ namespace Game.UI
             if (characterStats != null)
             {
                 characterStats.OnStatsChanged -= RefreshBars;
-                MilestonePresenter.OnMilestoneShown -= ResetBars;
+                //MilestonePresenter.OnMilestoneShown -= ResetBars;
             }
         }
     }

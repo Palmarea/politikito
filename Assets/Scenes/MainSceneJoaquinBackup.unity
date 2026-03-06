@@ -3758,6 +3758,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5984dbba897396f4aacda882ba2a7b8d, type: 3}
   - {fileID: 21300000, guid: 7319936ce23bf684dbd552cdf0854e4d, type: 3}
   - {fileID: 21300000, guid: 15e461b379332e1489821901c0229c91, type: 3}
+  fallbackDelay: 5
 --- !u!114 &942613044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5291,7 +5292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character.TamaCharacterStats
   CharismaStat:
-    Name: Carism
+    Name: Carisma
     Level: 0
     Value: 0
     MinValue: 0

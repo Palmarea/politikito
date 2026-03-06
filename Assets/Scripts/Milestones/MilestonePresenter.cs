@@ -23,6 +23,11 @@ namespace Game.Systems.Milestone
         [Header("Milestone Images")]
         [SerializeField] private List<Sprite> MilestoneImages;
 
+        [Header("Fallback Timer")]
+        [SerializeField] private float fallbackDelay = 5f;
+
+        private Coroutine fallbackRoutine;
+
         public event Action<int> OnMilestoneShown;
         private Milestone currentMilestone;
         private bool hasBeenRequested = false;
@@ -39,14 +44,23 @@ namespace Game.Systems.Milestone
         {
             hasBeenRequested = true;
             currentMilestone = milestone;
+
+            if (fallbackRoutine != null)
+                StopCoroutine(fallbackRoutine);
+
+            fallbackRoutine = StartCoroutine(FallbackTimer());
         }
 
         private void ShowMilestone()
         {
             if (!hasBeenRequested) return;
 
+            if (fallbackRoutine != null)
+                StopCoroutine(fallbackRoutine);
+
             MilestoneCanvasUI.SetActive(true);
 
+            Debug.Log("ASDadsadasd");
             MilestoneImageUI.sprite = MilestoneImages[currentMilestone.level - 1];
             MilestoneImageUI.gameObject.SetActive(true);
 
@@ -87,6 +101,17 @@ namespace Game.Systems.Milestone
             MilestoneCanvasUI.SetActive(false);
             MilestoneImageUI.gameObject.SetActive(false);
             hasBeenRequested = false;
+        }
+
+        private IEnumerator FallbackTimer()
+        {
+            yield return new WaitForSeconds(fallbackDelay);
+
+            if (hasBeenRequested)
+            {
+                Debug.Log("Fallback milestone triggered");
+                ShowMilestone();
+            }
         }
 
         private void OnEnable()

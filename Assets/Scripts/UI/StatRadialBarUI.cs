@@ -25,27 +25,19 @@ namespace Game.UI
 
         public void UpdateBar(TamaStat stat)
         {
-            if (ignoreNextUpdate)
+            float levelStart = stat.Level * VisualMaxValue;
+            float targetValue = stat.Value - levelStart;
+
+            if (Slider != null)
             {
-                ignoreNextUpdate = false;
-                return;
+                if (fillRoutine != null)
+                    StopCoroutine(fillRoutine);
+
+                fillRoutine = StartCoroutine(AnimateBar(targetValue));
             }
 
-            if (lockedFull)
-                return;
-
-            float targetValue = stat.Value % VisualMaxValue;
-
-            if (targetValue == 0 && stat.Value > 0)
-            {
-                targetValue = VisualMaxValue;
-                lockedFull = true;
-            }
-
-            if (fillRoutine != null)
-                StopCoroutine(fillRoutine);
-
-            fillRoutine = StartCoroutine(AnimateBar(targetValue));
+            //if (LevelText != null)
+            //    LevelText.text = $"LVL {stat.Level}";
         }
 
         public void ResetBar()
