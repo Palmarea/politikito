@@ -24,6 +24,8 @@ namespace Game.Systems.Milestone
             {
                 MilestoneDictionary[milestone.level] = milestone;
             }
+            
+            Context.TutorialData.CompleteTutorialStep(TutorialData.CHARACTER_STEP_INDEX);
         }
 
         public void AdvanceMilestone(int level)

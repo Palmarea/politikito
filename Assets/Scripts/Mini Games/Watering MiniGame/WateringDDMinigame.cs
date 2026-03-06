@@ -55,6 +55,11 @@ namespace Game.Systems.Minigames
 
         protected override void OnCompleted()
         {
+            if (!Context.TutorialData.IsTutorialComplete())
+            {
+                Context.TutorialData.CompleteTutorialStep(TutorialData.WATERING_CAN_STEP_INDEX);
+            }
+            
             Cleanup();
             CharacterStats.HandleWateringAction();
         }

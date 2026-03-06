@@ -6,9 +6,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class TutorialScreen : MonoBehaviour
 {
+    public TMP_Text subjectLabel;
     public TMP_Text homeworkTitleLabel;
     public TMP_Text homeworkDescriptionLabel;
     
@@ -16,6 +18,9 @@ public class TutorialScreen : MonoBehaviour
     public List<TMP_Text> tutorialStepLabels;
     
     public Button nextButton;
+    
+    private Sequence tweenSequence;
+    private AsyncOperation sceneLoadOperation;
 
     private void Start()
     {
@@ -25,11 +30,14 @@ public class TutorialScreen : MonoBehaviour
 
     private IEnumerator StartSequence()
     {
+        subjectLabel.gameObject.SetActive(false);
         homeworkTitleLabel.gameObject.SetActive(false);
         homeworkDescriptionLabel.gameObject.SetActive(false);
         tutorialStepLabels[0].gameObject.SetActive(false);
         nextButton.gameObject.SetActive(false);
         yield return new WaitForSeconds(1);
+        subjectLabel.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
         homeworkTitleLabel.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         homeworkDescriptionLabel.gameObject.SetActive(true);
@@ -38,6 +46,7 @@ public class TutorialScreen : MonoBehaviour
         tutorialStepToggles[0].transform.localScale = Vector3.zero;
         tutorialStepToggles[0].transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
         tutorialStepLabels[0].gameObject.SetActive(true);
+        StartLoadingNextScene();
         yield return new WaitForSeconds(2);
         TweenNextButton();
     }
@@ -46,16 +55,26 @@ public class TutorialScreen : MonoBehaviour
     {
         nextButton.gameObject.SetActive(true);
         RectTransform nextButtonRectTransform = nextButton.GetComponent<RectTransform>();
-        Vector2 originalPosition = nextButtonRectTransform.anchoredPosition;
-        
-        Sequence mySequence = DOTween.Sequence();
-        mySequence.AppendInterval(0.5f);
-        mySequence.Append(nextButtonRectTransform.DOPunchAnchorPos(Vector2.down * 25f, 1f, 1, 0.1f));
-        mySequence.AppendInterval(0.5f);
-        mySequence.SetLoops(-1, LoopType.Restart).Play();
+        tweenSequence = DOTween.Sequence();
+        tweenSequence.AppendInterval(0.5f);
+        tweenSequence.Append(nextButtonRectTransform.DOPunchAnchorPos(Vector2.down * 25f, 1f, 1, 0.1f));
+        tweenSequence.AppendInterval(0.5f);
+        tweenSequence.SetLoops(-1, LoopType.Restart).Play();
+    }
+
+    private void StartLoadingNextScene()
+    {
+        sceneLoadOperation = SceneManager.LoadSceneAsync("CharacterCreation");
+        sceneLoadOperation.allowSceneActivation = false;
     }
     
     private void HandleOnNextButtonClick()
     {
+        sceneLoadOperation.allowSceneActivation = true;
+    }
+
+    private void OnDestroy()
+    {
+        tweenSequence.Kill();
     }
 }

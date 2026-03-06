@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,9 @@ namespace Game.UI
         private bool hasFocused = false;
         private bool hasStamped = false;
 
+        private Sequence tweenSequence;
+        private AsyncOperation sceneLoadOperation;
+
         private void Start()
         {
             if (stampMark != null)
@@ -46,11 +50,11 @@ namespace Game.UI
 
         private void TweenSplashFocus()
         {
-            Sequence mySequence = DOTween.Sequence();
-            mySequence.AppendInterval(1);
-            mySequence.Append(splashFocus.transform.DOPunchScale(-1 * Vector3.one * 0.25f, 0.2f).SetEase(Ease.InOutBack));
-            mySequence.AppendInterval(1);
-            mySequence.SetLoops(-1, LoopType.Restart).Play();
+            tweenSequence = DOTween.Sequence();
+            tweenSequence.AppendInterval(1);
+            tweenSequence.Append(splashFocus.transform.DOPunchScale(-1 * Vector3.one * 0.25f, 0.2f).SetEase(Ease.InOutBack));
+            tweenSequence.AppendInterval(1);
+            tweenSequence.SetLoops(-1, LoopType.Restart).Play();
         }
 
         private void Update()
@@ -80,7 +84,11 @@ namespace Game.UI
             hasFocused = true;
             splashFocus.SetActive(false);
             gameLogo.SetActive(true);
-            gameLogo.GetComponent<BrushRevealController>().PlayReveal(() => stampMarkBase.SetActive(true));
+            StartLoadingNextScene();
+            gameLogo.GetComponent<BrushRevealController>().PlayReveal(() =>
+            {
+                stampMarkBase.SetActive(true);
+            });
         }
 
         private void PlaceStamp()
@@ -107,12 +115,24 @@ namespace Game.UI
             stampRect.localScale = new Vector3(stampScaleEnd, stampScaleEnd, 1f);
         }
 
+        private void StartLoadingNextScene()
+        {
+            sceneLoadOperation = SceneManager.LoadSceneAsync(nextSceneName);
+            sceneLoadOperation.allowSceneActivation = false;
+        }
+
         private IEnumerator TransitionAfterDelay()
         {
             gameLogo.GetComponent<BrushRevealController>().PlayHide();
-            yield return new WaitForSeconds(delayBeforeTransition);
+            yield return new WaitForSeconds(0.5f);
             stampMark.SetActive(false);
-            SceneManager.LoadScene(nextSceneName);
+            yield return new WaitForSeconds(delayBeforeTransition);
+            sceneLoadOperation.allowSceneActivation = true;
+        }
+
+        private void OnDestroy()
+        {
+            tweenSequence.Kill();
         }
     }
 }

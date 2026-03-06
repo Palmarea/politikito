@@ -161,6 +161,11 @@ namespace Game.Systems.Minigames
 
         protected override void OnCompleted()
         {
+            if (!Context.TutorialData.IsTutorialComplete())
+            {
+                Context.TutorialData.CompleteTutorialStep(TutorialData.COOKIE_STEP_INDEX);
+            }
+            
             Cleanup();
             CharacterStats.HandleFeedingAction();
         }

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
+using DG.Tweening;
 
 namespace Game.UI
 {
@@ -102,14 +103,16 @@ namespace Game.UI
             // Check if outfit is locked
             if (!IsOutfitUnlocked(currentOutfitIndex))
             {
-                ShowFeedback("Este no... intenta otro");
+                ShowFeedback("Personaje bloqueado. Próximamente.");
+                characterPreview.GetComponent<RectTransform>().DOShakeAnchorPos(0.5f, 20);
                 return;
             }
 
             // Check if name is empty
             if (nameInput != null && string.IsNullOrEmpty(nameInput.text))
             {
-                ShowFeedback("Write a name for your TIKO!");
+                nameInput.GetComponent<RectTransform>().DOShakeAnchorPos(0.5f, 20);
+                ShowFeedback("Escoge un nombre para tu TIKO!");
                 return;
             }
 

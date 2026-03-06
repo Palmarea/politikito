@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a8ee39181563544c3a4075b2a14816dc
+guid: 10321fb201730454dbd443f78e056026
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7598577039696312371
-    second: boton cuadrado_0
+      213: -2433751755662205217
+    second: Boton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 36, y: 32, z: 36, w: 24}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boton cuadrado_0
+      name: Boton_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 4
-        width: 95
-        height: 82
+        x: 11
+        y: 17
+        width: 170
+        height: 173
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 338b9810f81937960800000000000000
-      internalID: 7598577039696312371
+      spriteID: fde554c3ca3993ed0800000000000000
+      internalID: -2433751755662205217
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      boton cuadrado_0: 7598577039696312371
+      Boton_0: -2433751755662205217
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

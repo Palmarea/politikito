@@ -56,6 +56,11 @@ namespace Game.Systems.Minigames
 
         protected override void OnCompleted()
         {
+            if (!Context.TutorialData.IsTutorialComplete())
+            {
+                Context.TutorialData.CompleteTutorialStep(TutorialData.DUMBBELL_STEP_INDEX);
+            }
+            
             Cleanup();
             CharacterStats.HandleExercisingAction();
         }
