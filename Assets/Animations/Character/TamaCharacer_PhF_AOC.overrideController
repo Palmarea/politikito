@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TamaCharacer_PhF_AOC
+  m_Controller: {fileID: 9100000, guid: 1e0d50494b9c4104284a8b0f0a4b0ab4, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6d5770ad908643b42b6287a9f34d1ec8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d48950a16f1a7a646bcc0e98be34e65a, type: 2}

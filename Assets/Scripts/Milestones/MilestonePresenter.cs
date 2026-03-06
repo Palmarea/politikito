@@ -77,7 +77,6 @@ namespace Game.Systems.Milestone
             Animator.SetTrigger("HideNews");
         }
 
-        // llamado por Animation Event al terminar HideNews
         public void OnHideAnimationFinished()
         {
             HideMilestone();
