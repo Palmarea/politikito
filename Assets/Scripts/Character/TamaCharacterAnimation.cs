@@ -18,7 +18,6 @@ namespace Game.Character
             float normalizedTime = currentState.normalizedTime;
 
             Animator.runtimeAnimatorController = animatorOverride;
-            Debug.Log("error");
 
             Animator.Play(currentState.fullPathHash, 0, normalizedTime);
         }

@@ -30,8 +30,11 @@ namespace Game.Systems.Milestone
 
         public void AdvanceMilestone(int level)
         {
+            Debug.Log("CALLED FOR LEVEL " + level);
             if (!MilestoneDictionary.TryGetValue(level, out Milestone milestone))
                 return;
+
+            Debug.Log(milestone.ToString());
 
             OnMilestoneReached?.Invoke(milestone);
         }
