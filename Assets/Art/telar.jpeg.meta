@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6b688cb5f5a6a42dca2192719cbd730b
+guid: 4bcdcf8dff8d54ecb9957e4fd1dde330
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5371412345509669250
-    second: check_0
+      213: 6034896764879594385
+    second: WhatsApp Image 2026-03-06 at 7.51.18 AM_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: check_0
+      name: WhatsApp Image 2026-03-06 at 7.51.18 AM_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1
-        width: 99
-        height: 88
+        x: 0
+        y: 0
+        width: 1280
+        height: 562
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 289604cb1171b8a40800000000000000
-      internalID: 5371412345509669250
+      spriteID: 1936dc622a240c350800000000000000
+      internalID: 6034896764879594385
       vertices: []
       indices: 
       edges: []
@@ -151,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      check_0: 5371412345509669250
+      WhatsApp Image 2026-03-06 at 7.51.18 AM_0: 6034896764879594385
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
