@@ -9,6 +9,7 @@ namespace Game.Systems.Minigames
     {
         [Header("Dependencies")]
         [SerializeField] private TamaCharacterController Character;
+        [SerializeField] private TamaCharacterAnimation CharacterAnimator;
         [SerializeField] private DragDropObject DDObject;
 
         [Header("Difficulty")]
@@ -44,6 +45,7 @@ namespace Game.Systems.Minigames
             Receiver.UpdateActive(false);
 
             level = CharacterStats.Wisdom.Level;
+            CharacterAnimator.SetMiniGame(2);
 
             StartRunningPhase();
         }
@@ -125,6 +127,8 @@ namespace Game.Systems.Minigames
                 MouthOpenDuration.GetValue(level),
                 OnMouthClosed));
 
+            CharacterAnimator.SetMouthOpen(true);
+
             cooldownTimer = MouthOpenCooldown.GetValue(level);
         }
 
@@ -133,6 +137,8 @@ namespace Game.Systems.Minigames
             Receiver.UpdateActive(false);
 
             mouthOpensRemaining--;
+
+            CharacterAnimator.SetMouthOpen(false);
 
             currentPhase = FeedingPhase.Waiting;
         }
@@ -173,6 +179,9 @@ namespace Game.Systems.Minigames
             DDObject.StopDragging();
 
             Character.ChangeState(new RoamState(Character));
+
+            CharacterAnimator.SetMiniGame(0);
+            CharacterAnimator.SetMouthOpen(false);
         }
 
         private void OnDestroy()

@@ -1,4 +1,5 @@
 ﻿using Game.Systems.Achievement;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Game.Systems.Milestone
         [Header("Milestone Images")]
         [SerializeField] private List<Sprite> MilestoneImages;
 
+        public event Action<int> OnMilestoneShown;
         private Milestone currentMilestone;
         private bool hasBeenRequested = false;
 
@@ -56,6 +58,7 @@ namespace Game.Systems.Milestone
             MilestoneNext.gameObject.SetActive(true);
             MilestoneNext.onClick.RemoveListener(OnNextPressed);
             MilestoneNext.onClick.AddListener(OnNextPressed);
+            OnMilestoneShown?.Invoke(currentMilestone.level);
         }
 
         private void OnNextPressed()

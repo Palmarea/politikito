@@ -132,7 +132,7 @@ namespace Game.Character.Creation
         private void ConfirmCreation()
         {
             Debug.Log($"Character Created of type: {selectedCharacterIndex}, and name: {InputField.text}");
-            CharacterVisual.RequestVisualEvolution((TamaType)selectedCharacterIndex, 0);
+            //CharacterVisual.RequestVisualEvolution((TamaType)selectedCharacterIndex, 0);
             CanvasUI.SetActive(false);
         }
     }

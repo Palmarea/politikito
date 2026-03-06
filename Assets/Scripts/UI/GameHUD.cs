@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using Game.Character;
+using Game.Systems.Milestone;
 
 namespace Game.UI
 {
@@ -16,6 +17,7 @@ namespace Game.UI
 
         [Header("References")]
         [SerializeField] private TamaCharacterStats characterStats;
+        [SerializeField] private MilestonePresenter MilestonePresenter;
 
         private void Start()
         {
@@ -37,16 +39,29 @@ namespace Game.UI
             WillpowerBar?.UpdateBar(characterStats.WillPower);
         }
 
+        private void ResetBars(int level)
+        {
+            CharismaBar?.ResetBar();
+            WisdomBar?.ResetBar();
+            WillpowerBar?.ResetBar();
+        }
+
         private void OnEnable()
         {
             if (characterStats != null)
+            {
                 characterStats.OnStatsChanged += RefreshBars;
+                MilestonePresenter.OnMilestoneShown += ResetBars;
+            }
         }
 
         private void OnDisable()
         {
             if (characterStats != null)
+            {
                 characterStats.OnStatsChanged -= RefreshBars;
+                MilestonePresenter.OnMilestoneShown -= ResetBars;
+            }
         }
     }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TamaCharacter_Ph3_AOC
+  m_Controller: {fileID: 9100000, guid: 1e0d50494b9c4104284a8b0f0a4b0ab4, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6d5770ad908643b42b6287a9f34d1ec8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9dba121ed2283fa409500f79e7102f87, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 035ab87610f7fe04b9cbd5ccfb10a365, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e23dfa064247135498425bddfdbd2b07, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d4a125f85b85a4c40b76df6913944cbe, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 90fba3c24f8611c4da457b3abeb6ac61, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dffc888f29e262844b4c90c93e45228f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ab4b67df2c6f19a4da4ff5f9246829e3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c8c0fec600a939249930baf316c8d9d2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2f5527613bf21e2448fc799471f86121, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1da4c28ac8f17834ca07594c6209d52a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a60f0e4ee885c6d4b9dcea03e42ca3ca, type: 2}

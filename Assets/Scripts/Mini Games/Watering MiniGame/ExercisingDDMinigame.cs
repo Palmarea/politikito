@@ -2,7 +2,7 @@ using Game.Character;
 using Game.Character.StateMachine.States;
 using Game.Systems.Interaction.DragNDrop;
 using UnityEngine;
-using UnityEngine.UI;
+using Game.Systems.Minigames.UI;
 
 namespace Game.Systems.Minigames
 {
@@ -10,9 +10,10 @@ namespace Game.Systems.Minigames
     {
         [Header("Dependencies")]
         [SerializeField] private TamaCharacterController Character;
+        [SerializeField] private TamaCharacterAnimation CharacterAnimator;
         [SerializeField] private Transform DumbbellOriginPoint;
         [SerializeField] private DragDropObject DDObject;
-        [SerializeField] private Button FlexButton;
+        [SerializeField] private HoldButton FlexButton;
 
         [Header("Minigame Parameters")]
         [SerializeField] private DifficultyValue PointsPerClick;
@@ -41,8 +42,9 @@ namespace Game.Systems.Minigames
 
             FlexButton.gameObject.SetActive(false);
 
-            // Personaje huye de la mancuerna
             Character.ChangeState(new FleeState(Character, DumbbellOriginPoint));
+
+            CharacterAnimator.SetMiniGame(3);
         }
 
         protected override void UpdateMinigame()
@@ -75,21 +77,34 @@ namespace Game.Systems.Minigames
             Receiver.UpdateActive(false);
 
             FlexButton.gameObject.SetActive(true);
-            FlexButton.onClick.RemoveAllListeners();
-            FlexButton.onClick.AddListener(OnClickFlex);
 
-            // Se queda quieto mientras hace ejercicio
+            FlexButton.OnPressed -= OnFlexPressed;
+            FlexButton.OnReleased -= OnFlexReleased;
+
+            FlexButton.OnPressed += OnFlexPressed;
+            FlexButton.OnReleased += OnFlexReleased;
+
             Character.ChangeState(new FrozenState(Character));
+
+            CharacterAnimator.SetWaitingInput(true);
         }
 
-        private void OnClickFlex()
+        private void OnFlexPressed()
+        {
+            CharacterAnimator.SetHoldingWeight(true);
+        }
+
+        private void OnFlexReleased()
         {
             AddProgress(PointsPerClick.GetValue(level));
+            CharacterAnimator.SetHoldingWeight(false);
         }
 
         private void Cleanup()
         {
-            FlexButton.onClick.RemoveListener(OnClickFlex);
+            FlexButton.OnPressed -= OnFlexPressed;
+            FlexButton.OnReleased -= OnFlexReleased;
+
             FlexButton.gameObject.SetActive(false);
 
             DDObject.gameObject.SetActive(true);
@@ -98,8 +113,11 @@ namespace Game.Systems.Minigames
             Receiver.UpdateActive(false);
             Receiver.OnObjectDropped -= OnObjectDelivered;
 
-            // Regresa a roam normal
             Character.ChangeState(new RoamState(Character));
+
+            CharacterAnimator.SetMiniGame(0);
+            CharacterAnimator.SetHoldingWeight(false);
+            CharacterAnimator.SetWaitingInput(false);
         }
 
         private void OnDestroy()
