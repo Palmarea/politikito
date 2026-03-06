@@ -9,6 +9,7 @@ namespace Game.Systems.Minigames
     {
         [Header("Dependencies")]
         [SerializeField] private TamaCharacterController Character;
+        [SerializeField] private TamaCharacterAnimation CharacterAnimator;
         [SerializeField] private Transform WateringOriginPoint;
         [SerializeField] private DragDropObject DDObject;
 
@@ -26,9 +27,8 @@ namespace Game.Systems.Minigames
         {
             base.StartMinigame();
 
-            // Empieza huyendo del agua
             level = CharacterStats.Charisma.Level;
-            Debug.Log(level);
+            CharacterAnimator.SetMiniGame(1);
             Character.ChangeState(new FleeState(Character, WateringOriginPoint));
         }
 
@@ -43,10 +43,14 @@ namespace Game.Systems.Minigames
             if (hit)
             {
                 AddProgress(PointsPerFrame.GetValue(level) * Time.deltaTime);
+                CharacterAnimator.SetReceivingWater(true);
+            }
+            else
+            {
+                CharacterAnimator.SetReceivingWater(false);
             }
 
             AddProgress(ProgressBarDepletitionPerFrame.GetValue(level) * Time.deltaTime);
-            Debug.Log(ProgressBarDepletitionPerFrame.GetValue(level));
         }
 
         protected override void OnCompleted()
@@ -67,8 +71,10 @@ namespace Game.Systems.Minigames
 
             Receiver.UpdateActive(false);
 
-            // Regresa al comportamiento normal
             Character.ChangeState(new RoamState(Character));
+
+            CharacterAnimator.SetMiniGame(0);
+            CharacterAnimator.SetReceivingWater(false);
         }
 
         private void OnDrawGizmos()

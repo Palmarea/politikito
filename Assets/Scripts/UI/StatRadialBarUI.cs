@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using Game.Character;
 using System.Collections;
 
@@ -10,35 +9,54 @@ namespace Game.UI
     {
         [Header("References")]
         [SerializeField] private Slider Slider;
-        //[SerializeField] private TMP_Text LevelText;
 
         [Header("Parameters")]
         [SerializeField] private float VisualMaxValue = 25f;
         [SerializeField] private float FillSpeed = 40f;
-        //[SerializeField] private TMP_Text valueText;
+
         private Coroutine fillRoutine;
+        private bool lockedFull = false;
+        private bool ignoreNextUpdate = false;
 
         private void Awake()
         {
-            if (Slider != null)
-                Slider.maxValue = VisualMaxValue;
+            Slider.maxValue = VisualMaxValue;
         }
 
         public void UpdateBar(TamaStat stat)
         {
-            float levelStart = stat.Level * VisualMaxValue;
-            float targetValue = stat.Value - levelStart;
-
-            if (Slider != null)
+            if (ignoreNextUpdate)
             {
-                if (fillRoutine != null)
-                    StopCoroutine(fillRoutine);
-
-                fillRoutine = StartCoroutine(AnimateBar(targetValue));
+                ignoreNextUpdate = false;
+                return;
             }
 
-            //if (LevelText != null)
-            //    LevelText.text = $"LVL {stat.Level}";
+            if (lockedFull)
+                return;
+
+            float targetValue = stat.Value % VisualMaxValue;
+
+            if (targetValue == 0 && stat.Value > 0)
+            {
+                targetValue = VisualMaxValue;
+                lockedFull = true;
+            }
+
+            if (fillRoutine != null)
+                StopCoroutine(fillRoutine);
+
+            fillRoutine = StartCoroutine(AnimateBar(targetValue));
+        }
+
+        public void ResetBar()
+        {
+            lockedFull = false;
+            ignoreNextUpdate = true;
+
+            if (fillRoutine != null)
+                StopCoroutine(fillRoutine);
+
+            Slider.value = 0;
         }
 
         private IEnumerator AnimateBar(float target)

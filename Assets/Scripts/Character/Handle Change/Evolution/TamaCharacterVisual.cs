@@ -1,67 +1,74 @@
+using Game.Systems.Milestone;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Game.Character.Visual
 {
-    public enum TamaType
-    {
-        MASCULINE,
-        FEMALE,
-        BUSINESS
-    }
+    //public enum TamaType
+    //{
+    //    MASCULINE,
+    //    FEMALE,
+    //    BUSINESS
+    //}
     
-    [System.Serializable]
-    public class TamaVisual
-    {
-        public TamaType CharacterType;
-        public List<AnimatorOverrideController> EvolutionsAOC;
-    }
+    //[System.Serializable]
+    //public class TamaVisual
+    //{
+    //    public TamaType CharacterType;
+    //    public List<AnimatorOverrideController> EvolutionsAOC;
+    //}
     
     public class TamaCharacterVisual : MonoBehaviour
     {
         [Header("Dependencies")]
-        [SerializeField] private TamaCharacterAnimation AnimationHandler; 
+        [SerializeField] private TamaCharacterAnimation AnimationHandler;
+        [SerializeField] private MilestonePresenter MilestonePresenter;
 
         [Header("Sprite References")]
-        [SerializeField] private List<TamaVisual> CharacterLevelAOC= new List<TamaVisual>();
+        [SerializeField] private List<AnimatorOverrideController> CharacterLevelAOC= new List<AnimatorOverrideController>();
         private AnimatorOverrideController currentCharacterAnimator;
 
-        public void RequestVisualEvolution(TamaType characterType, int level)
+        private bool suscribed = false;
+
+        private void Start()
         {
-            var aoc = GetCharacterAOC(characterType, level);
-
-            if (aoc == null)
-            {
-                Debug.LogError($"No AnimatorOverrideController found for {characterType} at level {level}");
-                return;
-            }
-
-            currentCharacterAnimator = aoc;
-            AnimationHandler.RequestAnimatorOverride(currentCharacterAnimator);
+           if (!suscribed)
+           {
+                MilestonePresenter.OnMilestoneShown += RequestVisualEvolution;
+           }
         }
 
-        private AnimatorOverrideController GetCharacterAOC(TamaType characterType, int level)
+        public void RequestVisualEvolution(int level)
         {
-            var characterData = CharacterLevelAOC
-                .FirstOrDefault(c => c.CharacterType == characterType);
+            var aoc = GetCharacterAOC(level - 1);
 
-            if (characterData == null)
+            if (aoc != currentCharacterAnimator)
             {
-                Debug.LogError($"Character type {characterType} not found.");
-                return null;
+                currentCharacterAnimator = aoc;
+                AnimationHandler.RequestAnimatorOverride(currentCharacterAnimator);
             }
+        }
 
-            if (characterData.EvolutionsAOC == null || characterData.EvolutionsAOC.Count == 0)
-            {
-                Debug.LogError($"No evolutions defined for {characterType}");
-                return null;
-            }
-
+        private AnimatorOverrideController GetCharacterAOC(int level)
+        {
             // Clamp level to valid range
-            level = Mathf.Clamp(level, 0, characterData.EvolutionsAOC.Count - 1);
+            level = Mathf.Clamp(level, 0, CharacterLevelAOC.Count - 1);
 
-            return characterData.EvolutionsAOC[level];
+            return CharacterLevelAOC[level];
+        }
+
+        private void OnEnable()
+        {
+            if (MilestonePresenter != null)
+            {
+                MilestonePresenter.OnMilestoneShown += RequestVisualEvolution;
+            }
+        }
+
+        private void OnDisable()
+        {
+            MilestonePresenter.OnMilestoneShown -= RequestVisualEvolution;
         }
     }
 }
