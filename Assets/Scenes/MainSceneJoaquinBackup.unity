@@ -7175,7 +7175,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TICOTICOTICOTICO - NIVEL 1
+  m_text: TICOTICOTICOTICO - NIVEL 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f299abf0e8e0db14ea7c7eb059c3d08f, type: 2}
   m_sharedMaterial: {fileID: -2680515727292003307, guid: f299abf0e8e0db14ea7c7eb059c3d08f, type: 2}
@@ -7547,9 +7547,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2684683403279522641, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3891101107138958112, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
       propertyPath: m_Name
       value: PostItPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613449105127734947, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898677536411307524, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786183776877125736, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7938,15 +7954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722602b93d5c08f4da8a43f1bb5577e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.DragNDrop.DragDropReceiver
-  Colliders:
-  - {fileID: 2109842856}
-  - {fileID: 1254595394}
-  DraggableLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  InteractableLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!70 &2109842856
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ namespace Game.UI
 
         private Coroutine fillRoutine;
         private bool lockedFull = false;
-        private bool ignoreNextUpdate = false;
+        private int lastLevel = 0;
 
         private void Awake()
         {
@@ -25,25 +25,35 @@ namespace Game.UI
 
         public void UpdateBar(TamaStat stat)
         {
+            if (lockedFull) return;
+            
             float levelStart = stat.Level * VisualMaxValue;
             float targetValue = stat.Value - levelStart;
+
+            Debug.Log("LEVEL: " + stat.Level);
+            Debug.Log("LEVEL START: " + levelStart);
+            Debug.Log("STAT VALUE: " + stat.Value);
+            Debug.Log("TARGET VALUE: " + targetValue);
 
             if (Slider != null)
             {
                 if (fillRoutine != null)
                     StopCoroutine(fillRoutine);
 
+                if (lastLevel != stat.Level)
+                {
+                    targetValue = VisualMaxValue;
+                    lockedFull = true;
+                    lastLevel = stat.Level;
+                }
+
                 fillRoutine = StartCoroutine(AnimateBar(targetValue));
             }
-
-            //if (LevelText != null)
-            //    LevelText.text = $"LVL {stat.Level}";
         }
 
         public void ResetBar()
         {
             lockedFull = false;
-            ignoreNextUpdate = true;
 
             if (fillRoutine != null)
                 StopCoroutine(fillRoutine);

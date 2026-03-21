@@ -19,6 +19,8 @@ namespace Game.UI
         [SerializeField] private TamaCharacterStats characterStats;
         [SerializeField] private MilestonePresenter MilestonePresenter;
 
+        private string baseName = "Tiko";
+
         private void Start()
         {
             RefreshBars();
@@ -27,7 +29,8 @@ namespace Game.UI
 
         public void SetPlayerLabel(int level)
         {
-            PlayerLabel.text = $"{GameData.Instance.PlayerName} - NIVEL {level}";
+            string name = GameData.Instance != null ? GameData.Instance.PlayerName : baseName;
+            PlayerLabel.text = $"{name} - NIVEL {level}";
         }
 
         private void RefreshBars()
@@ -39,13 +42,17 @@ namespace Game.UI
             WillpowerBar?.UpdateBar(characterStats.WillPower);
         }
 
+        private void NextLevel(int level)
+        {
+            ResetBars(level);
+            SetPlayerLabel(level);
+        }
+
         private void ResetBars(int level)
         {
             CharismaBar?.ResetBar();
             WisdomBar?.ResetBar();
             WillpowerBar?.ResetBar();
-
-            SetPlayerLabel(level);
         }
 
         private void OnEnable()
@@ -53,7 +60,7 @@ namespace Game.UI
             if (characterStats != null)
             {
                 characterStats.OnStatsChanged += RefreshBars;
-                //MilestonePresenter.OnMilestoneShown += ResetBars;
+                MilestonePresenter.OnMilestoneShown += NextLevel;
             }
         }
 
@@ -62,7 +69,7 @@ namespace Game.UI
             if (characterStats != null)
             {
                 characterStats.OnStatsChanged -= RefreshBars;
-                //MilestonePresenter.OnMilestoneShown -= ResetBars;
+                MilestonePresenter.OnMilestoneShown -= NextLevel;
             }
         }
     }
