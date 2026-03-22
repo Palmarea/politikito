@@ -30,11 +30,6 @@ namespace Game.UI
             float levelStart = stat.Level * VisualMaxValue;
             float targetValue = stat.Value - levelStart;
 
-            Debug.Log("LEVEL: " + stat.Level);
-            Debug.Log("LEVEL START: " + levelStart);
-            Debug.Log("STAT VALUE: " + stat.Value);
-            Debug.Log("TARGET VALUE: " + targetValue);
-
             if (Slider != null)
             {
                 if (fillRoutine != null)

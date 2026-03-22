@@ -938,6 +938,8 @@ GameObject:
   - component: {fileID: 310439865}
   - component: {fileID: 310439864}
   - component: {fileID: 310439869}
+  - component: {fileID: 310439870}
+  - component: {fileID: 310439871}
   m_Layer: 7
   m_Name: WisdomInteractableObject_Cookie
   m_TagString: Untagged
@@ -952,7 +954,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310439863}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5021778a16f76a459bb619c7fcab241, type: 3}
   m_Name: 
@@ -984,8 +986,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 310439864}
-        m_TargetAssemblyTypeName: Game.Systems.Interaction.DragNDrop.DragDropObject,
+      - m_Target: {fileID: 310439870}
+        m_TargetAssemblyTypeName: Game.Systems.Interaction.DragNDrop.DragDropPhysicObject,
           Assembly-CSharp
         m_MethodName: StartDragging
         m_Mode: 1
@@ -1113,6 +1115,45 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.545
+--- !u!114 &310439870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310439863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e6eefd1c4d8724f8c8789f046ec244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.DragNDrop.DragDropPhysicObject
+--- !u!50 &310439871
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310439863}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &363835908 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3891101107138958112, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
@@ -5755,7 +5796,7 @@ MonoBehaviour:
     DragDropObject: {fileID: 365263004}
     DragDropButton: {fileID: 2048447536}
   - DragDropMinigame: {fileID: 1323785659}
-    DragDropObject: {fileID: 310439864}
+    DragDropObject: {fileID: 310439870}
     DragDropButton: {fileID: 1388588413}
   - DragDropMinigame: {fileID: 1323785657}
     DragDropObject: {fileID: 884095220}
@@ -5779,7 +5820,7 @@ MonoBehaviour:
   Receiver: {fileID: 2109842855}
   Character: {fileID: 1254595392}
   CharacterAnimator: {fileID: 1254595390}
-  DDObject: {fileID: 310439864}
+  DDObject: {fileID: 310439870}
   ProgressPerFeed:
     valuesPerLevel:
     - 100

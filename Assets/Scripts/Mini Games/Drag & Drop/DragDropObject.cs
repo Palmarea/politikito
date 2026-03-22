@@ -6,12 +6,12 @@ namespace Game.Systems.Interaction.DragNDrop
 {
     public class DragDropObject : MonoBehaviour
     {
-        private bool isBeingDragged = false;
-        private Vector2 offset;
-        private Vector3 initialPosition;
+        protected bool isBeingDragged = false;
+        protected Vector2 offset;
+        protected Vector3 initialPosition;
         private bool suscribed = false;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             initialPosition = transform.position;
         }
@@ -25,20 +25,21 @@ namespace Game.Systems.Interaction.DragNDrop
             }
         }
 
-        private void Update()
+        protected virtual void Update()
         {
-            if (!isBeingDragged) return;
-
-            transform.position = InputManager.Instance.GetMousePosition() + offset;
+            if (isBeingDragged)
+            {
+                transform.position = InputManager.Instance.GetMousePosition() + offset;
+            }
         }
 
-        public void StartDragging()
+        public virtual void StartDragging()
         {
             isBeingDragged = true;
             offset = (Vector2)transform.position - InputManager.Instance.GetMousePosition();
         }
 
-        public void StopDragging()
+        public virtual void StopDragging()
         {
             if (!isBeingDragged) return;
 
@@ -47,7 +48,7 @@ namespace Game.Systems.Interaction.DragNDrop
             BackToOrigin();
         }
 
-        public void BackToOrigin()
+        public virtual void BackToOrigin()
         {
             transform.position = initialPosition;
         }
