@@ -28,7 +28,7 @@ namespace Game.Character
             Vector2 nextPosition = rb.position + velocity * Time.fixedDeltaTime;
 
             nextPosition.x = Mathf.Clamp(nextPosition.x, MinBounds.x, MaxBounds.x);
-            nextPosition.y = Mathf.Clamp(nextPosition.y, MinBounds.y, MaxBounds.y);
+            nextPosition.y = rb.position.y;
 
             rb.MovePosition(nextPosition);
         }
