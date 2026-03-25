@@ -1,4 +1,6 @@
-﻿using Game.Systems.Interaction.DragNDrop;
+﻿using Game.Character;
+using Game.Systems.CameraControl;
+using Game.Systems.Interaction.DragNDrop;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +19,10 @@ namespace Game.Systems.Minigames
         public static MinigameManager Instance;
 
         public List<MinigameDefinition> MinigameDefinitions = new List<MinigameDefinition>();
+
+        [Header("Dependencies")]
+        [SerializeField] private TamaCharacterMovement CharacterMovement;
+        [SerializeField] private CameraController CameraController;
 
         public bool IsMinigameActive { get; private set; }
 
@@ -41,6 +47,22 @@ namespace Game.Systems.Minigames
                     definition.DragDropButton.gameObject.SetActive(false);
                 }
             }
+
+            float dir = 0;
+            switch (CameraController.GetCurrentCameraSection())
+            {
+                case CameraSectionType.LEFT:
+                    dir = -1;
+                    break;
+                case CameraSectionType.MIDDLE: 
+                    dir = 0; 
+                    break;
+                case CameraSectionType.RIGHT: 
+                    dir = 1; 
+                    break;
+            }
+
+            CharacterMovement.SetReducedBounds(dir);
         }
 
         public void EndMinigame()
@@ -53,6 +75,8 @@ namespace Game.Systems.Minigames
                 definition.DragDropObject.gameObject.SetActive(true);
                 definition.DragDropButton.gameObject.SetActive(true);
             }
+
+            CharacterMovement.ResetBounds();
         }
     }
 }

@@ -30,11 +30,15 @@ namespace Game.Managers.Timing
 
         public void EnableInterruption()
         {
+            if (InterumpibleObjects.Count <= 0) return;
+            
             ApplyState(false);
         }
 
         public void DisableInteruption()
         {
+            if (InterumpibleObjects.Count <= 0) return;
+
             ApplyState(true);
         }
 

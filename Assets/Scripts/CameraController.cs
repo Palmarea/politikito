@@ -1,5 +1,4 @@
-﻿using Game.Managers.Timing;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -53,7 +52,7 @@ namespace Game.Systems.CameraControl
             if (Vector3.Distance(m_MainCamera.transform.position, target.position) <= 0.01f)
             {
                 isMoving = false;
-                if (!InterruptionManager.Instance.IsInInterruption) InterruptionManager.Instance.DisableInteruption();
+                //if (!InterruptionManager.Instance.IsInInterruption) InterruptionManager.Instance.DisableInteruption();
             }
         }
 
@@ -69,7 +68,7 @@ namespace Game.Systems.CameraControl
             currentSection = newSection;
             isMoving = true;
 
-            if (!InterruptionManager.Instance.IsInInterruption) InterruptionManager.Instance.EnableInterruption();
+            //if (!InterruptionManager.Instance.IsInInterruption) InterruptionManager.Instance.EnableInterruption();
         }
 
         public void MoveRight()
@@ -84,7 +83,9 @@ namespace Game.Systems.CameraControl
             currentSection = newSection;
             isMoving = true;
 
-            if (!InterruptionManager.Instance.IsInInterruption) InterruptionManager.Instance.EnableInterruption();
+            //if (!InterruptionManager.Instance.IsInInterruption) InterruptionManager.Instance.EnableInterruption();
         }
+
+        public CameraSectionType GetCurrentCameraSection() => currentSection.Type;
     }
 }

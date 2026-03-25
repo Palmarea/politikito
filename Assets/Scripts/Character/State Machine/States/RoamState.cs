@@ -64,7 +64,7 @@ namespace Game.Character.StateMachine.States
 
             if (moving)
             {
-                target = movement.Position + Random.insideUnitCircle * 2f;
+                target = movement.Position + Random.insideUnitCircle * Random.Range(100.0f, 300.0f);
                 timer = Random.Range(1f, 3f);
             }
             else

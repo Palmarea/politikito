@@ -15,11 +15,16 @@ namespace Game.Character
         private Rigidbody2D rb;
         private float speedMultiplier = 1f;
 
+        private Vector2 m_InitialMinBounds;
+        private Vector2 m_InitialMaxBounds;
+
         public Vector2 Position => rb.position;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            m_InitialMinBounds = MinBounds;
+            m_InitialMaxBounds = MaxBounds;
         }
 
         public void Move(Vector2 direction)
@@ -29,13 +34,24 @@ namespace Game.Character
 
             nextPosition.x = Mathf.Clamp(nextPosition.x, MinBounds.x, MaxBounds.x);
             nextPosition.y = rb.position.y;
-
             rb.MovePosition(nextPosition);
         }
 
         public void SetSpeedMultiplier(float multiplier)
         {
             speedMultiplier = multiplier;
+        }
+
+        public void SetReducedBounds(float dir)
+        {
+            MinBounds = new Vector2(-8.1f + (dir * 19.2f), 0f); 
+            MaxBounds = new Vector2(8.1f + (dir * 19.2f), 0f);
+        }
+
+        public void ResetBounds()
+        {
+            MinBounds = m_InitialMinBounds;
+            MaxBounds = m_InitialMaxBounds;
         }
 
         public void Stop()
