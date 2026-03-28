@@ -1,16 +1,32 @@
-using UnityEngine;
-using TMPro;
 using Game.Character;
+using Game.Managers.Timing;
+using Game.Systems.Interaction;
 using Game.Systems.Milestone;
+using TMPro;
+using UnityEngine;
 
 namespace Game.UI
 {
-    public class GameHUD : MonoBehaviour
+    [System.Serializable]
+    public class StatUIObject
+    {
+        public StatRadialBarUI StatBar;
+        public ClickableObject ClickObject;
+
+        public void UpdateUIState(bool state)
+        {
+            StatBar.gameObject.SetActive(state);
+            ClickObject.IsInteractable = state;
+            ClickObject.gameObject.SetActive(state);
+        }
+    }   
+
+    public class GameHUD : MonoBehaviour, IInterruptible
     {
         [Header("Stat Bars")]
-        [SerializeField] private StatRadialBarUI CharismaBar;
-        [SerializeField] private StatRadialBarUI WisdomBar;
-        [SerializeField] private StatRadialBarUI WillpowerBar;
+        [SerializeField] private StatUIObject CharismaUIO;
+        [SerializeField] private StatUIObject WisdomUIO;
+        [SerializeField] private StatUIObject WillpowerUIO;
 
         [Header("Info")]
         [SerializeField] private TMP_Text PlayerLabel;
@@ -19,12 +35,24 @@ namespace Game.UI
         [SerializeField] private TamaCharacterStats characterStats;
         [SerializeField] private MilestonePresenter MilestonePresenter;
 
-        private string baseName = "Tiko";
+        private const string baseName = "Tiko";
+
+        private void Awake()
+        {
+            SetupUIStats();
+        }
 
         private void Start()
         {
             RefreshBars();
             SetPlayerLabel(0);
+        }
+
+        private void SetupUIStats()
+        {
+            CharismaUIO.ClickObject.gameObject.transform.parent = CharismaUIO.StatBar.gameObject.transform;
+            WisdomUIO.ClickObject.gameObject.transform.parent = WisdomUIO.StatBar.gameObject.transform;
+            WillpowerUIO.ClickObject.gameObject.transform.parent = WillpowerUIO.StatBar.gameObject.transform;
         }
 
         public void SetPlayerLabel(int level)
@@ -37,9 +65,9 @@ namespace Game.UI
         {
             if (characterStats == null) return;
 
-            CharismaBar?.UpdateBar(characterStats.Charisma);
-            WisdomBar?.UpdateBar(characterStats.Wisdom);
-            WillpowerBar?.UpdateBar(characterStats.WillPower);
+            CharismaUIO?.StatBar.UpdateBar(characterStats.Charisma);
+            WisdomUIO?.StatBar.UpdateBar(characterStats.Wisdom);
+            WillpowerUIO?.StatBar.UpdateBar(characterStats.WillPower);
         }
 
         private void NextLevel(int level)
@@ -50,9 +78,34 @@ namespace Game.UI
 
         private void ResetBars(int level)
         {
-            CharismaBar?.ResetBar();
-            WisdomBar?.ResetBar();
-            WillpowerBar?.ResetBar();
+            CharismaUIO?.StatBar.ResetBar();
+            WisdomUIO?.StatBar.ResetBar();
+            WillpowerUIO?.StatBar.ResetBar();
+        }
+        
+        public void HandleInterruptionStart(InterruptionType type)
+        {
+            switch (type)
+            {
+                case InterruptionType.TRANSITION:
+                    CharismaUIO.ClickObject.IsInteractable = false;
+                    WisdomUIO.ClickObject.IsInteractable = false;
+                    WillpowerUIO.ClickObject.IsInteractable = false;
+                    break;
+                case (InterruptionType.CINEMATIC or InterruptionType.NOTIFICATION):
+                    CharismaUIO.UpdateUIState(false);
+                    WisdomUIO.UpdateUIState(false);
+                    WillpowerUIO.UpdateUIState(false);
+                    break;
+
+            }
+        }
+
+        public void HandleInterruptionEnd()
+        {
+            CharismaUIO.UpdateUIState(true);
+            WisdomUIO.UpdateUIState(true);
+            WillpowerUIO.UpdateUIState(true);
         }
 
         private void OnEnable()
@@ -62,6 +115,9 @@ namespace Game.UI
                 characterStats.OnStatsChanged += RefreshBars;
                 MilestonePresenter.OnMilestoneShown += NextLevel;
             }
+
+            InterruptionManager.OnInterruptStart += HandleInterruptionStart;
+            InterruptionManager.OnInterruptEnd += HandleInterruptionEnd;
         }
 
         private void OnDisable()
@@ -71,6 +127,9 @@ namespace Game.UI
                 characterStats.OnStatsChanged -= RefreshBars;
                 MilestonePresenter.OnMilestoneShown -= NextLevel;
             }
+
+            InterruptionManager.OnInterruptStart -= HandleInterruptionStart;
+            InterruptionManager.OnInterruptEnd -= HandleInterruptionEnd;
         }
     }
 }

@@ -13,7 +13,6 @@ namespace Game.Systems.Interaction.DragNDrop
 
         protected virtual void Awake()
         {
-            initialPosition = transform.position;
         }
 
         private void Start()
@@ -23,6 +22,8 @@ namespace Game.Systems.Interaction.DragNDrop
                 InputManager.Instance.OnSelectCanceled += StopDragging;
                 suscribed = true;
             }
+
+            initialPosition = transform.position;
         }
 
         protected virtual void Update()

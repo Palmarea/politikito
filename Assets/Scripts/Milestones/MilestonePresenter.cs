@@ -1,4 +1,5 @@
-﻿using Game.Systems.Achievement;
+﻿using Game.Managers.Timing;
+using Game.Systems.Achievement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -59,6 +60,8 @@ namespace Game.Systems.Milestone
             if (fallbackRoutine != null)
                 StopCoroutine(fallbackRoutine);
 
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
+
             MilestoneCanvasUI.SetActive(true);
 
             Debug.Log("ASDadsadasd");
@@ -105,6 +108,8 @@ namespace Game.Systems.Milestone
             MilestoneCanvasUI.SetActive(false);
             MilestoneImageUI.gameObject.SetActive(false);
             hasBeenRequested = false;
+
+            InterruptionManager.Instance.DisableInteruption();
         }
 
         private IEnumerator FallbackTimer()

@@ -11,6 +11,14 @@ namespace Game.Systems.Interaction
         [SerializeField] private UnityEvent OnHover;
         [SerializeField] private UnityEvent OnOffHover;
 
+        private bool interactable = true;
+        
+        public bool IsInteractable
+        {
+            get { return interactable; }
+            set { interactable = value; }
+        }
+
         protected SpriteRenderer sr;
         private MaterialPropertyBlock mpb;
 
@@ -24,16 +32,19 @@ namespace Game.Systems.Interaction
 
         public void Click()
         {
+            if (!interactable) return;
             OnClicked?.Invoke();
         }
 
         public void Hover()
         {
+            if (!interactable) return;
             OnHover?.Invoke();
         }
 
         public void OffHover()
         {
+            if (!interactable) return;
             OnOffHover?.Invoke();
         }
 

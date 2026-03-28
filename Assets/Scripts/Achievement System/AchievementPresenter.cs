@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Managers.Timing;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -37,6 +38,8 @@ namespace Game.Systems.Achievement
             if (!NotificationUI.activeInHierarchy)
                 NotificationUI.SetActive(true);
 
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
+
             NotificationTitle.text = achievement.title;
             NotificationDescription.text = achievement.description;
 
@@ -65,6 +68,7 @@ namespace Game.Systems.Achievement
             NotificationDescription.text = "";
 
             OnAchievementNotificationHided?.Invoke();
+            InterruptionManager.Instance.DisableInteruption();
         }
 
         private void OnEnable()

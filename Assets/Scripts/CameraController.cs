@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Game.Managers.Timing;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -52,30 +52,25 @@ namespace Game.Systems.CameraControl
             if (Vector3.Distance(m_MainCamera.transform.position, target.position) <= 0.01f)
             {
                 isMoving = false;
-                //if (!InterruptionManager.Instance.IsInInterruption) InterruptionManager.Instance.DisableInteruption();
+                InterruptionManager.Instance.DisableInteruption();
             }
         }
 
         public void MoveLeft()
         {
-            if (currentSection.LeftAnchor == null) return;
-
-            CameraSection newSection = Sections.FirstOrDefault(section => section.MainAnchor == currentSection.LeftAnchor);
-
-            if (newSection == null) return;
-
-            target = newSection.MainAnchor;
-            currentSection = newSection;
-            isMoving = true;
-
-            //if (!InterruptionManager.Instance.IsInInterruption) InterruptionManager.Instance.EnableInterruption();
+            MoveToSide(currentSection.LeftAnchor);
         }
 
         public void MoveRight()
         {
-            if (currentSection.RightAnchor == null) return;
-            
-            CameraSection newSection = Sections.FirstOrDefault(section => section.MainAnchor == currentSection.RightAnchor);
+            MoveToSide(currentSection.RightAnchor);
+        }
+
+        private void MoveToSide(Transform compareAnchor)
+        {
+            if (compareAnchor == null) return;
+
+            CameraSection newSection = Sections.FirstOrDefault(section => section.MainAnchor == compareAnchor);
 
             if (newSection == null) return;
 
@@ -83,7 +78,7 @@ namespace Game.Systems.CameraControl
             currentSection = newSection;
             isMoving = true;
 
-            //if (!InterruptionManager.Instance.IsInInterruption) InterruptionManager.Instance.EnableInterruption();
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.TRANSITION);
         }
 
         public CameraSectionType GetCurrentCameraSection() => currentSection.Type;

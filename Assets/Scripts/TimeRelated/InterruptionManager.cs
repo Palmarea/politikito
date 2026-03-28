@@ -1,9 +1,16 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Managers.Timing
 {
+    public enum InterruptionType
+    {
+        TRANSITION,
+        CINEMATIC,
+        NOTIFICATION
+    }
+    
     public class InterruptionManager : MonoBehaviour
     {
         public static InterruptionManager Instance;
@@ -22,34 +29,30 @@ namespace Game.Managers.Timing
         }
         #endregion
 
-        [Header("Configuration")]
-        [SerializeField] List<GameObject> InterumpibleObjects = new List<GameObject>();
+        public static event Action<InterruptionType> OnInterruptStart;
+
+        public static event Action OnInterruptEnd;
 
         private bool inInterruption = false;
         public bool IsInInterruption => inInterruption;
 
-        public void EnableInterruption()
+        public void EnableInterruption(InterruptionType interruptionType)
         {
-            if (InterumpibleObjects.Count <= 0) return;
-            
-            ApplyState(false);
+            if (!inInterruption)
+            {
+                inInterruption = true;
+                OnInterruptStart?.Invoke(interruptionType);
+            }
+            else
+            {
+                Debug.LogWarning("Interruption ignored because already interrupted");
+            }
         }
 
         public void DisableInteruption()
         {
-            if (InterumpibleObjects.Count <= 0) return;
-
-            ApplyState(true);
-        }
-
-        private void ApplyState(bool state)
-        {
-            foreach (GameObject obj in InterumpibleObjects)
-            {
-                obj.SetActive(false);
-            }
-
-            inInterruption = !state;
+            inInterruption = false;
+            OnInterruptEnd?.Invoke();
         }
     }
 }
