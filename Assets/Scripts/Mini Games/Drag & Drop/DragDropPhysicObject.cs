@@ -11,9 +11,8 @@ namespace Game.Systems.Interaction.DragNDrop
         private bool freeFall = false;
         private Renderer rend;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
             rb = GetComponent<Rigidbody2D>();
             rend = GetComponent<SpriteRenderer>();
             rb.bodyType = RigidbodyType2D.Kinematic;
@@ -65,6 +64,11 @@ namespace Game.Systems.Interaction.DragNDrop
             freeFall = false;
             rb.linearVelocity = Vector2.zero;
             rb.MovePosition(initialPosition);
+        }
+
+        public override bool AllowToDrop()
+        {
+            return freeFall;
         }
     }
 }

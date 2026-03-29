@@ -11,10 +11,6 @@ namespace Game.Systems.Interaction.DragNDrop
         protected Vector3 initialPosition;
         private bool suscribed = false;
 
-        protected virtual void Awake()
-        {
-        }
-
         private void Start()
         {
             if (!suscribed)
@@ -52,6 +48,11 @@ namespace Game.Systems.Interaction.DragNDrop
         public virtual void BackToOrigin()
         {
             transform.position = initialPosition;
+        }
+
+        public virtual bool AllowToDrop()
+        {
+            return true;
         }
 
         private void OnEnable()

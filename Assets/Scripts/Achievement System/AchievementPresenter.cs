@@ -38,7 +38,6 @@ namespace Game.Systems.Achievement
             if (!NotificationUI.activeInHierarchy)
                 NotificationUI.SetActive(true);
 
-            InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
 
             NotificationTitle.text = achievement.title;
             NotificationDescription.text = achievement.description;
@@ -51,6 +50,8 @@ namespace Game.Systems.Achievement
                 StopCoroutine(hideRoutine);
 
             hideRoutine = StartCoroutine(HideAfterDelay());
+
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
         }
 
         private IEnumerator HideAfterDelay()
@@ -67,8 +68,8 @@ namespace Game.Systems.Achievement
             NotificationTitle.text = "";
             NotificationDescription.text = "";
 
-            OnAchievementNotificationHided?.Invoke();
             InterruptionManager.Instance.DisableInteruption();
+            OnAchievementNotificationHided?.Invoke();
         }
 
         private void OnEnable()

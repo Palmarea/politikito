@@ -38,15 +38,15 @@ namespace Game.Managers.Timing
 
         public void EnableInterruption(InterruptionType interruptionType)
         {
-            if (!inInterruption)
-            {
+            //if (!inInterruption)
+            //{
+            //}
+            //else
+            //{
+            //    Debug.LogWarning("Interruption ignored because already interrupted");
+            //}
                 inInterruption = true;
                 OnInterruptStart?.Invoke(interruptionType);
-            }
-            else
-            {
-                Debug.LogWarning("Interruption ignored because already interrupted");
-            }
         }
 
         public void DisableInteruption()

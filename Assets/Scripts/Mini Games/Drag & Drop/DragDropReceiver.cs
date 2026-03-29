@@ -22,8 +22,11 @@ namespace Game.Systems.Interaction.DragNDrop
             var draggable = other.GetComponent<DragDropObject>();
             if (draggable == null) return;
 
-            draggable.StopDragging();
-            OnObjectDropped?.Invoke(draggable);
+            if (draggable.AllowToDrop())
+            {
+                draggable.StopDragging();
+                OnObjectDropped?.Invoke(draggable);
+            }
         }
     }
 }

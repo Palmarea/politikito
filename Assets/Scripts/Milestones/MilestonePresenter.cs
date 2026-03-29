@@ -64,7 +64,6 @@ namespace Game.Systems.Milestone
 
             MilestoneCanvasUI.SetActive(true);
 
-            Debug.Log("ASDadsadasd");
             MilestoneImageUI.sprite = MilestoneImages[currentMilestone.level - 1];
             MilestoneImageUI.gameObject.SetActive(true);
 
@@ -86,9 +85,7 @@ namespace Game.Systems.Milestone
             {
                 TutorialPostIt.SetActive(false);
                 counter++;
-            }
-
-            
+            }   
         }
 
         private void OnNextPressed()
@@ -105,11 +102,10 @@ namespace Game.Systems.Milestone
 
         private void HideMilestone()
         {
+            InterruptionManager.Instance.DisableInteruption();
             MilestoneCanvasUI.SetActive(false);
             MilestoneImageUI.gameObject.SetActive(false);
             hasBeenRequested = false;
-
-            InterruptionManager.Instance.DisableInteruption();
         }
 
         private IEnumerator FallbackTimer()

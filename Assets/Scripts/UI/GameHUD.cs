@@ -12,21 +12,42 @@ namespace Game.UI
     {
         public StatRadialBarUI StatBar;
         public ClickableObject ClickObject;
+        public SpriteRenderer ObjectSprite;
+        public CanvasGroup CanvasGroup;
+
+        private Color m_normalColor;
+        private Color m_hidedColor;
+
+        public void SetupObject()
+        {
+            m_normalColor = ObjectSprite.color;
+            m_hidedColor = new Color(m_normalColor.r, m_normalColor.g, m_normalColor.r, 0f);
+        } 
 
         public void UpdateUIState(bool state)
+        {            
+            CanvasGroup.alpha = state ? 1 : 0;
+            UpdateInteraction(state);
+            UpdateSpriteState(state);
+        }
+
+        public void UpdateInteraction(bool state)
         {
-            StatBar.gameObject.SetActive(state);
             ClickObject.IsInteractable = state;
-            ClickObject.gameObject.SetActive(state);
+        }
+
+        private void UpdateSpriteState(bool state)
+        {
+            ObjectSprite.color = state ? m_normalColor : m_hidedColor;
         }
     }   
 
     public class GameHUD : MonoBehaviour, IInterruptible
     {
         [Header("Stat Bars")]
-        [SerializeField] private StatUIObject CharismaUIO;
-        [SerializeField] private StatUIObject WisdomUIO;
-        [SerializeField] private StatUIObject WillpowerUIO;
+        [SerializeField] private StatUIObject CharismaUIO = new();
+        [SerializeField] private StatUIObject WisdomUIO = new();
+        [SerializeField] private StatUIObject WillpowerUIO = new();
 
         [Header("Info")]
         [SerializeField] private TMP_Text PlayerLabel;
@@ -51,8 +72,13 @@ namespace Game.UI
         private void SetupUIStats()
         {
             CharismaUIO.ClickObject.gameObject.transform.parent = CharismaUIO.StatBar.gameObject.transform;
+            CharismaUIO.SetupObject();
+            
             WisdomUIO.ClickObject.gameObject.transform.parent = WisdomUIO.StatBar.gameObject.transform;
+            WisdomUIO.SetupObject();
+            
             WillpowerUIO.ClickObject.gameObject.transform.parent = WillpowerUIO.StatBar.gameObject.transform;
+            WillpowerUIO.SetupObject();
         }
 
         public void SetPlayerLabel(int level)
@@ -88,16 +114,15 @@ namespace Game.UI
             switch (type)
             {
                 case InterruptionType.TRANSITION:
-                    CharismaUIO.ClickObject.IsInteractable = false;
-                    WisdomUIO.ClickObject.IsInteractable = false;
-                    WillpowerUIO.ClickObject.IsInteractable = false;
+                    CharismaUIO.UpdateInteraction(false);
+                    WisdomUIO.UpdateInteraction(false);
+                    WillpowerUIO.UpdateInteraction(false);
                     break;
                 case (InterruptionType.CINEMATIC or InterruptionType.NOTIFICATION):
                     CharismaUIO.UpdateUIState(false);
                     WisdomUIO.UpdateUIState(false);
                     WillpowerUIO.UpdateUIState(false);
                     break;
-
             }
         }
 

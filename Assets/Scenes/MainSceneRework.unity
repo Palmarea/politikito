@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 73262941}
   - component: {fileID: 73262943}
   - component: {fileID: 73262942}
+  - component: {fileID: 73262944}
   m_Layer: 5
   m_Name: CharismaStatusButton
   m_TagString: Untagged
@@ -615,6 +616,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &73262944
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73262940}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &110913470
 GameObject:
   m_ObjectHideFlags: 0
@@ -4829,6 +4842,7 @@ GameObject:
   - component: {fileID: 1042204985}
   - component: {fileID: 1042204987}
   - component: {fileID: 1042204986}
+  - component: {fileID: 1042204988}
   m_Layer: 5
   m_Name: WillpowerStatusButton
   m_TagString: Untagged
@@ -4926,6 +4940,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &1042204988
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042204984}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1088937887
 GameObject:
   m_ObjectHideFlags: 0
@@ -7093,6 +7119,7 @@ GameObject:
   - component: {fileID: 1657675193}
   - component: {fileID: 1657675195}
   - component: {fileID: 1657675194}
+  - component: {fileID: 1657675196}
   m_Layer: 5
   m_Name: WisdomStatusButton
   m_TagString: Untagged
@@ -7190,6 +7217,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &1657675196
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657675192}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1763073549
 GameObject:
   m_ObjectHideFlags: 0
@@ -7678,12 +7717,18 @@ MonoBehaviour:
   CharismaUIO:
     StatBar: {fileID: 73262942}
     ClickObject: {fileID: 365263005}
+    ObjectSprite: {fileID: 365263007}
+    CanvasGroup: {fileID: 73262944}
   WisdomUIO:
     StatBar: {fileID: 1657675194}
     ClickObject: {fileID: 310439865}
+    ObjectSprite: {fileID: 310439867}
+    CanvasGroup: {fileID: 1657675196}
   WillpowerUIO:
     StatBar: {fileID: 1042204986}
     ClickObject: {fileID: 884095221}
+    ObjectSprite: {fileID: 884095223}
+    CanvasGroup: {fileID: 1042204988}
   PlayerLabel: {fileID: 1985367687}
   characterStats: {fileID: 1254595389}
   MilestonePresenter: {fileID: 942613043}
