@@ -11,7 +11,6 @@ namespace Game.Systems.Minigames
         [SerializeField] private TamaCharacterController Character;
         [SerializeField] private TamaCharacterAnimation CharacterAnimator;
         [SerializeField] private Transform WateringOriginPoint;
-        [SerializeField] private DragDropObject DDObject;
 
         [Header("Parameters")]
         [SerializeField] private float RayLength = 3f;

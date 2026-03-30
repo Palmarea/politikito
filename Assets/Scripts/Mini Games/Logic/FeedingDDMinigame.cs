@@ -10,7 +10,6 @@ namespace Game.Systems.Minigames
         [Header("Dependencies")]
         [SerializeField] private TamaCharacterController Character;
         [SerializeField] private TamaCharacterAnimation CharacterAnimator;
-        [SerializeField] private DragDropObject DDObject;
 
         [Header("Difficulty")]
         [SerializeField] private DifficultyValue ProgressPerFeed;

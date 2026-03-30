@@ -1,6 +1,4 @@
 ﻿using Game.Systems.Input;
-using System.Collections;
-using TMPro;
 using UnityEngine;
 
 namespace Game.Systems.Interaction.DragNDrop

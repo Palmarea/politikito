@@ -1,5 +1,6 @@
 using Game.Character;
 using Game.Managers.Mouse;
+using Game.Systems.Interaction;
 using Game.Systems.Interaction.DragNDrop;
 using System;
 using UnityEngine;
@@ -38,15 +39,22 @@ namespace Game.Systems.Minigames
         [Header("Dependencies")]
         [SerializeField] protected TamaCharacterStats CharacterStats;
         [SerializeField] protected DragDropReceiver Receiver;
+        [SerializeField] protected DragDropObject DDObject;
+
+        [Header("Cooldown Config")]
+        [SerializeField] private float MinigameCooldownTime = 3.0f;
 
         protected float currentProgress = 0f;
+        protected float minigameCooldownTimer = 0f;
         protected bool isActive = false;
+        protected bool isCooling = false;
 
         public event Action OnMinigameClosed;
         public event Action OnMinigameCompleted;
 
         protected virtual void Awake()
         {
+            minigameCooldownTimer = MinigameCooldownTime;
             CloseButton.onClick.AddListener(CloseMinigame);
             MinigameUI.SetActive(false);
             Receiver.UpdateActive(false);
@@ -54,30 +62,52 @@ namespace Game.Systems.Minigames
 
         protected virtual void Update()
         {
-            if (!isActive) return;
+            if (isCooling)
+            {
+                minigameCooldownTimer -= Time.deltaTime;
+
+                if (minigameCooldownTimer < 0f)
+                {
+                    isCooling = false;
+                    minigameCooldownTimer = MinigameCooldownTime;
+                }
+            }
+            
+            if (!isActive || isCooling) return;
             UpdateMinigame();
         }
 
         public virtual void StartMinigame()
         {
-            if (isActive) return;
+            if (!isCooling)
+            {
+                if (!isActive)
+                {
+                    isActive = true;
 
-            isActive = true;
+                    currentProgress = 0f;
+                    UpdateProgressUI();
 
-            currentProgress = 0f;
-            UpdateProgressUI();
+                    isActive = true;
+                    MinigameUI.SetActive(true);
 
-            isActive = true;
-            MinigameUI.SetActive(true);
+                    MinigameManager.Instance.StartMinigame(this);
+                }
 
-            MinigameManager.Instance.StartMinigame(this);
+                DDObject.StartDragging();
+
+            }
+            else
+            {
+                return;
+            }
         }
 
         protected abstract void UpdateMinigame();
 
         public virtual void CloseMinigame()
         {
-            if (!isActive) return;
+            if (!isActive || isCooling) return;
 
             isActive = false;
             MinigameUI.SetActive(false);
@@ -90,7 +120,7 @@ namespace Game.Systems.Minigames
 
         protected void AddProgress(float amount)
         {
-            if (!isActive) return;
+            if (!isActive || isCooling) return;
 
             currentProgress += amount;
             currentProgress = Mathf.Clamp(currentProgress, 0f, 100f);
@@ -123,6 +153,8 @@ namespace Game.Systems.Minigames
 
             // Lo que pase después es responsabilidad del minijuego concreto
             OnCompleted();
+
+            isCooling = true;
         }
 
         // Cada minijuego define qué pasa al completarse

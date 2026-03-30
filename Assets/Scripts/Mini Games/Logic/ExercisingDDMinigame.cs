@@ -12,7 +12,6 @@ namespace Game.Systems.Minigames
         [SerializeField] private TamaCharacterController Character;
         [SerializeField] private TamaCharacterAnimation CharacterAnimator;
         [SerializeField] private Transform DumbbellOriginPoint;
-        [SerializeField] private DragDropObject DDObject;
         [SerializeField] private HoldButton FlexButton;
 
         [Header("Minigame Parameters")]

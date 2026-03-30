@@ -1437,19 +1437,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 310439870}
-        m_TargetAssemblyTypeName: Game.Systems.Interaction.DragNDrop.DragDropPhysicObject,
-          Assembly-CSharp
-        m_MethodName: StartDragging
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnHover:
     m_PersistentCalls:
       m_Calls: []
@@ -1736,19 +1723,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1323785655}
         m_TargetAssemblyTypeName: Game.Systems.Minigames.WateringDDMinigame, Assembly-CSharp
         m_MethodName: StartMinigame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 365263004}
-        m_TargetAssemblyTypeName: Game.Systems.Interaction.DragNDrop.DragDropObject,
-          Assembly-CSharp
-        m_MethodName: StartDragging
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3954,19 +3928,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1323785657}
         m_TargetAssemblyTypeName: Game.Systems.Minigames.ExercisingDDMinigame, Assembly-CSharp
         m_MethodName: StartMinigame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 884095220}
-        m_TargetAssemblyTypeName: Game.Systems.Interaction.DragNDrop.DragDropObject,
-          Assembly-CSharp
-        m_MethodName: StartDragging
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6379,10 +6340,11 @@ MonoBehaviour:
   CloseButton: {fileID: 985951241}
   CharacterStats: {fileID: 1254595389}
   Receiver: {fileID: 2109842855}
+  DDObject: {fileID: 365263004}
+  MinigameCooldownTime: 3
   Character: {fileID: 1254595392}
   CharacterAnimator: {fileID: 1254595390}
   WateringOriginPoint: {fileID: 365263008}
-  DDObject: {fileID: 365263004}
   RayLength: 3
   InteractableMasks:
     serializedVersion: 2
@@ -6433,10 +6395,11 @@ MonoBehaviour:
   CloseButton: {fileID: 985951241}
   CharacterStats: {fileID: 1254595389}
   Receiver: {fileID: 2109842855}
+  DDObject: {fileID: 884095220}
+  MinigameCooldownTime: 3
   Character: {fileID: 1254595392}
   CharacterAnimator: {fileID: 1254595390}
   DumbbellOriginPoint: {fileID: 884095224}
-  DDObject: {fileID: 884095220}
   FlexButton: {fileID: 773153809}
   PointsPerClick:
     valuesPerLevel:
@@ -6493,9 +6456,10 @@ MonoBehaviour:
   CloseButton: {fileID: 985951241}
   CharacterStats: {fileID: 1254595389}
   Receiver: {fileID: 2109842855}
+  DDObject: {fileID: 310439870}
+  MinigameCooldownTime: 3
   Character: {fileID: 1254595392}
   CharacterAnimator: {fileID: 1254595390}
-  DDObject: {fileID: 310439870}
   ProgressPerFeed:
     valuesPerLevel:
     - 100
@@ -7610,6 +7574,7 @@ GameObject:
   - component: {fileID: 1837783841}
   - component: {fileID: 1837783840}
   - component: {fileID: 1837783844}
+  - component: {fileID: 1837783845}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -7732,6 +7697,23 @@ MonoBehaviour:
   PlayerLabel: {fileID: 1985367687}
   characterStats: {fileID: 1254595389}
   MilestonePresenter: {fileID: 942613043}
+--- !u!114 &1837783845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837783839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c564fae95551d4ab307ef62b28da3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameHUDFollow
+  CameraController: {fileID: 519420034}
+  DragDropObjects:
+  - {fileID: 365263004}
+  - {fileID: 310439870}
+  - {fileID: 884095220}
 --- !u!1 &1857531313
 GameObject:
   m_ObjectHideFlags: 0
