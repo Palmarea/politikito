@@ -1,4 +1,5 @@
 ﻿using Game.Managers.Timing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -30,6 +31,8 @@ namespace Game.Systems.CameraControl
         [SerializeField] private float CameraMoveDuration = 0.3f;
         private Vector3 CameraSpeed = Vector3.zero;
 
+        public event Action OnArrivedToSection;
+
         private Camera m_MainCamera;
         private bool isMoving = false;
         private Transform target;
@@ -52,6 +55,7 @@ namespace Game.Systems.CameraControl
             if (Vector3.Distance(m_MainCamera.transform.position, target.position) <= 0.01f)
             {
                 isMoving = false;
+                OnArrivedToSection?.Invoke();
                 InterruptionManager.Instance.DisableInteruption();
             }
         }

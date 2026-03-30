@@ -4103,7 +4103,7 @@ GameObject:
   - component: {fileID: 920768672}
   - component: {fileID: 920768671}
   m_Layer: 0
-  m_Name: NewPlaceholderBG
+  m_Name: PlaceholderBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
