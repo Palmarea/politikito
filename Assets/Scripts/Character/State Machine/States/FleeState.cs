@@ -11,6 +11,14 @@ namespace Game.Character.StateMachine.States
         private float noiseScale = 1.5f;
         private float verticalAmount = 0.4f;
 
+        private float stuckCheckInterval = 0.5f;
+        private float stuckTimer = 0f;
+        private Vector2 lastPosition;
+        private float stuckThreshold = 0.01f;
+        private float forcedDirectionTimer = 0f;
+        private float forcedDirectionDuration = 1.0f;
+        private float forcedDirection = 0f;
+
         public FleeState(TamaCharacterController character, Transform target)
             : base(character)
         {
@@ -23,7 +31,32 @@ namespace Game.Character.StateMachine.States
             if (target == null)
                 return;
 
-            float horizontal = (target.position.x > movement.Position.x) ? -1f : 1f;
+            Vector2 currentPosition = movement.Position;
+
+            // Tick timers
+            stuckTimer += Time.fixedDeltaTime;
+            if (forcedDirectionTimer > 0f)
+                forcedDirectionTimer -= Time.fixedDeltaTime;
+
+            // Check if stuck every stuckCheckInterval seconds
+            if (stuckTimer >= stuckCheckInterval)
+            {
+                float distanceMoved = Mathf.Abs(currentPosition.x - lastPosition.x);
+                if (distanceMoved < stuckThreshold)
+                {
+                    // Stuck!! Force opposite direction
+                    forcedDirection = (target.position.x > movement.Position.x) ? 1f : -1f;
+                    forcedDirectionTimer = forcedDirectionDuration;
+                }
+                lastPosition = currentPosition;
+                stuckTimer = 0f;
+            }
+
+            float horizontal;
+            if (forcedDirectionTimer > 0f)
+                horizontal = forcedDirection;
+            else
+                horizontal = (target.position.x > movement.Position.x) ? -1f : 1f;
 
             float time = Time.time * noiseSpeed;
             float ny = Mathf.PerlinNoise(noiseSeed, time * noiseScale);
