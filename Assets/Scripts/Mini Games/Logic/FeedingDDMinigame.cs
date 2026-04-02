@@ -38,7 +38,8 @@ namespace Game.Systems.Minigames
 
         public override void StartMinigame()
         {
-            base.StartMinigame();
+            if (!CheckForMinigameStart())
+                return;
 
             Receiver.OnObjectDropped -= OnFoodGiven;
             Receiver.OnObjectDropped += OnFoodGiven;
@@ -46,7 +47,6 @@ namespace Game.Systems.Minigames
 
             level = CharacterStats.Wisdom.Level;
             CharacterAnimator.SetMiniGame(2);
-
             StartRunningPhase();
         }
 

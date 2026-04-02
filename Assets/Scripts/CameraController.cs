@@ -32,6 +32,7 @@ namespace Game.Systems.CameraControl
         private Vector3 CameraSpeed = Vector3.zero;
 
         public event Action OnArrivedToSection;
+        public event Action<CameraSection> OnSectionChanged;
 
         private Camera m_MainCamera;
         private bool isMoving = false;
@@ -57,6 +58,7 @@ namespace Game.Systems.CameraControl
                 isMoving = false;
                 OnArrivedToSection?.Invoke();
                 InterruptionManager.Instance.DisableInteruption();
+                OnSectionChanged?.Invoke(currentSection);
             }
         }
 

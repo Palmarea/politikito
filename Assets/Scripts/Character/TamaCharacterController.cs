@@ -27,7 +27,7 @@ namespace Game.Character
         {
             AnimationHandler.Animate();
             StateMachine.Update();
-            Debug.Log(StateMachine.CurrentState.GetType());
+            //Debug.Log(StateMachine.CurrentState.GetType());
         }
 
         private void FixedUpdate()

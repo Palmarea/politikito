@@ -29,7 +29,8 @@ namespace Game.Systems.Minigames
 
         public override void StartMinigame()
         {
-            base.StartMinigame();
+            if (!CheckForMinigameStart())
+                return;
 
             level = CharacterStats.WillPower.Level;
 

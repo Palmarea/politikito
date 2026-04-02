@@ -77,30 +77,30 @@ namespace Game.Systems.Minigames
             UpdateMinigame();
         }
 
+        protected virtual bool CheckForMinigameStart()
+        {
+            if (isCooling)
+                return false;
+
+            if (!isActive)
+            {
+                isActive = true;
+
+                currentProgress = 0f;
+                UpdateProgressUI();
+                MinigameUI.SetActive(true);
+
+                MinigameManager.Instance.StartMinigame(this);
+            }
+
+            DDObject.StartDragging();
+            return true;
+        }
+
         public virtual void StartMinigame()
         {
-            if (!isCooling)
-            {
-                if (!isActive)
-                {
-                    isActive = true;
-
-                    currentProgress = 0f;
-                    UpdateProgressUI();
-
-                    isActive = true;
-                    MinigameUI.SetActive(true);
-
-                    MinigameManager.Instance.StartMinigame(this);
-                }
-
-                DDObject.StartDragging();
-
-            }
-            else
-            {
+            if (!CheckForMinigameStart())
                 return;
-            }
         }
 
         protected abstract void UpdateMinigame();

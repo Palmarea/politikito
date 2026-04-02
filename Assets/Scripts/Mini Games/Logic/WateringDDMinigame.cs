@@ -24,7 +24,8 @@ namespace Game.Systems.Minigames
 
         public override void StartMinigame()
         {
-            base.StartMinigame();
+            if (!CheckForMinigameStart())
+                return;
 
             level = CharacterStats.Charisma.Level;
             CharacterAnimator.SetMiniGame(1);

@@ -14,6 +14,8 @@ namespace Assets.Scripts
         [SerializeField] private Button LeftButton;
         [SerializeField] private Button RightButton;
 
+        private CameraSection lastSection;
+
         public void HandleInterruptionStart(InterruptionType type)
         {
             LeftButton.interactable = false;
@@ -28,6 +30,17 @@ namespace Assets.Scripts
             LeftButton.interactable = true;
             RightButton.gameObject.SetActive(true);
             RightButton.interactable = true;
+
+            HandleSectionChanged(lastSection);
+        }
+
+        public void HandleSectionChanged(CameraSection section)
+        {
+            if (section == null) return;
+            LeftButton.gameObject.SetActive(section.LeftAnchor == null ? false : true);
+            RightButton.gameObject.SetActive(section.RightAnchor == null ? false : true);
+
+            lastSection = section;
         }
 
         private void OnEnable()
@@ -39,6 +52,8 @@ namespace Assets.Scripts
             {
                 LeftButton.onClick.AddListener(Controller.MoveLeft);
                 RightButton.onClick.AddListener(Controller.MoveRight);
+
+                Controller.OnSectionChanged += HandleSectionChanged;
             }
         }
 
@@ -49,6 +64,8 @@ namespace Assets.Scripts
 
             LeftButton.onClick.RemoveListener(Controller.MoveLeft);
             RightButton.onClick.RemoveListener(Controller.MoveRight);
+
+            Controller.OnSectionChanged -= HandleSectionChanged;
         }
     }
 }

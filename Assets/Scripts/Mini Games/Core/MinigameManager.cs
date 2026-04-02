@@ -1,4 +1,5 @@
 ﻿using Game.Character;
+using Game.Managers.Timing;
 using Game.Systems.CameraControl;
 using Game.Systems.Interaction.DragNDrop;
 using System.Collections.Generic;
@@ -63,6 +64,7 @@ namespace Game.Systems.Minigames
             }
 
             CharacterMovement.SetReducedBounds(dir);
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.MINIGAME);
         }
 
         public void EndMinigame()
@@ -77,6 +79,7 @@ namespace Game.Systems.Minigames
             }
 
             CharacterMovement.ResetBounds();
+            InterruptionManager.Instance.DisableInteruption();
         }
     }
 }
