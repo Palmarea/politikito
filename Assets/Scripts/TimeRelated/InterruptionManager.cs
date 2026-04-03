@@ -34,25 +34,13 @@ namespace Game.Managers.Timing
 
         public static event Action OnInterruptEnd;
 
-        private bool inInterruption = false;
-        public bool IsInInterruption => inInterruption;
-
         public void EnableInterruption(InterruptionType interruptionType)
         {
-            //if (!inInterruption)
-            //{
-            //}
-            //else
-            //{
-            //    Debug.LogWarning("Interruption ignored because already interrupted");
-            //}
-                inInterruption = true;
-                OnInterruptStart?.Invoke(interruptionType);
+            OnInterruptStart?.Invoke(interruptionType);
         }
 
         public void DisableInteruption()
         {
-            inInterruption = false;
             OnInterruptEnd?.Invoke();
         }
     }

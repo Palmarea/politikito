@@ -42,10 +42,13 @@ namespace Game.Character
             speedMultiplier = multiplier;
         }
 
-        public void SetReducedBounds(float dir)
+        public void SetReducedBounds(float dir, float horizontalOffset)
         {
-            MinBounds = new Vector2(-8.1f + (dir * 19.2f), 0f); 
-            MaxBounds = new Vector2(8.1f + (dir * 19.2f), 0f);
+            //MinBounds = new Vector2(-8.1f + (dir * 19.2f), MinBounds.y); 
+            //MaxBounds = new Vector2(8.1f + (dir * 19.2f), MaxBounds.y);
+
+            MinBounds = new Vector2(-8.1f + (dir * 19.2f) + horizontalOffset, MinBounds.y);
+            MaxBounds = new Vector2(8.1f + (dir * 19.2f) + horizontalOffset, MaxBounds.y);
         }
 
         public void ResetBounds()
@@ -61,7 +64,7 @@ namespace Game.Character
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.red;
 
             Vector3 center = (MinBounds + MaxBounds) / 2f;
             Vector3 size = MaxBounds - MinBounds;

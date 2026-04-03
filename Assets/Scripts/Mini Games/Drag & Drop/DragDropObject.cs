@@ -5,9 +5,11 @@ namespace Game.Systems.Interaction.DragNDrop
 {
     public class DragDropObject : MonoBehaviour
     {
+        [Header("Configuration")]
+        [SerializeField] protected Transform ReferenceOrigin;
+        
         protected bool isBeingDragged = false;
         protected Vector2 offset;
-        protected Vector3 initialPosition;
         private bool suscribed = false;
 
         private void Start()
@@ -17,8 +19,6 @@ namespace Game.Systems.Interaction.DragNDrop
                 InputManager.Instance.OnSelectCanceled += StopDragging;
                 suscribed = true;
             }
-
-            initialPosition = transform.position;
         }
 
         protected virtual void Update()
@@ -46,7 +46,9 @@ namespace Game.Systems.Interaction.DragNDrop
 
         public virtual void BackToOrigin()
         {
-            transform.position = initialPosition;
+            //transform.localPosition = initialPosition;
+            transform.localPosition = /*ReferenceOrigin.localPosition*/ Vector3.zero;
+
         }
 
         public virtual bool AllowToDrop()
@@ -56,7 +58,7 @@ namespace Game.Systems.Interaction.DragNDrop
 
         public void ResetInitialPosition()
         {
-            initialPosition = transform.position;
+            //initialPosition = transform.parent.localPosition;
         }
 
         private void OnEnable()

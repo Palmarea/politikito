@@ -13,7 +13,8 @@ public class GameHUDFollow : MonoBehaviour
 
     private void Awake()
     {
-        transform.parent = CameraController.transform;
+        //transform.parent = CameraController.transform;
+        transform.SetParent(CameraController.transform);
     }
 
     private void UpdateDNDOBjects()

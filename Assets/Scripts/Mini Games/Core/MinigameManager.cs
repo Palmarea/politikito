@@ -63,7 +63,8 @@ namespace Game.Systems.Minigames
                     break;
             }
 
-            CharacterMovement.SetReducedBounds(dir);
+            float newOrigin = CameraController.ForceMove(CharacterMovement.transform);
+            CharacterMovement.SetReducedBounds(dir, newOrigin);
             InterruptionManager.Instance.EnableInterruption(InterruptionType.MINIGAME);
         }
 
@@ -79,7 +80,7 @@ namespace Game.Systems.Minigames
             }
 
             CharacterMovement.ResetBounds();
-            InterruptionManager.Instance.DisableInteruption();
+            CameraController.ResetForced();
         }
     }
 }
