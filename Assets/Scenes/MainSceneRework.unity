@@ -1565,7 +1565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e6eefd1c4d8724f8c8789f046ec244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.DragNDrop.DragDropPhysicObject
-  ReferenceOrigin: {fileID: 0}
 --- !u!50 &310439871
 Rigidbody2D:
   serializedVersion: 5
@@ -1706,7 +1705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5021778a16f76a459bb619c7fcab241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.DragNDrop.DragDropObject
-  ReferenceOrigin: {fileID: 0}
 --- !u!114 &365263005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3915,7 +3913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5021778a16f76a459bb619c7fcab241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.DragNDrop.DragDropObject
-  ReferenceOrigin: {fileID: 0}
 --- !u!114 &884095221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6074,8 +6071,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f639357d1a5de74c842ec2f20427538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character.TamaCharacterMovement
-  MinBounds: {x: -26, y: -0.74}
-  MaxBounds: {x: 26, y: -0.74}
+  MinBounds: {x: -26, y: -1.24}
+  MaxBounds: {x: 26, y: -1.24}
   BaseSpeed: 2
 --- !u!114 &1254595392
 MonoBehaviour:
@@ -6098,7 +6095,7 @@ Transform:
   m_GameObject: {fileID: 1254595388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6480,20 +6477,6 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-  TimeRunning:
-    valuesPerLevel:
-    - 0
-    - 3
-    - 4
-    - 5
-    - 5
-  TimeStopped:
-    valuesPerLevel:
-    - 4
-    - 4
-    - 2
-    - 1
-    - 4
   MouthOpenDuration:
     valuesPerLevel:
     - 4
@@ -6508,13 +6491,13 @@ MonoBehaviour:
     - 2
     - 2
     - 2
-  MouthOpenRepeats:
+  RunningSpeed:
     valuesPerLevel:
     - 1
-    - 1
-    - 1
-    - 1
-    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
 --- !u!1 &1348909984
 GameObject:
   m_ObjectHideFlags: 0

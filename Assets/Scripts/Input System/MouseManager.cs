@@ -113,6 +113,18 @@ namespace Game.Managers.Mouse
             OnOcuppiedStateChanged?.Invoke(ocuppied);
         }
 
+        public void SetHorizontalRestriction(bool state)
+        {
+            Cursor.lockState = state ? CursorLockMode.Confined : CursorLockMode.None;
+
+            if (!state)
+            {
+                UnityEngine.InputSystem.Mouse.current.WarpCursorPosition(new Vector2(Screen.width / 2, Screen.height / 2));
+            }
+
+            Cursor.visible = !state;
+        }
+
         private void OnEnable()
         {
             if (InputManager.Instance != null)
