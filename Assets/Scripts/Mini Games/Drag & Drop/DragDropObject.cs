@@ -4,10 +4,7 @@ using UnityEngine;
 namespace Game.Systems.Interaction.DragNDrop
 {
     public class DragDropObject : MonoBehaviour
-    {
-        [Header("Configuration")]
-        [SerializeField] protected Transform ReferenceOrigin;
-        
+    {        
         protected bool isBeingDragged = false;
         protected Vector2 offset;
         private bool suscribed = false;
@@ -46,9 +43,7 @@ namespace Game.Systems.Interaction.DragNDrop
 
         public virtual void BackToOrigin()
         {
-            //transform.localPosition = initialPosition;
-            transform.localPosition = /*ReferenceOrigin.localPosition*/ Vector3.zero;
-
+            transform.localPosition = Vector3.zero;
         }
 
         public virtual bool AllowToDrop()

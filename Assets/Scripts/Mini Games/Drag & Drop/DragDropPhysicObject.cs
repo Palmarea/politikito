@@ -27,15 +27,22 @@ namespace Game.Systems.Interaction.DragNDrop
             }
             else if (isBeingDragged)
             {
-                Vector2 targetPosition = InputManager.Instance.GetMousePosition() + offset;
-                transform.position = targetPosition;
-                rb.position = transform.position;
+                Vector3 mouseWorldPos = /*Camera.main.ScreenToWorldPoint(*/InputManager.Instance.GetMousePosition();
+                mouseWorldPos.z = 0f;
+
+                Vector3 localPos = transform.parent.InverseTransformPoint(mouseWorldPos);
+                localPos.y = -300f; // fixed Y
+                localPos.z = 0f;
+
+                transform.localPosition = localPos;
+                rb.position = localPos;
             }
         }
 
         public override void StartDragging()
         {
-            base.StartDragging();
+            isBeingDragged = true;
+            offset = (Vector2)transform.position - InputManager.Instance.GetMousePosition();
 
             freeFall = false;
             rb.bodyType = RigidbodyType2D.Kinematic;
@@ -58,10 +65,7 @@ namespace Game.Systems.Interaction.DragNDrop
             rb.bodyType = RigidbodyType2D.Kinematic;
             freeFall = false;
             rb.linearVelocity = Vector2.zero;
-            // Esto es lo importante
             transform.localPosition = Vector3.zero;
-
-            // sincroniza el rigidbody con el transform
             rb.position = transform.position;
         }
 

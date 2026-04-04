@@ -62,6 +62,16 @@ namespace Game.Character
             rb.linearVelocity = Vector2.zero;
         }
 
+        public float GetMinX()
+        {
+            return MinBounds.x;
+        }
+
+        public float GetMaxX()
+        {
+            return MaxBounds.x;
+        }
+
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
