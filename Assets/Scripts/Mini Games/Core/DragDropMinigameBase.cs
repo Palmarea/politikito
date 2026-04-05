@@ -66,14 +66,20 @@ namespace Game.Systems.Minigames
             {
                 minigameCooldownTimer -= Time.deltaTime;
 
+                // Barra va de 0 (inicio) a 1 (listo)
+                float cooldownProgress = 1f - (minigameCooldownTimer / MinigameCooldownTime);
+                UpdateProgressUI(cooldownProgress);
+
                 if (minigameCooldownTimer < 0f)
                 {
                     isCooling = false;
                     minigameCooldownTimer = MinigameCooldownTime;
+                    OnCooldownFinished();
                 }
+                return;
             }
-            
-            if (!isActive || isCooling) return;
+
+            if (!isActive) return;
             UpdateMinigame();
         }
 
@@ -133,17 +139,27 @@ namespace Game.Systems.Minigames
             }
         }
 
-        private void UpdateProgressUI()
+        private void UpdateProgressUI(float value = -1f)
         {
-            if (ProgressBar != null)
+            if (ProgressBar == null) return;
+
+            if (value >= 0f)
+                ProgressBar.value = value;
+            else
                 ProgressBar.value = currentProgress / 100f;
+        }
+
+        private void OnCooldownFinished()
+        {
+            UpdateProgressUI(0f);
+            MinigameUI.SetActive(false);
         }
 
         private void CompleteMinigame()
         {
             isActive = false;
 
-            MinigameUI.SetActive(false);
+            // Mostrar minigame, mostrando cooldown
             MouseManager.Instance.UpdateOcuppiedState(false);
 
             MinigameManager.Instance.EndMinigame();
@@ -151,13 +167,13 @@ namespace Game.Systems.Minigames
             OnMinigameCompleted?.Invoke();
             Receiver.UpdateActive(false);
 
-            // Lo que pase después es responsabilidad del minijuego concreto
             OnCompleted();
 
             isCooling = true;
+            UpdateProgressUI(0f); // empieza barra desde el inicio
         }
 
-        // Cada minijuego define qué pasa al completarse
+        // Cada minijuego define que pasa al completarse
         protected abstract void OnCompleted();
     }
 }
