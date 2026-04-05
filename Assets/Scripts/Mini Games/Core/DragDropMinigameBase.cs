@@ -2,6 +2,7 @@ using Game.Character;
 using Game.Managers.Mouse;
 using Game.Systems.Interaction;
 using Game.Systems.Interaction.DragNDrop;
+using Game.UI;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,6 +45,9 @@ namespace Game.Systems.Minigames
         [Header("Cooldown Config")]
         [SerializeField] private float MinigameCooldownTime = 3.0f;
 
+        [Header("Cooldown UI")]
+        [SerializeField] private StatRadialBarUI CooldownRadialBar;
+
         protected float currentProgress = 0f;
         protected float minigameCooldownTimer = 0f;
         protected bool isActive = false;
@@ -65,10 +69,6 @@ namespace Game.Systems.Minigames
             if (isCooling)
             {
                 minigameCooldownTimer -= Time.deltaTime;
-
-                // Barra va de 0 (inicio) a 1 (listo)
-                float cooldownProgress = 1f - (minigameCooldownTimer / MinigameCooldownTime);
-                UpdateProgressUI(cooldownProgress);
 
                 if (minigameCooldownTimer < 0f)
                 {
@@ -139,27 +139,25 @@ namespace Game.Systems.Minigames
             }
         }
 
-        private void UpdateProgressUI(float value = -1f)
+        private void UpdateProgressUI()
         {
-            if (ProgressBar == null) return;
-
-            if (value >= 0f)
-                ProgressBar.value = value;
-            else
+            if (ProgressBar != null)
                 ProgressBar.value = currentProgress / 100f;
         }
 
         private void OnCooldownFinished()
         {
-            UpdateProgressUI(0f);
             MinigameUI.SetActive(false);
+
+            if (CooldownRadialBar != null)
+                CooldownRadialBar.EndCooldown();
         }
 
         private void CompleteMinigame()
         {
             isActive = false;
 
-            // Mostrar minigame, mostrando cooldown
+            MinigameUI.SetActive(false);
             MouseManager.Instance.UpdateOcuppiedState(false);
 
             MinigameManager.Instance.EndMinigame();
@@ -170,10 +168,11 @@ namespace Game.Systems.Minigames
             OnCompleted();
 
             isCooling = true;
-            UpdateProgressUI(0f); // empieza barra desde el inicio
+
+            if (CooldownRadialBar != null)
+                CooldownRadialBar.StartCooldown(MinigameCooldownTime);
         }
 
-        // Cada minijuego define que pasa al completarse
         protected abstract void OnCompleted();
     }
 }
