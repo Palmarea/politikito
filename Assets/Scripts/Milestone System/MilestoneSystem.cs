@@ -10,20 +10,14 @@ namespace Game.Systems.Milestone
         [SerializeField] private MilestoneCreator Creator;
 
         [Header("Parameters")]
-        [SerializeField] private TextAsset MilestoneJSON;
-        [SerializeField] private int MaxAchievementList = 5;
+        [SerializeField] private MilestoneDatabaseSO Database;
 
         private Dictionary<int, Milestone> MilestoneDictionary = new();
         public event Action<Milestone> OnMilestoneReached;
 
         private void Awake()
         {
-            var milestones = Creator.CreateAllMilestones(MilestoneJSON);
-
-            foreach (var milestone in milestones)
-            {
-                MilestoneDictionary[milestone.level] = milestone;
-            }   
+            MilestoneDictionary = Creator.CreateAllMilestones(Database);
         }
 
         private void Start()

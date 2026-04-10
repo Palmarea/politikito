@@ -3,6 +3,7 @@ using Game.Systems.Achievement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,7 @@ namespace Game.Systems.Milestone
         [SerializeField] private AchievementPresenter PairSystem;
         [SerializeField] private GameObject MilestoneCanvasUI;
         [SerializeField] private Image MilestoneImageUI;
+        [SerializeField] private TextMeshProUGUI MilestoneDescriptionUI;
         [SerializeField] private Button MilestoneNext;
         [SerializeField] private GameObject TutorialPostIt;
 
@@ -47,10 +49,10 @@ namespace Game.Systems.Milestone
             hasBeenRequested = true;
             currentMilestone = milestone;
 
-            if (fallbackRoutine != null)
-                StopCoroutine(fallbackRoutine);
+            //if (fallbackRoutine != null)
+            //    StopCoroutine(fallbackRoutine);
 
-            fallbackRoutine = StartCoroutine(FallbackTimer());
+            //fallbackRoutine = StartCoroutine(FallbackTimer());
         }
 
         private void ShowMilestone()
@@ -62,7 +64,9 @@ namespace Game.Systems.Milestone
 
             InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
 
+            MilestoneDescriptionUI.SetText(string.Format(currentMilestone.description, GameData.Instance.GetPlayerLabel()));
             MilestoneCanvasUI.SetActive(true);
+
 
             MilestoneImageUI.sprite = MilestoneImages[currentMilestone.level - 1];
             MilestoneImageUI.gameObject.SetActive(true);
