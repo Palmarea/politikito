@@ -1,5 +1,6 @@
 ﻿using Febucci.UI;
 using Game.Managers.Timing;
+using Game.Systems.Interaction.Detail;
 using System;
 using System.Collections;
 using TMPro;
@@ -40,15 +41,7 @@ namespace Game.Systems.Achievement
         {
             if (MainSystem == null) MainSystem = GetComponent<AchievementSystem>();
 
-            if (NotificationCanvasUI.activeInHierarchy)
-                NotificationCanvasUI.SetActive(false);
-
-            foreach (var textStep in NotificationTitles)
-                textStep.text.ShowText("");
-            
-            foreach (var textStep in NotificationDescriptions)
-                textStep.text.ShowText("");
-
+            NotificationCanvasUI.SetActive(false);
             NotificationImage.gameObject.SetActive(false);
         }
 
@@ -63,6 +56,8 @@ namespace Game.Systems.Achievement
             // Si ya hay una coroutine corriendo, la cancelamos
             if (presentationRoutine != null)
                 StopCoroutine(presentationRoutine);
+
+            DetailSystem.Instance.RequestDetailObjCreation(achievement.detailObjectID);
 
             presentationRoutine = StartCoroutine(ShowSequence(achievement));
 

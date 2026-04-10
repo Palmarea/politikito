@@ -3,6 +3,7 @@ using Game.Systems.Interaction;
 using Game.Systems.Input;
 using System;
 using UnityEngine;
+using Game.Systems.Interaction.Detail;
 
 namespace Game.Managers.Mouse
 {
@@ -48,14 +49,14 @@ namespace Game.Managers.Mouse
         {
             //if (TimeManager.Instance.TimeStop)
             //{
-            //    if (currentHover != null)
-            //    {
-            //        currentHover.SetHover(false);
-            //        currentHover = null;
-            //    }
             //}
+                if (currentHover != null)
+                {
+                    currentHover.SetHover(false);
+                    currentHover = null;
+                }
 
-            //CheckHover();
+            CheckHover();
         }
 
         private void CheckHover()
@@ -99,6 +100,14 @@ namespace Game.Managers.Mouse
                 if (clickable != null)
                 {
                     clickable.Click();
+
+                    DetailObject detObj = hit.collider.GetComponent<DetailObject>();
+
+                    if (detObj != null)
+                    {
+                        //OnClickableExpositionObject?.Invoke(expObj);
+                        UpdateOcuppiedState(true);
+                    }
                 }
             }
             else
