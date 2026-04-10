@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using UnityEngine;
 
 namespace Game.Systems.Achievement
 {
@@ -6,9 +7,9 @@ namespace Game.Systems.Achievement
     public class Achievement
     {
         public int level;
-        public int order;
-        public string title;
-        public string description;
+        public StatType stat;
+        public string spriteAtlasID;
+        [TextArea] public string description;
 
         public override string ToString()
         {
@@ -16,8 +17,8 @@ namespace Game.Systems.Achievement
 
             sb.AppendLine("Achievement:");
             sb.AppendLine($"  Level: {level}");
-            sb.AppendLine($"  Order: {order}");
-            sb.AppendLine($"  Title: {title}");
+            sb.AppendLine($"  Statistic : {stat}");
+            sb.AppendLine($"  Sprite Atlas Identifier: {spriteAtlasID}");
             sb.AppendLine($"  Description: {description}");
 
             return sb.ToString();

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3ab2a8da521a74bbad9e763aff166c, type: 3}
+  m_Name: AchievementDB
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Achievement.AchievementDatabaseSO
+  AchievementDB:
+  - level: 1
+    stat: 0
+    spriteAtlasID: 0
+    description: "(Nombre) particip\xF3 en activaci\xF3n para reponer las \xE1reas
+      verdes \xA1Yupi!"
+  - level: 2
+    stat: 0
+    spriteAtlasID: 1
+    description: "(Nombre) expuso en su escuela sobre las consecuencias ambientales
+      de la miner\xEDa."
+  - level: 3
+    stat: 0
+    spriteAtlasID: 2
+    description: "(Nombre) se uni\xF3 exitosamente a Gotita Verde, partido pol\xEDtico
+      local con enfoque medioambiental. \xA1Hurra!"
+  - level: 4
+    stat: 0
+    spriteAtlasID: 3
+    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+  - level: 1
+    stat: 1
+    spriteAtlasID: 3
+    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+  - level: 2
+    stat: 1
+    spriteAtlasID: 3
+    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+  - level: 3
+    stat: 1
+    spriteAtlasID: 3
+    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+  - level: 4
+    stat: 1
+    spriteAtlasID: 3
+    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+  - level: 1
+    stat: 2
+    spriteAtlasID: 3
+    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+  - level: 2
+    stat: 2
+    spriteAtlasID: 3
+    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+  - level: 3
+    stat: 2
+    spriteAtlasID: 3
+    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+  - level: 4
+    stat: 2
+    spriteAtlasID: 3
+    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
