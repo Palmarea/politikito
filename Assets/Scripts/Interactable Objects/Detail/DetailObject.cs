@@ -13,7 +13,7 @@ namespace Game.Systems.Interaction.Detail
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.AppendLine("Detail Object Data:");
             sb.AppendLine($"  Identifier : {objectID}");

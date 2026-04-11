@@ -27,9 +27,9 @@ namespace Game.Systems.CameraControl
     {
         [Header("Dependencies")]
         [SerializeField] private TamaCharacterStats CharacterStats;
-        
+
         [Header("Section Configuration")]
-        [SerializeField] private List<CameraSection> Sections = new List<CameraSection>();
+        [SerializeField] private List<CameraSection> Sections = new();
 
         [Header("Parameters")]
         [SerializeField] private float CameraMoveDuration = 0.3f;
@@ -37,13 +37,19 @@ namespace Game.Systems.CameraControl
         [SerializeField] private float MaxHorizontalBound;
         private Vector3 CameraSpeed = Vector3.zero;
 
+        [Header("Zoom")]
+        [SerializeField] private float DefaultZoom = 5f;
+        private float zoomVelocity;
+        private float targetZoom;
+        private float zoomSmoothTime = 0.3f;
+
         public event Action OnArrivedToSection;
+        public event Action OnArrivedToForcedSection;
         public event Action<CameraSection> OnSectionChanged;
 
         private Camera m_MainCamera;
         private bool isMoving = false;
         private bool isForced = false;
-        private bool wasForced = false;
         private bool levelUpRequested = false;
         private Transform target;
         private Vector3 m_forcedTarget;
@@ -54,31 +60,43 @@ namespace Game.Systems.CameraControl
             m_MainCamera = GetComponent<Camera>();
             currentSection = Sections.FirstOrDefault(section => section.Type == CameraSectionType.MIDDLE);
             m_MainCamera.transform.position = currentSection.MainAnchor.position;
+
+            targetZoom = DefaultZoom;
+            m_MainCamera.orthographicSize = DefaultZoom;
         }
 
         void LateUpdate()
         {
+            HandleMovement();
+            HandleZoom();
+        }
+
+        #region MOVEMENT
+
+        private void HandleMovement()
+        {
             if (!isMoving) return;
 
-            if (isForced && isMoving)
+            if (isForced)
             {
                 MoveCamera(m_forcedTarget);
-                
+
                 if (Vector3.Distance(m_MainCamera.transform.position, m_forcedTarget) <= 0.01f)
                 {
                     isMoving = false;
                     isForced = false;
-                    wasForced = true;
+
+                    OnArrivedToForcedSection?.Invoke();
                 }
             }
-            else if (!isForced && isMoving)
+            else
             {
                 MoveCamera(target.position);
 
                 if (Vector3.Distance(m_MainCamera.transform.position, target.position) <= 0.01f)
                 {
                     isMoving = false;
-                    
+
                     if (!levelUpRequested)
                     {
                         OnArrivedToSection?.Invoke();
@@ -95,7 +113,12 @@ namespace Game.Systems.CameraControl
 
         private void MoveCamera(Vector3 targetPosition)
         {
-            m_MainCamera.transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref CameraSpeed, CameraMoveDuration);
+            m_MainCamera.transform.position = Vector3.SmoothDamp(
+                transform.position,
+                targetPosition,
+                ref CameraSpeed,
+                CameraMoveDuration
+            );
         }
 
         public void MoveLeft()
@@ -123,16 +146,29 @@ namespace Game.Systems.CameraControl
             InterruptionManager.Instance.EnableInterruption(InterruptionType.TRANSITION);
         }
 
-        public float ForceMove(Transform forcedTarget)
+        public float ForceMove(Transform forcedTarget, bool outBounds = false)
         {
             isForced = true;
             isMoving = true;
 
-            Vector3 desired = new Vector3(
-                forcedTarget.position.x,
-                m_MainCamera.transform.position.y,
-                m_MainCamera.transform.position.z
-            );
+            Vector3 desired = Vector3.zero;
+
+            if (!outBounds)
+            {
+                desired = new Vector3(
+                    forcedTarget.position.x,
+                    m_MainCamera.transform.position.y,
+                    m_MainCamera.transform.position.z
+                );
+            }
+            else
+            {
+                desired = new Vector3(
+                    forcedTarget.position.x,
+                    forcedTarget.position.y,
+                    m_MainCamera.transform.position.z
+                );
+            }
 
             float offset = ClampForcedX(ref desired);
 
@@ -141,35 +177,77 @@ namespace Game.Systems.CameraControl
             return desired.x;
         }
 
-        public void ResetForced()
+        public void ResetForced(bool backToLast = false)
         {
             isForced = false;
             isMoving = false;
 
-            float minDistance = 1000f;
-            CameraSection cs = currentSection;
-            foreach(var section in Sections)
+            if (backToLast)
             {
-                float distance = Vector3.Distance(m_forcedTarget, section.MainAnchor.position);
-                if (distance < minDistance)
+                float minDistance = 1000f;
+                CameraSection cs = currentSection;
+
+                foreach (var section in Sections)
                 {
-                    minDistance = distance;
-                    cs = section;
+                    float distance = Vector3.Distance(m_forcedTarget, section.MainAnchor.position);
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        cs = section;
+                    }
                 }
+
+                m_forcedTarget = Vector3.zero;
+
+                if (cs == null) return;
+
+                target = cs.MainAnchor;
+                currentSection = cs;
             }
 
-            m_forcedTarget = Vector3.zero;
-
-            if (cs == null) return;
-
-            target = cs.MainAnchor;
-            currentSection = cs;
             isMoving = true;
 
             InterruptionManager.Instance.EnableInterruption(InterruptionType.TRANSITION);
         }
 
         public CameraSectionType GetCurrentCameraSection() => currentSection.Type;
+
+        #endregion
+
+        #region ZOOM
+
+        private void HandleZoom()
+        {
+            m_MainCamera.orthographicSize = Mathf.SmoothDamp(
+                m_MainCamera.orthographicSize,
+                targetZoom,
+                ref zoomVelocity,
+                zoomSmoothTime
+            );
+        }
+
+        public void SetZoom(float zoomSize, float duration)
+        {
+            targetZoom = zoomSize;
+            zoomSmoothTime = duration;
+        }
+
+        public void SetZoomImmediate(float zoomSize)
+        {
+            targetZoom = zoomSize;
+            zoomVelocity = 0f;
+            m_MainCamera.orthographicSize = zoomSize;
+        }
+
+        public void ResetZoom(float duration)
+        {
+            targetZoom = DefaultZoom;
+            zoomSmoothTime = duration;
+        }
+
+        #endregion
+
+        #region HELPERS
 
         private float ClampForcedX(ref Vector3 targetPosition)
         {
@@ -214,7 +292,7 @@ namespace Game.Systems.CameraControl
 
             CharacterStats.OnStatLevelUp += HandleLevelUp;
         }
-        
+
         private void OnDisable()
         {
             CharacterStats.OnStatLevelUp -= HandleLevelUp;
@@ -226,17 +304,17 @@ namespace Game.Systems.CameraControl
 
             float height = 20f;
 
-            // Línea del Min Bound
             Gizmos.DrawLine(
                 new Vector3(MinHorizontalBound, -height, 0),
                 new Vector3(MinHorizontalBound, height, 0)
             );
 
-            // Línea del Max Bound
             Gizmos.DrawLine(
                 new Vector3(MaxHorizontalBound, -height, 0),
                 new Vector3(MaxHorizontalBound, height, 0)
             );
         }
+
+        #endregion
     }
 }
