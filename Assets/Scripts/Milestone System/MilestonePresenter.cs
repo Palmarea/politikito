@@ -1,10 +1,10 @@
 ﻿using Game.Managers.Timing;
 using Game.Systems.Achievement;
+using Game.Systems.Milestone.Inspect;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +14,11 @@ namespace Game.Systems.Milestone
     {
         [Header("Dependencies")]
         [SerializeField] private Animator Animator;
-
-        [Header("UI References")]
         [SerializeField] private MilestoneSystem MainSystem;
         [SerializeField] private AchievementPresenter PairSystem;
+        [SerializeField] private MilestoneInspectSystem InspectSystem;
+
+        [Header("UI References")]
         [SerializeField] private GameObject MilestoneCanvasUI;
         [SerializeField] private Image MilestoneImageUI;
         [SerializeField] private TextMeshProUGUI MilestoneDescriptionUI;
@@ -67,6 +68,7 @@ namespace Game.Systems.Milestone
             MilestoneDescriptionUI.SetText(string.Format(currentMilestone.description, GameData.Instance.GetPlayerLabel()));
             MilestoneCanvasUI.SetActive(true);
 
+            InspectSystem.RequestMDOCreation(currentMilestone.detailObjectID, currentMilestone.level);
 
             MilestoneImageUI.sprite = MilestoneImages[currentMilestone.level - 1];
             MilestoneImageUI.gameObject.SetActive(true);

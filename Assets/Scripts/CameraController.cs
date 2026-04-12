@@ -182,7 +182,7 @@ namespace Game.Systems.CameraControl
             isForced = false;
             isMoving = false;
 
-            if (backToLast)
+            if (!backToLast)
             {
                 float minDistance = 1000f;
                 CameraSection cs = currentSection;

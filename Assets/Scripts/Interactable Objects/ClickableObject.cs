@@ -7,9 +7,9 @@ namespace Game.Systems.Interaction
     {
         [Header("Events")]
         [Tooltip("Events called when clicked on object")]
-        [SerializeField] private UnityEvent OnClicked;
-        [SerializeField] private UnityEvent OnHover;
-        [SerializeField] private UnityEvent OnOffHover;
+        public UnityEvent OnClicked;
+        public UnityEvent OnHover;
+        public UnityEvent OnOffHover;
 
         private bool interactable = true;
         

@@ -15,4 +15,10 @@ MonoBehaviour:
   DetailDB:
   - objectID: manzana
     spriteAtlasID: 0
+    type: 0
     description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: cuadro
+    spriteAtlasID: 0
+    type: 1
+    description: "{0} fund\xF3 el primer periodico impreso en la escuela p\xFAblica
+      No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"

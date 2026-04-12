@@ -15,24 +15,28 @@ MonoBehaviour:
   MilestoneDB:
   - level: 1
     spriteAtlasID: 0
-    detailObjectID: manzana
+    detailObjectID: cuadro
+    spawnPosition: {x: 0, y: 0, z: 0}
     description: "{0} fund\xF3 el primer periodico impreso en la escuela p\xFAblica
       No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"
   - level: 2
     spriteAtlasID: 1
     detailObjectID: manzana
+    spawnPosition: {x: 0, y: 0, z: 0}
     description: "El alcalde se pronuncia sobre los disturbios ocasionados por la
       marcha.\\n\\n\u201CLos j\xF3venes adoctrinados rechazan el progreso y desarrollo
       econ\xF3mico asociado a la miner\xEDa. (...) Es una pena.\u201D"
   - level: 3
     spriteAtlasID: 2
     detailObjectID: manzana
+    spawnPosition: {x: 0, y: 0, z: 0}
     description: "{0}, reconocido l\xEDder indigena de la Selva, renuncia al Partido
       de la Gotita Verde y cambia de bando. Se une al reci\xE9n fundado Partido Diamantito.
       VOTA POR DAMIAN TITO"
   - level: 4
     spriteAtlasID: 3
     detailObjectID: manzana
+    spawnPosition: {x: 0, y: 0, z: 0}
     description: "El nuevo presidente Damian Tito, del Partido Diamantito, anuncia
       que {0} es su nuevo Ministro de Interior. Conoce m\xE1s sobre sus propuestas
       para POTENCIAR la econom\xEDa."

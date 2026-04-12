@@ -5,11 +5,15 @@ namespace Game.UI
 {
     public class TransitionHandler : MonoBehaviour
     {
-        [Header("Dependencies")]
-        [SerializeField] private Animator Animator;
+        private Animator Animator;
 
         public event Action OnTransBlackEnded;
         public event Action OnTransTransparentEnded;
+
+        private void Awake()
+        {
+            Animator = GetComponent<Animator>();
+        }
 
         public void RequestTransitionTB()
         {

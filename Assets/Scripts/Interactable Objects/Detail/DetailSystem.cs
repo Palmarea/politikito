@@ -3,7 +3,9 @@ using Game.Managers.Mouse;
 using Game.Managers.Timing;
 using Game.Systems.Input;
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.Systems.Interaction.Detail
 {
@@ -14,7 +16,15 @@ namespace Game.Systems.Interaction.Detail
         
         [Header("References")]
         [SerializeField] private GameObject DetailCanvasUI;
+
+        [Header("Achievement References")]
+        [SerializeField] private GameObject TextBox;
         [SerializeField] private TypewriterByCharacter DetailText;
+
+        [Header("Milestone References")]
+        [SerializeField] private Image NewspaperImage;
+        [SerializeField] private TextMeshProUGUI NewspaperText;
+
 
         private bool m_Occupied = false;
         private bool suscribed = false;
@@ -43,26 +53,46 @@ namespace Game.Systems.Interaction.Detail
                 MouseManager.Instance.OnSimpleClickPerformed += HideDetail;
                 suscribed = true;
             }
+
+            TextBox.SetActive(false);
+            NewspaperImage.gameObject.SetActive(false);
+            NewspaperText.text = "";
         }
 
-        public void ShowDetail(string detailMs)
+        public void ShowDetail(DetailObjData data)
         {
+            if (m_Occupied) return;
+            
             if (!DetailCanvasUI.activeInHierarchy) DetailCanvasUI.SetActive(true);
 
             m_Occupied = true;
 
             InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
 
-            DetailText.ShowText(string.Format(detailMs, GameData.Instance.GetPlayerLabel().ToUpper()));
+            if (data.type == DetailType.ACHIEVEMENT)
+            {
+                TextBox.SetActive(true);
+                DetailText.ShowText(string.Format(data.description, GameData.Instance.GetPlayerLabel().ToUpper()));
+            }
+            else
+            {
+                NewspaperImage.gameObject.SetActive(true);
+                NewspaperText.SetText(string.Format(data.description, GameData.Instance.GetPlayerLabel()));
+            }
+
         }
 
         private void HideDetail()
         {
             if (!m_Occupied) return;
             
-            m_Occupied = true;
+            m_Occupied = false;
 
+            TextBox.SetActive(false);
             DetailText.ShowText("");
+
+            NewspaperImage.gameObject.SetActive(false);
+            NewspaperText.text = "";
 
             InterruptionManager.Instance.DisableInteruption();
             MouseManager.Instance.UpdateOcuppiedState(false);
@@ -70,9 +100,9 @@ namespace Game.Systems.Interaction.Detail
             DetailCanvasUI.SetActive(false);
         }
 
-        public void RequestDetailObjCreation(string objID)
+        public void RequestDetailObjCreation(string objID, Vector3 spawnPosition, bool needFocus = true)
         {
-            Creator.CreateDetailObject(objID);
+            Creator.CreateDetailObject(objID, spawnPosition, needFocus);
         }
 
         private void OnEnable()

@@ -3,9 +3,9 @@ using Game.Systems.CameraControl;
 using Game.UI;
 using UnityEngine;
 
-namespace Game.Systems.Milestone
+namespace Game.Systems.Milestone.Inspect
 {
-    public class MilestoneReview : MonoBehaviour
+    public class MilestoneInspectView : MonoBehaviour
     {
         [Header("Dependencies")]
         [SerializeField] private CameraController CamController;

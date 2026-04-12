@@ -10,6 +10,7 @@ namespace Game.Systems.Achievement
         public StatType stat;
         public string spriteAtlasID;
         public string detailObjectID;
+        public Vector3 spawnPosition;
         [TextArea] public string description;
 
         public override string ToString()
@@ -21,6 +22,7 @@ namespace Game.Systems.Achievement
             sb.AppendLine($"  Statistic : {stat}");
             sb.AppendLine($"  Sprite Atlas Identifier: {spriteAtlasID}");
             sb.AppendLine($"  Detail Atlas Identifier: {detailObjectID}");
+            sb.AppendLine($"  Spawn Position: {spawnPosition}");
             sb.AppendLine($"  Description: {description}");
 
             return sb.ToString();

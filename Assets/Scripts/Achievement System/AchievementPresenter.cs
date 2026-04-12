@@ -3,7 +3,6 @@ using Game.Managers.Timing;
 using Game.Systems.Interaction.Detail;
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +32,8 @@ namespace Game.Systems.Achievement
         [SerializeField] private float NotificationDuration = 3f;
         [SerializeField] private float TextDuration = 2f;
 
+        private Achievement lastAchievement;
+
         public event Action OnAchievementNotificationHided;
 
         private Coroutine presentationRoutine;
@@ -57,7 +58,7 @@ namespace Game.Systems.Achievement
             if (presentationRoutine != null)
                 StopCoroutine(presentationRoutine);
 
-            DetailSystem.Instance.RequestDetailObjCreation(achievement.detailObjectID);
+            lastAchievement = achievement;
 
             presentationRoutine = StartCoroutine(ShowSequence(achievement));
 
@@ -115,6 +116,7 @@ namespace Game.Systems.Achievement
             // WAIT FINAL
             yield return new WaitForSeconds(NotificationDuration);
 
+
             HideNotification();
         }
 
@@ -131,7 +133,8 @@ namespace Game.Systems.Achievement
 
             NotificationImage.gameObject.SetActive(false);
 
-            InterruptionManager.Instance.DisableInteruption();
+            DetailSystem.Instance.RequestDetailObjCreation(lastAchievement.detailObjectID, lastAchievement.spawnPosition);
+
             OnAchievementNotificationHided?.Invoke();
         }
 

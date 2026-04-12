@@ -44,11 +44,11 @@ TagManager:
   - name: Background
     uniqueID: 1669987713
     locked: 0
-  - name: Character
-    uniqueID: 3190160207
-    locked: 0
   - name: Static Objects
     uniqueID: 1735185743
+    locked: 0
+  - name: Character
+    uniqueID: 3190160207
     locked: 0
   - name: Sprite UI
     uniqueID: 1116953813

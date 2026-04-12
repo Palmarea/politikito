@@ -4,11 +4,18 @@ using UnityEngine;
 
 namespace Game.Systems.Interaction.Detail
 {
+    public enum DetailType
+    {
+        ACHIEVEMENT,
+        MILESTONE
+    }
+    
     [System.Serializable]
     public class DetailObjData
     {
         public string objectID;
         public string spriteAtlasID;
+        public DetailType type;
         [TextArea] public string description;
 
         public override string ToString()
@@ -18,6 +25,7 @@ namespace Game.Systems.Interaction.Detail
             sb.AppendLine("Detail Object Data:");
             sb.AppendLine($"  Identifier : {objectID}");
             sb.AppendLine($"  Sprite Atlas Identifier: {spriteAtlasID}");
+            sb.AppendLine($"  Detail Type: {type}");
             sb.AppendLine($"  Description: {description}");
 
             return sb.ToString();
@@ -34,7 +42,7 @@ namespace Game.Systems.Interaction.Detail
         {
             if (m_Data == null || DetailSystem.Instance == null) return;
 
-            DetailSystem.Instance.ShowDetail(m_Data.description);
+            DetailSystem.Instance.ShowDetail(m_Data);
         }
     }
 }
