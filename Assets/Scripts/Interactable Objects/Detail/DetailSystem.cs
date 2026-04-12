@@ -67,7 +67,7 @@ namespace Game.Systems.Interaction.Detail
 
             m_Occupied = true;
 
-            InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.DETAIL);
 
             if (data.type == DetailType.ACHIEVEMENT)
             {

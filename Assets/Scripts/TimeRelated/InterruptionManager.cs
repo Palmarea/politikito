@@ -9,7 +9,9 @@ namespace Game.Managers.Timing
         TRANSITION,
         CINEMATIC,
         NOTIFICATION,
-        MINIGAME
+        MINIGAME,
+        OUT,
+        DETAIL
     }
     
     public class InterruptionManager : MonoBehaviour

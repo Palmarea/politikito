@@ -47,6 +47,8 @@ namespace Game.Systems.Interaction.DragNDrop
             freeFall = false;
             rb.bodyType = RigidbodyType2D.Kinematic;
             rb.linearVelocity = Vector2.zero;
+
+            GetComponent<ClickableObject>().IsInteractable = true;
         }
 
         public override void StopDragging()

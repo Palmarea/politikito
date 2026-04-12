@@ -1,9 +1,11 @@
+using Game.Managers.Timing;
+using Game.Systems.Milestone;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Game.Systems.Interaction
 {
-    public class ClickableObject : MonoBehaviour
+    public class ClickableObject : MonoBehaviour, IInterruptible
     {
         [Header("Events")]
         [Tooltip("Events called when clicked on object")]
@@ -52,6 +54,8 @@ namespace Game.Systems.Interaction
         {
             if (sr == null) return;
 
+            state = state && interactable;
+
             if (state)
             {
                 Hover();
@@ -64,6 +68,28 @@ namespace Game.Systems.Interaction
             sr.GetPropertyBlock(mpb);
             mpb.SetFloat(HoverID, state ? 1f : 0f);
             sr.SetPropertyBlock(mpb);
+        }
+
+        public void HandleInterruptionStart(InterruptionType type)
+        {
+            interactable = type == InterruptionType.OUT ? true : false;
+        }
+
+        public void HandleInterruptionEnd()
+        {
+            interactable = true;
+        }
+
+        private void OnEnable()
+        {
+            InterruptionManager.OnInterruptStart += HandleInterruptionStart;
+            InterruptionManager.OnInterruptEnd += HandleInterruptionEnd;
+        }
+
+        private void OnDisable()
+        {
+            InterruptionManager.OnInterruptStart -= HandleInterruptionStart;
+            InterruptionManager.OnInterruptEnd -= HandleInterruptionEnd;
         }
     }
 }

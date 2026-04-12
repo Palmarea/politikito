@@ -26,6 +26,8 @@ namespace Game.Systems.Milestone.Inspect
         {
             InterruptionManager.Instance.EnableInterruption(InterruptionType.TRANSITION);
 
+            ClearAllSubscriptions();
+
             TransitionHandler.OnTransBlackEnded += OnBlackEnded_View;
             TransitionHandler.RequestTransitionTB();
 
@@ -49,6 +51,8 @@ namespace Game.Systems.Milestone.Inspect
 
             TransitionHandler.RequestTransitionTT();
             GHFollow.StopFollowing();
+
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.OUT);
         }
 
         #endregion
@@ -57,6 +61,8 @@ namespace Game.Systems.Milestone.Inspect
 
         public void RequestViewReset()
         {
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.TRANSITION);
+
             TransitionHandler.OnTransBlackEnded += OnBlackEnded_Reset;
             TransitionHandler.RequestTransitionTB();
         }
@@ -74,7 +80,7 @@ namespace Game.Systems.Milestone.Inspect
 
         private void OnArrived_Reset()
         {
-            CamController.OnArrivedToSection -= OnArrived_Reset;
+            CamController.OnArrivedToForcedSection -= OnArrived_Reset;
 
             TransitionHandler.OnTransTransparentEnded += OnTransparentEnded;
 
@@ -92,5 +98,15 @@ namespace Game.Systems.Milestone.Inspect
         }
 
         #endregion
+
+        private void ClearAllSubscriptions()
+        {
+            TransitionHandler.OnTransBlackEnded -= OnBlackEnded_View;
+            TransitionHandler.OnTransBlackEnded -= OnBlackEnded_Reset;
+            TransitionHandler.OnTransTransparentEnded -= OnTransparentEnded;
+
+            CamController.OnArrivedToForcedSection -= OnArrived_View;
+            CamController.OnArrivedToForcedSection -= OnArrived_Reset;
+        }
     }
 }

@@ -47,14 +47,11 @@ namespace Game.Managers.Mouse
 
         private void Update()
         {
-            //if (TimeManager.Instance.TimeStop)
-            //{
-            //}
-                if (currentHover != null)
-                {
-                    currentHover.SetHover(false);
-                    currentHover = null;
-                }
+            if (currentHover != null)
+            {
+                currentHover.SetHover(false);
+                currentHover = null;
+            }    
 
             CheckHover();
         }
