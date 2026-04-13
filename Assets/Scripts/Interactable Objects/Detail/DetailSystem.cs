@@ -89,7 +89,6 @@ namespace Game.Systems.Interaction.Detail
             m_Occupied = false;
 
             TextBox.SetActive(false);
-            DetailText.ShowText("");
 
             NewspaperImage.gameObject.SetActive(false);
             NewspaperText.text = "";

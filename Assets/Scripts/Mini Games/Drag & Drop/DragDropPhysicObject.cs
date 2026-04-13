@@ -1,4 +1,6 @@
-﻿using Game.Systems.Input;
+﻿using Game.Managers.Mouse;
+using Game.Systems.Input;
+using Game.Systems.Minigames;
 using UnityEngine;
 
 namespace Game.Systems.Interaction.DragNDrop
@@ -69,6 +71,9 @@ namespace Game.Systems.Interaction.DragNDrop
             rb.linearVelocity = Vector2.zero;
             transform.localPosition = Vector3.zero;
             rb.position = transform.position;
+
+            if (MinigameManager.Instance.IsMinigameActive)
+                MouseManager.Instance.SetHorizontalRestriction(false);
         }
 
         public override bool AllowToDrop()
