@@ -39,8 +39,6 @@ namespace Game.Systems.Interaction.Detail
 
             par.transform.localScale = spawnScale;
 
-            Debug.Log(spawnScale);
-
             DetailObject detail = lastDetailObj.GetComponent<DetailObject>();
             detail.SetDetailData(Database.DetailDB.FirstOrDefault(a => a.objectID == objID));
 

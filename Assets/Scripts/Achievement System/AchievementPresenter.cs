@@ -17,6 +17,7 @@ namespace Game.Systems.Achievement
         [TextArea] public string template;
         public bool needAfterDeactivation;
         public bool objectPresentation;
+        public bool ignoreTemplate;
     }
 
     public class AchievementPresenter : MonoBehaviour
@@ -99,10 +100,18 @@ namespace Game.Systems.Achievement
 
                 NotificationDescriptions[i].text.onTextShowed.AddListener(OnDescFinished);
 
-                NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template, GameData.Instance.GetPlayerLabel().ToUpper()));
+                if (!NotificationDescriptions[i].ignoreTemplate && !NotificationDescriptions[i].objectPresentation)
+                {
+                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template, GameData.Instance.GetPlayerLabel().ToUpper()));
+                }
+                else if (NotificationDescriptions[i].ignoreTemplate && !NotificationDescriptions[i].objectPresentation)
+                {
+                    NotificationDescriptions[i].text.ShowText(string.Format(achievement.description, GameData.Instance.GetPlayerLabel().ToUpper()));
+                }
 
                 if (NotificationDescriptions[i].objectPresentation)
                 {
+                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template, achievement.objectName));
                     NotificationImage.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, achievement.spriteAtlasID);
                     NotificationImage.gameObject.SetActive(true);
                 }

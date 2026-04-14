@@ -2879,10 +2879,12 @@ MonoBehaviour:
     template: "\xA1Tu <incr><rainb><b>{0}</b></>...<waitfor=1>\\n"
     needAfterDeactivation: 0
     objectPresentation: 0
+    ignoreTemplate: 0
   - text: {fileID: 698049434}
     template: \na <wiggle>mejorado!</>
     needAfterDeactivation: 0
     objectPresentation: 0
+    ignoreTemplate: 0
   NotificationImage: {fileID: 2104709274}
   NotificationDescriptions:
   - text: {fileID: 337434536}
@@ -2890,14 +2892,17 @@ MonoBehaviour:
       las \xE1reas verdes <shake>\xA1Yupi!</>"
     needAfterDeactivation: 1
     objectPresentation: 0
+    ignoreTemplate: 1
   - text: {fileID: 181573122}
-    template: Recibiste una <rainb>PLANTA EN VASITO/MACETA</>,
+    template: Recibiste un "<rainb><b>{0}</b></>",
     needAfterDeactivation: 0
     objectPresentation: 1
+    ignoreTemplate: 0
   - text: {fileID: 2006630449}
     template: "la encontrar\xE1s en tu casa."
     needAfterDeactivation: 0
     objectPresentation: 0
+    ignoreTemplate: 0
   SpriteAtlas: {fileID: 100100200, guid: 18b5eace7ef7ec44caa10c05d65a053c, type: 3}
   NotificationDuration: 5
   TextDuration: 0.2
@@ -9041,8 +9046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tu Tiko fund\xF3 el primer periodico impreso en la escuela p\xFAblica
-    No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}
   m_sharedMaterial: {fileID: -6564898835363441778, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}

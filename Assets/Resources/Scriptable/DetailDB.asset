@@ -13,94 +13,111 @@ MonoBehaviour:
   m_Name: DetailDB
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.Detail.DetailDatabaseSO
   DetailDB:
-  - objectID: cuadro
-    spriteAtlasID: 0
-    spriteAtlasMilestoneID: 
-    type: 1
-    description: "{0} fund\xF3 el primer periodico impreso en la escuela p\xFAblica
-      No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"
-  - objectID: medalla
-    spriteAtlasID: Medal_Wisdom_P1
-    spriteAtlasMilestoneID: 
-    type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
   - objectID: planta
     spriteAtlasID: Plant_Charm_P1
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<rainb><b>PLANTA EN VASITO</b></> recibida por participar en activaci\xF3n
+      para reponer las \xE1reas verdes."
+  - objectID: medalla
+    spriteAtlasID: Medal_Wisdom_P1
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: "<rainb><b>MEDALLA DE M\xC9RITO</b></> recibida por el revuelo que
+      <b>{0}</b> caus\xF3 con su nota en el peri\xF3dico."
   - objectID: afiche
     spriteAtlasID: Poster_Willpower_P1
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
-  - objectID: banderola
-    spriteAtlasID: Banderole_Willpower_P2
-    spriteAtlasMilestoneID: 
-    type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<rainb><b>AFICHE HECHO A MANO</b></> recibido cuando <b>{0}</b>
+      particip\xF3 en su primera marcha."
   - objectID: citacion
     spriteAtlasID: Citation_Charm_P2
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<rainb><b>CITACION DE PROFESOR</b></> recibida por la exposici\xF3n
+      de <b>{0}</b> en la escuela sobre las consecuencias ambientales de la miner\xEDa."
   - objectID: diploma
     spriteAtlasID: Diploma_Wisdom_P2
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
-  - objectID: carnet
-    spriteAtlasID: Identification_Willpower_P3
+    description: "<rainb><b>DIPLOMA DE CAPACITACI\xD3N</b></> conseguida por completar
+      un curso sobre derecho forestal."
+  - objectID: banderola
+    spriteAtlasID: Banderole_Willpower_P2
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<rainb><b>BANDEROLA</b></> recibida por la participaci\xF3n de
+      <b>{0}</b> en una protesta pac\xEDfica en contra de la contaminaci\xF3n minera
+      del r\xEDo."
   - objectID: parafernalia
     spriteAtlasID: Paraphernalia_Charm_P3
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<rainb><b>PARAFERNALIA HOJA VERDE</b></> recibida al participar
+      en un evento de Gotita Verde, un partido pol\xEDtico local con enfoque medioambiental."
   - objectID: contenidosecreto
     spriteAtlasID: SecretContent_Wisdom_P3
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<rainb><b>SOBRE SELLADO</b></> recibido por una persona sospechosa
+      del partido pol\xEDtico Gotita Verde que <b>{0}</b> debe entregar a una entidad
+      petrolera."
+  - objectID: carnet
+    spriteAtlasID: Identification_Willpower_P3
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: "<rainb><b>CARN\xC9 DE MIEMBRO DE PARTIDO</b></> perteneciente a
+      <b>{0}</b>, recibido al unirse de forma oficial al partido de Gotita Verde."
   - objectID: carro
     spriteAtlasID: Car_Charm_P4
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<rainb><b>AUTO DEL A\xD1O</b></> comprado por <b>{0}</b> utilizando
+      un porcentaje de los fondos del partido para mejorar su imagen."
   - objectID: pacto
     spriteAtlasID: Pact_Wisdom_P4
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<rainb><b>PACTO FIRMADO</b></> gracias a las conexiones de <b>{0}</b>
+      con otros partidos para \"compartir apoyo\" en las pr\xF3ximas elecciones."
   - objectID: reloj
     spriteAtlasID: Watch_Willpower_P4
     spriteAtlasMilestoneID: 
     type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: <rainb><b>RELOJ DE DIAMANTE</b></> conseguido por <b>{0}</b>, de
+      la nada.
   - objectID: recorte1
     spriteAtlasID: NewsCut_Ph1
     spriteAtlasMilestoneID: periodico01
     type: 1
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<b>{0}</b> fund\xF3 el primer periodico impreso en la escuela p\xFAblica
+      No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"
   - objectID: recorte2
     spriteAtlasID: NewsCut_Ph2
     spriteAtlasMilestoneID: periodico02
     type: 1
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "El alcalde se pronuncia sobre los disturbios ocasionados por la
+      marcha.\\n\u201CLos j\xF3venes adoctrinados rechazan el progreso y desarrollo
+      econ\xF3mico asociado a la miner\xEDa. (...) Es una pena.\u201D"
   - objectID: recorte3
     spriteAtlasID: NewsCut_Ph3
     spriteAtlasMilestoneID: periodico03_1
     type: 1
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<b>{0}</b>, pierde en las elecciones internas \xA1por tercera vez!\\n\\nEste
+      hecho tom\xF3 a todos por sorpresa, por su gran dedicaci\xF3n y confianza que
+      genera entre sus allegados. \xBFQu\xE9 estar\xE1 saliendo mal?"
   - objectID: recorte3_1
     spriteAtlasID: NewsCut_Ph3_1
     spriteAtlasMilestoneID: periodico03_2
     type: 1
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "<b>{0}</b> funda su propio partido pol\xEDtico de la mano de conexiones
+      estrat\xE9gicas: DIAMANTITO. \\nEntre ellos, Damian Tito, heredero de una minera
+      de diamantes, es su principal financiador."
   - objectID: recorte4
     spriteAtlasID: NewsCut_Ph4
     spriteAtlasMilestoneID: periodico04
     type: 1
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+    description: "\xA1<b>{0}</b> gana las elecciones! Junto a su primer ministro
+      Damian Tito, prometieron potenciar la econom\xEDa del pa\xEDs hasta que los
+      recursos naturales no den m\xE1s.\\nVaya, realmente <b>{0}</b> est\xE1 brillando."

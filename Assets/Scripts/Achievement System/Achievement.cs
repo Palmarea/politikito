@@ -8,6 +8,7 @@ namespace Game.Systems.Achievement
     {
         public int level;
         public StatType stat;
+        public string objectName;
         public string spriteAtlasID;
         public string detailObjectID;
         public Vector3 spawnPosition;
@@ -22,6 +23,7 @@ namespace Game.Systems.Achievement
             sb.AppendLine("Achievement:");
             sb.AppendLine($"  Level: {level}");
             sb.AppendLine($"  Statistic : {stat}");
+            sb.AppendLine($"  Object Name: {objectName}");
             sb.AppendLine($"  Sprite Atlas Identifier: {spriteAtlasID}");
             sb.AppendLine($"  Detail Atlas Identifier: {detailObjectID}");
             sb.AppendLine($"  Spawn Position: {spawnPosition}");

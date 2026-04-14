@@ -84,7 +84,7 @@ namespace Game.Systems.Interaction.Detail
             {
                 NewspaperImage.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(NewsSpriteAtlas, data.spriteAtlasMilestoneID);
                 NewspaperImage.gameObject.SetActive(true);
-                NewspaperText.SetText(string.Format(data.description, GameData.Instance.GetPlayerLabel()));
+                NewspaperText.SetText(string.Format(data.description, GameData.Instance.GetPlayerLabel().ToUpper()));
             }
 
         }
