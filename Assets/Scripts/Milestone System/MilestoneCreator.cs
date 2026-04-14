@@ -5,12 +5,6 @@ using UnityEngine;
 
 namespace Game.Systems.Milestone
 {
-    [System.Serializable]
-    public class Milestones
-    {
-        public Milestone[] milestones;
-    }
-
     public class MilestoneCreator : MonoBehaviour
     {
         public Dictionary<int, Milestone> CreateAllMilestones(MilestoneDatabaseSO database)

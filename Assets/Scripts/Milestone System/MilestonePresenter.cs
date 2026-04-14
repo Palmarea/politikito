@@ -37,6 +37,7 @@ namespace Game.Systems.Milestone
         private Milestone currentMilestone;
         private bool hasBeenRequested = false;
 
+        private bool specificSceneDone = false;
         int counter = 0;
 
         private void Awake()
@@ -50,10 +51,10 @@ namespace Game.Systems.Milestone
             hasBeenRequested = true;
             currentMilestone = milestone;
 
-            //if (fallbackRoutine != null)
-            //    StopCoroutine(fallbackRoutine);
+            if (fallbackRoutine != null)
+                StopCoroutine(fallbackRoutine);
 
-            //fallbackRoutine = StartCoroutine(FallbackTimer());
+            fallbackRoutine = StartCoroutine(FallbackTimer());
         }
 
         private void ShowMilestone()
@@ -112,6 +113,12 @@ namespace Game.Systems.Milestone
             MilestoneCanvasUI.SetActive(false);
             MilestoneImageUI.gameObject.SetActive(false);
             hasBeenRequested = false;
+
+            if (currentMilestone.level == 3 && !specificSceneDone)
+            {
+                specificSceneDone = true;
+                MainSystem.ForceAdvance(3);
+            }
         }
 
         private IEnumerator FallbackTimer()

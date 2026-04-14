@@ -15,6 +15,8 @@ namespace Game.Systems.Milestone
         private Dictionary<int, Milestone> MilestoneDictionary = new();
         public event Action<Milestone> OnMilestoneReached;
 
+        private bool forced = false;
+
         private void Awake()
         {
             MilestoneDictionary = Creator.CreateAllMilestones(Database);
@@ -27,10 +29,18 @@ namespace Game.Systems.Milestone
 
         public void AdvanceMilestone(int level)
         {
+            level = forced ? level + 1 : level;
+            
             if (!MilestoneDictionary.TryGetValue(level, out Milestone milestone))
                 return;
 
             OnMilestoneReached?.Invoke(milestone);
+        }
+
+        public void ForceAdvance(int level)
+        {
+            forced = true;
+            AdvanceMilestone(level);
         }
     }
 }
