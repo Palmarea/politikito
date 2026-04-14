@@ -13,7 +13,7 @@ namespace Game.Systems.Milestone
 
     public class MilestoneCreator : MonoBehaviour
     {
-        public Dictionary<int ,Milestone> CreateAllMilestones(MilestoneDatabaseSO database)
+        public Dictionary<int, Milestone> CreateAllMilestones(MilestoneDatabaseSO database)
         {
             Dictionary<int, Milestone> dict = new();
 

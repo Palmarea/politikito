@@ -15,6 +15,7 @@ namespace Game.Systems.Interaction.Detail
     {
         public string objectID;
         public string spriteAtlasID;
+        public string spriteAtlasMilestoneID;
         public DetailType type;
         [TextArea] public string description;
 

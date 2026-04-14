@@ -68,7 +68,7 @@ namespace Game.Systems.Milestone
             MilestoneDescriptionUI.SetText(string.Format(currentMilestone.description, GameData.Instance.GetPlayerLabel()));
             MilestoneCanvasUI.SetActive(true);
 
-            InspectSystem.RequestMDOCreation(currentMilestone.detailObjectID, currentMilestone.level);
+            InspectSystem.RequestMDOCreation(currentMilestone);
 
             MilestoneImageUI.sprite = MilestoneImages[currentMilestone.level - 1];
             MilestoneImageUI.gameObject.SetActive(true);

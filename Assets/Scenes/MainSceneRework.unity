@@ -943,7 +943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &184448753
 Animator:
   serializedVersion: 7
@@ -2898,6 +2898,7 @@ MonoBehaviour:
     template: "la encontrar\xE1s en tu casa."
     needAfterDeactivation: 0
     objectPresentation: 0
+  SpriteAtlas: {fileID: 100100200, guid: 18b5eace7ef7ec44caa10c05d65a053c, type: 3}
   NotificationDuration: 5
   TextDuration: 0.2
 --- !u!114 &524734185
@@ -4002,7 +4003,7 @@ Transform:
   m_GameObject: {fileID: 780182724}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.098, y: 1.618, z: 0}
+  m_LocalPosition: {x: -5.72, y: -0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4514,10 +4515,11 @@ MonoBehaviour:
   MilestoneNext: {fileID: 291740132}
   TutorialPostIt: {fileID: 363835908}
   MilestoneImages:
-  - {fileID: 21300000, guid: c5f00544d962ebb43996f47ebd52b470, type: 3}
-  - {fileID: 21300000, guid: c5f00544d962ebb43996f47ebd52b470, type: 3}
-  - {fileID: 21300000, guid: c5f00544d962ebb43996f47ebd52b470, type: 3}
-  - {fileID: 21300000, guid: c5f00544d962ebb43996f47ebd52b470, type: 3}
+  - {fileID: 21300000, guid: d49df0f4962fad1478d872ecf09a9e72, type: 3}
+  - {fileID: 21300000, guid: 1adb234a71c526b429139fc1f6ba880d, type: 3}
+  - {fileID: 21300000, guid: a8cfa67dcf8a3114893249a2c4eac53a, type: 3}
+  - {fileID: 21300000, guid: 53a03cb92242b8840847789501b50fb4, type: 3}
+  - {fileID: 21300000, guid: aa203e3434a695c44a8ef92c677da239, type: 3}
   fallbackDelay: 5
 --- !u!114 &942613044
 MonoBehaviour:
@@ -4592,11 +4594,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Milestone.Inspect.MilestoneInspectSystem
   MISView: {fileID: 942613047}
-  DOAnchorPoints:
-  - {fileID: 1527193263}
-  - {fileID: 1472724306}
-  - {fileID: 1786055463}
-  - {fileID: 952943793}
 --- !u!1 &943818754
 GameObject:
   m_ObjectHideFlags: 0
@@ -4738,37 +4735,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Milestones.MilestoneAnimationEvents
   presenter: {fileID: 942613043}
---- !u!1 &952943792
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 952943793}
-  m_Layer: 0
-  m_Name: NewspaperAP_4
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &952943793
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952943792}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 37.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &964553024
 GameObject:
   m_ObjectHideFlags: 0
@@ -6894,37 +6860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399266d27b336e044983712c4d37f3a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.ClickableObjectFeedback
---- !u!1 &1472724305
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1472724306}
-  m_Layer: 0
-  m_Name: NewspaperAP_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1472724306
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472724305}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 40.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476482432
 GameObject:
   m_ObjectHideFlags: 0
@@ -7144,38 +7079,7 @@ Transform:
   m_GameObject: {fileID: 1476482432}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.94, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1527193262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1527193263}
-  m_Layer: 0
-  m_Name: NewspaperAP_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1527193263
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527193262}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 40.9, z: 0}
+  m_LocalPosition: {x: -6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7481,6 +7385,7 @@ MonoBehaviour:
   DetailText: {fileID: 149705173}
   NewspaperImage: {fileID: 1240186247}
   NewspaperText: {fileID: 2126151857}
+  NewsSpriteAtlas: {fileID: 100100200, guid: d84798afe1cddba4db0a41413d59cef9, type: 3}
 --- !u!4 &1755811467
 Transform:
   m_ObjectHideFlags: 0
@@ -7509,8 +7414,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.Detail.DetailCreator
   CamController: {fileID: 519420034}
-  Database: {fileID: 11400000, guid: e9c129c4adcdc07408cde452125ddf94, type: 2}
   DetailObjPrefab: {fileID: 1811305281141467379, guid: ac948dce3d281554da88af8cb9e4a6b5, type: 3}
+  Database: {fileID: 11400000, guid: e9c129c4adcdc07408cde452125ddf94, type: 2}
+  SpriteAtlas: {fileID: 100100200, guid: 18b5eace7ef7ec44caa10c05d65a053c, type: 3}
   RestDuration: 1.5
   AnimationSLName: Canvas UI
 --- !u!1 &1763073549
@@ -7632,37 +7538,6 @@ MonoBehaviour:
   Controller: {fileID: 519420034}
   LeftButton: {fileID: 1248585497}
   RightButton: {fileID: 51154798}
---- !u!1 &1786055462
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1786055463}
-  m_Layer: 0
-  m_Name: NewspaperAP_3
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1786055463
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786055462}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 37.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1794979439
 GameObject:
   m_ObjectHideFlags: 0
@@ -9047,15 +8922,15 @@ RectTransform:
   m_GameObject: {fileID: 2104709272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 432456580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 350, y: 350}
+  m_AnchoredPosition: {x: 0, y: -40}
+  m_SizeDelta: {x: 930, y: 411}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104709274
 MonoBehaviour:
@@ -9077,9 +8952,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6645427384175290001, guid: 4dffe6eab57ca4e4ba2f967307bd1c29, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9554,10 +9429,6 @@ SceneRoots:
   - {fileID: 1476482436}
   - {fileID: 1457800226}
   - {fileID: 95467579}
-  - {fileID: 1527193263}
-  - {fileID: 1472724306}
-  - {fileID: 1786055463}
-  - {fileID: 952943793}
   - {fileID: 780182725}
   - {fileID: 417531925}
   - {fileID: 1837783843}

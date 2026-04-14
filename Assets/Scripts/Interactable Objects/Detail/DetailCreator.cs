@@ -1,8 +1,11 @@
 ﻿using Game.Systems.CameraControl;
+using Game.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.U2D;
 
 namespace Game.Systems.Interaction.Detail
 {
@@ -12,25 +15,42 @@ namespace Game.Systems.Interaction.Detail
         [SerializeField] private CameraController CamController;
 
         [Header("References")]
-        [SerializeField] private DetailDatabaseSO Database;
         [SerializeField] private GameObject DetailObjPrefab;
+
+        [Header("Data")]
+        [SerializeField] private DetailDatabaseSO Database;
+        [SerializeField] private SpriteAtlas SpriteAtlas;
 
         [Header("Parameters")]
         [SerializeField] private float RestDuration = 3f;
         [SerializeField] private string AnimationSLName = "Canvas UI";
 
+        public event Action OnObjectCreated;
         private GameObject lastDetailObj;
         private int _originalLayerID;
 
-        public void CreateDetailObject(string objID, Vector3 spawnPosition, bool needFocus = true)
+        public void CreateDetailObject(string objID, Vector3 spawnPosition, Vector3 spawnRotation, Vector3 spawnScale, bool needFocus = true)
         {
-            lastDetailObj = Instantiate(DetailObjPrefab, spawnPosition, Quaternion.identity);
+            GameObject par = new GameObject();
+            par.transform.position = spawnPosition;
+            lastDetailObj = Instantiate(DetailObjPrefab, par.transform);
+            
+            lastDetailObj.transform.localEulerAngles = spawnRotation;
+
+            par.transform.localScale = spawnScale;
+
+            Debug.Log(spawnScale);
 
             DetailObject detail = lastDetailObj.GetComponent<DetailObject>();
             detail.SetDetailData(Database.DetailDB.FirstOrDefault(a => a.objectID == objID));
 
+            // Update Sprite
+            lastDetailObj.GetComponent<SpriteRenderer>().sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, detail.m_Data.spriteAtlasID);
+            
+            // Update Collider to new Sprite Physics form
             UpdateCollider();
 
+            // Focus on Creation
             if (needFocus)
             {
                 CamController.ForceMove(lastDetailObj.transform);
@@ -62,6 +82,8 @@ namespace Game.Systems.Interaction.Detail
             lastDetailObj.GetComponent<SpriteRenderer>().sortingLayerID = _originalLayerID;
 
             lastDetailObj = null;
+
+            OnObjectCreated?.Invoke();
 
             CamController.ResetForced();
         }

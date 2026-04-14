@@ -15,76 +15,97 @@ MonoBehaviour:
   AchievementDB:
   - level: 1
     stat: 0
-    spriteAtlasID: 0
-    detailObjectID: manzana
-    spawnPosition: {x: 5, y: 0, z: 0}
-    description: "(Nombre) particip\xF3 en activaci\xF3n para reponer las \xE1reas
-      verdes \xA1Yupi!"
+    spriteAtlasID: Plant_Charm_P1
+    detailObjectID: planta
+    spawnPosition: {x: 14.75, y: -2.48, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.55, y: 0.55, z: 0.55}
+    description: adasdasd
   - level: 2
     stat: 0
-    spriteAtlasID: 1
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: "(Nombre) expuso en su escuela sobre las consecuencias ambientales
-      de la miner\xEDa."
+    spriteAtlasID: Citation_Charm_P2
+    detailObjectID: citacion
+    spawnPosition: {x: -1.91, y: 0, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.5, y: 0.5, z: 0.5}
+    description: asdasdsad
   - level: 3
     stat: 0
-    spriteAtlasID: 2
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: "(Nombre) se uni\xF3 exitosamente a Gotita Verde, partido pol\xEDtico
-      local con enfoque medioambiental. \xA1Hurra!"
+    spriteAtlasID: Paraphernalia_Charm_P3
+    detailObjectID: parafernalia
+    spawnPosition: {x: 1.5, y: 0, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.55, y: 0.55, z: 0.55}
+    description: adasdasdas
   - level: 4
     stat: 0
-    spriteAtlasID: 3
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+    spriteAtlasID: Car_Charm_P4
+    detailObjectID: carro
+    spawnPosition: {x: 22.57, y: -1.16, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 1.15, y: 1.15, z: 1.15}
+    description: asdasdasd
   - level: 1
     stat: 1
-    spriteAtlasID: 3
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+    spriteAtlasID: Medal_Wisdom_P1
+    detailObjectID: medalla
+    spawnPosition: {x: -13, y: 0.85, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.6, y: 0.6, z: 0.6}
+    description: adssadadsa
   - level: 2
     stat: 1
-    spriteAtlasID: 3
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+    spriteAtlasID: Diploma_Wisdom_P2
+    detailObjectID: diploma
+    spawnPosition: {x: -17.65, y: 2.46, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.55, y: 0.55, z: 0.55}
+    description: asdasda
   - level: 3
     stat: 1
-    spriteAtlasID: 3
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+    spriteAtlasID: SecretContent_Wisdom_P3
+    detailObjectID: contenidosecreto
+    spawnPosition: {x: 0, y: -2.33, z: 0}
+    spawnRotation: {x: 0, y: 0, z: -90}
+    spawnScale: {x: 0.5, y: 0.5, z: 0.5}
+    description: asdsadasda
   - level: 4
     stat: 1
-    spriteAtlasID: 3
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+    spriteAtlasID: Pact_Wisdom_P4
+    detailObjectID: pacto
+    spawnPosition: {x: 7.54, y: 2.4, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.4, y: 0.4, z: 0.4}
+    description: asdadasdas
   - level: 1
     stat: 2
-    spriteAtlasID: 3
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+    spriteAtlasID: Poster_Willpower_P1
+    detailObjectID: afiche
+    spawnPosition: {x: 5.14, y: 1.33, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.7, y: 0.7, z: 0.7}
+    description: asdasdadsad
   - level: 2
     stat: 2
-    spriteAtlasID: 3
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+    spriteAtlasID: Banderole_Willpower_P2
+    detailObjectID: banderola
+    spawnPosition: {x: 6.45, y: -0.46, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.8, y: 0.8, z: 0.8}
+    description: asdsadasdadsa
   - level: 3
     stat: 2
-    spriteAtlasID: 3
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+    spriteAtlasID: Identification_Willpower_P3
+    detailObjectID: carnet
+    spawnPosition: {x: -17.65, y: 0.31, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.6, y: 0.6, z: 0.6}
+    description: asdsdsadasd
   - level: 4
     stat: 2
-    spriteAtlasID: 3
-    detailObjectID: manzana
-    spawnPosition: {x: 0, y: 0, z: 0}
-    description: (Nombre) viaja a su comunidad para promocionar el partido del Diamantito
+    spriteAtlasID: Watch_Willpower_P4
+    detailObjectID: reloj
+    spawnPosition: {x: -12.75, y: -1.52, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.4, y: 0.4, z: 0.4}
+    description: asdasdasdasdad

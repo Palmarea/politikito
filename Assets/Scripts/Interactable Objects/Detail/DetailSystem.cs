@@ -2,9 +2,12 @@
 using Game.Managers.Mouse;
 using Game.Managers.Timing;
 using Game.Systems.Input;
+using Game.Utils;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 namespace Game.Systems.Interaction.Detail
@@ -25,7 +28,10 @@ namespace Game.Systems.Interaction.Detail
         [SerializeField] private Image NewspaperImage;
         [SerializeField] private TextMeshProUGUI NewspaperText;
 
+        [Header("Data")]
+        [SerializeField] private SpriteAtlas NewsSpriteAtlas;
 
+        public event Action OnObjectCreated;
         private bool m_Occupied = false;
         private bool suscribed = false;
 
@@ -76,6 +82,7 @@ namespace Game.Systems.Interaction.Detail
             }
             else
             {
+                NewspaperImage.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(NewsSpriteAtlas, data.spriteAtlasMilestoneID);
                 NewspaperImage.gameObject.SetActive(true);
                 NewspaperText.SetText(string.Format(data.description, GameData.Instance.GetPlayerLabel()));
             }
@@ -94,14 +101,24 @@ namespace Game.Systems.Interaction.Detail
             NewspaperText.text = "";
 
             InterruptionManager.Instance.DisableInteruption();
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.OUT);
             MouseManager.Instance.UpdateOcuppiedState(false);
 
             DetailCanvasUI.SetActive(false);
         }
 
-        public void RequestDetailObjCreation(string objID, Vector3 spawnPosition, bool needFocus = true)
+        public void RequestDetailObjCreation(string objID, Vector3 spawnPosition, Vector3 spawnScale, Vector3 spawnRotation, bool needFocus = true)
         {
-            Creator.CreateDetailObject(objID, spawnPosition, needFocus);
+            Creator.OnObjectCreated -= NotifyCreation;
+            Creator.OnObjectCreated += NotifyCreation;
+            
+            Creator.CreateDetailObject(objID, spawnPosition, spawnScale, spawnRotation, needFocus);
+        }
+
+        private void NotifyCreation()
+        {
+            Creator.OnObjectCreated -= NotifyCreation;
+            OnObjectCreated?.Invoke();
         }
 
         private void OnEnable()

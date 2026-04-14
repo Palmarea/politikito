@@ -1,9 +1,11 @@
 ﻿using Febucci.UI;
 using Game.Managers.Timing;
 using Game.Systems.Interaction.Detail;
+using Game.Utils;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 namespace Game.Systems.Achievement
@@ -27,6 +29,9 @@ namespace Game.Systems.Achievement
         [SerializeField] private TextStep[] NotificationTitles;
         [SerializeField] private Image NotificationImage;
         [SerializeField] private TextStep[] NotificationDescriptions;
+
+        [Header("Data")]
+        [SerializeField] private SpriteAtlas SpriteAtlas;
 
         [Header("Parameters")]
         [SerializeField] private float NotificationDuration = 3f;
@@ -98,6 +103,7 @@ namespace Game.Systems.Achievement
 
                 if (NotificationDescriptions[i].objectPresentation)
                 {
+                    NotificationImage.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, achievement.spriteAtlasID);
                     NotificationImage.gameObject.SetActive(true);
                 }
 
@@ -133,8 +139,15 @@ namespace Game.Systems.Achievement
 
             NotificationImage.gameObject.SetActive(false);
 
-            DetailSystem.Instance.RequestDetailObjCreation(lastAchievement.detailObjectID, lastAchievement.spawnPosition);
+            DetailSystem.Instance.OnObjectCreated -= NotifyAchievementHided;
+            DetailSystem.Instance.OnObjectCreated += NotifyAchievementHided;
 
+            DetailSystem.Instance.RequestDetailObjCreation(lastAchievement.detailObjectID, lastAchievement.spawnPosition, lastAchievement.spawnRotation, lastAchievement.spawnScale);
+        }
+
+        private void NotifyAchievementHided()
+        {
+            DetailSystem.Instance.OnObjectCreated -= NotifyAchievementHided;
             OnAchievementNotificationHided?.Invoke();
         }
 

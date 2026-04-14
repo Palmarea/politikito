@@ -13,12 +13,94 @@ MonoBehaviour:
   m_Name: DetailDB
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Interaction.Detail.DetailDatabaseSO
   DetailDB:
-  - objectID: manzana
-    spriteAtlasID: 0
-    type: 0
-    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
   - objectID: cuadro
     spriteAtlasID: 0
+    spriteAtlasMilestoneID: 
     type: 1
     description: "{0} fund\xF3 el primer periodico impreso en la escuela p\xFAblica
       No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"
+  - objectID: medalla
+    spriteAtlasID: Medal_Wisdom_P1
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: planta
+    spriteAtlasID: Plant_Charm_P1
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: afiche
+    spriteAtlasID: Poster_Willpower_P1
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: banderola
+    spriteAtlasID: Banderole_Willpower_P2
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: citacion
+    spriteAtlasID: Citation_Charm_P2
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: diploma
+    spriteAtlasID: Diploma_Wisdom_P2
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: carnet
+    spriteAtlasID: Identification_Willpower_P3
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: parafernalia
+    spriteAtlasID: Paraphernalia_Charm_P3
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: contenidosecreto
+    spriteAtlasID: SecretContent_Wisdom_P3
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: carro
+    spriteAtlasID: Car_Charm_P4
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: pacto
+    spriteAtlasID: Pact_Wisdom_P4
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: reloj
+    spriteAtlasID: Watch_Willpower_P4
+    spriteAtlasMilestoneID: 
+    type: 0
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: recorte1
+    spriteAtlasID: NewsCut_Ph1
+    spriteAtlasMilestoneID: periodico01
+    type: 1
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: recorte2
+    spriteAtlasID: NewsCut_Ph2
+    spriteAtlasMilestoneID: periodico02
+    type: 1
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: recorte3
+    spriteAtlasID: NewsCut_Ph3
+    spriteAtlasMilestoneID: periodico03_1
+    type: 1
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: recorte3_1
+    spriteAtlasID: NewsCut_Ph3_1
+    spriteAtlasMilestoneID: periodico03_2
+    type: 1
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
+  - objectID: recorte4
+    spriteAtlasID: NewsCut_Ph4
+    spriteAtlasMilestoneID: periodico04
+    type: 1
+    description: hohohohohk,aldwmalksmdlawmdpoakwmpom
