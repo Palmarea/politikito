@@ -51,10 +51,18 @@ namespace Game.Systems.Milestone
             hasBeenRequested = true;
             currentMilestone = milestone;
 
-            if (fallbackRoutine != null)
-                StopCoroutine(fallbackRoutine);
+            //if (fallbackRoutine != null)
+            //    StopCoroutine(fallbackRoutine);
 
-            fallbackRoutine = StartCoroutine(FallbackTimer());
+            //fallbackRoutine = StartCoroutine(FallbackTimer());
+        }
+
+        private void RequestForced(Milestone milestone)
+        {
+            hasBeenRequested = true;
+            currentMilestone = milestone;
+
+            ShowMilestone();
         }
 
         private void ShowMilestone()
@@ -135,12 +143,14 @@ namespace Game.Systems.Milestone
         private void OnEnable()
         {
             MainSystem.OnMilestoneReached += RequestButWait;
+            MainSystem.OnForcedMilestoneReached += RequestForced;
             PairSystem.OnAchievementNotificationHided += ShowMilestone;
         }
 
         private void OnDisable()
         {
             MainSystem.OnMilestoneReached -= RequestButWait;
+            MainSystem.OnForcedMilestoneReached += RequestForced;
             PairSystem.OnAchievementNotificationHided -= ShowMilestone;
         }
     }

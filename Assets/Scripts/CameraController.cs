@@ -55,6 +55,10 @@ namespace Game.Systems.CameraControl
         private Vector3 m_forcedTarget;
         private CameraSection currentSection;
 
+        // Tutorial
+        private int visitedMainAnchors = 1;
+        private HashSet<CameraSectionType> visitedSections = new();
+
         void Start()
         {
             m_MainCamera = GetComponent<Camera>();
@@ -63,6 +67,8 @@ namespace Game.Systems.CameraControl
 
             targetZoom = DefaultZoom;
             m_MainCamera.orthographicSize = DefaultZoom;
+
+            visitedSections.Add(currentSection.Type);
         }
 
         void LateUpdate()
@@ -102,6 +108,8 @@ namespace Game.Systems.CameraControl
                         OnArrivedToSection?.Invoke();
                         OnSectionChanged?.Invoke(currentSection);
                         InterruptionManager.Instance.DisableInteruption();
+
+                        CheckTutorialCompletition();
                     }
                     else
                     {
@@ -313,6 +321,25 @@ namespace Game.Systems.CameraControl
                 new Vector3(MaxHorizontalBound, -height, 0),
                 new Vector3(MaxHorizontalBound, height, 0)
             );
+        }
+
+        #endregion
+
+        #region TUTORIAL
+
+        private void CheckTutorialCompletition()
+        {
+            if (Context.TutorialData.IsTutorialComplete()) return;
+
+            if (visitedSections.Contains(currentSection.Type)) return;
+
+            visitedSections.Add(currentSection.Type);
+            visitedMainAnchors++;
+
+            if (visitedMainAnchors >= 3)
+            {
+                Context.TutorialData.CompleteTutorialStep(TutorialData.EXPLORE_ROOM_INDEX);
+            }
         }
 
         #endregion

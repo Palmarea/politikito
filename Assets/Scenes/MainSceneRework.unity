@@ -8387,42 +8387,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1837783843}
     m_Modifications:
-    - target: {fileID: 172153132953107988, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}
-    - target: {fileID: 172153132953107988, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -6564898835363441778, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}
-    - target: {fileID: 172153132953107988, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 213106247893164552, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}
-    - target: {fileID: 213106247893164552, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -6564898835363441778, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}
-    - target: {fileID: 213106247893164552, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 540147261127479035, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}
-    - target: {fileID: 540147261127479035, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -6564898835363441778, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}
-    - target: {fileID: 540147261127479035, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1963813778584624371, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8519,41 +8483,9 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2684683403279522641, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3594310596894907598, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}
-    - target: {fileID: 3594310596894907598, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -6564898835363441778, guid: 7d7581543302d9d4fbf075a26dd67ae8, type: 2}
-    - target: {fileID: 3594310596894907598, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3891101107138958112, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
       propertyPath: m_Name
       value: PostItPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891101107138958112, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613449105127734947, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7898677536411307524, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786183776877125736, guid: 345c072973dcf4e989c141cf5c88a143, type: 3}
-      propertyPath: m_Interactable
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
