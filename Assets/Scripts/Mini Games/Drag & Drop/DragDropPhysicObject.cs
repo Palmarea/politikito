@@ -33,7 +33,7 @@ namespace Game.Systems.Interaction.DragNDrop
                 mouseWorldPos.z = 0f;
 
                 Vector3 localPos = transform.parent.InverseTransformPoint(mouseWorldPos);
-                localPos.y = -300f; // fixed Y
+                localPos.y = -300f / transform.parent.localScale.y; // fixed Y
                 localPos.z = 0f;
 
                 transform.localPosition = localPos;

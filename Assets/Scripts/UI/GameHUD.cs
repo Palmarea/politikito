@@ -14,6 +14,7 @@ namespace Game.UI
         public ClickableObject ClickObject;
         public SpriteRenderer ObjectSprite;
         public CanvasGroup CanvasGroup;
+        public Transform AnchorPoint;
 
         private Color m_normalColor;
         private Color m_hidedColor;
@@ -71,13 +72,13 @@ namespace Game.UI
 
         private void SetupUIStats()
         {
-            CharismaUIO.ClickObject.gameObject.transform.parent = CharismaUIO.StatBar.gameObject.transform;
+            CharismaUIO.ClickObject.gameObject.transform.parent = CharismaUIO.AnchorPoint;
             CharismaUIO.SetupObject();
-            
-            WisdomUIO.ClickObject.gameObject.transform.parent = WisdomUIO.StatBar.gameObject.transform;
+
+            WisdomUIO.ClickObject.gameObject.transform.parent = WisdomUIO.AnchorPoint;
             WisdomUIO.SetupObject();
             
-            WillpowerUIO.ClickObject.gameObject.transform.parent = WillpowerUIO.StatBar.gameObject.transform;
+            WillpowerUIO.ClickObject.gameObject.transform.parent = WillpowerUIO.AnchorPoint;
             WillpowerUIO.SetupObject();
         }
 
