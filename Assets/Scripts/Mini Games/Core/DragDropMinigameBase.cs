@@ -151,13 +151,11 @@ namespace Game.Systems.Minigames
             OnMinigameCompleted?.Invoke();
             Receiver.UpdateActive(false);
 
-            // Lo que pase después es responsabilidad del minijuego concreto
             OnCompleted();
 
             isCooling = true;
         }
 
-        // Cada minijuego define qué pasa al completarse
         protected abstract void OnCompleted();
     }
 }

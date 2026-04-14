@@ -44,11 +44,55 @@ namespace Game.Character
 
         public void SetReducedBounds(float dir, float horizontalOffset)
         {
-            //MinBounds = new Vector2(-8.1f + (dir * 19.2f), MinBounds.y); 
-            //MaxBounds = new Vector2(8.1f + (dir * 19.2f), MaxBounds.y);
+            //float securedMin = -8.1f + (-1 * 19.2f);
+            //float securedMax = 8.1f + (1 * 19.2f);
 
-            MinBounds = new Vector2(-8.1f + (dir * 19.2f) + horizontalOffset, MinBounds.y);
-            MaxBounds = new Vector2(8.1f + (dir * 19.2f) + horizontalOffset, MaxBounds.y);
+            //float resolveMin = securedMin + horizontalOffset;
+            //float resolveMax = securedMax + horizontalOffset;
+
+            //// 1. Calcular tamaño del rango
+            //float width = resolveMax - resolveMin;
+            //float halfWidth = width / 2f;
+
+            //// 2. Calcular centro
+            //float center = (resolveMin + resolveMax) / 2f;
+
+            //// 3. Clamp del centro para que el rango no se salga
+            //float clampedCenter = Mathf.Clamp(
+            //    center,
+            //    securedMin + halfWidth,
+            //    securedMax - halfWidth
+            //);
+
+            //// 4. Reconstruir límites
+            //float finalMin = clampedCenter - halfWidth;
+            //float finalMax = clampedCenter + halfWidth;
+
+            //MinBounds = new Vector2(finalMin, MinBounds.y);
+            //MaxBounds = new Vector2(finalMax, MaxBounds.y);
+
+            //Debug.Log($"FINAL MIN: {finalMin} | FINAL MAX: {finalMax}");
+
+            float securedMin = -8.1f + (-1 * 19.2f);
+            float securedMax = 8.1f + (1 * 19.2f);
+
+            // Este es el tamaño FIJO de tu zona (lo que antes era -8.1 a 8.1)
+            float halfWidth = 8.1f;
+
+            // Clamp del centro para que el bloque completo no se salga
+            float clampedCenter = Mathf.Clamp(
+                horizontalOffset,
+                securedMin + halfWidth,
+                securedMax - halfWidth
+            );
+
+            float finalMin = clampedCenter - halfWidth;
+            float finalMax = clampedCenter + halfWidth;
+
+            MinBounds = new Vector2(finalMin, MinBounds.y);
+            MaxBounds = new Vector2(finalMax, MaxBounds.y);
+
+            Debug.Log($"CENTER: {clampedCenter} | MIN: {finalMin} | MAX: {finalMax}");
         }
 
         public void ResetBounds()
