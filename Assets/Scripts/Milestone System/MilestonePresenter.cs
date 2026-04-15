@@ -34,10 +34,12 @@ namespace Game.Systems.Milestone
         private Coroutine fallbackRoutine;
 
         public event Action<int> OnMilestoneShown;
+        public event Action OnLastMilestoneShown;
         private Milestone currentMilestone;
         private bool hasBeenRequested = false;
 
         private bool specificSceneDone = false;
+        private bool endMilestoneTriggered = false;
         int counter = 0;
 
         private void Awake()
@@ -108,6 +110,12 @@ namespace Game.Systems.Milestone
             MilestoneNext.onClick.RemoveListener(OnNextPressed);
             MilestoneNext.gameObject.SetActive(false);
             Animator.SetTrigger("HideNews");
+
+            if (currentMilestone.level == 5 && !endMilestoneTriggered)
+            {
+                endMilestoneTriggered = true;
+                OnLastMilestoneShown?.Invoke();
+            }
         }
 
         public void OnHideAnimationFinished()

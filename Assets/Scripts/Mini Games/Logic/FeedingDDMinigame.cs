@@ -65,7 +65,7 @@ namespace Game.Systems.Minigames
 
             Character.ChangeState(new BounceState(Character));
 
-            // ⚡ Ajustar velocidad dinámica
+            // Ajustar velocidad dinámica
             Character.MovementHandler.SetSpeedMultiplier(RunningSpeed.GetValue(level));
 
             cooldownTimer = MouthOpenCooldown.GetValue(level);

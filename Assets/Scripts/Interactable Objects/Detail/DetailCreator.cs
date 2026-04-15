@@ -16,6 +16,7 @@ namespace Game.Systems.Interaction.Detail
 
         [Header("References")]
         [SerializeField] private GameObject DetailObjPrefab;
+        [SerializeField] private Transform DetailObjGreatParent;
 
         [Header("Data")]
         [SerializeField] private DetailDatabaseSO Database;
@@ -38,6 +39,8 @@ namespace Game.Systems.Interaction.Detail
             lastDetailObj.transform.localEulerAngles = spawnRotation;
 
             par.transform.localScale = spawnScale;
+
+            par.transform.parent = DetailObjGreatParent;
 
             DetailObject detail = lastDetailObj.GetComponent<DetailObject>();
             detail.SetDetailData(Database.DetailDB.FirstOrDefault(a => a.objectID == objID));
