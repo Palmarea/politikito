@@ -68,9 +68,11 @@ namespace Game.Systems.Interaction.DragNDrop
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
             freeFall = false;
+            isBeingDragged = false;
             rb.linearVelocity = Vector2.zero;
             transform.localPosition = Vector3.zero;
             rb.position = transform.position;
+            Physics2D.SyncTransforms();
 
             if (MinigameManager.Instance.IsMinigameActive)
                 MouseManager.Instance.SetHorizontalRestriction(false);

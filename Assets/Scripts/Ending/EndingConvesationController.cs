@@ -21,6 +21,7 @@ namespace Game.Systems.Ending
         [SerializeField] private UIObject character;
         [SerializeField] private List<UIObject> statBars;
         [SerializeField] private UIObject textBox;
+        [SerializeField] private UIObject background;
         [SerializeField] private RandomAnimatorTrigger TriggerAnim;
 
         [Header("Particles")]
@@ -97,6 +98,8 @@ namespace Game.Systems.Ending
         // =========================
         private IEnumerator RunEndingSequence()
         {
+            yield return FadeUI(background, 0, 1, 1f);
+
             yield return FadeUI(character, 0, 1, 1f);
             TriggerAnim.SetNeedFull(false);
             yield return FadeUI(textBox, 0, 1, 0.5f);
@@ -143,6 +146,9 @@ namespace Game.Systems.Ending
             yield return FadeUI(textBox, 1, 0, 0.5f);
             TriggerAnim.SetNeedFull(true);
             yield return FadeUI(character, 1, 0, 1f);
+            yield return FadeUI(background, 1, 0, 1f);
+
+            ResetCursor();
 
             yield return ActivateLoadedScene();
         }
@@ -303,6 +309,15 @@ namespace Game.Systems.Ending
             StartAsyncLoad();
         }
 
+        private void ResetCursor()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            forceMouseToCenter = false;
+            visibleMouse = true;
+        }
+
         // =========================
         // TRANSICION ESCENA
         // =========================
@@ -330,6 +345,16 @@ namespace Game.Systems.Ending
             yield return new WaitUntil(() => asyncLoad != null && asyncLoad.progress >= 0.9f);
 
             asyncLoad.allowSceneActivation = true;
+        }
+
+        private void OnDestroy()
+        {
+            ResetCursor();
+        }
+
+        private void OnDisable()
+        {
+            ResetCursor();
         }
     }
 }

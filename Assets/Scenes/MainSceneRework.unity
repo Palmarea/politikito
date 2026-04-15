@@ -7289,7 +7289,7 @@ MonoBehaviour:
   finalSceneName: ConversationScene
   waitTime: 60
   audioFadeDuration: 5
-  triggerFromInspector: 1
+  triggerFromInspector: 0
 --- !u!4 &1628022824
 Transform:
   m_ObjectHideFlags: 0

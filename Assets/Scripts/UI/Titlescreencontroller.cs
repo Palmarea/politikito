@@ -46,6 +46,9 @@ namespace Game.UI
             
             splashFocus.SetActive(true);
             TweenSplashFocus();
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         private void TweenSplashFocus()

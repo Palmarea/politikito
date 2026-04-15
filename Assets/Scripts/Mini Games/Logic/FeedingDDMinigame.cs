@@ -54,6 +54,8 @@ namespace Game.Systems.Minigames
                 OpenMouth();
             }
 
+            Receiver.UpdateActive(isMouthOpen);
+
             AddProgress(ProgressBarDepletitionPerFrame.GetValue(level) * Time.deltaTime);
         }
 
@@ -75,7 +77,9 @@ namespace Game.Systems.Minigames
         {
             isMouthOpen = true;
 
-            Receiver.UpdateActive(true);
+            cooldownTimer = MouthOpenCooldown.GetValue(level);
+
+            //Receiver.UpdateActive(true);
 
             Character.ChangeState(new MouthOpenState(
                 Character,
@@ -83,13 +87,17 @@ namespace Game.Systems.Minigames
                 OnMouthClosed));
 
             CharacterAnimator.SetMouthOpen(true);
+
+            Debug.Log($"[MOUTH OPEN] isMouthOpen = {isMouthOpen}, Receiver = TRUE");
         }
 
         private void OnMouthClosed()
         {
-            Receiver.UpdateActive(false);
+            //Receiver.UpdateActive(false);
 
             CharacterAnimator.SetMouthOpen(false);
+
+            Debug.Log($"[MOUTH CLOSED] isMouthOpen = {isMouthOpen}, Receiver = FALSE");
 
             StartRunning();
         }
@@ -101,13 +109,16 @@ namespace Game.Systems.Minigames
         private void OnFoodGiven(DragDropObject obj)
         {
             if (!isMouthOpen)
+            {
+                obj.BackToOrigin();
                 return;
+            }
 
             AddProgress(ProgressPerFeed.GetValue(level));
 
             SFXCaller.Play("event:/actionBite");
 
-            DDObject.BackToOrigin();
+            obj.BackToOrigin();
         }
 
         #endregion
