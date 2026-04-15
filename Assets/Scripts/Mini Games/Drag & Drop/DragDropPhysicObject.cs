@@ -1,4 +1,6 @@
-﻿using Game.Systems.Input;
+﻿using Game.Managers.Mouse;
+using Game.Systems.Input;
+using Game.Systems.Minigames;
 using UnityEngine;
 
 namespace Game.Systems.Interaction.DragNDrop
@@ -31,7 +33,7 @@ namespace Game.Systems.Interaction.DragNDrop
                 mouseWorldPos.z = 0f;
 
                 Vector3 localPos = transform.parent.InverseTransformPoint(mouseWorldPos);
-                localPos.y = -300f; // fixed Y
+                localPos.y = -300f / transform.parent.localScale.y; // fixed Y
                 localPos.z = 0f;
 
                 transform.localPosition = localPos;
@@ -47,6 +49,8 @@ namespace Game.Systems.Interaction.DragNDrop
             freeFall = false;
             rb.bodyType = RigidbodyType2D.Kinematic;
             rb.linearVelocity = Vector2.zero;
+
+            GetComponent<ClickableObject>().IsInteractable = true;
         }
 
         public override void StopDragging()
@@ -67,6 +71,9 @@ namespace Game.Systems.Interaction.DragNDrop
             rb.linearVelocity = Vector2.zero;
             transform.localPosition = Vector3.zero;
             rb.position = transform.position;
+
+            if (MinigameManager.Instance.IsMinigameActive)
+                MouseManager.Instance.SetHorizontalRestriction(false);
         }
 
         public override bool AllowToDrop()

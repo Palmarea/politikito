@@ -1,33 +1,55 @@
-﻿using Game.Managers.Timing;
+﻿using Febucci.UI;
+using Game.Managers.Timing;
+using Game.Systems.Interaction.Detail;
+using Game.Utils;
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
+using UnityEngine.U2D;
+using UnityEngine.UI;
 
 namespace Game.Systems.Achievement
 {
+    [Serializable]
+    public class TextStep
+    {
+        public TypewriterByCharacter text;
+        [TextArea] public string template;
+        public bool needAfterDeactivation;
+        public bool objectPresentation;
+        public bool ignoreTemplate;
+    }
+
     public class AchievementPresenter : MonoBehaviour
     {
-        [Header("References")]
+        [Header("Dependencies")]
         [SerializeField] private AchievementSystem MainSystem;
 
-        [Header("Dependencies")]
+        [Header("References")]
         [SerializeField] private GameObject NotificationCanvasUI;
-        [SerializeField] private GameObject NotificationUI;
-        [SerializeField] private TextMeshProUGUI NotificationTitle;
-        [SerializeField] private TextMeshProUGUI NotificationDescription;
+        [SerializeField] private TextStep[] NotificationTitles;
+        [SerializeField] private Image NotificationImage;
+        [SerializeField] private TextStep[] NotificationDescriptions;
+
+        [Header("Data")]
+        [SerializeField] private SpriteAtlas SpriteAtlas;
 
         [Header("Parameters")]
         [SerializeField] private float NotificationDuration = 3f;
+        [SerializeField] private float TextDuration = 2f;
+
+        private Achievement lastAchievement;
 
         public event Action OnAchievementNotificationHided;
 
-        private Coroutine hideRoutine;
+        private Coroutine presentationRoutine;
 
         private void Awake()
         {
             if (MainSystem == null) MainSystem = GetComponent<AchievementSystem>();
+
             NotificationCanvasUI.SetActive(false);
+            NotificationImage.gameObject.SetActive(false);
         }
 
         private void ShowNotification(Achievement achievement)
@@ -35,40 +57,106 @@ namespace Game.Systems.Achievement
             if (!NotificationCanvasUI.activeInHierarchy)
                 NotificationCanvasUI.SetActive(true);
 
-            if (!NotificationUI.activeInHierarchy)
-                NotificationUI.SetActive(true);
-
-
-            NotificationTitle.text = achievement.title;
-            NotificationDescription.text = achievement.description;
-
             //SFX
             SFXCaller.Play("event:/LevelUpSmall");
 
             // Si ya hay una coroutine corriendo, la cancelamos
-            if (hideRoutine != null)
-                StopCoroutine(hideRoutine);
+            if (presentationRoutine != null)
+                StopCoroutine(presentationRoutine);
 
-            hideRoutine = StartCoroutine(HideAfterDelay());
+            lastAchievement = achievement;
+
+            presentationRoutine = StartCoroutine(ShowSequence(achievement));
 
             InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
         }
 
-        private IEnumerator HideAfterDelay()
+        private IEnumerator ShowSequence(Achievement achievement)
         {
+            for (int i = 0; i < NotificationTitles.Length; i++)
+            {
+                bool finished = false;
+
+                void OnFinished() => finished = true;
+
+                NotificationTitles[i].text.onTextShowed.AddListener(OnFinished);
+
+                NotificationTitles[i].text.ShowText(string.Format(NotificationTitles[i].template, achievement.stat));
+
+                yield return new WaitUntil(() => finished);
+
+                NotificationTitles[i].text.onTextShowed.RemoveListener(OnFinished);
+
+                yield return new WaitForSeconds(TextDuration);
+            }
+
+            // DESCRIPTION
+
+            for (int i = 0; i < NotificationDescriptions.Length; i++)
+            {
+                bool descFinished = false;
+
+                void OnDescFinished() => descFinished = true;
+
+                NotificationDescriptions[i].text.onTextShowed.AddListener(OnDescFinished);
+
+                if (!NotificationDescriptions[i].ignoreTemplate && !NotificationDescriptions[i].objectPresentation)
+                {
+                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template, GameData.Instance.GetPlayerLabel().ToUpper()));
+                }
+                else if (NotificationDescriptions[i].ignoreTemplate && !NotificationDescriptions[i].objectPresentation)
+                {
+                    NotificationDescriptions[i].text.ShowText(string.Format(achievement.description, GameData.Instance.GetPlayerLabel().ToUpper()));
+                }
+
+                if (NotificationDescriptions[i].objectPresentation)
+                {
+                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template, achievement.objectName));
+                    NotificationImage.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, achievement.spriteAtlasID);
+                    NotificationImage.gameObject.SetActive(true);
+                }
+
+                yield return new WaitUntil(() => descFinished);
+
+                NotificationDescriptions[i].text.onTextShowed.RemoveListener(OnDescFinished);
+
+                yield return new WaitForSeconds(TextDuration);
+
+                if (NotificationDescriptions[i].needAfterDeactivation)
+                {
+                    NotificationDescriptions[i].text.ShowText("");
+                }
+            }
+
+            // WAIT FINAL
             yield return new WaitForSeconds(NotificationDuration);
+
+
             HideNotification();
         }
 
         private void HideNotification()
         {
-            if (NotificationCanvasUI.activeInHierarchy) NotificationCanvasUI.SetActive(false);
-            if (NotificationUI.activeInHierarchy) NotificationUI.SetActive(false);
+            if (NotificationCanvasUI.activeInHierarchy)
+                NotificationCanvasUI.SetActive(false);
 
-            NotificationTitle.text = "";
-            NotificationDescription.text = "";
+            foreach (var textStep in NotificationTitles)
+                textStep.text.ShowText("");
 
-            InterruptionManager.Instance.DisableInteruption();
+            foreach (var textStep in NotificationDescriptions)
+                textStep.text.ShowText("");
+
+            NotificationImage.gameObject.SetActive(false);
+
+            DetailSystem.Instance.OnObjectCreated -= NotifyAchievementHided;
+            DetailSystem.Instance.OnObjectCreated += NotifyAchievementHided;
+
+            DetailSystem.Instance.RequestDetailObjCreation(lastAchievement.detailObjectID, lastAchievement.spawnPosition, lastAchievement.spawnRotation, lastAchievement.spawnScale);
+        }
+
+        private void NotifyAchievementHided()
+        {
+            DetailSystem.Instance.OnObjectCreated -= NotifyAchievementHided;
             OnAchievementNotificationHided?.Invoke();
         }
 

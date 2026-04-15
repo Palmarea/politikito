@@ -19,7 +19,7 @@ namespace Game.Systems.Minigames
     {
         public static MinigameManager Instance;
 
-        public List<MinigameDefinition> MinigameDefinitions = new List<MinigameDefinition>();
+        public List<MinigameDefinition> MinigameDefinitions = new();
 
         [Header("Dependencies")]
         [SerializeField] private TamaCharacterMovement CharacterMovement;

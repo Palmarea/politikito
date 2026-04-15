@@ -20,7 +20,7 @@ namespace Game.Systems.Achievement
         {
             if (AchievementSystem == null) return;
 
-            AchievementSystem.AdvanceAchievement();
+            AchievementSystem.AdvanceAchievement(stat);
         }
 
         private void OnDestroy()

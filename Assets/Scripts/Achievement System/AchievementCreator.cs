@@ -1,33 +1,29 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.Systems.Achievement
 {
-    [System.Serializable]
-    public class Achievements
-    {
-        public Achievement[] achievements;
-    }
-    
     public class AchievementCreator : MonoBehaviour
     {
-        public List<Achievement> CreateAchievementListByLevel(TextAsset AchievementJSON, int levelId)
+        public Dictionary<StatType, List<Achievement>> CreateAchievementDictionary(AchievementDatabaseSO database)
         {
-            Achievements deserializedAchievements = JsonUtility.FromJson<Achievements>(AchievementJSON.text);
+            Dictionary<StatType, List<Achievement>> dict = new();
 
-            List<Achievement> levelList = new List<Achievement>();
-
-            foreach (Achievement milestone in deserializedAchievements.achievements)
+            foreach (var achievement in database.AchievementDB)
             {
-                if (milestone.level == levelId)
-                {
-                    levelList.Add(milestone);
-                }
+                if (!dict.ContainsKey(achievement.stat))
+                    dict[achievement.stat] = new List<Achievement>();
+
+                dict[achievement.stat].Add(achievement);
             }
 
-            levelList.Sort((l1, l2) => l1.order.CompareTo(l2.order));
+            foreach (var list in dict.Values)
+            {
+                list.Sort((a, b) => a.level.CompareTo(b.level));
+            }
 
-            return levelList;
+            return dict;
         }
     }
 }

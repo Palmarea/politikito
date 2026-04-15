@@ -15,10 +15,13 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterCreation.unity
     guid: 7e44b75cf25984a719be42b06637db48
   - enabled: 1
-    path: Assets/Scenes/MainSceneJoaquinBackup.unity
-    guid: 12462505c303f9d4cbbddc6d3abdc761
+    path: Assets/Scenes/MainSceneRework.unity
+    guid: c63db800aa76c6643ab679f4613c9c21
   - enabled: 1
-    path: Assets/Scenes/FinalScene.unity
+    path: Assets/Scenes/ConversationScene.unity
+    guid: bb477df7166c9b749a259552e49a9bc1
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
     guid: 8778dcd37e6cbbf42ae27938fe367f2e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

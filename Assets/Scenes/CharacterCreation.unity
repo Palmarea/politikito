@@ -799,7 +799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5216058951010523580, guid: 4871b1de8b945494abd29ab70597e032, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c58ff3bcb7a9f2419d1f559e2a723a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -847,7 +847,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: -6202151535849577019, guid: 2565d7fd7bad846ee9f599f9a5d2f592, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 1a5b9ae2923b9a54eb09afe6a2b19f3a, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -803434203682755946, guid: d28b5946e3e9a4da2ac6e79bef4bb0dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c58ff3bcb7a9f2419d1f559e2a723a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1117,7 +1117,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 1a5b9ae2923b9a54eb09afe6a2b19f3a, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   leftArrow: {fileID: 665411562}
   rightArrow: {fileID: 970000513}
   confirmButton: {fileID: 1048081252}
-  nextSceneName: MainSceneJoaquinBackup
+  nextSceneName: MainSceneRework
   unlockedOutfits: 00000000
   feedbackText: {fileID: 935861943}
   outfitLabel: {fileID: 0}

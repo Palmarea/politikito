@@ -11,27 +11,29 @@ public class GameHUDFollow : MonoBehaviour
     [Header("References")]
     [SerializeField] private List<DragDropObject> DragDropObjects = new List<DragDropObject>();
 
+    private Vector3 initialLocalPosition = Vector3.zero;
+
     private void Awake()
     {
-        //transform.parent = CameraController.transform;
-        transform.SetParent(CameraController.transform);
+        StartFollowing();
     }
 
-    private void UpdateDNDOBjects()
+    public void StartFollowing()
     {
-        foreach (var dragDropObject in DragDropObjects)
+        transform.SetParent(CameraController.transform);
+        
+        if (initialLocalPosition != Vector3.zero)
         {
-            dragDropObject.ResetInitialPosition();
+            transform.localPosition = initialLocalPosition;
+        }
+        else
+        {
+            initialLocalPosition = transform.localPosition;
         }
     }
 
-    private void OnEnable()
+    public void StopFollowing()
     {
-        CameraController.OnArrivedToSection += UpdateDNDOBjects;
-    }
-    
-    private void OnDisable()
-    {
-        CameraController.OnArrivedToSection -= UpdateDNDOBjects;
+        transform.SetParent(null);
     }
 }

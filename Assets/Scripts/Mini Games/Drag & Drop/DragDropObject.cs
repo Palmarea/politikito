@@ -30,6 +30,8 @@ namespace Game.Systems.Interaction.DragNDrop
         {
             isBeingDragged = true;
             offset = (Vector2)transform.position - InputManager.Instance.GetMousePosition();
+
+            GetComponent<ClickableObject>().IsInteractable = true;
         }
 
         public virtual void StopDragging()
@@ -49,11 +51,6 @@ namespace Game.Systems.Interaction.DragNDrop
         public virtual bool AllowToDrop()
         {
             return true;
-        }
-
-        public void ResetInitialPosition()
-        {
-            //initialPosition = transform.parent.localPosition;
         }
 
         private void OnEnable()

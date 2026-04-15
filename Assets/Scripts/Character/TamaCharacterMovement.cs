@@ -44,11 +44,23 @@ namespace Game.Character
 
         public void SetReducedBounds(float dir, float horizontalOffset)
         {
-            //MinBounds = new Vector2(-8.1f + (dir * 19.2f), MinBounds.y); 
-            //MaxBounds = new Vector2(8.1f + (dir * 19.2f), MaxBounds.y);
+            float securedMin = -8.1f + (-1 * 19.2f);
+            float securedMax = 8.1f + (1 * 19.2f);
 
-            MinBounds = new Vector2(-8.1f + (dir * 19.2f) + horizontalOffset, MinBounds.y);
-            MaxBounds = new Vector2(8.1f + (dir * 19.2f) + horizontalOffset, MaxBounds.y);
+            float halfWidth = 8.1f;
+
+            float clampedCenter = Mathf.Clamp(
+                horizontalOffset,
+                securedMin + halfWidth,
+                securedMax - halfWidth
+            );
+
+            float finalMin = clampedCenter - halfWidth;
+            float finalMax = clampedCenter + halfWidth;
+
+            MinBounds = new Vector2(finalMin, MinBounds.y);
+            MaxBounds = new Vector2(finalMax, MaxBounds.y);
+
         }
 
         public void ResetBounds()

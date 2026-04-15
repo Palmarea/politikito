@@ -1,3 +1,4 @@
+using Game.Character;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,77 +10,54 @@ namespace Game.Systems.Achievement
         [Header("Dependencies")]
         [SerializeField] private AchievementCreator Creator;
 
-        [Header("Parameters")]
-        [SerializeField] private TextAsset AchievementJSON;
-        [SerializeField] private int MaxAchievementList = 3;
+        [Header("Data")]
+        [SerializeField] private AchievementDatabaseSO Database;
 
-        private Dictionary<int, List<Achievement>> AchievementDictionary = new();
-        private int currentAchievementLevel = 1;
-        private int currentAchievementOrder = -1;
+        private Dictionary<StatType, List<Achievement>> AchievementDictionary = new();
+        private Dictionary<StatType, int> currentIndexPerStat = new();
 
-        // Nuevo evento
         public event Action<Achievement> OnNextAchievement;
 
         private void Awake()
         {
-            for (int i = 1; i <= MaxAchievementList; i++)
+            AchievementDictionary = Creator.CreateAchievementDictionary(Database);
+
+            foreach (var stat in AchievementDictionary.Keys)
             {
-                AchievementDictionary[i] =
-                    Creator.CreateAchievementListByLevel(AchievementJSON, i);
+                currentIndexPerStat[stat] = -1;
             }
         }
 
-        public Achievement GetCurrentAchievement()
+        public Achievement GetCurrentAchievement(StatType stat)
         {
-            if (!AchievementDictionary.ContainsKey(currentAchievementLevel))
+            if (!AchievementDictionary.ContainsKey(stat))
                 return null;
 
-            return AchievementDictionary[currentAchievementLevel][currentAchievementOrder];
-        }
+            int index = currentIndexPerStat[stat];
 
-        public void AdvanceAchievement()
-        {
-            Achievement next = MoveNextInternal();
-
-            if (next != null)
-                OnNextAchievement?.Invoke(next);
-        }
-
-        public Achievement AdvanceAndGetAchievement()
-        {
-            Achievement next = MoveNextInternal();
-
-            if (next != null)
-                OnNextAchievement?.Invoke(next);
-
-            return next;
-        }
-
-        private Achievement MoveNextInternal()
-        {
-            if (!AchievementDictionary.ContainsKey(currentAchievementLevel))
+            if (index < 0 || index >= AchievementDictionary[stat].Count)
                 return null;
 
-            var currentList = AchievementDictionary[currentAchievementLevel];
+            return AchievementDictionary[stat][index];
+        }
 
-            if (currentAchievementOrder < currentList.Count - 1)
-            {
-                currentAchievementOrder++;
-            }
-            else
-            {
-                if (currentAchievementLevel < MaxAchievementList)
-                {
-                    currentAchievementLevel++;
-                    currentAchievementOrder = 0;
-                }
-                else
-                {
-                    return null;
-                }
-            }
+        public void AdvanceAchievement(TamaStat stat)
+        {
+            StatType parsedStat = Enum.Parse<StatType>(stat.Name);
 
-            return GetCurrentAchievement();
+            if (!AchievementDictionary.ContainsKey(parsedStat))
+                return;
+
+            var list = AchievementDictionary[parsedStat];
+            int index = currentIndexPerStat[parsedStat];
+
+            if (index < list.Count - 1)
+            {
+                index++;
+                currentIndexPerStat[parsedStat] = index;
+
+                OnNextAchievement?.Invoke(list[index]);
+            }
         }
     }
 }
