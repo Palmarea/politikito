@@ -1,5 +1,6 @@
 ﻿using Game.Managers.Timing;
 using Game.Systems.Achievement;
+using Game.Systems.CameraControl;
 using Game.Systems.Milestone.Inspect;
 using System;
 using System.Collections;
@@ -17,6 +18,7 @@ namespace Game.Systems.Milestone
         [SerializeField] private MilestoneSystem MainSystem;
         [SerializeField] private AchievementPresenter PairSystem;
         [SerializeField] private MilestoneInspectSystem InspectSystem;
+        [SerializeField] private CameraController CameraController;
 
         [Header("UI References")]
         [SerializeField] private GameObject MilestoneCanvasUI;
@@ -30,8 +32,6 @@ namespace Game.Systems.Milestone
 
         [Header("Fallback Timer")]
         [SerializeField] private float fallbackDelay = 5f;
-
-        private Coroutine fallbackRoutine;
 
         public event Action<int> OnMilestoneShown;
         public event Action OnLastMilestoneShown;
@@ -52,11 +52,6 @@ namespace Game.Systems.Milestone
         {
             hasBeenRequested = true;
             currentMilestone = milestone;
-
-            //if (fallbackRoutine != null)
-            //    StopCoroutine(fallbackRoutine);
-
-            //fallbackRoutine = StartCoroutine(FallbackTimer());
         }
 
         private void RequestForced(Milestone milestone)
@@ -71,11 +66,6 @@ namespace Game.Systems.Milestone
         {
             if (!hasBeenRequested) return;
 
-            if (fallbackRoutine != null)
-                StopCoroutine(fallbackRoutine);
-
-            InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
-
             MilestoneDescriptionUI.SetText(string.Format(currentMilestone.description, GameData.Instance.GetPlayerLabel()));
             MilestoneCanvasUI.SetActive(true);
 
@@ -88,9 +78,10 @@ namespace Game.Systems.Milestone
             
             SFXCaller.Play("event:/LevelUpGrande");
             Animator.SetTrigger("PresentNews");
+
+            InterruptionManager.Instance.EnableInterruption(InterruptionType.NOTIFICATION);
         }
 
-        // llamado por Animation Event al terminar PresentNews
         public void OnPresentAnimationFinished()
         {
             MilestoneNext.gameObject.SetActive(true);
@@ -116,6 +107,8 @@ namespace Game.Systems.Milestone
                 endMilestoneTriggered = true;
                 OnLastMilestoneShown?.Invoke();
             }
+
+            CameraController.RequestForcedSectionRefresh();
         }
 
         public void OnHideAnimationFinished()
@@ -134,17 +127,6 @@ namespace Game.Systems.Milestone
             {
                 specificSceneDone = true;
                 MainSystem.ForceAdvance(3);
-            }
-        }
-
-        private IEnumerator FallbackTimer()
-        {
-            yield return new WaitForSeconds(fallbackDelay);
-
-            if (hasBeenRequested)
-            {
-                Debug.Log("Fallback milestone triggered");
-                ShowMilestone();
             }
         }
 

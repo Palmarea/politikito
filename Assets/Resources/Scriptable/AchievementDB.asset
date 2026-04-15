@@ -53,7 +53,7 @@ MonoBehaviour:
     spawnRotation: {x: 0, y: 0, z: 0}
     spawnScale: {x: 1.15, y: 1.15, z: 1.15}
     description: "<bounce><b>{0}</b></> utiliz\xF3 un porcentaje de los fondos de
-      su partido en su imagen <slide>\xA1Eso es tener estilo!</>"
+      su partido en su imagen <shake>\xA1Eso es tener estilo!</>"
   - level: 1
     stat: 1
     objectName: "MEDALLA DE M\xC9RITO"

@@ -9,7 +9,6 @@ namespace Game.Systems.Ending
         [SerializeField] private Animator animator;
 
         [Header("Settings")]
-        [SerializeField] private string triggerName = "Play";
         [SerializeField] private float minTime = 2f;
         [SerializeField] private float maxTime = 5f;
 
@@ -17,12 +16,6 @@ namespace Game.Systems.Ending
         [SerializeField] private bool playOnStart = true;
 
         private Coroutine loopCoroutine;
-
-        private void Start()
-        {
-            if (playOnStart)
-                StartLoop();
-        }
 
         public void StartLoop()
         {
@@ -39,6 +32,20 @@ namespace Game.Systems.Ending
             }
         }
 
+        public void SetNeedFull(bool state)
+        {
+            animator.SetBool("NeedFull", state);
+
+            if (!state)
+            {
+                StartLoop();
+            }
+            else
+            {
+                StopLoop();
+            }
+        }
+
         private IEnumerator TriggerLoop()
         {
             while (true)
@@ -46,7 +53,7 @@ namespace Game.Systems.Ending
                 float waitTime = Random.Range(minTime, maxTime);
                 yield return new WaitForSeconds(waitTime);
 
-                animator.SetTrigger(triggerName);
+                animator.SetTrigger("Spasm");
             }
         }
     }

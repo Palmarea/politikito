@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Game.Systems.Ending
 {
@@ -20,10 +21,14 @@ namespace Game.Systems.Ending
         [SerializeField] private UIObject character;
         [SerializeField] private List<UIObject> statBars;
         [SerializeField] private UIObject textBox;
+        [SerializeField] private RandomAnimatorTrigger TriggerAnim;
+
+        [Header("Particles")]
+        [SerializeField] private List<ParticleSystem> StatParticles;
         [SerializeField] private ParticleSystem MouseParticle;
 
         [Header("Container")]
-        [SerializeField] private RectTransform statsContainer;
+        [SerializeField] private RectTransform Container;
         [SerializeField] private float containerMoveY = 200f;
         [SerializeField] private float containerMoveDuration = 1f;
 
@@ -35,6 +40,11 @@ namespace Game.Systems.Ending
         [SerializeField] private TypewriterByCharacter typewriter;
         [SerializeField] private float afterTypeDuration = 1f;
 
+        [Header("Scene")]
+        [SerializeField] private string nextSceneName;
+
+        private AsyncOperation asyncLoad;
+
         private List<Vector2> originalStatPositions = new List<Vector2>();
         private Vector2 originalContainerPos;
 
@@ -45,7 +55,7 @@ namespace Game.Systems.Ending
 
         private void Start()
         {
-            originalContainerPos = statsContainer.anchoredPosition;
+            originalContainerPos = Container.anchoredPosition;
 
             // Character
             character.objCanvasGroup.alpha = 0f;
@@ -65,6 +75,8 @@ namespace Game.Systems.Ending
                 item.objCanvasGroup.alpha = 0f;
                 item.objTransform.gameObject.SetActive(false);
             }
+
+            TriggerAnim.SetNeedFull(true);
 
             StartCoroutine(RunEndingSequence());
         }
@@ -86,6 +98,7 @@ namespace Game.Systems.Ending
         private IEnumerator RunEndingSequence()
         {
             yield return FadeUI(character, 0, 1, 1f);
+            TriggerAnim.SetNeedFull(false);
             yield return FadeUI(textBox, 0, 1, 0.5f);
 
             yield return TypeLine("HOLA.");
@@ -114,7 +127,7 @@ namespace Game.Systems.Ending
             BreakStats();
 
             //  volver container a su posición original
-            yield return MoveContainer(statsContainer.anchoredPosition, originalContainerPos);
+            yield return MoveContainer(Container.anchoredPosition, originalContainerPos);
 
             LockMouseToCenter();
             yield return TypeLine("Y EN CUANTO A TI....");
@@ -126,10 +139,12 @@ namespace Game.Systems.Ending
             yield return TypeLine("GRACIAS POR CUMPLIR TU PAPEL.");
             yield return TypeLine("HASTA NUNCA.");
 
+
             yield return FadeUI(textBox, 1, 0, 0.5f);
+            TriggerAnim.SetNeedFull(true);
             yield return FadeUI(character, 1, 0, 1f);
 
-            Debug.Log("Ir a créditos");
+            yield return ActivateLoadedScene();
         }
 
         // =========================
@@ -230,6 +245,7 @@ namespace Game.Systems.Ending
             {
                 statBars[i].objTransform.anchoredPosition = originalStatPositions[i];
                 statBars[i].objTransform.gameObject.SetActive(false);
+                StatParticles[i].Play();
             }
         }
 
@@ -240,11 +256,11 @@ namespace Game.Systems.Ending
             while (t < containerMoveDuration)
             {
                 t += Time.deltaTime;
-                statsContainer.anchoredPosition = Vector2.Lerp(from, to, t / containerMoveDuration);
+                Container.anchoredPosition = Vector2.Lerp(from, to, t / containerMoveDuration);
                 yield return null;
             }
 
-            statsContainer.anchoredPosition = to;
+            Container.anchoredPosition = to;
         }
 
         // =========================
@@ -279,6 +295,36 @@ namespace Game.Systems.Ending
             Cursor.visible = false;
             visibleMouse = false;
             MouseParticle.Play();
+            StartAsyncLoad();
+        }
+
+        // =========================
+        // TRANSICION ESCENA
+        // =========================
+
+        private void StartAsyncLoad()
+        {
+            if (asyncLoad != null) return;
+
+            asyncLoad = SceneManager.LoadSceneAsync(nextSceneName);
+            asyncLoad.allowSceneActivation = false;
+
+            StartCoroutine(WaitForSceneReady());
+        }
+
+        private IEnumerator WaitForSceneReady()
+        {
+            while (asyncLoad.progress < 0.9f)
+            {
+                yield return null;
+            }
+        }
+
+        private IEnumerator ActivateLoadedScene()
+        {
+            yield return new WaitUntil(() => asyncLoad != null && asyncLoad.progress >= 0.9f);
+
+            asyncLoad.allowSceneActivation = true;
         }
     }
 }

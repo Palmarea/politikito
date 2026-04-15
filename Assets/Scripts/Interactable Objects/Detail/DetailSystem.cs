@@ -37,6 +37,8 @@ namespace Game.Systems.Interaction.Detail
 
         public static DetailSystem Instance;
 
+        private DetailObjData lastDetailObj;
+
         #region Singleton
         private void Awake()
         {
@@ -73,6 +75,8 @@ namespace Game.Systems.Interaction.Detail
 
             m_Occupied = true;
 
+            lastDetailObj = data;
+
             InterruptionManager.Instance.EnableInterruption(InterruptionType.DETAIL);
 
             if (data.type == DetailType.ACHIEVEMENT)
@@ -101,7 +105,12 @@ namespace Game.Systems.Interaction.Detail
             NewspaperText.text = "";
 
             InterruptionManager.Instance.DisableInteruption();
-            InterruptionManager.Instance.EnableInterruption(InterruptionType.OUT);
+            
+            if (lastDetailObj.type == DetailType.MILESTONE)
+            {
+                InterruptionManager.Instance.EnableInterruption(InterruptionType.OUT);
+            }
+
             MouseManager.Instance.UpdateOcuppiedState(false);
 
             DetailCanvasUI.SetActive(false);

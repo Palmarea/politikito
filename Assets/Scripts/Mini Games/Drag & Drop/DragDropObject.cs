@@ -53,11 +53,6 @@ namespace Game.Systems.Interaction.DragNDrop
             return true;
         }
 
-        public void ResetInitialPosition()
-        {
-            //initialPosition = transform.parent.localPosition;
-        }
-
         private void OnEnable()
         {
             if (InputManager.Instance != null)

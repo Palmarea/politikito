@@ -2863,7 +2863,7 @@ MonoBehaviour:
     objectPresentation: 0
     ignoreTemplate: 1
   - text: {fileID: 181573122}
-    template: Recibiste un "<rainb><b>{0}</b></>",
+    template: Recibiste "<rainb><b>{0}</b></>",
     needAfterDeactivation: 0
     objectPresentation: 1
     ignoreTemplate: 0
@@ -4514,6 +4514,7 @@ MonoBehaviour:
   MainSystem: {fileID: 942613045}
   PairSystem: {fileID: 524734184}
   InspectSystem: {fileID: 942613048}
+  CameraController: {fileID: 519420034}
   MilestoneCanvasUI: {fileID: 943818754}
   MilestoneImageUI: {fileID: 964553026}
   MilestoneDescriptionUI: {fileID: 306700967}
@@ -7213,7 +7214,7 @@ MonoBehaviour:
   Character: {fileID: 1254595388}
   HUD: {fileID: 1837783839}
   DetailObjectsParent: {fileID: 733016354}
-  finalSceneName: FinalScene
+  finalSceneName: ConversationScene
   waitTime: 60
   triggerFromInspector: 0
 --- !u!4 &1628022824

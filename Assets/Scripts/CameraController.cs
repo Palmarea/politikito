@@ -49,8 +49,10 @@ namespace Game.Systems.CameraControl
 
         private Camera m_MainCamera;
         private bool isMoving = false;
+        public bool IsMoving => isMoving;
         private bool isForced = false;
         private bool levelUpRequested = false;
+        private bool fullLevelUpRequested = false;
         private Transform target;
         private Vector3 m_forcedTarget;
         private CameraSection currentSection;
@@ -103,7 +105,7 @@ namespace Game.Systems.CameraControl
                 {
                     isMoving = false;
 
-                    if (!levelUpRequested)
+                    if (!levelUpRequested && !fullLevelUpRequested)
                     {
                         OnArrivedToSection?.Invoke();
                         OnSectionChanged?.Invoke(currentSection);
@@ -111,12 +113,23 @@ namespace Game.Systems.CameraControl
 
                         CheckTutorialCompletition();
                     }
-                    else
+                    else if (levelUpRequested && !fullLevelUpRequested)
                     {
                         levelUpRequested = false;
                     }
+                    else if (!levelUpRequested && fullLevelUpRequested)
+                    {
+                        fullLevelUpRequested = false;
+                    }
                 }
             }
+        }
+
+        public void RequestForcedSectionRefresh()
+        {
+            levelUpRequested = false;
+            fullLevelUpRequested = false;
+            OnSectionChanged?.Invoke(currentSection);
         }
 
         private void MoveCamera(Vector3 targetPosition)
@@ -293,17 +306,24 @@ namespace Game.Systems.CameraControl
         {
             levelUpRequested = true;
         }
+        
+        private void HandleFullLevelUp(int level)
+        {
+            fullLevelUpRequested = true;
+        }
 
         private void OnEnable()
         {
             if (CharacterStats == null) return;
 
             CharacterStats.OnStatLevelUp += HandleLevelUp;
+            CharacterStats.OnAllStatsReachedSameLevel += HandleFullLevelUp;
         }
 
         private void OnDisable()
         {
             CharacterStats.OnStatLevelUp -= HandleLevelUp;
+            CharacterStats.OnAllStatsReachedSameLevel -= HandleFullLevelUp;
         }
 
         private void OnDrawGizmos()

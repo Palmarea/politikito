@@ -36,22 +36,4 @@ public class GameHUDFollow : MonoBehaviour
     {
         transform.SetParent(null);
     }
-
-    private void UpdateDNDOBjects()
-    {
-        foreach (var dragDropObject in DragDropObjects)
-        {
-            dragDropObject.ResetInitialPosition();
-        }
-    }
-
-    private void OnEnable()
-    {
-        CameraController.OnArrivedToSection += UpdateDNDOBjects;
-    }
-    
-    private void OnDisable()
-    {
-        CameraController.OnArrivedToSection -= UpdateDNDOBjects;
-    }
 }
