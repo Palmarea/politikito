@@ -6476,6 +6476,7 @@ MonoBehaviour:
   DDObject: {fileID: 365263004}
   MinigameCooldownTime: 5
   CooldownRadialBar: {fileID: 73262942}
+  ObjectSpriteRenderer: {fileID: 365263007}
   Character: {fileID: 1254595392}
   CharacterAnimator: {fileID: 1254595390}
   WateringOriginPoint: {fileID: 365263008}
@@ -6532,6 +6533,7 @@ MonoBehaviour:
   DDObject: {fileID: 884095220}
   MinigameCooldownTime: 3
   CooldownRadialBar: {fileID: 1042204986}
+  ObjectSpriteRenderer: {fileID: 884095223}
   Character: {fileID: 1254595392}
   CharacterAnimator: {fileID: 1254595390}
   DumbbellOriginPoint: {fileID: 884095224}
@@ -6592,8 +6594,9 @@ MonoBehaviour:
   CharacterStats: {fileID: 1254595389}
   Receiver: {fileID: 2109842855}
   DDObject: {fileID: 310439870}
-  MinigameCooldownTime: 3
+  MinigameCooldownTime: 50
   CooldownRadialBar: {fileID: 1657675194}
+  ObjectSpriteRenderer: {fileID: 310439867}
   Character: {fileID: 1254595392}
   CharacterAnimator: {fileID: 1254595390}
   ProgressPerFeed:
@@ -6603,13 +6606,53 @@ MonoBehaviour:
     - 100
     - 100
     - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
   ProgressBarDepletitionPerFrame:
-    valuesPerLevel:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
+    valuesPerLevel: []
   MouthOpenDuration:
     valuesPerLevel:
     - 4
