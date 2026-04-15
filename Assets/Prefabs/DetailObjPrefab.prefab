@@ -249,6 +249,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8515571001606941686, guid: 6de1b6afcc03d2a41b3d6e2f2cf17fd2, type: 3}
+        m_TargetAssemblyTypeName: Game.Systems.Interaction.Detail.DetailObject, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3089659821772380685, guid: 6de1b6afcc03d2a41b3d6e2f2cf17fd2, type: 3}
+        m_TargetAssemblyTypeName: SFXCaller, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: event:/uiButton
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHover:
     m_PersistentCalls:
       m_Calls: []
@@ -270,6 +294,7 @@ MonoBehaviour:
   m_Data:
     objectID: 
     spriteAtlasID: 1
+    spriteAtlasMilestoneID: 
     type: 0
     description: asdadwdasfsegevcadwdawdacfawdacawcawdawcawcawdawdadawdadw
 --- !u!114 &3817873710074655842

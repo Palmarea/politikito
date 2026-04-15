@@ -15,12 +15,14 @@ namespace Game.Systems.Ending
         [SerializeField] private GameObject Character;
         [SerializeField] private GameObject HUD;
         [SerializeField] private GameObject DetailObjectsParent;
+        [SerializeField] private SoundUpdater soundUpdater;
 
         [Header("Scene")]
         [SerializeField] private string finalSceneName;
 
         [Header("Parameters")]
         [SerializeField] private float waitTime = 60f;
+        [SerializeField] private float audioFadeDuration = 5f;
 
         [Header("Debug")]
         [SerializeField] private bool triggerFromInspector;
@@ -47,11 +49,14 @@ namespace Game.Systems.Ending
             HUD.SetActive(false);
             DetailObjectsParent.SetActive(false);
 
+            if (soundUpdater != null)
+                soundUpdater.FadeOutVolumes(audioFadeDuration);
+
             // 2. Comenzar carga async
             asyncLoad = SceneManager.LoadSceneAsync(finalSceneName);
             asyncLoad.allowSceneActivation = false;
 
-            // 3. Escuchar fin de transición a negro
+            // 3. Escuchar fin de transiciï¿½n a negro
             TransitionHandler.OnTransBlackEnded += OnBlackScreen;
 
             // 4. Iniciar secuencia
@@ -60,19 +65,19 @@ namespace Game.Systems.Ending
 
         private IEnumerator SequenceCoroutine()
         {
-            // Esperar el tiempo de exploración
+            // Esperar el tiempo de exploraciï¿½n
             yield return new WaitForSeconds(waitTime);
 
-            // Esperar a que la escena esté cargada al 90%
+            // Esperar a que la escena estï¿½ cargada al 90%
             yield return new WaitUntil(() => asyncLoad.progress >= 0.9f);
 
-            // Pedir transición a negro SOLO cuando ya está lista
+            // Pedir transiciï¿½n a negro SOLO cuando ya estï¿½ lista
             TransitionHandler.RequestTransitionTB();
         }
 
         private void OnBlackScreen()
         {
-            // Activar escena cuando ya está completamente negro
+            // Activar escena cuando ya estï¿½ completamente negro
             asyncLoad.allowSceneActivation = true;
         }
     }

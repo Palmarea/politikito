@@ -75,6 +75,7 @@ namespace Game.UI
                 hasStamped = true;
                 PlaceStamp();
                 StartCoroutine(StampAnimation());
+                SFXCaller.Play("event:/uiButton");
                 StartCoroutine(TransitionAfterDelay());
             }
         }

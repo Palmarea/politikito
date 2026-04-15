@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using FMODUnity;
 public class SoundUpdater : MonoBehaviour
@@ -17,12 +18,49 @@ public class SoundUpdater : MonoBehaviour
     [Range(0, 5)]
     public int Growth;
 
+    private Coroutine fadeCoroutine;
+
     void Start()
     {
         if(emitter == null)
         {
             emitter = GetComponent<FMODUnity.StudioEventEmitter>();
         }
+    }
+
+    public void FadeOutVolumes(float duration)
+    {
+        if (fadeCoroutine != null)
+            StopCoroutine(fadeCoroutine);
+
+        fadeCoroutine = StartCoroutine(FadeOutCoroutine(duration));
+    }
+
+    private IEnumerator FadeOutCoroutine(float duration)
+    {
+        float startDrum = drumVol;
+        float startBass = bassVol;
+        float startLead = leadVol;
+        float startString = stringVol;
+
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            float t = duration > 0f ? elapsed / duration : 1f;
+            drumVol = Mathf.Lerp(startDrum, 0f, t);
+            bassVol = Mathf.Lerp(startBass, 0f, t);
+            leadVol = Mathf.Lerp(startLead, 0f, t);
+            stringVol = Mathf.Lerp(startString, 0f, t);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        drumVol = 0f;
+        bassVol = 0f;
+        leadVol = 0f;
+        stringVol = 0f;
+        fadeCoroutine = null;
     }
 
     // Update is called once per frame

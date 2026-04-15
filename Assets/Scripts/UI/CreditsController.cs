@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using FMODUnity;
+using Mono.Cecil.Cil;
 
 namespace Game.UI
 {
@@ -15,6 +17,7 @@ namespace Game.UI
         [SerializeField] private float displayDuration = 3f;
         [SerializeField] private float fadeOutDuration = 1f;
         [SerializeField] private float pauseBetweenSections = 0.5f;
+        [SerializeField] private FMODUnity.StudioEventEmitter emitter;
 
         [Header("Transition")]
         [SerializeField] private string titleSceneName = "TitleScreen";
@@ -27,12 +30,14 @@ namespace Game.UI
                 if (section != null)
                     section.alpha = 0f;
             }
+            
 
             StartCoroutine(PlayCredits());
         }
 
         private IEnumerator PlayCredits()
         {
+            emitter.SetParameter("creditsVolume", 0.9f);
             yield return new WaitForSeconds(1f);
 
             foreach (var section in creditSections)
@@ -51,11 +56,14 @@ namespace Game.UI
                 // Pause
                 yield return new WaitForSeconds(pauseBetweenSections);
             }
-
+            
             yield return new WaitForSeconds(1f);
+            yield return StartCoroutine(FadeOutVolume(2f));
             SceneManager.LoadScene(titleSceneName);
         }
 
+
+        
         private IEnumerator FadeCanvasGroup(CanvasGroup group, float from, float to, float duration)
         {
             float elapsed = 0f;
@@ -68,5 +76,22 @@ namespace Game.UI
             }
             group.alpha = to;
         }
+
+        private IEnumerator FadeOutVolume(float duration)
+        {
+        float startCredits = 1f;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            float t = duration > 0f ? elapsed / duration : 1f;
+            emitter.SetParameter("creditsVolume", Mathf.Lerp(startCredits, 0f, t));
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        emitter.SetParameter("creditsVolume", 0f);
+        }
     }
+    
 }

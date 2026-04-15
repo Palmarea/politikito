@@ -185,6 +185,7 @@ namespace Game.Systems.Ending
         private IEnumerator DrainStats()
         {
             keepShakingStats = true;
+            SFXCaller.Play("event:/uiButtonBreak3");
 
             float duration = 2f;
             float t = 0;
@@ -241,11 +242,14 @@ namespace Game.Systems.Ending
         {
             keepShakingStats = false;
 
+            string[] breakref = { "event:/uiButtonBreak1", "event:/uiButtonBreak2", "event:/uiButtonBreak3" };
+
             for (int i = 0; i < statBars.Count; i++)
             {
                 statBars[i].objTransform.anchoredPosition = originalStatPositions[i];
                 statBars[i].objTransform.gameObject.SetActive(false);
                 StatParticles[i].Play();
+                SFXCaller.Play(breakref[i]);
             }
         }
 
@@ -295,6 +299,7 @@ namespace Game.Systems.Ending
             Cursor.visible = false;
             visibleMouse = false;
             MouseParticle.Play();
+            SFXCaller.Play("event:/uiButtonBreak2");
             StartAsyncLoad();
         }
 

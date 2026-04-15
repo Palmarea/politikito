@@ -29,7 +29,7 @@ namespace Game.Systems.Milestone
             //Screw Transitions
             if (level == 1)
             {
-                SoundUpdater.stringVol=0.8f;
+                SoundUpdater.stringVol=0.7f;
                 SoundUpdater.leadVol=0.8f;
                 SoundUpdater.bassVol=0.8f;
                 SoundUpdater.drumVol=0.8f;
