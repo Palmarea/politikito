@@ -2836,15 +2836,17 @@ MonoBehaviour:
   NotificationCanvasUI: {fileID: 432456576}
   NotificationTitles:
   - text: {fileID: 2140468186}
-    template: "\xA1Tu <incr><rainb><b>{0}</b></>...<waitfor=1>\\n"
+    template: "\xA1Tu <incr><rainb><b>{0}</b></>...\\n"
     needAfterDeactivation: 0
     objectPresentation: 0
     ignoreTemplate: 0
+    textDuration: 0.75
   - text: {fileID: 698049434}
     template: \na <wiggle>mejorado!</>
     needAfterDeactivation: 0
     objectPresentation: 0
     ignoreTemplate: 0
+    textDuration: 0.5
   NotificationImage: {fileID: 2104709274}
   NotificationDescriptions:
   - text: {fileID: 337434536}
@@ -2853,19 +2855,21 @@ MonoBehaviour:
     needAfterDeactivation: 1
     objectPresentation: 0
     ignoreTemplate: 1
+    textDuration: 3
   - text: {fileID: 181573122}
     template: Recibiste "<rainb><b>{0}</b></>",
     needAfterDeactivation: 0
     objectPresentation: 1
     ignoreTemplate: 0
+    textDuration: 0.75
   - text: {fileID: 2006630449}
     template: "la encontrar\xE1s en tu casa."
     needAfterDeactivation: 0
     objectPresentation: 0
     ignoreTemplate: 0
+    textDuration: 0.5
   SpriteAtlas: {fileID: 100100200, guid: 18b5eace7ef7ec44caa10c05d65a053c, type: 3}
-  NotificationDuration: 5
-  TextDuration: 0.2
+  NotificationDuration: 2
 --- !u!114 &524734185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7172,6 +7176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573790279}
   - component: {fileID: 1573790278}
+  - component: {fileID: 1573790280}
   m_Layer: 0
   m_Name: Main Managers
   m_TagString: Untagged
@@ -7206,6 +7211,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1573790280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573790277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035054400b571e94d8e8ff7d5b3694fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameData
+  PlayerName: TIKO
 --- !u!1 &1624686168
 GameObject:
   m_ObjectHideFlags: 0
@@ -7273,7 +7291,7 @@ MonoBehaviour:
   DetailObjectsParent: {fileID: 733016354}
   soundUpdater: {fileID: 2073381128}
   finalSceneName: ConversationScene
-  waitTime: 60
+  waitTime: 30
   audioFadeDuration: 5
   triggerFromInspector: 0
 --- !u!4 &1628022824

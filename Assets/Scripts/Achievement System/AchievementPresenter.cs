@@ -18,6 +18,7 @@ namespace Game.Systems.Achievement
         public bool needAfterDeactivation;
         public bool objectPresentation;
         public bool ignoreTemplate;
+        public float textDuration;
     }
 
     public class AchievementPresenter : MonoBehaviour
@@ -36,7 +37,6 @@ namespace Game.Systems.Achievement
 
         [Header("Parameters")]
         [SerializeField] private float NotificationDuration = 3f;
-        [SerializeField] private float TextDuration = 2f;
 
         private Achievement lastAchievement;
 
@@ -87,7 +87,7 @@ namespace Game.Systems.Achievement
 
                 NotificationTitles[i].text.onTextShowed.RemoveListener(OnFinished);
 
-                yield return new WaitForSeconds(TextDuration);
+                yield return new WaitForSeconds(NotificationTitles[i].textDuration);
             }
 
             // DESCRIPTION
@@ -120,7 +120,9 @@ namespace Game.Systems.Achievement
 
                 NotificationDescriptions[i].text.onTextShowed.RemoveListener(OnDescFinished);
 
-                yield return new WaitForSeconds(TextDuration);
+                float duration = NotificationDescriptions[i].textDuration;
+
+                yield return new WaitForSeconds(duration);
 
                 if (NotificationDescriptions[i].needAfterDeactivation)
                 {
@@ -130,7 +132,6 @@ namespace Game.Systems.Achievement
 
             // WAIT FINAL
             yield return new WaitForSeconds(NotificationDuration);
-
 
             HideNotification();
         }
