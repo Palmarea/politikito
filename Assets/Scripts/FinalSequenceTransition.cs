@@ -1,5 +1,4 @@
 using Game.Systems.Milestone;
-using Game.UI;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +9,7 @@ namespace Game.Systems.Ending
     {
         [Header("Dependencies")]
         [SerializeField] private MilestonePresenter MilestonePresenter;
-        [SerializeField] private TransitionHandler TransitionHandler;
+        // [SerializeField] private TransitionHandler TransitionHandler;
 
         [SerializeField] private GameObject Character;
         [SerializeField] private GameObject HUD;
@@ -42,37 +41,29 @@ namespace Game.Systems.Ending
 
         private void StartSequence()
         {
-            // 1. Desactivar elementos
             Character.SetActive(false);
             HUD.SetActive(false);
             DetailObjectsParent.SetActive(false);
 
-            // 2. Comenzar carga async
             asyncLoad = SceneManager.LoadSceneAsync(finalSceneName);
             asyncLoad.allowSceneActivation = false;
 
-            // 3. Escuchar fin de transición a negro
-            TransitionHandler.OnTransBlackEnded += OnBlackScreen;
+            // TransitionHandler.OnTransBlackEnded += OnBlackScreen;
 
-            // 4. Iniciar secuencia
             StartCoroutine(SequenceCoroutine());
         }
 
         private IEnumerator SequenceCoroutine()
         {
-            // Esperar el tiempo de exploración
             yield return new WaitForSeconds(waitTime);
-
-            // Esperar a que la escena esté cargada al 90%
             yield return new WaitUntil(() => asyncLoad.progress >= 0.9f);
 
-            // Pedir transición a negro SOLO cuando ya está lista
-            TransitionHandler.RequestTransitionTB();
+            // TransitionHandler.RequestTransitionTB();
+            asyncLoad.allowSceneActivation = true;
         }
 
         private void OnBlackScreen()
         {
-            // Activar escena cuando ya está completamente negro
             asyncLoad.allowSceneActivation = true;
         }
     }
