@@ -15,7 +15,6 @@ namespace Game.Managers.Mouse
         [SerializeField] private LayerMask ClickableLayerMask;
 
         public event Action OnSimpleClickPerformed;
-        public event Action<bool> OnOcuppiedStateChanged;
 
         private ClickableObject currentHover;
         private bool ocuppied = false;
@@ -103,7 +102,7 @@ namespace Game.Managers.Mouse
                     if (detObj != null)
                     {
                         //OnClickableExpositionObject?.Invoke(expObj);
-                        UpdateOcuppiedState(true);
+                        //UpdateOcuppiedState(true);
                     }
                 }
             }
@@ -116,7 +115,7 @@ namespace Game.Managers.Mouse
         public void UpdateOcuppiedState(bool state)
         {
             ocuppied = state;
-            OnOcuppiedStateChanged?.Invoke(ocuppied);
+            clickBlocked = !state;
         }
 
         public void SetHorizontalRestriction(bool state)

@@ -45,6 +45,9 @@ namespace Game.Systems.Interaction.Detail
             DetailObject detail = lastDetailObj.GetComponent<DetailObject>();
             detail.SetDetailData(Database.DetailDB.FirstOrDefault(a => a.objectID == objID));
 
+            // Set as uninteractable for now
+            lastDetailObj.GetComponent<ClickableObject>().IsInteractable = false;
+
             // Update Sprite
             lastDetailObj.GetComponent<SpriteRenderer>().sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, detail.m_Data.spriteAtlasID);
             
@@ -82,11 +85,21 @@ namespace Game.Systems.Interaction.Detail
 
             lastDetailObj.GetComponent<SpriteRenderer>().sortingLayerID = _originalLayerID;
 
-            lastDetailObj = null;
-
             OnObjectCreated?.Invoke();
 
             CamController.ResetForced();
+
+            CamController.OnArrivedToSection -= ActivateObject;
+            CamController.OnArrivedToSection += ActivateObject;
+        }
+
+        private void ActivateObject()
+        {
+            CamController.OnArrivedToSection -= ActivateObject;
+
+            lastDetailObj.GetComponent<ClickableObject>().IsInteractable = true;
+
+            lastDetailObj = null;
         }
 
         private void UpdateCollider()

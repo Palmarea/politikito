@@ -7219,7 +7219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035054400b571e94d8e8ff7d5b3694fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameData
-  PlayerName: TICOTICOTICOTIC
+  PlayerName: TIKO
 --- !u!1 &1624686168
 GameObject:
   m_ObjectHideFlags: 0

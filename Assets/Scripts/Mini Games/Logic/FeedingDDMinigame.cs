@@ -79,25 +79,17 @@ namespace Game.Systems.Minigames
 
             cooldownTimer = MouthOpenCooldown.GetValue(level);
 
-            //Receiver.UpdateActive(true);
-
             Character.ChangeState(new MouthOpenState(
                 Character,
                 MouthOpenDuration.GetValue(level),
                 OnMouthClosed));
 
             CharacterAnimator.SetMouthOpen(true);
-
-            Debug.Log($"[MOUTH OPEN] isMouthOpen = {isMouthOpen}, Receiver = TRUE");
         }
 
         private void OnMouthClosed()
         {
-            //Receiver.UpdateActive(false);
-
             CharacterAnimator.SetMouthOpen(false);
-
-            Debug.Log($"[MOUTH CLOSED] isMouthOpen = {isMouthOpen}, Receiver = FALSE");
 
             StartRunning();
         }

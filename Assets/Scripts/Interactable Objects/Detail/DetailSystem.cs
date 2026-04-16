@@ -111,7 +111,7 @@ namespace Game.Systems.Interaction.Detail
                 InterruptionManager.Instance.EnableInterruption(InterruptionType.OUT);
             }
 
-            MouseManager.Instance.UpdateOcuppiedState(false);
+            //MouseManager.Instance.UpdateOcuppiedState(false);
 
             DetailCanvasUI.SetActive(false);
         }

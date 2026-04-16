@@ -13,7 +13,6 @@ namespace Game.Systems.Interaction.DragNDrop
         public void UpdateActive(bool state)
         {
             receiveActive = state;
-            Debug.Log($"[RECEIVER] Active = {receiveActive}");
         }
 
         private void OnTriggerEnter2D(Collider2D other)

@@ -44,6 +44,7 @@ namespace Game.Systems.Minigames
         [Header("Cooldown Config")]
         [SerializeField] private float MinigameCooldownTime = 3.0f;
 
+        private ClickableObject clickable;
         protected float currentProgress = 0f;
         protected float minigameCooldownTimer = 0f;
         protected bool isActive = false;
@@ -58,18 +59,25 @@ namespace Game.Systems.Minigames
             CloseButton.onClick.AddListener(CloseMinigame);
             MinigameUI.SetActive(false);
             Receiver.UpdateActive(false);
+            clickable = DDObject.GetComponent<ClickableObject>();
         }
 
         protected virtual void Update()
         {
             if (isCooling)
             {
+                if (clickable != null && clickable.IsInteractable)
+                    clickable.IsInteractable = false;
+
                 minigameCooldownTimer -= Time.deltaTime;
 
                 if (minigameCooldownTimer < 0f)
                 {
                     isCooling = false;
                     minigameCooldownTimer = MinigameCooldownTime;
+
+                    if (clickable != null)
+                        clickable.IsInteractable = true;
                 }
             }
             
@@ -144,7 +152,7 @@ namespace Game.Systems.Minigames
             isActive = false;
 
             MinigameUI.SetActive(false);
-            MouseManager.Instance.UpdateOcuppiedState(false);
+            //MouseManager.Instance.UpdateOcuppiedState(false);
 
             MinigameManager.Instance.EndMinigame();
 
