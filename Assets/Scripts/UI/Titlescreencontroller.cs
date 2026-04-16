@@ -65,8 +65,11 @@ namespace Game.UI
             if (!hasFocused)
             {
                 if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+                {
                     FocusScreen();
-                
+                    SFXCaller.Play("event:/uiButton");
+                }
+
                 return;
             }
             
