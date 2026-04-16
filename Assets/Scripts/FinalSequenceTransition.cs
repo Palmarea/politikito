@@ -1,5 +1,4 @@
 using Game.Systems.Milestone;
-using Game.UI;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +9,7 @@ namespace Game.Systems.Ending
     {
         [Header("Dependencies")]
         [SerializeField] private MilestonePresenter MilestonePresenter;
-        [SerializeField] private TransitionHandler TransitionHandler;
+        // [SerializeField] private TransitionHandler TransitionHandler;
 
         [SerializeField] private GameObject Character;
         [SerializeField] private GameObject HUD;
@@ -44,7 +43,6 @@ namespace Game.Systems.Ending
 
         private void StartSequence()
         {
-            // 1. Desactivar elementos
             Character.SetActive(false);
             HUD.SetActive(false);
             DetailObjectsParent.SetActive(false);
@@ -59,7 +57,6 @@ namespace Game.Systems.Ending
             // 3. Escuchar fin de transici�n a negro
             TransitionHandler.OnTransBlackEnded += OnBlackScreen;
 
-            // 4. Iniciar secuencia
             StartCoroutine(SequenceCoroutine());
         }
 

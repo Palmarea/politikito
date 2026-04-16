@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/MainScenePal.unity.meta
+guid: c06f4d99891c54d7b805cad940ce5f05
+========
 guid: bb477df7166c9b749a259552e49a9bc1
+>>>>>>>> origin/dev:Assets/Scenes/ConversationScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -16,7 +16,10 @@ public class PostItUI : MonoBehaviour
     private void HandleOnTutorialStepCompleted(int stepIndex)
     {
         if (Context.TutorialData.IsTutorialComplete())
+        {
+            gameObject.SetActive(false);
             return;
+        }
         
         // EFECTO DE SONIDO ACAA
         tutorialStepToggles[stepIndex].isOn = true;
