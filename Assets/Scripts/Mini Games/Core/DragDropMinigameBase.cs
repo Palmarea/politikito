@@ -1,5 +1,6 @@
 using Game.Character;
 using Game.Managers.Mouse;
+using Game.Systems.Achievement;
 using Game.Systems.Interaction;
 using Game.Systems.Interaction.DragNDrop;
 using Game.UI;
@@ -40,14 +41,10 @@ namespace Game.Systems.Minigames
 
         [Header("Cooldown Config")]
         [SerializeField] private float MinigameCooldownTime = 3.0f;
+        [SerializeField] private GameHUD HUD;
+        [SerializeField] private StatType Type;
 
         private ClickableObject clickable;
-        [Header("Cooldown UI")]
-        [SerializeField] private StatRadialBarUI CooldownRadialBar;
-
-        [Header("Cooldown Visual")]
-        [SerializeField] private SpriteRenderer ObjectSpriteRenderer;
-        private static readonly Color GrayColor = new Color(0.4f, 0.4f, 0.4f, 1f);
 
         protected float currentProgress = 0f;
         protected float minigameCooldownTimer = 0f;
@@ -71,17 +68,21 @@ namespace Game.Systems.Minigames
             if (isCooling)
             {
                 if (clickable != null && clickable.IsInteractable)
+                {
                     clickable.IsInteractable = false;
+                    if (HUD != null)
+                        HUD.RequesStatBarObjectsCooldown(Type, true);
+                }
 
                 minigameCooldownTimer -= Time.deltaTime;
                 if (minigameCooldownTimer < 0f)
                 {
                     isCooling = false;
                     minigameCooldownTimer = MinigameCooldownTime;
-
+                    
+                    OnCooldownFinished();
                     if (clickable != null)
                         clickable.IsInteractable = true;
-                    OnCooldownFinished();
                 }
                 return;
             }
@@ -139,28 +140,25 @@ namespace Game.Systems.Minigames
 
         private void OnCooldownFinished()
         {
-            MinigameUI.SetActive(false);
-            if (CooldownRadialBar != null)
-                CooldownRadialBar.EndCooldown();
-            if (ObjectSpriteRenderer != null)
-                ObjectSpriteRenderer.color = Color.white;
+            if (HUD != null)
+                HUD.RequesStatBarObjectsCooldown(Type, false);
         }
 
         private void CompleteMinigame()
         {
             isActive = false;
             MinigameUI.SetActive(false);
-            //MouseManager.Instance.UpdateOcuppiedState(false);
 
             MinigameManager.Instance.EndMinigame();
             OnMinigameCompleted?.Invoke();
             Receiver.UpdateActive(false);
+
             OnCompleted();
+            
             isCooling = true;
-            if (ObjectSpriteRenderer != null)
-                ObjectSpriteRenderer.color = GrayColor;
-            if (CooldownRadialBar != null)
-                CooldownRadialBar.StartCooldown(MinigameCooldownTime);
+
+            if (HUD != null)
+                HUD.RequesStatBarObjectsCooldown(Type, true);
         }
 
         protected abstract void OnCompleted();

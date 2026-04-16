@@ -2,6 +2,7 @@ using Game.Systems.Milestone;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Game.UI;
 
 namespace Game.Systems.Ending
 {
@@ -9,7 +10,7 @@ namespace Game.Systems.Ending
     {
         [Header("Dependencies")]
         [SerializeField] private MilestonePresenter MilestonePresenter;
-        // [SerializeField] private TransitionHandler TransitionHandler;
+        [SerializeField] private TransitionHandler TransitionHandler;
 
         [SerializeField] private GameObject Character;
         [SerializeField] private GameObject HUD;

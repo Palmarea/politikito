@@ -13,7 +13,9 @@ namespace Game.UI
 
         private Vector2 shownPos;
         private Vector2 hiddenPos;
-        private bool isShown = false;
+
+        private bool isAnimating = false;
+        private bool isHidden = true;
 
         private void Start()
         {
@@ -27,14 +29,32 @@ namespace Game.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            PostItRect.DOAnchorPos(shownPos, AnimDuration).SetEase(Ease.OutBack);
-            isShown = true;
+            if (isAnimating || !isHidden) return;
+
+            isAnimating = true;
+
+            PostItRect.DOAnchorPos(shownPos, AnimDuration)
+                .SetEase(Ease.OutBack)
+                .OnComplete(() =>
+                {
+                    isAnimating = false;
+                    isHidden = false;
+                });
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            PostItRect.DOAnchorPos(hiddenPos, AnimDuration).SetEase(Ease.InBack);
-            isShown = false;
+            if (isAnimating || isHidden) return;
+
+            isAnimating = true;
+
+            PostItRect.DOAnchorPos(hiddenPos, AnimDuration)
+                .SetEase(Ease.InBack)
+                .OnComplete(() =>
+                {
+                    isAnimating = false;
+                    isHidden = true;
+                });
         }
     }
 }

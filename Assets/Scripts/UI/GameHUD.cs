@@ -1,5 +1,6 @@
 using Game.Character;
 using Game.Managers.Timing;
+using Game.Systems.Achievement;
 using Game.Systems.Interaction;
 using Game.Systems.Milestone;
 using TMPro;
@@ -18,6 +19,7 @@ namespace Game.UI
 
         private Color m_normalColor;
         private Color m_hidedColor;
+        private readonly Color m_cooldownColor = new Color(0.4f, 0.4f, 0.4f, 1f);
 
         public void SetupObject()
         {
@@ -40,6 +42,13 @@ namespace Game.UI
         private void UpdateSpriteState(bool state)
         {
             ObjectSprite.color = state ? m_normalColor : m_hidedColor;
+        }
+
+        public void UpdateSpriteCooldown(bool state)
+        {
+            if (ObjectSprite.color == m_hidedColor) return;
+
+            ObjectSprite.color = state ? m_cooldownColor : m_normalColor;
         }
     }   
 
@@ -101,6 +110,22 @@ namespace Game.UI
         {
             ResetBars(level);
             SetPlayerLabel(level);
+        }
+
+        public void RequesStatBarObjectsCooldown(StatType type, bool state)
+        {
+            switch (type)
+            {
+                case StatType.Carisma:
+                    CharismaUIO.UpdateSpriteCooldown(state);
+                    break;
+                case StatType.Sabiduria:
+                    WisdomUIO.UpdateSpriteCooldown(state);
+                    break;
+                case StatType.Voluntad:
+                    WillpowerUIO.UpdateSpriteCooldown(state);
+                    break;
+            }
         }
 
         private void ResetBars(int level)

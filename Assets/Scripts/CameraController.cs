@@ -65,6 +65,7 @@ namespace Game.Systems.CameraControl
         {
             m_MainCamera = GetComponent<Camera>();
             currentSection = Sections.FirstOrDefault(section => section.Type == CameraSectionType.MIDDLE);
+            target = currentSection.MainAnchor;
             m_MainCamera.transform.position = currentSection.MainAnchor.position;
 
             targetZoom = DefaultZoom;
