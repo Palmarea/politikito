@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3ab2a8da521a74bbad9e763aff166c, type: 3}
+  m_Name: AchievementDB
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Achievement.AchievementDatabaseSO
+  AchievementDB:
+  - level: 1
+    stat: 0
+    objectName: PLANTA EN VASITO
+    spriteAtlasID: Plant_Charm_P1
+    detailObjectID: planta
+    spawnPosition: {x: 14.75, y: -2.48, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.55, y: 0.55, z: 0.55}
+    description: "<bounce><b>{0}</b></> particip\xF3 en activaci\xF3n para reponer
+      las \xE1reas verdes <shake>\xA1Yupi!</>"
+  - level: 2
+    stat: 0
+    objectName: CITACION DE PROFESOR
+    spriteAtlasID: Citation_Charm_P2
+    detailObjectID: citacion
+    spawnPosition: {x: -1.91, y: 0, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.5, y: 0.5, z: 0.5}
+    description: "<bounce><b>{0}</b></> expuso en su escuela sobre las consecuencias
+      ambientales de la miner\xEDa."
+  - level: 3
+    stat: 0
+    objectName: PARAFERNALIA HOJA VERDE
+    spriteAtlasID: Paraphernalia_Charm_P3
+    detailObjectID: parafernalia
+    spawnPosition: {x: 1.5, y: 0, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.55, y: 0.55, z: 0.55}
+    description: "<bounce><b>{0}</b></> particip\xF3 activamente en un evento de
+      <b>Gotita Verde</b>, partido pol\xEDtico local con enfoque medioambiental.
+      <shake>\xA1Hurra!</>"
+  - level: 4
+    stat: 0
+    objectName: "AUTO DEL A\xD1O"
+    spriteAtlasID: Car_Charm_P4
+    detailObjectID: carro
+    spawnPosition: {x: 22.57, y: -1.16, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 1.15, y: 1.15, z: 1.15}
+    description: "<bounce><b>{0}</b></> utiliz\xF3 un porcentaje de los fondos de
+      su partido en su imagen <shake>\xA1Eso es tener estilo!</>"
+  - level: 1
+    stat: 1
+    objectName: "MEDALLA DE M\xC9RITO"
+    spriteAtlasID: Medal_Wisdom_P1
+    detailObjectID: medalla
+    spawnPosition: {x: -13, y: 0.85, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.6, y: 0.6, z: 0.6}
+    description: "\xA1La nota de <bounce><b>{0}</b></> en el periodico mural ha causado
+      revuelo! <swing>\xA1Sigue as\xED!</b>"
+  - level: 2
+    stat: 1
+    objectName: "DIMPLOMA DE CAPACITACI\xD3N"
+    spriteAtlasID: Diploma_Wisdom_P2
+    detailObjectID: diploma
+    spawnPosition: {x: -17.65, y: 2.46, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.55, y: 0.55, z: 0.55}
+    description: "<bounce><b>{0}</b></> complet\xF3 un curso de capacitaci\xF3n sobre
+      derecho forestal."
+  - level: 3
+    stat: 1
+    objectName: SOBRE SELLADO
+    spriteAtlasID: SecretContent_Wisdom_P3
+    detailObjectID: contenidosecreto
+    spawnPosition: {x: 0, y: -2.33, z: 0}
+    spawnRotation: {x: 0, y: 0, z: -90}
+    spawnScale: {x: 0.5, y: 0.5, z: 0.5}
+    description: "Alguien del partido pol\xEDtico Gotita Verde conf\xEDo en <bounce><b>{0}</b></>
+      para entregar unos documentos sellados a una entidad petrolera."
+  - level: 4
+    stat: 1
+    objectName: PACTO FIRMADO
+    spriteAtlasID: Pact_Wisdom_P4
+    detailObjectID: pacto
+    spawnPosition: {x: 7.54, y: 2.4, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.4, y: 0.4, z: 0.4}
+    description: "<bounce><b>{0}</b></> utiliz\xF3 sus conexiones con otros partidos
+      para \u201Ccompartir apoyo\u201D en las pr\xF3ximas elecciones."
+  - level: 1
+    stat: 2
+    objectName: AFICHE HECHO A MANO
+    spriteAtlasID: Poster_Willpower_P1
+    detailObjectID: afiche
+    spawnPosition: {x: 5.14, y: 1.33, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.7, y: 0.7, z: 0.7}
+    description: "<bounce><b>{0}</b></> particip\xF3 en su primera marcha repartiendo
+      afiches hechos a mano."
+  - level: 2
+    stat: 2
+    objectName: BANDEROLA
+    spriteAtlasID: Banderole_Willpower_P2
+    detailObjectID: banderola
+    spawnPosition: {x: 6.45, y: -0.46, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.8, y: 0.8, z: 0.8}
+    description: "<bounce><b>{0}</b></> se uni\xF3 a una protesta pac\xEDfica en
+      contra de la contaminaci\xF3n minera del r\xEDo."
+  - level: 3
+    stat: 2
+    objectName: "CARN\xC9 DE MIEMBRO DE PARTIDO"
+    spriteAtlasID: Identification_Willpower_P3
+    detailObjectID: carnet
+    spawnPosition: {x: -17.65, y: 0.31, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.6, y: 0.6, z: 0.6}
+    description: "<bounce><b>{0}</b></> se uni\xF3 de forma oficial al partido de
+      la Gotita Verde. <shake>\xA1Ahora puede postular a las elecciones internas!</>"
+  - level: 4
+    stat: 2
+    objectName: RELOJ DE DIAMANTE
+    spriteAtlasID: Watch_Willpower_P4
+    detailObjectID: reloj
+    spawnPosition: {x: -12.75, y: -1.52, z: 0}
+    spawnRotation: {x: 0, y: 0, z: 0}
+    spawnScale: {x: 0.4, y: 0.4, z: 0.4}
+    description: "<bounce><b>{0}</b></> consigui\xF3 un reloj nuevo. Tienes tus sospechas,
+      pero <bounce><b>{0}</b></> no te dijo nada m\xE1s."

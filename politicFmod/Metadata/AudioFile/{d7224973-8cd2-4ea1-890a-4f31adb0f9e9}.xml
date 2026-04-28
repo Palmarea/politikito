@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{d7224973-8cd2-4ea1-890a-4f31adb0f9e9}">
+		<property name="assetPath">
+			<value>sfx/lvlUpGrande.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.0913378684807258</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0ade9136-e2d5-40b5-b3e5-358f03186621}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: bfafe904da58148388eb50bc9b20044d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4148041227026962669
+    second: titulito_0
+  - first:
+      213: 6248054696180785781
+    second: titulito_1
+  - first:
+      213: 2544352798775751077
+    second: titulito_2
+  - first:
+      213: -8227444640968216109
+    second: titulito_3
+  - first:
+      213: -4924523484757995804
+    second: titulito_4
+  - first:
+      213: 807489423830407528
+    second: titulito_5
+  - first:
+      213: -4237051382928694517
+    second: titulito_6
+  - first:
+      213: -8405398729899786995
+    second: titulito_7
+  - first:
+      213: 8033690136869139032
+    second: titulito_8
+  - first:
+      213: -8674019843971249441
+    second: titulito_9
+  - first:
+      213: -8571389901704776687
+    second: titulito_10
+  - first:
+      213: 4083113409347271097
+    second: titulito_11
+  - first:
+      213: 5209175923301919294
+    second: titulito_12
+  - first:
+      213: 7635815800690227748
+    second: titulito_13
+  - first:
+      213: -434617747257947098
+    second: titulito_14
+  - first:
+      213: -7721339084168388651
+    second: titulito_15
+  - first:
+      213: 2406731527334313966
+    second: titulito_16
+  - first:
+      213: 8990272536645804300
+    second: titulito_17
+  - first:
+      213: -3478215776855888190
+    second: titulito_18
+  - first:
+      213: 1638980073015395652
+    second: titulito_19
+  - first:
+      213: 4616386717290462850
+    second: titulito_20
+  - first:
+      213: 1573275934767059214
+    second: titulito_21
+  - first:
+      213: 5981501000904093729
+    second: titulito_22
+  - first:
+      213: 6220095202767720958
+    second: titulito_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 180
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: titulito_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 340
+        width: 200
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de81e9ac48dc09930800000000000000
+      internalID: 4148041227026962669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_1
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 337
+        width: 177
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 572211f74ac85b650800000000000000
+      internalID: 6248054696180785781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_2
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 672
+        width: 78
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1bc42d36b5f4320800000000000000
+      internalID: 2544352798775751077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_3
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 673
+        width: 180
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1f5ed90be32dd80800000000000000
+      internalID: -8227444640968216109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_4
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 345
+        width: 82
+        height: 344
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee4eea5bf398abb0800000000000000
+      internalID: -4924523484757995804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_5
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 340
+        width: 193
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 869db4b4a57c43b00800000000000000
+      internalID: 807489423830407528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_6
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 612
+        width: 178
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0325715738f235c0800000000000000
+      internalID: -4237051382928694517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_7
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 344
+        width: 190
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0dbdcc83660a5b80800000000000000
+      internalID: -8405398729899786995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_8
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 457
+        width: 81
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 852f4ab7d966d7f60800000000000000
+      internalID: 8033690136869139032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_9
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 558
+        width: 78
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda8769a8e0bf9780800000000000000
+      internalID: -8674019843971249441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_10
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 548
+        width: 78
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114348d2c4e4c0980800000000000000
+      internalID: -8571389901704776687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_11
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 322
+        width: 84
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b937c533022aa830800000000000000
+      internalID: 4083113409347271097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_12
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 328
+        width: 190
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3aade027e5ba4840800000000000000
+      internalID: 5209175923301919294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_13
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 343
+        width: 81
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42ab472b30ed7f960800000000000000
+      internalID: 7635815800690227748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_14
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 333
+        width: 81
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62c0c99267de7f9f0800000000000000
+      internalID: -434617747257947098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_15
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 39
+        width: 175
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df9dc9230b48d490800000000000000
+      internalID: -7721339084168388651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_16
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 174
+        width: 161
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eefbe7c929d666120800000000000000
+      internalID: 2406731527334313966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_17
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 21
+        width: 86
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0129b45d3dd3cc70800000000000000
+      internalID: 8990272536645804300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_18
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 23
+        width: 67
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce6858ed25eabfc0800000000000000
+      internalID: -3478215776855888190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_19
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 171
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 445c60651b3deb610800000000000000
+      internalID: 1638980073015395652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_20
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 21
+        width: 82
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28efdedb243b01040800000000000000
+      internalID: 4616386717290462850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_21
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 0
+        width: 209
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e011679802665d510800000000000000
+      internalID: 1573275934767059214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_22
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 39
+        width: 518
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 120388e087f820350800000000000000
+      internalID: 5981501000904093729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulito_23
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 27
+        width: 142
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef1d416a1a7325650800000000000000
+      internalID: 6220095202767720958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      titulito_0: 4148041227026962669
+      titulito_1: 6248054696180785781
+      titulito_10: -8571389901704776687
+      titulito_11: 4083113409347271097
+      titulito_12: 5209175923301919294
+      titulito_13: 7635815800690227748
+      titulito_14: -434617747257947098
+      titulito_15: -7721339084168388651
+      titulito_16: 2406731527334313966
+      titulito_17: 8990272536645804300
+      titulito_18: -3478215776855888190
+      titulito_19: 1638980073015395652
+      titulito_2: 2544352798775751077
+      titulito_20: 4616386717290462850
+      titulito_21: 1573275934767059214
+      titulito_22: 5981501000904093729
+      titulito_23: 6220095202767720958
+      titulito_3: -8227444640968216109
+      titulito_4: -4924523484757995804
+      titulito_5: 807489423830407528
+      titulito_6: -4237051382928694517
+      titulito_7: -8405398729899786995
+      titulito_8: 8033690136869139032
+      titulito_9: -8674019843971249441
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

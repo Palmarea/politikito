@@ -1,0 +1,76 @@
+{
+  "achievements": [
+    {
+      "level": 1,
+      "order": 0,
+      "title": "Activación Ambiental",
+      "description": "Participaste en una activación para reponer las áreas verdes. ¡Yupi!"
+    },
+    {
+      "level": 1,
+      "order": 1,
+      "title": "Revuelo en el Periódico Mural",
+      "description": "La publicación en el periódico mural ha causado revuelo. ¡Sigue así!"
+    },
+    {
+      "level": 1,
+      "order": 2,
+      "title": "Primera Marcha",
+      "description": "Participaste en tu primera marcha repartiendo afiches hechos a mano."
+    },
+    {
+      "level": 2,
+      "order": 0,
+      "title": "Ayuda Solidaria",
+      "description": "Recolectaste víveres para los afectados por la contaminación minera."
+    },
+    {
+      "level": 2,
+      "order": 1,
+      "title": "Capacitación Forestal",
+      "description": "Completaste un curso de capacitación sobre derecho forestal."
+    },
+    {
+      "level": 2,
+      "order": 2,
+      "title": "Manifestación Pacífica",
+      "description": "Organizaste una manifestación pacífica frente a la municipalidad."
+    },
+    {
+      "level": 3,
+      "order": 0,
+      "title": "Búsqueda de Financiamiento",
+      "description": "Te reuniste múltiples veces con empresarios que podrían financiar tu campaña."
+    },
+    {
+      "level": 3,
+      "order": 1,
+      "title": "Votos Asegurados",
+      "description": "Aseguraste votos en la elección interna a cambio de favores."
+    },
+    {
+      "level": 3,
+      "order": 2,
+      "title": "Gran Donación",
+      "description": "Hipotecaste tu casa para “donar” una gran suma de dinero a tu partido político."
+    },
+    {
+      "level": 4,
+      "order": 0,
+      "title": "Lavado de Imagen",
+      "description": "Participaste en una entrevista con Nieto Cortis para mejorar tu imagen."
+    },
+    {
+      "level": 4,
+      "order": 1,
+      "title": "Influencias Judiciales",
+      "description": "Moviste influencias en el poder judicial a favor de la empresa Ripsol."
+    },
+    {
+      "level": 4,
+      "order": 2,
+      "title": "Negación Pública",
+      "description": "Negaste tus conexiones con la empresa Ripsol. ¿Se lo creyeron?"
+    }
+  ]
+}

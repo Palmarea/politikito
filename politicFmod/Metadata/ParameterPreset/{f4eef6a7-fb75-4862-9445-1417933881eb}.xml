@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{f4eef6a7-fb75-4862-9445-1417933881eb}">
+		<property name="name">
+			<value>leadVol</value>
+		</property>
+		<relationship name="folder">
+			<destination>{fbb148b0-37f9-4e5a-8b1f-e27b6eaa058d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{7df4803e-5d51-4e24-9613-c04c8464864a}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{7df4803e-5d51-4e24-9613-c04c8464864a}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
