@@ -1,15 +1,10 @@
 using Game.Systems.CameraControl;
-using Game.Systems.Interaction.DragNDrop;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameHUDFollow : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private CameraController CameraController;
-
-    [Header("References")]
-    [SerializeField] private List<DragDropObject> DragDropObjects = new List<DragDropObject>();
 
     private Vector3 initialLocalPosition = Vector3.zero;
 
