@@ -66,7 +66,7 @@ MonoBehaviour:
       revuelo! <swing>\xA1Sigue as\xED!</b>"
   - level: 2
     stat: 1
-    objectName: "DIMPLOMA DE CAPACITACI\xD3N"
+    objectName: "DIPLOMA DE CAPACITACI\xD3N"
     spriteAtlasID: Diploma_Wisdom_P2
     detailObjectID: diploma
     spawnPosition: {x: -17.65, y: 2.46, z: 0}

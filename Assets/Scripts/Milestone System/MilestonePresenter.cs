@@ -66,7 +66,7 @@ namespace Game.Systems.Milestone
         {
             if (!hasBeenRequested) return;
 
-            MilestoneDescriptionUI.SetText(string.Format(currentMilestone.description, GameData.Instance.GetPlayerLabel()));
+            MilestoneDescriptionUI.SetText(string.Format(currentMilestone.description, GameData.Instance.GetPlayerName()));
             MilestoneCanvasUI.SetActive(true);
 
             InspectSystem.RequestMDOCreation(currentMilestone);

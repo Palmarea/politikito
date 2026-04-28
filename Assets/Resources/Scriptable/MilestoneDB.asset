@@ -32,7 +32,7 @@ MonoBehaviour:
       econ\xF3mico asociado a la miner\xEDa. (...) Es una pena.\u201D"
   - level: 3
     spriteAtlasID: 2
-    detailObjectID: recorte3
+    detailObjectID: recorte3_1
     spawnPosition: {x: 2.06, y: 40.91, z: 0}
     spawnRotation: {x: 0, y: 0, z: -3.658}
     spawnScale: {x: 0.7, y: 0.7, z: 0.7}
@@ -41,7 +41,7 @@ MonoBehaviour:
       genera entre sus allegados. \xBFQu\xE9 estar\xE1 saliendo mal?"
   - level: 4
     spriteAtlasID: 3
-    detailObjectID: recorte3_1
+    detailObjectID: recorte3_2
     spawnPosition: {x: 2.53, y: 37.24, z: 0}
     spawnRotation: {x: 0, y: 0, z: 5.721}
     spawnScale: {x: 0.7, y: 0.7, z: 0.7}

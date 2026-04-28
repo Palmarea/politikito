@@ -102,11 +102,11 @@ namespace Game.Systems.Achievement
 
                 if (!NotificationDescriptions[i].ignoreTemplate && !NotificationDescriptions[i].objectPresentation)
                 {
-                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template, GameData.Instance.GetPlayerLabel().ToUpper()));
+                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template, GameData.Instance.GetPlayerName()));
                 }
                 else if (NotificationDescriptions[i].ignoreTemplate && !NotificationDescriptions[i].objectPresentation)
                 {
-                    NotificationDescriptions[i].text.ShowText(string.Format(achievement.description, GameData.Instance.GetPlayerLabel().ToUpper()));
+                    NotificationDescriptions[i].text.ShowText(string.Format(achievement.description, GameData.Instance.GetPlayerName()));
                 }
 
                 if (NotificationDescriptions[i].objectPresentation)

@@ -41,7 +41,7 @@ MonoBehaviour:
     spriteAtlasID: Diploma_Wisdom_P2
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>DIPLOMA DE CAPACITACI\xD3N</b></> conseguida por completar
+    description: "<rainb><b>DIPLOMA DE CAPACITACI\xD3N</b></> conseguido por completar
       un curso sobre derecho forestal."
   - objectID: banderola
     spriteAtlasID: Banderole_Willpower_P2
@@ -100,14 +100,14 @@ MonoBehaviour:
     description: "El alcalde se pronuncia sobre los disturbios ocasionados por la
       marcha.\\n\u201CLos j\xF3venes adoctrinados rechazan el progreso y desarrollo
       econ\xF3mico asociado a la miner\xEDa. (...) Es una pena.\u201D"
-  - objectID: recorte3
+  - objectID: recorte3_1
     spriteAtlasID: NewsCut_Ph3
     spriteAtlasMilestoneID: periodico03_1
     type: 1
     description: "<b>{0}</b>, pierde en las elecciones internas \xA1por tercera vez!\\n\\nEste
       hecho tom\xF3 a todos por sorpresa, por su gran dedicaci\xF3n y confianza que
       genera entre sus allegados. \xBFQu\xE9 estar\xE1 saliendo mal?"
-  - objectID: recorte3_1
+  - objectID: recorte3_2
     spriteAtlasID: NewsCut_Ph3_1
     spriteAtlasMilestoneID: periodico03_2
     type: 1

@@ -19,8 +19,8 @@ public class GameData : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public string GetPlayerLabel()
+    public string GetPlayerName()
     {
-        return PlayerName != "" ? PlayerName : baseName;
+        return PlayerName != "" ? PlayerName.ToUpper() : baseName.ToUpper();
     }
 }
