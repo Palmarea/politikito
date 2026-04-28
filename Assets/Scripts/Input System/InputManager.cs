@@ -30,8 +30,6 @@ namespace Game.Systems.Input
 
         public Vector2 GetMousePosition() => InputHandler.GetMousePosition();
 
-        public Vector2 GetRawMousePosition() => InputHandler.GetRawMousePosition();
-
         private void OnEnable()
         {
             InputHandler.OnSelectPerformed += () => OnSelectPerformed?.Invoke();

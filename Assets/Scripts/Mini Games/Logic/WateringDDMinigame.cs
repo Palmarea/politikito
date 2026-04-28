@@ -1,6 +1,5 @@
 using Game.Character;
 using Game.Character.StateMachine.States;
-using Game.Systems.Interaction.DragNDrop;
 using UnityEngine;
 
 namespace Game.Systems.Minigames

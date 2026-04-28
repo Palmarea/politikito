@@ -6,18 +6,16 @@ namespace Game.Character.StateMachine.States
     {
         private float direction = 1f;
 
-        // Movimiento orgánico (igual que flee)
         private float noiseSeed;
-        private float noiseSpeed = 0.8f;
-        private float noiseScale = 1.5f;
-        private float verticalAmount = 0.4f;
+        private const float noiseSpeed = 0.8f;
+        private const float noiseScale = 1.5f;
+        private const float verticalAmount = 0.4f;
 
         public BounceState(TamaCharacterController character)
             : base(character)
         {
             noiseSeed = Random.Range(0f, 1000f);
 
-            // Dirección inicial aleatoria
             direction = Random.value > 0.5f ? 1f : -1f;
         }
 
@@ -25,7 +23,6 @@ namespace Game.Character.StateMachine.States
         {
             Vector2 pos = movement.Position;
 
-            //  Detectar bordes y rebotar
             if (pos.x <= movementMinX())
             {
                 direction = 1f;
@@ -35,7 +32,6 @@ namespace Game.Character.StateMachine.States
                 direction = -1f;
             }
 
-            // Movimiento vertical suave
             float time = Time.time * noiseSpeed;
             float ny = Mathf.PerlinNoise(noiseSeed, time * noiseScale);
             ny = (ny * 2f - 1f) * verticalAmount;

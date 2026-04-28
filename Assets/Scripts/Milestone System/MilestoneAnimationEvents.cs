@@ -1,5 +1,4 @@
 ﻿using Game.Systems.Milestone;
-using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Milestones

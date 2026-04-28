@@ -29,7 +29,7 @@ namespace Game.Systems.Interaction.DragNDrop
             }
             else if (isBeingDragged)
             {
-                Vector3 mouseWorldPos = /*Camera.main.ScreenToWorldPoint(*/InputManager.Instance.GetMousePosition();
+                Vector3 mouseWorldPos = InputManager.Instance.GetMousePosition();
                 mouseWorldPos.z = 0f;
 
                 Vector3 localPos = transform.parent.InverseTransformPoint(mouseWorldPos);

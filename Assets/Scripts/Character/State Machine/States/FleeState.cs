@@ -7,16 +7,16 @@ namespace Game.Character.StateMachine.States
         private Transform target;
 
         private float noiseSeed;
-        private float noiseSpeed = 0.8f;
-        private float noiseScale = 1.5f;
-        private float verticalAmount = 0.4f;
+        private const float noiseSpeed = 0.8f;
+        private const float noiseScale = 1.5f;
+        private const float verticalAmount = 0.4f;
 
-        private float stuckCheckInterval = 0.5f;
+        private const float stuckCheckInterval = 0.5f;
         private float stuckTimer = 0f;
         private Vector2 lastPosition;
-        private float stuckThreshold = 0.01f;
+        private const float stuckThreshold = 0.01f;
         private float forcedDirectionTimer = 0f;
-        private float forcedDirectionDuration = 1.0f;
+        private const float forcedDirectionDuration = 1.0f;
         private float forcedDirection = 0f;
 
         public FleeState(TamaCharacterController character, Transform target)

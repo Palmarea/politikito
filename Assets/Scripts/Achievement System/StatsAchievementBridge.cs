@@ -1,5 +1,4 @@
 using UnityEngine;
-using Game.Systems.Achievement;
 using Game.Character;
 
 namespace Game.Systems.Achievement

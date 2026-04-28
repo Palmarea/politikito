@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using FMODUnity;
-using Mono.Cecil.Cil;
 
 namespace Game.UI
 {
@@ -31,7 +29,6 @@ namespace Game.UI
                     section.alpha = 0f;
             }
             
-
             StartCoroutine(PlayCredits());
         }
 
@@ -62,8 +59,6 @@ namespace Game.UI
             SceneManager.LoadScene(titleSceneName);
         }
 
-
-        
         private IEnumerator FadeCanvasGroup(CanvasGroup group, float from, float to, float duration)
         {
             float elapsed = 0f;
@@ -79,19 +74,18 @@ namespace Game.UI
 
         private IEnumerator FadeOutVolume(float duration)
         {
-        float startCredits = 1f;
-        float elapsed = 0f;
-        while (elapsed < duration)
-        {
-            float t = duration > 0f ? elapsed / duration : 1f;
-            emitter.SetParameter("creditsVolume", Mathf.Lerp(startCredits, 0f, t));
+            float startCredits = 1f;
+            float elapsed = 0f;
+            while (elapsed < duration)
+            {
+                float t = duration > 0f ? elapsed / duration : 1f;
+                emitter.SetParameter("creditsVolume", Mathf.Lerp(startCredits, 0f, t));
 
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
 
-        emitter.SetParameter("creditsVolume", 0f);
+            emitter.SetParameter("creditsVolume", 0f);
         }
     }
-    
 }

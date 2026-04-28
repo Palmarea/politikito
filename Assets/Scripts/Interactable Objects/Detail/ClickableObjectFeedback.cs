@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using System.Collections;
 using UnityEngine;
 
 namespace Game.Systems.Interaction

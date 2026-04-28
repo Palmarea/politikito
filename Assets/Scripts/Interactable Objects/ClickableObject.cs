@@ -1,5 +1,4 @@
 using Game.Managers.Timing;
-using Game.Systems.Milestone;
 using UnityEngine;
 using UnityEngine.Events;
 

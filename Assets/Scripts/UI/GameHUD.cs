@@ -19,7 +19,7 @@ namespace Game.UI
 
         private Color m_normalColor;
         private Color m_hidedColor;
-        private readonly Color m_cooldownColor = new Color(0.4f, 0.4f, 0.4f, 1f);
+        private readonly Color m_cooldownColor = new(0.4f, 0.4f, 0.4f, 1f);
 
         public void SetupObject()
         {
@@ -66,8 +66,6 @@ namespace Game.UI
         [SerializeField] private TamaCharacterStats characterStats;
         [SerializeField] private MilestonePresenter MilestonePresenter;
 
-        private const string baseName = "Tiko";
-
         private void Awake()
         {
             SetupUIStats();
@@ -93,8 +91,7 @@ namespace Game.UI
 
         public void SetPlayerLabel(int level)
         {
-            string name = GameData.Instance != null ? GameData.Instance.PlayerName : baseName;
-            PlayerLabel.text = $"{name} - NIVEL {level}";
+            PlayerLabel.text = $"{GameData.Instance.PlayerName} - NIVEL {level}";
         }
 
         private void RefreshBars()
@@ -108,7 +105,7 @@ namespace Game.UI
 
         private void NextLevel(int level)
         {
-            ResetBars(level);
+            ResetBars();
             SetPlayerLabel(level);
         }
 
@@ -128,7 +125,7 @@ namespace Game.UI
             }
         }
 
-        private void ResetBars(int level)
+        private void ResetBars()
         {
             CharismaUIO?.StatBar.ResetBar();
             WisdomUIO?.StatBar.ResetBar();

@@ -4,7 +4,6 @@ using Game.Managers.Timing;
 using Game.Systems.Input;
 using Game.Utils;
 using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -110,8 +109,6 @@ namespace Game.Systems.Interaction.Detail
             {
                 InterruptionManager.Instance.EnableInterruption(InterruptionType.OUT);
             }
-
-            //MouseManager.Instance.UpdateOcuppiedState(false);
 
             DetailCanvasUI.SetActive(false);
         }

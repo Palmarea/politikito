@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Systems.Interaction.DragNDrop
@@ -24,35 +22,6 @@ namespace Game.Systems.Interaction.DragNDrop
         {
             TryReceive(other);
         }
-
-        //private void OnTriggerEnter2D(Collider2D other)
-        //{
-        //    if (!receiveActive) return;
-
-        //    var draggable = other.GetComponent<DragDropObject>();
-        //    if (draggable == null) return;
-
-        //    if (draggable.AllowToDrop())
-        //    {
-        //        draggable.StopDragging();
-        //        OnObjectDropped?.Invoke(draggable);
-        //    }
-        //}
-
-        //private void OnTriggerStay2D(Collider2D other)
-        //{
-        //    if (!receiveActive) return;
-
-        //    var draggable = other.GetComponent<DragDropObject>();
-        //    if (draggable == null) return;
-
-        //    if (draggable.AllowToDrop())
-        //    {
-        //        draggable.StopDragging();
-        //        OnObjectDropped?.Invoke(draggable);
-        //        receiveActive = false;
-        //    }
-        //}
 
         private void TryReceive(Collider2D other)
         {

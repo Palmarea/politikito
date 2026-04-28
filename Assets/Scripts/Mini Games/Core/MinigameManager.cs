@@ -49,22 +49,8 @@ namespace Game.Systems.Minigames
                 }
             }
 
-            float dir = 0;
-            switch (CameraController.GetCurrentCameraSection())
-            {
-                case CameraSectionType.LEFT:
-                    dir = -1;
-                    break;
-                case CameraSectionType.MIDDLE: 
-                    dir = 0; 
-                    break;
-                case CameraSectionType.RIGHT: 
-                    dir = 1; 
-                    break;
-            }
-
             float newOrigin = CameraController.ForceMove(CharacterMovement.transform);
-            CharacterMovement.SetReducedBounds(dir, newOrigin);
+            CharacterMovement.SetReducedBounds(newOrigin);
             InterruptionManager.Instance.EnableInterruption(InterruptionType.MINIGAME);
         }
 

@@ -1,5 +1,4 @@
 using Game.Character;
-using Game.Managers.Mouse;
 using Game.Systems.Achievement;
 using Game.Systems.Interaction;
 using Game.Systems.Interaction.DragNDrop;

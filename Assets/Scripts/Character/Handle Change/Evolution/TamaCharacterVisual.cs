@@ -1,24 +1,9 @@
 using Game.Systems.Milestone;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Game.Character.Visual
-{
-    //public enum TamaType
-    //{
-    //    MASCULINE,
-    //    FEMALE,
-    //    BUSINESS
-    //}
-    
-    //[System.Serializable]
-    //public class TamaVisual
-    //{
-    //    public TamaType CharacterType;
-    //    public List<AnimatorOverrideController> EvolutionsAOC;
-    //}
-    
+{    
     public class TamaCharacterVisual : MonoBehaviour
     {
         [Header("Dependencies")]
@@ -33,10 +18,10 @@ namespace Game.Character.Visual
 
         private void Start()
         {
-           if (!suscribed)
-           {
+            if (!suscribed)
+            {
                 MilestonePresenter.OnMilestoneShown += RequestVisualEvolution;
-           }
+            }
         }
 
         public void RequestVisualEvolution(int level)
@@ -52,7 +37,6 @@ namespace Game.Character.Visual
 
         private AnimatorOverrideController GetCharacterAOC(int level)
         {
-            // Clamp level to valid range
             level = Mathf.Clamp(level, 0, CharacterLevelAOC.Count - 1);
 
             return CharacterLevelAOC[level];

@@ -51,11 +51,9 @@ namespace Game.Systems.Ending
             if (soundUpdater != null)
                 soundUpdater.FadeOutVolumes(audioFadeDuration);
 
-            // 2. Comenzar carga async
             asyncLoad = SceneManager.LoadSceneAsync(finalSceneName);
             asyncLoad.allowSceneActivation = false;
 
-            // 3. Escuchar fin de transici�n a negro
             TransitionHandler.OnTransBlackEnded += OnBlackScreen;
 
             StartCoroutine(SequenceCoroutine());
@@ -63,19 +61,15 @@ namespace Game.Systems.Ending
 
         private IEnumerator SequenceCoroutine()
         {
-            // Esperar el tiempo de exploraci�n
             yield return new WaitForSeconds(waitTime);
 
-            // Esperar a que la escena est� cargada al 90%
             yield return new WaitUntil(() => asyncLoad.progress >= 0.9f);
 
-            // Pedir transici�n a negro SOLO cuando ya est� lista
             TransitionHandler.RequestTransitionTB();
         }
 
         private void OnBlackScreen()
         {
-            // Activar escena cuando ya est� completamente negro
             asyncLoad.allowSceneActivation = true;
         }
     }

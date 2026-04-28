@@ -28,19 +28,6 @@ namespace Game.Systems.Achievement
             }
         }
 
-        public Achievement GetCurrentAchievement(StatType stat)
-        {
-            if (!AchievementDictionary.ContainsKey(stat))
-                return null;
-
-            int index = currentIndexPerStat[stat];
-
-            if (index < 0 || index >= AchievementDictionary[stat].Count)
-                return null;
-
-            return AchievementDictionary[stat][index];
-        }
-
         public void AdvanceAchievement(TamaStat stat)
         {
             StatType parsedStat = Enum.Parse<StatType>(stat.Name);

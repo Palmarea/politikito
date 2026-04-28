@@ -30,9 +30,6 @@ namespace Game.Systems.Milestone
         [Header("Milestone Images")]
         [SerializeField] private List<Sprite> MilestoneImages;
 
-        [Header("Fallback Timer")]
-        [SerializeField] private float fallbackDelay = 5f;
-
         public event Action<int> OnMilestoneShown;
         public event Action OnLastMilestoneShown;
         private Milestone currentMilestone;

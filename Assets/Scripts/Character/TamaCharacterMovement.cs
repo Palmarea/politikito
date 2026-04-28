@@ -42,7 +42,7 @@ namespace Game.Character
             speedMultiplier = multiplier;
         }
 
-        public void SetReducedBounds(float dir, float horizontalOffset)
+        public void SetReducedBounds(float horizontalOffset)
         {
             float securedMin = -8.1f + (-1 * 19.2f);
             float securedMax = 8.1f + (1 * 19.2f);
@@ -60,7 +60,6 @@ namespace Game.Character
 
             MinBounds = new Vector2(finalMin, MinBounds.y);
             MaxBounds = new Vector2(finalMax, MaxBounds.y);
-
         }
 
         public void ResetBounds()
@@ -74,15 +73,9 @@ namespace Game.Character
             rb.linearVelocity = Vector2.zero;
         }
 
-        public float GetMinX()
-        {
-            return MinBounds.x;
-        }
+        public float GetMinX() => MinBounds.x;
 
-        public float GetMaxX()
-        {
-            return MaxBounds.x;
-        }
+        public float GetMaxX() => MaxBounds.x;
 
         private void OnDrawGizmosSelected()
         {

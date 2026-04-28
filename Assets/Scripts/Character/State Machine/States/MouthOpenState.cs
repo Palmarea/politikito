@@ -22,8 +22,6 @@ namespace Game.Character.StateMachine.States
         public override void Enter()
         {
             timer = duration;
-
-            //character.OpenMouth();
         }
 
         public override void Update()
@@ -34,11 +32,6 @@ namespace Game.Character.StateMachine.States
             {
                 onFinished?.Invoke();
             }
-        }
-
-        public override void Exit()
-        {
-            //character.CloseMouth();
         }
     }
 }

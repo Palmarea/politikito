@@ -38,13 +38,13 @@ namespace Game.Managers.Timing
 
         public void EnableInterruption(InterruptionType interruptionType)
         {
-            Debug.Log("ENABLED INTERRUPTION " +  interruptionType);
+            //Debug.Log("ENABLED INTERRUPTION " +  interruptionType);
             OnInterruptStart?.Invoke(interruptionType);
         }
 
         public void DisableInteruption()
         {
-            Debug.Log("DISABLED INTERRUPTION" );
+            //Debug.Log("DISABLED INTERRUPTION" );
             OnInterruptEnd?.Invoke();
         }
     }

@@ -12,9 +12,6 @@ namespace Game.Systems.Ending
         [SerializeField] private float minTime = 2f;
         [SerializeField] private float maxTime = 5f;
 
-        [Header("Control")]
-        [SerializeField] private bool playOnStart = true;
-
         private Coroutine loopCoroutine;
 
         public void StartLoop()

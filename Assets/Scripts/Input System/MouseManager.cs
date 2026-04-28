@@ -1,5 +1,4 @@
-﻿using Game.Managers.Timing;
-using Game.Systems.Interaction;
+﻿using Game.Systems.Interaction;
 using Game.Systems.Input;
 using System;
 using UnityEngine;
@@ -98,12 +97,6 @@ namespace Game.Managers.Mouse
                     clickable.Click();
 
                     DetailObject detObj = hit.collider.GetComponent<DetailObject>();
-
-                    if (detObj != null)
-                    {
-                        //OnClickableExpositionObject?.Invoke(expObj);
-                        //UpdateOcuppiedState(true);
-                    }
                 }
             }
             else

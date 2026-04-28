@@ -11,9 +11,9 @@ namespace Game.Character.StateMachine.States
         private float noiseSeedX;
         private float noiseSeedY;
 
-        private float noiseSpeed = 0.8f;
-        private float noiseScale = 1.5f;
-        private float noiseAmount = 0.3f;
+        private const float noiseSpeed = 0.8f;
+        private const float noiseScale = 1.5f;
+        private const float noiseAmount = 0.3f;
 
         public RoamState(TamaCharacterController character) : base(character)
         {
