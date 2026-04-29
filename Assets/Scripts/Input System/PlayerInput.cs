@@ -24,6 +24,11 @@ namespace Game.Systems.Input
         {
             return Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         }
+        
+        public Vector2 GetRawMousePosition()
+        {
+            return Mouse.current.position.ReadValue();
+        }
 
         private void InitializeInputnEvents()
         {

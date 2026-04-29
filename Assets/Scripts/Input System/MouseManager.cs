@@ -1,8 +1,9 @@
-﻿using Game.Systems.Interaction;
-using Game.Systems.Input;
+﻿using Game.Systems.Input;
+using Game.Systems.Interaction;
+using Game.Systems.Interaction.Detail;
+using Game.Systems.Interaction.DragNDrop;
 using System;
 using UnityEngine;
-using Game.Systems.Interaction.Detail;
 
 namespace Game.Managers.Mouse
 {
@@ -19,6 +20,7 @@ namespace Game.Managers.Mouse
         private bool ocuppied = false;
         private bool suscribed = false;
         private bool clickBlocked = false;
+        private bool holdingObject = false;
 
         #region Singleton
         private void Awake()
@@ -30,6 +32,7 @@ namespace Game.Managers.Mouse
             else
             {
                 Instance = this;
+                DontDestroyOnLoad(this.gameObject);
             }
         }
         #endregion
@@ -41,22 +44,19 @@ namespace Game.Managers.Mouse
                 InputManager.Instance.OnSelectPerformed += CheckForHitClickableObject;
                 suscribed = true;
             }
+
+            CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
         }
 
         private void Update()
         {
-            if (currentHover != null)
-            {
-                currentHover.SetHover(false);
-                currentHover = null;
-            }    
-
             CheckHover();
         }
 
         private void CheckHover()
         {
-            if (clickBlocked) return;
+            if (clickBlocked || holdingObject)
+                return;
 
             RaycastHit2D hit = Physics2D.Raycast(
                 InputManager.Instance.GetMousePosition(),
@@ -79,7 +79,21 @@ namespace Game.Managers.Mouse
                 currentHover = newHover;
 
                 if (currentHover != null)
+                {
                     currentHover.SetHover(true);
+
+                    bool isDraggable = currentHover.GetComponent<DragDropObject>() != null;
+
+                    CursorManager.Instance.SetCursorState(
+                        isDraggable
+                            ? CursorStateType.GRABABLE
+                            : CursorStateType.INTEREST
+                    );
+                }
+                else
+                {
+                    CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
+                }
             }
         }
 
@@ -87,21 +101,62 @@ namespace Game.Managers.Mouse
         {
             if (clickBlocked) return;
 
-            RaycastHit2D hit = Physics2D.Raycast(InputManager.Instance.GetMousePosition(), Vector2.zero, ClickableLayerMask);
+            RaycastHit2D hit = Physics2D.Raycast(
+                InputManager.Instance.GetMousePosition(),
+                Vector2.zero,
+                ClickableLayerMask
+            );
 
             if (hit.collider != null && !ocuppied)
             {
                 ClickableObject clickable = hit.collider.GetComponent<ClickableObject>();
+
                 if (clickable != null)
                 {
                     clickable.Click();
+
+                    DragDropObject dragDrop = hit.collider.GetComponent<DragDropObject>();
+
+                    if (dragDrop != null)
+                    {
+                        holdingObject = true;
+                        CursorManager.Instance.SetCursorState(CursorStateType.HOLD);
+                    }
+                    else
+                    {
+                        holdingObject = false;
+                        CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
+                    }
 
                     DetailObject detObj = hit.collider.GetComponent<DetailObject>();
                 }
             }
             else
             {
+                holdingObject = false;
+                CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
+
                 OnSimpleClickPerformed?.Invoke();
+            }
+        }
+
+        public void ReleaseHold()
+        {
+            holdingObject = false;
+
+            if (currentHover != null)
+            {
+                bool isDraggable = currentHover.GetComponent<DragDropObject>() != null;
+
+                CursorManager.Instance.SetCursorState(
+                    isDraggable
+                        ? CursorStateType.GRABABLE
+                        : CursorStateType.INTEREST
+                );
+            }
+            else
+            {
+                CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
             }
         }
 

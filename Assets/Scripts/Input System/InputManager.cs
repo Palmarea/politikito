@@ -24,24 +24,42 @@ namespace Game.Systems.Input
             {
                 Instance = this;
                 if (InputHandler == null) InputHandler = GetComponent<PlayerInput>();
+                DontDestroyOnLoad(this.gameObject);
             }
         }
         #endregion
 
         public Vector2 GetMousePosition() => InputHandler.GetMousePosition();
 
+        public Vector2 GetRawMousePosition() => InputHandler.GetRawMousePosition();
+
+        private void HandleSelectPerformed()
+        {
+            OnSelectPerformed?.Invoke();
+        }
+
+        private void HandleSelectStarted()
+        {
+            OnSelectPerformed?.Invoke();
+        }
+
+        private void HandleSelectCanceled()
+        {
+            OnSelectPerformed?.Invoke();
+        }
+
         private void OnEnable()
         {
-            InputHandler.OnSelectPerformed += () => OnSelectPerformed?.Invoke();
-            InputHandler.OnSelectStarted += () => OnSelectStarted?.Invoke();
-            InputHandler.OnSelectCanceled += () => OnSelectCanceled?.Invoke();
+            InputHandler.OnSelectPerformed += HandleSelectPerformed;
+            InputHandler.OnSelectStarted += HandleSelectStarted;
+            InputHandler.OnSelectCanceled += HandleSelectCanceled;
         }
 
         private void OnDisable()
         {
-            InputHandler.OnSelectPerformed -= () => OnSelectPerformed?.Invoke();
-            InputHandler.OnSelectStarted -= () => OnSelectStarted?.Invoke();
-            InputHandler.OnSelectCanceled -= () => OnSelectCanceled?.Invoke();
+            InputHandler.OnSelectPerformed -= HandleSelectPerformed;
+            InputHandler.OnSelectStarted -= HandleSelectStarted;
+            InputHandler.OnSelectCanceled -= HandleSelectCanceled;
         }
     }
 }
