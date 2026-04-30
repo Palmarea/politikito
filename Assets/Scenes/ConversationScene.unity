@@ -15885,7 +15885,6 @@ MonoBehaviour:
   animator: {fileID: 924849216}
   minTime: 4
   maxTime: 7
-  playOnStart: 1
 --- !u!1 &1132764849
 GameObject:
   m_ObjectHideFlags: 0

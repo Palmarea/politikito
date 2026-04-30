@@ -9,10 +9,14 @@ namespace Game.UI
         private RectTransform m_canvasRectTransform;
         private Canvas m_parentCanvas;
         private Camera m_canvasCamera;
+        private CanvasGroup m_canvasGroup;
+
+        private bool limitedMovement = false;
 
         private void Awake()
         {
             m_cursorTransform = GetComponent<RectTransform>();
+            m_canvasGroup = GetComponent<CanvasGroup>();
             m_parentCanvas = GetComponentInParent<Canvas>();
 
             if (m_parentCanvas != null)
@@ -42,8 +46,23 @@ namespace Game.UI
                 m_canvasCamera,
                 out var localPoint))
             {
+                if (limitedMovement)
+                {
+                    localPoint.y = 175f;
+                }
+                
                 m_cursorTransform.anchoredPosition = localPoint;
             }
+        }
+
+        public void UpdateCursorVisibility(bool visibility)
+        {
+            m_canvasGroup.alpha = visibility ? 1 : 0;
+        }
+
+        public void UpdateCursorMoveAxis(bool constrained)
+        {
+            limitedMovement = constrained ? true : false;
         }
     }
 }

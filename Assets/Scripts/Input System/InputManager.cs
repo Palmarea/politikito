@@ -40,12 +40,12 @@ namespace Game.Systems.Input
 
         private void HandleSelectStarted()
         {
-            OnSelectPerformed?.Invoke();
+            OnSelectStarted?.Invoke();
         }
 
         private void HandleSelectCanceled()
         {
-            OnSelectPerformed?.Invoke();
+            OnSelectCanceled?.Invoke();
         }
 
         private void OnEnable()

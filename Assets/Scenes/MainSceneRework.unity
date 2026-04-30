@@ -2166,7 +2166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &411673477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4169,9 +4169,9 @@ GameObject:
   m_Component:
   - component: {fileID: 884095224}
   - component: {fileID: 884095223}
-  - component: {fileID: 884095222}
   - component: {fileID: 884095221}
   - component: {fileID: 884095220}
+  - component: {fileID: 884095225}
   m_Layer: 7
   m_Name: WillpowerInteractableObject_Dumbbell
   m_TagString: Untagged
@@ -4236,42 +4236,6 @@ MonoBehaviour:
   OnOffHover:
     m_PersistentCalls:
       m_Calls: []
---- !u!58 &884095222
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884095219}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.73
 --- !u!212 &884095223
 SpriteRenderer:
   serializedVersion: 2
@@ -4346,6 +4310,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &884095225
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884095219}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.39, y: 1.13}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.061819658, y: -0.35929978}
+      - {x: 0.17129394, y: -0.30644912}
+      - {x: 0.29022908, y: -0.23298475}
+      - {x: 0.36323425, y: -0.2201348}
+      - {x: 0.40668464, y: -0.21399236}
+      - {x: 0.48499998, y: -0.195}
+      - {x: 0.575, y: -0.175}
+      - {x: 0.695, y: -0.065}
+      - {x: 0.695, y: 0.095}
+      - {x: 0.685, y: 0.185}
+      - {x: 0.545, y: 0.405}
+      - {x: 0.385, y: 0.565}
+      - {x: 0.23464987, y: 0.5862282}
+      - {x: 0.04030992, y: 0.47337824}
+      - {x: -0.02730482, y: 0.39256707}
+      - {x: -0.18438016, y: 0.2970636}
+      - {x: -0.28562018, y: 0.26522094}
+      - {x: -0.34110498, y: 0.24499999}
+      - {x: -0.565, y: 0.205}
+      - {x: -0.695, y: 0.074999996}
+      - {x: -0.695, y: -0.055}
+      - {x: -0.66499996, y: -0.16499999}
+      - {x: -0.515, y: -0.45499998}
+      - {x: -0.375, y: -0.555}
+      - {x: -0.295, y: -0.555}
+      - {x: -0.24499999, y: -0.545}
+      - {x: -0.145, y: -0.49499997}
+      - {x: 0.00075486675, y: -0.39173204}
+  m_UseDelaunayMesh: 1
 --- !u!1 &920768670
 GameObject:
   m_ObjectHideFlags: 0
@@ -4533,7 +4572,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a8cfa67dcf8a3114893249a2c4eac53a, type: 3}
   - {fileID: 21300000, guid: 53a03cb92242b8840847789501b50fb4, type: 3}
   - {fileID: 21300000, guid: aa203e3434a695c44a8ef92c677da239, type: 3}
-  fallbackDelay: 5
 --- !u!114 &942613044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5928,7 +5966,6 @@ MonoBehaviour:
     - 12.5
     - 8.34
     - 6.25
-  decayEnabled: 0
 --- !u!114 &1254595390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7785,10 +7822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameHUDFollow
   CameraController: {fileID: 519420034}
-  DragDropObjects:
-  - {fileID: 365263004}
-  - {fileID: 310439870}
-  - {fileID: 884095220}
 --- !u!1 &1857531313
 GameObject:
   m_ObjectHideFlags: 0

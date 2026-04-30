@@ -62,6 +62,11 @@ namespace Game.Systems.Interaction.DragNDrop
 
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.linearVelocity = Vector2.zero;
+
+            MouseManager.Instance.ReleaseHold();
+
+            GetComponent<ClickableObject>().IsInteractable = false;
+
         }
 
         public override void BackToOrigin()
@@ -75,7 +80,14 @@ namespace Game.Systems.Interaction.DragNDrop
             Physics2D.SyncTransforms();
 
             if (MinigameManager.Instance.IsMinigameActive)
+            {
                 MouseManager.Instance.SetHorizontalRestriction(false);
+            }
+
+            MouseManager.Instance.ReleaseHold();
+
+            GetComponent<ClickableObject>().IsInteractable = true;
+
         }
 
         public override bool AllowToDrop()

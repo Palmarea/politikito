@@ -1,10 +1,11 @@
 ﻿using Febucci.UI;
+using Game.Managers.Mouse;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Game.Systems.Ending
 {
@@ -295,6 +296,7 @@ namespace Game.Systems.Ending
             if (!visibleMouse)
             {
                 Cursor.visible = false;
+                CursorManager.Instance.SetCursorVisibility(false);
             }
 
             Mouse.current.WarpCursorPosition(center + jitter);
@@ -303,6 +305,7 @@ namespace Game.Systems.Ending
         private void BreakMouse()
         {
             Cursor.visible = false;
+            CursorManager.Instance.SetCursorVisibility(false);
             visibleMouse = false;
             MouseParticle.Play();
             SFXCaller.Play("event:/uiButtonBreak2");
@@ -312,7 +315,8 @@ namespace Game.Systems.Ending
         private void ResetCursor()
         {
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            //Cursor.visible = true;
+            CursorManager.Instance.SetCursorVisibility(true);
 
             forceMouseToCenter = false;
             visibleMouse = true;

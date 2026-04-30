@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9631724}
   - component: {fileID: 9631725}
+  - component: {fileID: 9631726}
   m_Layer: 5
   m_Name: CursorCotainer
   m_TagString: Untagged
@@ -168,6 +169,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0618b52e76f7ac4a9ec22b37063a792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.UI.CursorUI
+--- !u!225 &9631726
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9631723}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46324cc74f1344be8b4b61ca36e51cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CursorManager
+  CursorUI: {fileID: 9631725}
   CursorTexture: {fileID: 1082183481}
   CursorReferences:
   - Type: 0

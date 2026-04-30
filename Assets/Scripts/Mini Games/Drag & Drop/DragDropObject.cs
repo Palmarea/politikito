@@ -1,3 +1,4 @@
+using Game.Managers.Mouse;
 using Game.Systems.Input;
 using UnityEngine;
 
@@ -41,6 +42,8 @@ namespace Game.Systems.Interaction.DragNDrop
             isBeingDragged = false;
 
             BackToOrigin();
+
+            MouseManager.Instance.ReleaseHold();
         }
 
         public virtual void BackToOrigin()
