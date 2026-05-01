@@ -10,6 +10,7 @@ namespace Game.Systems.Minigames
         [SerializeField] private TamaCharacterController Character;
         [SerializeField] private TamaCharacterAnimation CharacterAnimator;
         [SerializeField] private Transform WateringOriginPoint;
+        [SerializeField] private ParticleSystem WaterPS;
 
         [Header("Parameters")]
         [SerializeField] private float RayLength = 3f;
@@ -29,6 +30,11 @@ namespace Game.Systems.Minigames
             level = CharacterStats.Charisma.Level;
             CharacterAnimator.SetMiniGame(1);
             Character.ChangeState(new FleeState(Character, WateringOriginPoint));
+
+            DDObject.OnStoppedDragging -= StopParticles;
+            DDObject.OnStoppedDragging += StopParticles;
+
+            WaterPS.Play();
         }
 
         protected override void UpdateMinigame()
@@ -80,12 +86,20 @@ namespace Game.Systems.Minigames
 
             CharacterAnimator.SetMiniGame(0);
             CharacterAnimator.SetReceivingWater(false);
+            
+            DDObject.OnStoppedDragging -= StopParticles;
+            StopParticles();
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawRay(WateringOriginPoint.position, Vector2.down * RayLength);
+        }
+
+        private void StopParticles()
+        {
+            WaterPS.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
     }
 }

@@ -1,5 +1,6 @@
 using Game.Managers.Mouse;
 using Game.Systems.Input;
+using System;
 using UnityEngine;
 
 namespace Game.Systems.Interaction.DragNDrop
@@ -9,6 +10,8 @@ namespace Game.Systems.Interaction.DragNDrop
         protected bool isBeingDragged = false;
         protected Vector2 offset;
         private bool suscribed = false;
+
+        public event Action OnStoppedDragging;
 
         private void Start()
         {
@@ -42,6 +45,8 @@ namespace Game.Systems.Interaction.DragNDrop
             isBeingDragged = false;
 
             BackToOrigin();
+
+            OnStoppedDragging?.Invoke();
 
             MouseManager.Instance.ReleaseHold();
         }
