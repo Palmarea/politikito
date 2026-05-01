@@ -1,6 +1,7 @@
 using Game.UI;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Game.Managers.Mouse
@@ -49,6 +50,7 @@ namespace Game.Managers.Mouse
         void Start()
         {
             Cursor.visible = false;
+            SceneManager.sceneLoaded += OnSceneChanged;
         }
 
         public void SetCursorState(CursorStateType TYPE)
@@ -67,5 +69,10 @@ namespace Game.Managers.Mouse
         }
 
         private CursorObject GetCursorOfType(CursorStateType TYPE) => CursorReferences.First(a => a.Type == TYPE);
+
+        private void OnSceneChanged(Scene scene, LoadSceneMode mode)
+        {
+            SetCursorState(CursorStateType.DEFAULT);
+        }
     }
 }
