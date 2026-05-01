@@ -24,7 +24,7 @@ namespace Game.UI
             
             shownPos = PostItRect.anchoredPosition;
             hiddenPos = new Vector2(shownPos.x + HiddenOffsetX, shownPos.y);
-            PostItRect.anchoredPosition = hiddenPos;
+            PostItRect.anchoredPosition = shownPos;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
