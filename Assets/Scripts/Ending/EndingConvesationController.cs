@@ -117,7 +117,7 @@ namespace Game.Systems.Ending
             yield return ShowStat(1, "LAS GALLETAS.");
             yield return ShowStat(2, "EL EJERCICIO.");
 
-            yield return TypeLine("FUERON HERRAMIENTAS UTILES PARA CONSTRUIR MI CAMINO AL PODER.");
+            yield return TypeLine("FUERON HERRAMIENTAS ÚTILES PARA CONSTRUIR MI CAMINO AL PODER.");
 
             yield return TypeLine("PERO YA NO MÁS.");
 
@@ -134,7 +134,7 @@ namespace Game.Systems.Ending
             yield return MoveContainer(Container.anchoredPosition, originalContainerPos);
 
             LockMouseToCenter();
-            yield return TypeLine("Y EN CUANTO A TI....");
+            yield return TypeLine("Y EN CUANTO A TI...");
 
             BreakMouse();
             yield return TypeLine("TAMPOCO TE NECESITO.");
