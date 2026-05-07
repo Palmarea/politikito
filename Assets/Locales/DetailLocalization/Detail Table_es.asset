@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Detail Table_es
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 5c43c8afad3613d41b928458fb4a8b57, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 19590537216
+    m_Localized: "<rainb><b>PLANTA EN VASITO</b></> recibida por participar en activaci\xF3n
+      para reponer las \xE1reas verdes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21750603776
+    m_Localized: "<rainb><b>MEDALLA DE M\xC9RITO</b></> recibida por el revuelo que
+      <b>{0}</b> caus\xF3 con su nota en el peri\xF3dico."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23797424128
+    m_Localized: "<rainb><b>AFICHE HECHO A MANO</b></> recibido cuando <b>{0}</b>
+      particip\xF3 en su primera marcha."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 257168498688
+    m_Localized: "<rainb><b>CITACION DE PROFESOR</b></> recibida por la exposici\xF3n
+      de <b>{0}</b> en la escuela sobre las consecuencias ambientales de la miner\xEDa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 259215319040
+    m_Localized: "<rainb><b>DIPLOMA DE CAPACITACI\xD3N</b></> conseguido por completar
+      un curso sobre derecho forestal."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261278916608
+    m_Localized: "<rainb><b>BANDEROLA</b></> recibida por la participaci\xF3n de
+      <b>{0}</b> en una protesta pac\xEDfica en contra de la contaminaci\xF3n minera
+      del r\xEDo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 446486798336
+    m_Localized: "<rainb><b>PARAFERNALIA HOJA VERDE</b></> recibida al participar
+      en un evento de Gotita Verde, un partido pol\xEDtico local con enfoque medioambiental."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 448101605376
+    m_Localized: "<rainb><b>SOBRE SELLADO</b></> recibido por una persona sospechosa
+      del partido pol\xEDtico Gotita Verde que <b>{0}</b> debe entregar a una entidad
+      petrolera."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 449586388992
+    m_Localized: "<rainb><b>CARN\xC9 DE MIEMBRO DE PARTIDO</b></> perteneciente a
+      <b>{0}</b>, recibido al unirse de forma oficial al partido de Gotita Verde."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 711554228224
+    m_Localized: "<rainb><b>AUTO DEL A\xD1O</b></> comprado por <b>{0}</b> utilizando
+      un porcentaje de los fondos del partido para mejorar su imagen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 713357778944
+    m_Localized: "<rainb><b>PACTO FIRMADO</b></> gracias a las conexiones de <b>{0}</b>
+      con otros partidos para \"compartir apoyo\" en las pr\xF3ximas elecciones."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714796425216
+    m_Localized: <rainb><b>RELOJ DE DIAMANTE</b></> conseguido por <b>{0}</b>, de
+      la nada.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 911324733440
+    m_Localized: "<b>{0}</b> fund\xF3 el primer periodico impreso en la escuela p\xFAblica
+      No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912822099968
+    m_Localized: "El alcalde se pronuncia sobre los disturbios ocasionados por la
+      marcha.\\n\u201CLos j\xF3venes adoctrinados rechazan el progreso y desarrollo
+      econ\xF3mico asociado a la miner\xEDa. (...) Es una pena.\u201D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 914684370944
+    m_Localized: "<b>{0}</b>, pierde en las elecciones internas \xA1por tercera vez!\\n\\nEste
+      hecho tom\xF3 a todos por sorpresa, por su gran dedicaci\xF3n y confianza que
+      genera entre sus allegados. \xBFQu\xE9 estar\xE1 saliendo mal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 916538253312
+    m_Localized: "<b>{0}</b> funda su propio partido pol\xEDtico de la mano de conexiones
+      estrat\xE9gicas: DIAMANTITO. \\nEntre ellos, Damian Tito, heredero de una minera
+      de diamantes, es su principal financiador."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 918249529344
+    m_Localized: "\xA1<b>{0}</b> gana las elecciones! Junto a su primer ministro
+      Damian Tito, prometieron potenciar la econom\xEDa del pa\xEDs hasta que los
+      recursos naturales no den m\xE1s.\\nVaya, realmente <b>{0}</b> est\xE1 brillando."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

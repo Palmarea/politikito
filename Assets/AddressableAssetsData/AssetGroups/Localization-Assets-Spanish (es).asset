@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Spanish (es)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-Assets-Spanish (es)
+  m_GUID: 9c9ee6ff5c4587a4fb2e46cd3a4746b2
+  m_SerializeEntries:
+  - m_GUID: 0177847850e8a6d41b3a68cd595ead30
+    m_Address: Citation_Charm_P2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0849da01a9cf232448ae4491c41462fa
+    m_Address: Diploma_Wisdom_P2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1963c129e791376458130f0e6ca9fd4c
+    m_Address: Charm_SB_BG
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cbd27e973478774e9d1384cb40de018
+    m_Address: Willpower_SB_BG
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a215ac9034d5eba46ad0a8ad39c83c42
+    m_Address: titleLogo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b39760705b74da043aafb3ad6973d490
+    m_Address: Identification_Willpower_P3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbc2e67711be92944a22f0fa73b382ae
+    m_Address: WisdomSB_BG
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: f8532ddac34320d4285c0575b51e3048, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 74b52fce76faefc4abf0dba0c13897e8, type: 2}
+    - {fileID: 11400000, guid: 0f787c6206d980b43ad5793c76e00c5b, type: 2}

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Milestone Table_es
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 2cfd6e21f51b9f7458362e7146c45f34, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 26796351488
+    m_Localized: "<b>{0}</b> fund\xF3 el primer periodico impreso en la escuela p\xFAblica
+      No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28826394624
+    m_Localized: "El alcalde se pronuncia sobre los disturbios ocasionados por la
+      marcha.\\n\u201CLos j\xF3venes adoctrinados rechazan el progreso y desarrollo
+      econ\xF3mico asociado a la miner\xEDa. (...) Es una pena.\u201D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30600585216
+    m_Localized: "<b>{0}</b>, pierde en las elecciones internas \xA1por tercera vez!\\n\\nEste
+      hecho tom\xF3 a todos por sorpresa, por su gran dedicaci\xF3n y confianza que
+      genera entre sus allegados. \xBFQu\xE9 estar\xE1 saliendo mal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32471244800
+    m_Localized: "<b>{0}</b> funda su propio partido pol\xEDtico de la mano de conexiones
+      estrat\xE9gicas: DIAMANTITO. \\nEntre ellos, Damian Tito, heredero de una minera
+      de diamantes, es su principal financiador."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34396430336
+    m_Localized: "\xA1<b>{0}</b> gana las elecciones! Junto a su primer ministro
+      Damian Tito, prometieron potenciar la econom\xEDa del pa\xEDs hasta que los
+      recursos naturales no den m\xE1s.\\nVaya, realmente <b>{0}</b> est\xE1 brillando."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

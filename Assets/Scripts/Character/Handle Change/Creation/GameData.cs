@@ -7,6 +7,14 @@ public class GameData : MonoBehaviour
     public string PlayerName;
     private const string baseName = "Tico";
 
+    public enum Language
+    {
+        SPANISH,
+        ENGLISH
+    }
+
+    public Language GameLanguage;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -23,4 +31,6 @@ public class GameData : MonoBehaviour
     {
         return PlayerName != "" ? PlayerName.ToUpper() : baseName.ToUpper();
     }
+
+    public Language GetCurrentLanguage() => GameLanguage;
 }

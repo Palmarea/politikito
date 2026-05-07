@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -55,6 +56,8 @@ namespace Game.Systems.Ending
         private bool keepShakingStats = false;
         private bool floatStats = false;
 
+        private int keyCount = 1;
+
         private void Start()
         {
             originalContainerPos = Container.anchoredPosition;
@@ -105,21 +108,21 @@ namespace Game.Systems.Ending
             TriggerAnim.SetNeedFull(false);
             yield return FadeUI(textBox, 0, 1, 0.5f);
 
-            yield return TypeLine("HOLA.");
-            yield return TypeLine("GRACIAS POR IMPULSAR MI CRECIMIENTO.");
+            yield return TypeLine();
+            yield return TypeLine();
 
             //  Mover container antes de mostrar stats
             yield return MoveContainer(originalContainerPos, originalContainerPos + Vector2.up * containerMoveY);
 
             floatStats = true;
 
-            yield return ShowStat(0, "LA REGADERA.");
-            yield return ShowStat(1, "LAS GALLETAS.");
-            yield return ShowStat(2, "EL EJERCICIO.");
+            yield return ShowStat(0);
+            yield return ShowStat(1);
+            yield return ShowStat(2);
 
-            yield return TypeLine("FUERON HERRAMIENTAS ÚTILES PARA CONSTRUIR MI CAMINO AL PODER.");
+            yield return TypeLine();
 
-            yield return TypeLine("PERO YA NO MÁS.");
+            yield return TypeLine();
 
             //  detener float y resetear posiciones
             floatStats = false;
@@ -127,21 +130,21 @@ namespace Game.Systems.Ending
 
             yield return DrainStats();
 
-            yield return TypeLine("YA NO LAS NECESITO.");
+            yield return TypeLine();
             BreakStats();
 
             //  volver container a su posición original
             yield return MoveContainer(Container.anchoredPosition, originalContainerPos);
 
             LockMouseToCenter();
-            yield return TypeLine("Y EN CUANTO A TI...");
+            yield return TypeLine();
 
             BreakMouse();
-            yield return TypeLine("TAMPOCO TE NECESITO.");
+            yield return TypeLine();
 
-            yield return TypeLine("AHORA YO TENGO EL PODER... EL CONTROL...");
-            yield return TypeLine("GRACIAS POR CUMPLIR TU PAPEL.");
-            yield return TypeLine("HASTA NUNCA.");
+            yield return TypeLine();
+            yield return TypeLine();
+            yield return TypeLine();
 
 
             yield return FadeUI(textBox, 1, 0, 0.5f);
@@ -173,20 +176,22 @@ namespace Game.Systems.Ending
             obj.objCanvasGroup.alpha = to;
         }
 
-        private IEnumerator TypeLine(string text)
+        private IEnumerator TypeLine()
         {
-            typewriter.ShowText(text);
+            string str = LocalizationSettings.StringDatabase.GetLocalizedString("Conversation Screen", string.Format("conversationScreen.line_{0}", keyCount));
+            typewriter.ShowText(str);
+            keyCount++;
             yield return new WaitUntil(() => !typewriter.isShowingText);
             yield return new WaitForSeconds(afterTypeDuration);
         }
 
-        private IEnumerator ShowStat(int index, string line)
+        private IEnumerator ShowStat(int index)
         {
             var stat = statBars[index];
             stat.objTransform.gameObject.SetActive(true);
 
             yield return FadeUI(stat, 0, 1, 0.5f);
-            yield return TypeLine(line);
+            yield return TypeLine();
         }
 
         private IEnumerator DrainStats()

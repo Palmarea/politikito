@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.Localization.Settings;
 
 namespace Game.UI
 {
@@ -38,7 +39,7 @@ namespace Game.UI
             if (nameInput != null && string.IsNullOrEmpty(nameInput.text))
             {
                 nameInput.GetComponent<RectTransform>().DOShakeAnchorPos(0.5f, 20);
-                ShowFeedback("Escoge un nombre para tu TIKO!");
+                ShowFeedback();
                 return;
             }
 
@@ -46,11 +47,11 @@ namespace Game.UI
             SceneManager.LoadScene(nextSceneName);
         }
 
-        private void ShowFeedback(string message)
+        private void ShowFeedback()
         {
             if (feedbackText == null) return;
 
-            feedbackText.text = message;
+            feedbackText.text = LocalizationSettings.StringDatabase.GetLocalizedString("Character Creation Screen", "charCreationScreen.nameLog");
             feedbackText.gameObject.SetActive(true);
 
             if (feedbackCoroutine != null)

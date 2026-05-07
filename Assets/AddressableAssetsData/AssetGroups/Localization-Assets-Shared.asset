@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-Assets-Shared
+  m_GUID: bca65bde7c37ca04c8accab547efaae7
+  m_SerializeEntries:
+  - m_GUID: 056eddd1778355949a6853b91aecfe13
+    m_Address: Assets/Locales/MainScreenLocalization/Asset Table/Main Screen AT Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 060d66df893c9ca4887c34189101a04b
+    m_Address: Assets/Locales/ConversationScreenLocalization/Conversation Screen
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07465f9b54999484eb067aad828aa1d9
+    m_Address: Assets/Locales/AchievementsLocalization/Achievement Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fae2d21b79c3084688027b14e7ba128
+    m_Address: Assets/Locales/Tutorial Screen Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cfd6e21f51b9f7458362e7146c45f34
+    m_Address: Assets/Locales/MilestonesLocalization/Milestone Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e552fe748483e74f9b04ac8290f522f
+    m_Address: Assets/Locales/CharacterCreationScreenLocalization/Character Creation
+      Screen Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c43c8afad3613d41b928458fb4a8b57
+    m_Address: Assets/Locales/DetailLocalization/Detail Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86c7f076537d8424f9cad3a095c01bf2
+    m_Address: Assets/Locales/CreditsScreenLocalization/Credits Screen Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9aae54ac014d47b448dff751c04f90fa
+    m_Address: Assets/Locales/TitleScreenLocalization/Title Screen Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: f8532ddac34320d4285c0575b51e3048, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d47c0000ca99f6746933f7dcafbfe9f0, type: 2}
+    - {fileID: 11400000, guid: e10dbe8a5dd27d24d84d7e5468a1c57d, type: 2}

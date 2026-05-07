@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Main Screen AT Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Main Screen AT
+  m_TableCollectionNameGuidString: 056eddd1778355949a6853b91aecfe13
+  m_Entries:
+  - m_Id: 10656669696
+    m_Key: mainScreen.AT.charmBar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12946759680
+    m_Key: mainScreen.AT.wisdomBar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15425593344
+    m_Key: mainScreen.AT.willpowerBar
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items:
+    - rid: 2376240499949306099
+  m_KeyGenerator:
+    rid: 2376240499949306098
+  references:
+    version: 2
+    RefIds:
+    - rid: 2376240499949306098
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1778123476536
+    - rid: 2376240499949306099
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 10656669696
+          m_TableCodes:
+          - es
+        - m_KeyId: 12946759680
+          m_TableCodes:
+          - es
+        - m_KeyId: 15425593344
+          m_TableCodes:
+          - es
+        m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
