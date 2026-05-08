@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Game.Systems.Interaction.Detail
 {
@@ -17,7 +18,7 @@ namespace Game.Systems.Interaction.Detail
         public string spriteAtlasID;
         public string spriteAtlasMilestoneID;
         public DetailType type;
-        [TextArea] public string description;
+        public LocalizedString localizedDescription;
 
         public override string ToString()
         {
@@ -27,7 +28,6 @@ namespace Game.Systems.Interaction.Detail
             sb.AppendLine($"  Identifier : {objectID}");
             sb.AppendLine($"  Sprite Atlas Identifier: {spriteAtlasID}");
             sb.AppendLine($"  Detail Type: {type}");
-            sb.AppendLine($"  Description: {description}");
 
             return sb.ToString();
         }

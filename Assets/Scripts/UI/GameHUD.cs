@@ -113,13 +113,13 @@ namespace Game.UI
         {
             switch (type)
             {
-                case StatType.Carisma:
+                case StatType.Charisma:
                     CharismaUIO.UpdateSpriteCooldown(state);
                     break;
-                case StatType.Sabiduria:
+                case StatType.Wisdom:
                     WisdomUIO.UpdateSpriteCooldown(state);
                     break;
-                case StatType.Voluntad:
+                case StatType.Willpower:
                     WillpowerUIO.UpdateSpriteCooldown(state);
                     break;
             }

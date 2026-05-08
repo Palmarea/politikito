@@ -24,7 +24,7 @@ namespace Game.Character
         [SerializeField]
         private TamaStat CharismaStat = new TamaStat
         {
-            Name = "Carisma",
+            Name = "Charisma",
             Level = 0,
             Value = 0,
             DecayPerSecond = 0.3f
@@ -32,7 +32,7 @@ namespace Game.Character
         [SerializeField]
         private TamaStat WisdomStat = new TamaStat
         {
-            Name = "Sabiduría",
+            Name = "Wisdom",
             Level = 0,
             Value = 0,
             DecayPerSecond = 0.25f
@@ -40,7 +40,7 @@ namespace Game.Character
         [SerializeField]
         private TamaStat WillPowerStat = new TamaStat
         {
-            Name = "Voluntad",
+            Name = "Willpower",
             Level = 0,
             Value = 0,
             DecayPerSecond = 0.35f

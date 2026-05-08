@@ -5,6 +5,7 @@ using Game.Utils;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ namespace Game.Systems.Achievement
     public class TextStep
     {
         public TypewriterByCharacter text;
-        [TextArea] public string template;
+        public LocalizedString template;
         public bool needAfterDeactivation;
         public bool objectPresentation;
         public bool ignoreTemplate;
@@ -81,7 +82,7 @@ namespace Game.Systems.Achievement
 
                 NotificationTitles[i].text.onTextShowed.AddListener(OnFinished);
 
-                NotificationTitles[i].text.ShowText(string.Format(NotificationTitles[i].template, achievement.stat));
+                NotificationTitles[i].text.ShowText(string.Format(NotificationTitles[i].template.GetLocalizedString(), achievement.GetStatToTitleCase()));
 
                 yield return new WaitUntil(() => finished);
 
@@ -102,16 +103,16 @@ namespace Game.Systems.Achievement
 
                 if (!NotificationDescriptions[i].ignoreTemplate && !NotificationDescriptions[i].objectPresentation)
                 {
-                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template, GameData.Instance.GetPlayerName()));
+                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template.GetLocalizedString(), GameData.Instance.GetPlayerName()));
                 }
                 else if (NotificationDescriptions[i].ignoreTemplate && !NotificationDescriptions[i].objectPresentation)
                 {
-                    NotificationDescriptions[i].text.ShowText(string.Format(achievement.description, GameData.Instance.GetPlayerName()));
+                    NotificationDescriptions[i].text.ShowText(string.Format(achievement.localizedDescription.GetLocalizedString(), GameData.Instance.GetPlayerName()));
                 }
 
                 if (NotificationDescriptions[i].objectPresentation)
                 {
-                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template, achievement.objectName));
+                    NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template.GetLocalizedString(), achievement.localizedObjectName.GetLocalizedString()));
                     NotificationImage.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, achievement.spriteAtlasID);
                     NotificationImage.gameObject.SetActive(true);
                 }

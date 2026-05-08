@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Game.Systems.Milestone
 {
@@ -12,7 +13,7 @@ namespace Game.Systems.Milestone
         public Vector3 spawnPosition;
         public Vector3 spawnRotation;
         public Vector3 spawnScale;
-        [TextArea] public string description;
+        public LocalizedString localizedDescription;
 
         public override string ToString()
         {
@@ -25,7 +26,6 @@ namespace Game.Systems.Milestone
             sb.AppendLine($"  Spawn Position: {spawnPosition}");
             sb.AppendLine($"  Spawn Rotation: {spawnRotation}");
             sb.AppendLine($"  Spawn Scale: {spawnScale}");
-            sb.AppendLine($"  Description: {description}");
 
             return sb.ToString();
         }

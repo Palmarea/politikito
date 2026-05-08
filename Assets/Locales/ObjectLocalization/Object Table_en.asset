@@ -10,30 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Achievement Table_en
+  m_Name: Object Table_en
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
   m_LocaleId:
     m_Code: en
-  m_SharedData: {fileID: 11400000, guid: 07465f9b54999484eb067aad828aa1d9, type: 2}
+  m_SharedData: {fileID: 11400000, guid: c18a2e3ab56bd3b45aa5a4b18a7e5a27, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData:
-  - m_Id: 21108875264
-    m_Localized: asdadsa
-    m_Metadata:
-      m_Items: []
-  - m_Id: 19028500480
-    m_Localized: asdadasdasdadasd
-    m_Metadata:
-      m_Items: []
-  - m_Id: 94135902208
-    m_Localized: asdasdasdadsad
-    m_Metadata:
-      m_Items: []
-  - m_Id: 23034060800
-    m_Localized: sasdasdadasdasdasdasvvffvsvdvavsav
-    m_Metadata:
-      m_Items: []
+  m_TableData: []
   references:
     version: 2
     RefIds: []

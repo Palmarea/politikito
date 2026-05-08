@@ -17,107 +17,223 @@ MonoBehaviour:
     spriteAtlasID: Plant_Charm_P1
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>PLANTA EN VASITO</b></> recibida por participar en activaci\xF3n
-      para reponer las \xE1reas verdes."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 19590537216
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: medalla
     spriteAtlasID: Medal_Wisdom_P1
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>MEDALLA DE M\xC9RITO</b></> recibida por el revuelo que
-      <b>{0}</b> caus\xF3 con su nota en el peri\xF3dico."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 21750603776
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: afiche
     spriteAtlasID: Poster_Willpower_P1
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>AFICHE HECHO A MANO</b></> recibido cuando <b>{0}</b>
-      particip\xF3 en su primera marcha."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 23797424128
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: citacion
     spriteAtlasID: Citation_Charm_P2
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>CITACION DE PROFESOR</b></> recibida por la exposici\xF3n
-      de <b>{0}</b> en la escuela sobre las consecuencias ambientales de la miner\xEDa."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 257168498688
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: diploma
     spriteAtlasID: Diploma_Wisdom_P2
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>DIPLOMA DE CAPACITACI\xD3N</b></> conseguido por completar
-      un curso sobre derecho forestal."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 259215319040
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: banderola
     spriteAtlasID: Banderole_Willpower_P2
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>BANDEROLA</b></> recibida por la participaci\xF3n de
-      <b>{0}</b> en una protesta pac\xEDfica en contra de la contaminaci\xF3n minera
-      del r\xEDo."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 261278916608
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: parafernalia
     spriteAtlasID: Paraphernalia_Charm_P3
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>PARAFERNALIA HOJA VERDE</b></> recibida al participar
-      en un evento de Gotita Verde, un partido pol\xEDtico local con enfoque medioambiental."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 446486798336
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: contenidosecreto
     spriteAtlasID: SecretContent_Wisdom_P3
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>SOBRE SELLADO</b></> recibido por una persona sospechosa
-      del partido pol\xEDtico Gotita Verde que <b>{0}</b> debe entregar a una entidad
-      petrolera."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 448101605376
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: carnet
     spriteAtlasID: Identification_Willpower_P3
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>CARN\xC9 DE MIEMBRO DE PARTIDO</b></> perteneciente a
-      <b>{0}</b>, recibido al unirse de forma oficial al partido de Gotita Verde."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 449586388992
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: carro
     spriteAtlasID: Car_Charm_P4
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>AUTO DEL A\xD1O</b></> comprado por <b>{0}</b> utilizando
-      un porcentaje de los fondos del partido para mejorar su imagen."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 711554228224
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: pacto
     spriteAtlasID: Pact_Wisdom_P4
     spriteAtlasMilestoneID: 
     type: 0
-    description: "<rainb><b>PACTO FIRMADO</b></> gracias a las conexiones de <b>{0}</b>
-      con otros partidos para \"compartir apoyo\" en las pr\xF3ximas elecciones."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 713357778944
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: reloj
     spriteAtlasID: Watch_Willpower_P4
     spriteAtlasMilestoneID: 
     type: 0
-    description: <rainb><b>RELOJ DE DIAMANTE</b></> conseguido por <b>{0}</b>, de
-      la nada.
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 714796425216
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: recorte1
     spriteAtlasID: NewsCut_Ph1
     spriteAtlasMilestoneID: periodico01
     type: 1
-    description: "<b>{0}</b> fund\xF3 el primer periodico impreso en la escuela p\xFAblica
-      No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 911324733440
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: recorte2
     spriteAtlasID: NewsCut_Ph2
     spriteAtlasMilestoneID: periodico02
     type: 1
-    description: "El alcalde se pronuncia sobre los disturbios ocasionados por la
-      marcha.\\n\u201CLos j\xF3venes adoctrinados rechazan el progreso y desarrollo
-      econ\xF3mico asociado a la miner\xEDa. (...) Es una pena.\u201D"
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 912822099968
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: recorte3_1
     spriteAtlasID: NewsCut_Ph3
     spriteAtlasMilestoneID: periodico03_1
     type: 1
-    description: "<b>{0}</b>, pierde en las elecciones internas \xA1por tercera vez!\\n\\nEste
-      hecho tom\xF3 a todos por sorpresa, por su gran dedicaci\xF3n y confianza que
-      genera entre sus allegados. \xBFQu\xE9 estar\xE1 saliendo mal?"
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 914684370944
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: recorte3_2
     spriteAtlasID: NewsCut_Ph3_1
     spriteAtlasMilestoneID: periodico03_2
     type: 1
-    description: "<b>{0}</b> funda su propio partido pol\xEDtico de la mano de conexiones
-      estrat\xE9gicas: DIAMANTITO. \\nEntre ellos, Damian Tito, heredero de una minera
-      de diamantes, es su principal financiador."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 916538253312
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - objectID: recorte4
     spriteAtlasID: NewsCut_Ph4
     spriteAtlasMilestoneID: periodico04
     type: 1
-    description: "\xA1<b>{0}</b> gana las elecciones! Junto a su primer ministro
-      Damian Tito, prometieron potenciar la econom\xEDa del pa\xEDs hasta que los
-      recursos naturales no den m\xE1s.\\nVaya, realmente <b>{0}</b> est\xE1 brillando."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:5c43c8afad3613d41b928458fb4a8b57
+      m_TableEntryReference:
+        m_KeyId: 918249529344
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

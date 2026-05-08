@@ -43,6 +43,13 @@ MonoBehaviour:
     - Locale-es
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8394abc803e85cb44a0fb0bbf6f9fdfb
+    m_Address: Object Table_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97b9d869cae0f31478ea09c8d56d0d3d
     m_Address: Milestone Table_es
     m_ReadOnly: 1
@@ -58,6 +65,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7a41962d0e4f1b46a1c6f15c6dd0134
     m_Address: Conversation Screen_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc85f90b8a666dc4bb5365b9da8649e7
+    m_Address: Global Table_es
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es

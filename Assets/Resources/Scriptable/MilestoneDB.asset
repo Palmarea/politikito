@@ -19,41 +19,75 @@ MonoBehaviour:
     spawnPosition: {x: -1.72, y: 41.07, z: 0}
     spawnRotation: {x: 0, y: 0, z: 1.219}
     spawnScale: {x: 0.7, y: 0.7, z: 0.7}
-    description: "<b>{0}</b> fund\xF3 el primer periodico impreso en la escuela p\xFAblica
-      No. 27. \\n\\n\xBFQu\xE9 futuro le espera a esta joven promesa?"
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cfd6e21f51b9f7458362e7146c45f34
+      m_TableEntryReference:
+        m_KeyId: 26796351488
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - level: 2
     spriteAtlasID: 1
     detailObjectID: recorte2
     spawnPosition: {x: -0.75, y: 37.75, z: 0}
     spawnRotation: {x: 0, y: 0, z: 1.747}
     spawnScale: {x: 0.7, y: 0.7, z: 0.7}
-    description: "El alcalde se pronuncia sobre los disturbios ocasionados por la
-      marcha.\\n\u201CLos j\xF3venes adoctrinados rechazan el progreso y desarrollo
-      econ\xF3mico asociado a la miner\xEDa. (...) Es una pena.\u201D"
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cfd6e21f51b9f7458362e7146c45f34
+      m_TableEntryReference:
+        m_KeyId: 28826394624
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - level: 3
     spriteAtlasID: 2
     detailObjectID: recorte3_1
     spawnPosition: {x: 2.06, y: 40.91, z: 0}
     spawnRotation: {x: 0, y: 0, z: -3.658}
     spawnScale: {x: 0.7, y: 0.7, z: 0.7}
-    description: "<b>{0}</b>, pierde en las elecciones internas \xA1por tercera vez!\\n\\nEste
-      hecho tom\xF3 a todos por sorpresa, por su gran dedicaci\xF3n y confianza que
-      genera entre sus allegados. \xBFQu\xE9 estar\xE1 saliendo mal?"
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cfd6e21f51b9f7458362e7146c45f34
+      m_TableEntryReference:
+        m_KeyId: 30600585216
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - level: 4
     spriteAtlasID: 3
     detailObjectID: recorte3_2
     spawnPosition: {x: 2.53, y: 37.24, z: 0}
     spawnRotation: {x: 0, y: 0, z: 5.721}
     spawnScale: {x: 0.7, y: 0.7, z: 0.7}
-    description: "<b>{0}</b> funda su propio partido pol\xEDtico de la mano de conexiones
-      estrat\xE9gicas: DIAMANTITO. \\nEntre ellos, Damian Tito, heredero de una minera
-      de diamantes, es su principal financiador."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cfd6e21f51b9f7458362e7146c45f34
+      m_TableEntryReference:
+        m_KeyId: 32471244800
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - level: 5
     spriteAtlasID: 3
     detailObjectID: recorte4
     spawnPosition: {x: 5.68, y: 39.47, z: 0}
     spawnRotation: {x: 0, y: 0, z: -11.731}
     spawnScale: {x: 0.7, y: 0.7, z: 0.7}
-    description: "\xA1<b>{0}</b> gana las elecciones! Junto a su primer ministro
-      Damian Tito, prometieron potenciar la econom\xEDa del pa\xEDs hasta que los
-      recursos naturales no den m\xE1s.\\nVaya, realmente <b>{0}</b> est\xE1 brillando."
+    localizedDescription:
+      m_TableReference:
+        m_TableCollectionName: GUID:2cfd6e21f51b9f7458362e7146c45f34
+      m_TableEntryReference:
+        m_KeyId: 34396430336
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

@@ -11,8 +11,8 @@ namespace Game.Systems.Achievement
 
     public enum StatType
     {
-        Carisma,
-        Sabiduria,
-        Voluntad
+        Charisma,
+        Wisdom,
+        Willpower
     }
 }

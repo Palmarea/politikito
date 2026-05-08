@@ -81,13 +81,13 @@ namespace Game.Systems.Interaction.Detail
             if (data.type == DetailType.ACHIEVEMENT)
             {
                 TextBox.SetActive(true);
-                DetailText.ShowText(string.Format(data.description, GameData.Instance.GetPlayerName()));
+                DetailText.ShowText(string.Format(data.localizedDescription.GetLocalizedString(), GameData.Instance.GetPlayerName()));
             }
             else
             {
                 NewspaperImage.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(NewsSpriteAtlas, data.spriteAtlasMilestoneID);
                 NewspaperImage.gameObject.SetActive(true);
-                NewspaperText.SetText(string.Format(data.description, GameData.Instance.GetPlayerName()));
+                NewspaperText.SetText(string.Format(data.localizedDescription.GetLocalizedString(), GameData.Instance.GetPlayerName()));
             }
 
         }

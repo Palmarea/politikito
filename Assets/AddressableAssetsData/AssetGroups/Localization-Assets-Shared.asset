@@ -53,6 +53,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81d2409ef1473e54cbb5f1d24f6eed49
+    m_Address: Assets/Locales/GlobalLocalization/Global Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86c7f076537d8424f9cad3a095c01bf2
     m_Address: Assets/Locales/CreditsScreenLocalization/Credits Screen Shared Data.asset
     m_ReadOnly: 1
@@ -60,6 +65,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9aae54ac014d47b448dff751c04f90fa
     m_Address: Assets/Locales/TitleScreenLocalization/Title Screen Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c18a2e3ab56bd3b45aa5a4b18a7e5a27
+    m_Address: Assets/Locales/ObjectLocalization/Object Table Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

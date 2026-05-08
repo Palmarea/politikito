@@ -42,6 +42,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c975098f7da5c9e4b81fe83a9b00338b
+    m_Address: Object Table_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd57251a97fa4754aa0323d6cb85c1d3
+    m_Address: Global Table_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce229370736835a4487e2004d72bcbe7
     m_Address: Character Creation Screen_en
     m_ReadOnly: 1

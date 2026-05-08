@@ -2975,13 +2975,29 @@ MonoBehaviour:
   NotificationCanvasUI: {fileID: 432456576}
   NotificationTitles:
   - text: {fileID: 2140468186}
-    template: "\xA1Tu <incr><rainb><b>{0}</b></>...\\n"
+    template:
+      m_TableReference:
+        m_TableCollectionName: GUID:07465f9b54999484eb067aad828aa1d9
+      m_TableEntryReference:
+        m_KeyId: 23034060800
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     needAfterDeactivation: 0
     objectPresentation: 0
     ignoreTemplate: 0
     textDuration: 0.75
   - text: {fileID: 698049434}
-    template: \nha <wiggle>mejorado!</>
+    template:
+      m_TableReference:
+        m_TableCollectionName: GUID:07465f9b54999484eb067aad828aa1d9
+      m_TableEntryReference:
+        m_KeyId: 94135902208
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     needAfterDeactivation: 0
     objectPresentation: 0
     ignoreTemplate: 0
@@ -2989,26 +3005,52 @@ MonoBehaviour:
   NotificationImage: {fileID: 2104709274}
   NotificationDescriptions:
   - text: {fileID: 337434536}
-    template: "<bounce><b>{0}</b></> particip\xF3 en activaci\xF3n para \\nreponer
-      las \xE1reas verdes <shake>\xA1Yupi!</>"
+    template:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     needAfterDeactivation: 1
     objectPresentation: 0
     ignoreTemplate: 1
     textDuration: 3
   - text: {fileID: 181573122}
-    template: Recibiste "<rainb><b>{0}</b></>",
+    template:
+      m_TableReference:
+        m_TableCollectionName: GUID:07465f9b54999484eb067aad828aa1d9
+      m_TableEntryReference:
+        m_KeyId: 19028500480
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     needAfterDeactivation: 0
     objectPresentation: 1
     ignoreTemplate: 0
     textDuration: 0.75
   - text: {fileID: 2006630449}
-    template: "lo encontrar\xE1s en tu casa."
+    template:
+      m_TableReference:
+        m_TableCollectionName: GUID:07465f9b54999484eb067aad828aa1d9
+      m_TableEntryReference:
+        m_KeyId: 21108875264
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     needAfterDeactivation: 0
     objectPresentation: 0
     ignoreTemplate: 0
     textDuration: 0.5
   SpriteAtlas: {fileID: 100100200, guid: 18b5eace7ef7ec44caa10c05d65a053c, type: 3}
   NotificationDuration: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &524734185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6220,21 +6262,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character.TamaCharacterStats
   CharismaStat:
-    Name: Carisma
+    Name: Charisma
     Level: 0
     Value: 0
     MinValue: 0
     MaxValue: 100
     DecayPerSecond: 0.3
   WisdomStat:
-    Name: Sabiduria
+    Name: Wisdom
     Level: 0
     Value: 0
     MinValue: 0
     MaxValue: 100
     DecayPerSecond: 0.25
   WillPowerStat:
-    Name: Voluntad
+    Name: Willpower
     Level: 0
     Value: 0
     MinValue: 0
