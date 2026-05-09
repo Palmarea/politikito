@@ -5,6 +5,7 @@ using Game.Systems.Interaction;
 using Game.Systems.Milestone;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Game.UI
 {
@@ -66,6 +67,9 @@ namespace Game.UI
         [SerializeField] private TamaCharacterStats characterStats;
         [SerializeField] private MilestonePresenter MilestonePresenter;
 
+        [Header("Localization")]
+        [SerializeField] private LocalizedString LocalizedLabel;
+
         private void Awake()
         {
             SetupUIStats();
@@ -91,7 +95,7 @@ namespace Game.UI
 
         public void SetPlayerLabel(int level)
         {
-            PlayerLabel.text = $"{GameData.Instance.PlayerName} - NIVEL {level}";
+            PlayerLabel.text = string.Format(LocalizedLabel.GetLocalizedString(), GameData.Instance.PlayerName, level);
         }
 
         private void RefreshBars()

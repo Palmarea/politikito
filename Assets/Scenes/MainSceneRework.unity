@@ -8144,6 +8144,18 @@ MonoBehaviour:
   PlayerLabel: {fileID: 1985367687}
   characterStats: {fileID: 1254595389}
   MilestonePresenter: {fileID: 942613043}
+  LocalizedLabel:
+    m_TableReference:
+      m_TableCollectionName: GUID:1074e06af9957a94eb80e28ac6f4798f
+    m_TableEntryReference:
+      m_KeyId: 63077081088
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &1837783845
 MonoBehaviour:
   m_ObjectHideFlags: 0

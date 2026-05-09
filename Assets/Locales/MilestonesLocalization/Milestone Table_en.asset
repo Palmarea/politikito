@@ -17,7 +17,36 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 2cfd6e21f51b9f7458362e7146c45f34, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 26796351488
+    m_Localized: <b>{0}</b> founded the first printed newspaper on the public school
+      No. 27. \n\nWhat future awaits this young promise?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28826394624
+    m_Localized: "The mayor speaks out about the disturbances caused by the protests.\\n\u201CThe
+      indoctrinated youth refuse the progress and economic development associated
+      with mining. (...) It's a shame.\u201D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30600585216
+    m_Localized: "<b>{0}</b>, loses the internal elections, \xA1for the third time!\\n\\nThis
+      event took everyone by surprise, due to the great dedication and trust he inspires
+      in his close ones. What could be going wrong?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32471244800
+    m_Localized: '<b>{0}</b> founds his own political party, hand on hand with some
+      strategic connections: DIAMONDTITO. \nWithin them, Damian Tito, heir to a diamond
+      mine, is its main financier.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34396430336
+    m_Localized: "<b>{0}</b> wins the election! Together with his prime minister
+      Damian Tito, they promise to power up the country\u2019s economy until the
+      natural resources have given it their all.\\nWow, <b>{0}</b> really is shining."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

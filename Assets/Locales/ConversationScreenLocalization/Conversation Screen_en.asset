@@ -19,11 +19,55 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 79845908480
-    m_Localized: 
+    m_Localized: HELLO.
     m_Metadata:
       m_Items: []
   - m_Id: 82870001664
-    m_Localized: 
+    m_Localized: THANKS FOR BOOSTING MY GROWTH.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86380634112
+    m_Localized: THE WATERING CAN.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 88322596864
+    m_Localized: THE COOKIES.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90080010240
+    m_Localized: THE EXERCISE.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92353323008
+    m_Localized: THEY WERE USEFUL TOOLS TO BUILD MY PATH TO POWER.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96069476352
+    m_Localized: BUT NOT ANYMORE.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97826889728
+    m_Localized: "I DON\u2019T NEED THEM ANYMORE."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99164872704
+    m_Localized: "AND YOU\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99940818944
+    m_Localized: "I DON\u2019T NEED YOU EITHER."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100679016448
+    m_Localized: "NOW I HAVE THE POWER\u2026 THE CONTROL..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101484322816
+    m_Localized: THANK YOU FOR FULFILLING YOUR ROLE.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102369320960
+    m_Localized: GOOD RIDDANCE.
     m_Metadata:
       m_Items: []
   references:

@@ -19,19 +19,78 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 21108875264
-    m_Localized: asdadsa
+    m_Localized: "you\u2019ll find it in your house."
     m_Metadata:
       m_Items: []
   - m_Id: 19028500480
-    m_Localized: asdadasdasdadasd
+    m_Localized: You got "<rainb><b>{0}</b></>",
     m_Metadata:
       m_Items: []
   - m_Id: 94135902208
-    m_Localized: asdasdasdadsad
+    m_Localized: \nhas <wiggle>improved!</>
     m_Metadata:
       m_Items: []
   - m_Id: 23034060800
-    m_Localized: sasdasdadasdasdasdasvvffvsvdvavsav
+    m_Localized: Your <incr><rainb><b>{0}</b></>...\n
+    m_Metadata:
+      m_Items: []
+  - m_Id: 770270289920
+    m_Localized: <bounce><b>{0}</b></> was part of an activity to restore green spaces
+      <shake>Yippee!</>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 773428600832
+    m_Localized: <bounce><b>{0}</b></> made a school presentation on the environmental
+      consequences of mining.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 775995514880
+    m_Localized: "<bounce><b>{0}</b></> was an active part of an event of <b>Green
+      Droplet</b>, a local political party with a focus on the environment. <shake>\xA1Hooray!</>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 778239467520
+    m_Localized: "<bounce><b>{0}</b></> used a share of his party\u2019s funds for
+      his image <shake>Now that\u2019s style!</>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 780349202432
+    m_Localized: "\xA1<bounce><b>{0}</b></>\u2019s column on the school paper has
+      caused a stir! <swing>Keep it up!</b>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 782496686080
+    m_Localized: <bounce><b>{0}</b></> finished a capacitation course on forest law.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1351743430656
+    m_Localized: Someone on the Green Droplet party trusted <bounce><b>{0}</b></>
+      on delivering some sealed documents to an oil company.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1354629111808
+    m_Localized: "<bounce><b>{0}</b></> used its connections to other parties to
+      \u201Cshare support\u201D in the upcoming elections."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1356935979008
+    m_Localized: <bounce><b>{0}</b></> went to his first rally, giving out hand drawn
+      posters.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1462951206912
+    m_Localized: <bounce><b>{0}</b></> joined a peaceful protest against mining pollution
+      of the river.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1470740029440
+    m_Localized: <bounce><b>{0}</b></> officially joined the Green Droplet party.
+      <shake>Now he can run for the internal elections!</>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1472497442816
+    m_Localized: "<bounce><b>{0}</b></> got a new watch. You have some suspicions,
+      but <bounce><b>{0}</b></> didn\u2019t say anything else to you."
     m_Metadata:
       m_Items: []
   references:

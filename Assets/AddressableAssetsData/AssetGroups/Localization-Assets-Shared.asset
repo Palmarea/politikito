@@ -37,6 +37,12 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1074e06af9957a94eb80e28ac6f4798f
+    m_Address: Assets/Locales/MainScreenLocalization/String Table/Main Scene ST Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cfd6e21f51b9f7458362e7146c45f34
     m_Address: Assets/Locales/MilestonesLocalization/Milestone Table Shared Data.asset
     m_ReadOnly: 1

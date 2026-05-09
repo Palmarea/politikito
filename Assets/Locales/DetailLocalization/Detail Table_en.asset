@@ -17,7 +17,97 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 5c43c8afad3613d41b928458fb4a8b57, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 19590537216
+    m_Localized: <rainb><b>PLANT IN A PLASTIC CUP</b></> received by participating
+      in an activity to restore green spaces.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21750603776
+    m_Localized: <rainb><b>MEDAL OF MERIT</b></> received for the stir that <b>{0}</b>
+      caused with his article on the newspaper.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23797424128
+    m_Localized: <rainb><b>HAND DRAWN POSTER</b></> received when <b>{0}</b> was
+      part of its first protest.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 257168498688
+    m_Localized: "<rainb><b>PROFESSOR\u2019s NOTE</b></> received because of the
+      school presentation <b>{0}</b> did about the environmental consequences of
+      mining."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 259215319040
+    m_Localized: <rainb><b>CAPACITATION DIPLOMA</b></> obtained for completing a
+      course on forest law.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261278916608
+    m_Localized: "<rainb><b>BANNER</b></> gotten for <b>{0}</b>\u2019s participation
+      on a peaceful protest against mining pollution of the river."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 446486798336
+    m_Localized: <rainb><b>GREEN LEAF PARAPHERNALIA</b></> obtained by participating
+      on a Green Droplet party event, a local political party with an environmental
+      focused.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 448101605376
+    m_Localized: <rainb><b>SEALED ENVELOPE</b></> obtained from a suspicious person
+      from the Green Droplet party that <b>{0}</b> has to deliver to an oil company.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 449586388992
+    m_Localized: <rainb><b>PARTY MEMBER ID</b></> property of <b>{0}</b>, obtained
+      when officially joining the Green Droplet party.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 711554228224
+    m_Localized: "<rainb><b>CAR OF THE YEAR</b></> bought by <b>{0}</b> using a portion
+      of the party\u2019s funds to better his image."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 713357778944
+    m_Localized: "<rainb><b>SIGNED PACT</b></> Thanks to <b>{0}</b>\u2019s connections
+      with other parties, made to \u201Cshare support\u201D on the upcoming elections."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714796425216
+    m_Localized: <rainb><b>DIAMOND WATCH</b></> obtained by <b>{0}</b>, out of nowhere.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 911324733440
+    m_Localized: <b>{0}</b> founded the first printed newspaper on the public school
+      No. 27. \n\nWhat future awaits this young promise?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912822099968
+    m_Localized: "The mayor speaks out about the disturbances caused by the protests.\\n\u201CThe
+      indoctrinated youth refuse the progress and economic development associated
+      with mining. (...) It's a shame.\u201D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 914684370944
+    m_Localized: "<b>{0}</b>, loses the internal elections, \xA1for the third time!\\n\\nThis
+      event took everyone by surprise, due to the great dedication and trust he inspires
+      in his close ones. What could be going wrong?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 916538253312
+    m_Localized: '<b>{0}</b> founds his own political party, hand on hand with some
+      strategic connections: DIAMONDTITO. \nWithin them, Damian Tito, heir to a diamond
+      mine, is its main financier.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 918249529344
+    m_Localized: "<b>{0}</b> wins the election! Together with his prime minister
+      Damian Tito, they promise to power up the country\u2019s economy until the
+      natural resources have given it their all.\\nWow, <b>{0}</b> really is shining."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

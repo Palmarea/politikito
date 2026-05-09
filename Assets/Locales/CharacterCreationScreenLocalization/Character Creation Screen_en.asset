@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 17006845952
-    m_Localized: Name your TIKO
+    m_Localized: Give your TIKO a name
     m_Metadata:
       m_Items: []
   - m_Id: 19766697984
-    m_Localized: Pick a name for your TIKO!
+    m_Localized: "Choose your TIKO\u2019s name!"
     m_Metadata:
       m_Items: []
   references:

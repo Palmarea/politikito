@@ -15,6 +15,13 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Spanish (es)
   m_GUID: 818f3246ec03bb745825f2a6b4cdfbab
   m_SerializeEntries:
+  - m_GUID: 06b98b9938dbde444b65890709e9a0b1
+    m_Address: Main Scene ST_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 07a4d7152a643cf4c8b084ecc57987f5
     m_Address: Character Creation Screen_es
     m_ReadOnly: 1
@@ -62,6 +69,7 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7a41962d0e4f1b46a1c6f15c6dd0134
     m_Address: Conversation Screen_es

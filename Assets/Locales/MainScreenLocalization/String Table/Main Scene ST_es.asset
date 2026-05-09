@@ -10,28 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Tutorial Screen_en
+  m_Name: Main Scene ST_es
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
   m_LocaleId:
-    m_Code: en
-  m_SharedData: {fileID: 11400000, guid: 0fae2d21b79c3084688027b14e7ba128, type: 2}
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 1074e06af9957a94eb80e28ac6f4798f, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 224465510400
-    m_Localized: 'Course: Social Studies'
+  - m_Id: 63077081088
+    m_Localized: '{} - NIVEL {1}'
     m_Metadata:
       m_Items: []
-  - m_Id: 423241965568
-    m_Localized: <shake a=0.15>HOMEWORK:</shake>
+  - m_Id: 268757360640
+    m_Localized: "Personalizar pol\xEDtico"
     m_Metadata:
       m_Items: []
-  - m_Id: 589411901440
-    m_Localized: Create your ideal politician.
+  - m_Id: 382938898432
+    m_Localized: Explora la casa
     m_Metadata:
       m_Items: []
-  - m_Id: 592150781952
-    m_Localized: Customize your politician.
+  - m_Id: 385061216256
+    m_Localized: Regarlo con regadera del carisma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387464552448
+    m_Localized: "Darle galleta de la sabidur\xEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391314923520
+    m_Localized: Entrenarlo con mancuerna de voluntad
     m_Metadata:
       m_Items: []
   references:

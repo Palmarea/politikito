@@ -30,6 +30,23 @@ MonoBehaviour:
     m_Localized: 'Agradecimientos especiales:'
     m_Metadata:
       m_Items: []
+  - m_Id: 174179999744
+    m_Localized: 'Game Design
+
+      Programming
+
+      Programming
+
+      Art
+
+      Art
+
+      Music
+
+      Project
+      Manager'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

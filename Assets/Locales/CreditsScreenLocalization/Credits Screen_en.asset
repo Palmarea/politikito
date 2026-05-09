@@ -35,6 +35,18 @@ MonoBehaviour:
       Manager'
     m_Metadata:
       m_Items: []
+  - m_Id: 140826894336
+    m_Localized: Thanks for playing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 176159711232
+    m_Localized: "Special thanks:\\nGerm\xE1n Cruz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178894397440
+    m_Localized: 'Special thanks:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
