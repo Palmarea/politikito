@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Milestone.MilestoneDatabaseSO
   MilestoneDB:
   - level: 1
-    spriteAtlasID: 0
+    spriteAtlasID: periodico01
     detailObjectID: recorte1
     spawnPosition: {x: -1.72, y: 41.07, z: 0}
     spawnRotation: {x: 0, y: 0, z: 1.219}
@@ -29,7 +29,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - level: 2
-    spriteAtlasID: 1
+    spriteAtlasID: periodico02
     detailObjectID: recorte2
     spawnPosition: {x: -0.75, y: 37.75, z: 0}
     spawnRotation: {x: 0, y: 0, z: 1.747}
@@ -44,7 +44,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - level: 3
-    spriteAtlasID: 2
+    spriteAtlasID: periodico03_1
     detailObjectID: recorte3_1
     spawnPosition: {x: 2.06, y: 40.91, z: 0}
     spawnRotation: {x: 0, y: 0, z: -3.658}
@@ -59,7 +59,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - level: 4
-    spriteAtlasID: 3
+    spriteAtlasID: periodico03_2
     detailObjectID: recorte3_2
     spawnPosition: {x: 2.53, y: 37.24, z: 0}
     spawnRotation: {x: 0, y: 0, z: 5.721}
@@ -74,7 +74,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - level: 5
-    spriteAtlasID: 3
+    spriteAtlasID: periodico04
     detailObjectID: recorte4
     spawnPosition: {x: 5.68, y: 39.47, z: 0}
     spawnRotation: {x: 0, y: 0, z: -11.731}

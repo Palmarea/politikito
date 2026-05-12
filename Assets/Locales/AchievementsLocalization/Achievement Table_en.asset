@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 770270289920
-    m_Localized: <bounce><b>{0}</b></> was part of an activity to restore green spaces
+    m_Localized: <bounce><b>{0}</b></> was part of an activity to restore green spaces.
       <shake>Yippee!</>
     m_Metadata:
       m_Items: []
@@ -45,8 +45,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 775995514880
-    m_Localized: "<bounce><b>{0}</b></> was an active part of an event of <b>Green
-      Droplet</b>, a local political party with a focus on the environment. <shake>\xA1Hooray!</>"
+    m_Localized: <bounce><b>{0}</b></> was an active part of an event of <b>Green
+      Droplet</b>, a local political party with a focus on the environment. <shake>Hooray!</>
     m_Metadata:
       m_Items: []
   - m_Id: 778239467520
@@ -55,8 +55,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 780349202432
-    m_Localized: "\xA1<bounce><b>{0}</b></>\u2019s column on the school paper has
-      caused a stir! <swing>Keep it up!</b>"
+    m_Localized: "<bounce><b>{0}</b></>\u2019s column on the school paper has caused
+      a stir! <swing>Keep it up!</b>"
     m_Metadata:
       m_Items: []
   - m_Id: 782496686080

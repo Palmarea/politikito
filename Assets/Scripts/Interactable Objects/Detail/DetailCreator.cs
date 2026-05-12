@@ -49,7 +49,17 @@ namespace Game.Systems.Interaction.Detail
             lastDetailObj.GetComponent<ClickableObject>().IsInteractable = false;
 
             // Update Sprite
-            lastDetailObj.GetComponent<SpriteRenderer>().sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, detail.m_Data.spriteAtlasID);
+
+            if (detail.m_Data.spriteLocalizationNeeded)
+            {
+                lastDetailObj.GetComponent<SpriteRenderer>().sprite = SpriteAtlasHandling.GetLocalizedSprite(SpriteAtlas, detail.m_Data.spriteAtlasID);
+            }
+            else
+            {
+                lastDetailObj.GetComponent<SpriteRenderer>().sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, detail.m_Data.spriteAtlasID);
+            }
+
+            //lastDetailObj.GetComponent<SpriteRenderer>().sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, detail.m_Data.spriteAtlasID);
             
             // Update Collider to new Sprite Physics form
             UpdateCollider();

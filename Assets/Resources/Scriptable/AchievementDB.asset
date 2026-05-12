@@ -47,6 +47,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - level: 2
     stat: 0
     spriteAtlasID: Citation_Charm_P2
@@ -81,6 +82,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 1
   - level: 3
     stat: 0
     spriteAtlasID: Paraphernalia_Charm_P3
@@ -115,6 +117,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - level: 4
     stat: 0
     spriteAtlasID: Car_Charm_P4
@@ -149,6 +152,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - level: 1
     stat: 1
     spriteAtlasID: Medal_Wisdom_P1
@@ -183,6 +187,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - level: 2
     stat: 1
     spriteAtlasID: Diploma_Wisdom_P2
@@ -217,6 +222,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - level: 3
     stat: 1
     spriteAtlasID: SecretContent_Wisdom_P3
@@ -251,6 +257,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - level: 4
     stat: 1
     spriteAtlasID: Pact_Wisdom_P4
@@ -285,6 +292,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - level: 1
     stat: 2
     spriteAtlasID: Poster_Willpower_P1
@@ -319,6 +327,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - level: 2
     stat: 2
     spriteAtlasID: Banderole_Willpower_P2
@@ -353,6 +362,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - level: 3
     stat: 2
     spriteAtlasID: Identification_Willpower_P3
@@ -387,6 +397,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 1
   - level: 4
     stat: 2
     spriteAtlasID: Watch_Willpower_P4
@@ -421,6 +432,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   references:
     version: 2
     RefIds: []

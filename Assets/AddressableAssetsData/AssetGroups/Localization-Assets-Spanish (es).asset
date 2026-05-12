@@ -51,6 +51,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-es
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d84798afe1cddba4db0a41413d59cef9
+    m_Address: MilestoneNewsDB_SPA
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dbc2e67711be92944a22f0fa73b382ae
     m_Address: WisdomSB_BG
     m_ReadOnly: 1

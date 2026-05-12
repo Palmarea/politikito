@@ -26,6 +26,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: medalla
     spriteAtlasID: Medal_Wisdom_P1
     spriteAtlasMilestoneID: 
@@ -39,6 +40,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: afiche
     spriteAtlasID: Poster_Willpower_P1
     spriteAtlasMilestoneID: 
@@ -52,6 +54,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: citacion
     spriteAtlasID: Citation_Charm_P2
     spriteAtlasMilestoneID: 
@@ -65,6 +68,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 1
   - objectID: diploma
     spriteAtlasID: Diploma_Wisdom_P2
     spriteAtlasMilestoneID: 
@@ -78,6 +82,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: banderola
     spriteAtlasID: Banderole_Willpower_P2
     spriteAtlasMilestoneID: 
@@ -91,6 +96,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: parafernalia
     spriteAtlasID: Paraphernalia_Charm_P3
     spriteAtlasMilestoneID: 
@@ -104,6 +110,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: contenidosecreto
     spriteAtlasID: SecretContent_Wisdom_P3
     spriteAtlasMilestoneID: 
@@ -117,6 +124,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: carnet
     spriteAtlasID: Identification_Willpower_P3
     spriteAtlasMilestoneID: 
@@ -130,6 +138,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 1
   - objectID: carro
     spriteAtlasID: Car_Charm_P4
     spriteAtlasMilestoneID: 
@@ -143,6 +152,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: pacto
     spriteAtlasID: Pact_Wisdom_P4
     spriteAtlasMilestoneID: 
@@ -156,6 +166,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: reloj
     spriteAtlasID: Watch_Willpower_P4
     spriteAtlasMilestoneID: 
@@ -169,6 +180,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: recorte1
     spriteAtlasID: NewsCut_Ph1
     spriteAtlasMilestoneID: periodico01
@@ -182,6 +194,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: recorte2
     spriteAtlasID: NewsCut_Ph2
     spriteAtlasMilestoneID: periodico02
@@ -195,6 +208,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: recorte3_1
     spriteAtlasID: NewsCut_Ph3
     spriteAtlasMilestoneID: periodico03_1
@@ -208,6 +222,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: recorte3_2
     spriteAtlasID: NewsCut_Ph3_1
     spriteAtlasMilestoneID: periodico03_2
@@ -221,6 +236,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   - objectID: recorte4
     spriteAtlasID: NewsCut_Ph4
     spriteAtlasMilestoneID: periodico04
@@ -234,6 +250,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    spriteLocalizationNeeded: 0
   references:
     version: 2
     RefIds: []

@@ -17,6 +17,7 @@ namespace Game.Systems.Achievement
         public LocalizedString localizedStat;
         public LocalizedString localizedDescription;
         public LocalizedString localizedObjectName;
+        public bool spriteLocalizationNeeded = false;
 
         public override string ToString()
         {

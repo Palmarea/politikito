@@ -15,6 +15,13 @@ MonoBehaviour:
   m_GroupName: Localization-Asset-Tables-English (en)
   m_GUID: c00e8bd168a789f4da0a5de6cb94cdac
   m_SerializeEntries:
+  - m_GUID: 64562c57ac467a544853a1bd8f6fe834
+    m_Address: Milestone AT_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de64fe4f7d631fe4787940de1533bfdb
     m_Address: Main Screen AT_en
     m_ReadOnly: 1

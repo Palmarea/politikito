@@ -6,6 +6,7 @@ using Game.Utils;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
@@ -28,7 +29,9 @@ namespace Game.Systems.Interaction.Detail
         [SerializeField] private TextMeshProUGUI NewspaperText;
 
         [Header("Data")]
-        [SerializeField] private SpriteAtlas NewsSpriteAtlas;
+        [SerializeField] private LocalizedAsset<SpriteAtlas> NewsLocalizedSpriteAtlas;
+        
+        private SpriteAtlas NewsSpriteAtlas;
 
         public event Action OnObjectCreated;
         private bool m_Occupied = false;
@@ -61,9 +64,16 @@ namespace Game.Systems.Interaction.Detail
                 suscribed = true;
             }
 
+            LoadAtlas();
+
             TextBox.SetActive(false);
             NewspaperImage.gameObject.SetActive(false);
             NewspaperText.text = "";
+        }
+
+        private async void LoadAtlas()
+        {
+            NewsSpriteAtlas = await NewsLocalizedSpriteAtlas.LoadAssetAsync().Task;
         }
 
         public void ShowDetail(DetailObjData data)
@@ -89,7 +99,6 @@ namespace Game.Systems.Interaction.Detail
                 NewspaperImage.gameObject.SetActive(true);
                 NewspaperText.SetText(string.Format(data.localizedDescription.GetLocalizedString(), GameData.Instance.GetPlayerName()));
             }
-
         }
 
         private void HideDetail()

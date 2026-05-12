@@ -19,6 +19,7 @@ namespace Game.Systems.Interaction.Detail
         public string spriteAtlasMilestoneID;
         public DetailType type;
         public LocalizedString localizedDescription;
+        public bool spriteLocalizationNeeded = false;
 
         public override string ToString()
         {

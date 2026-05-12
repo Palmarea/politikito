@@ -1909,6 +1909,7 @@ GameObject:
   - component: {fileID: 345678237}
   - component: {fileID: 345678239}
   - component: {fileID: 345678238}
+  - component: {fileID: 345678240}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -1973,6 +1974,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345678236}
   m_CullTransparentMesh: 1
+--- !u!114 &345678240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345678236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeSpriteEvent
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:056eddd1778355949a6853b91aecfe13
+    m_TableEntryReference:
+      m_KeyId: 10656669696
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 345678238}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &363114067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,6 +3895,7 @@ GameObject:
   - component: {fileID: 764831013}
   - component: {fileID: 764831015}
   - component: {fileID: 764831014}
+  - component: {fileID: 764831016}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -3923,6 +3960,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764831012}
   m_CullTransparentMesh: 1
+--- !u!114 &764831016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764831012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeSpriteEvent
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:056eddd1778355949a6853b91aecfe13
+    m_TableEntryReference:
+      m_KeyId: 15425593344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 764831014}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &773153804
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,12 +4819,14 @@ MonoBehaviour:
   MilestoneDescriptionUI: {fileID: 306700967}
   MilestoneNext: {fileID: 291740132}
   TutorialPostIt: {fileID: 363835908}
-  MilestoneImages:
-  - {fileID: 21300000, guid: d49df0f4962fad1478d872ecf09a9e72, type: 3}
-  - {fileID: 21300000, guid: 1adb234a71c526b429139fc1f6ba880d, type: 3}
-  - {fileID: 21300000, guid: a8cfa67dcf8a3114893249a2c4eac53a, type: 3}
-  - {fileID: 21300000, guid: 53a03cb92242b8840847789501b50fb4, type: 3}
-  - {fileID: 21300000, guid: aa203e3434a695c44a8ef92c677da239, type: 3}
+  NewsLocalizedSpriteAtlas:
+    m_TableReference:
+      m_TableCollectionName: GUID:02d59ab2d0be4614b9fbc1e15729073c
+    m_TableEntryReference:
+      m_KeyId: 7041179648
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
 --- !u!114 &942613044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7720,6 +7794,7 @@ GameObject:
   - component: {fileID: 1745591577}
   - component: {fileID: 1745591579}
   - component: {fileID: 1745591578}
+  - component: {fileID: 1745591580}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -7784,6 +7859,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745591576}
   m_CullTransparentMesh: 1
+--- !u!114 &1745591580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745591576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeSpriteEvent
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:056eddd1778355949a6853b91aecfe13
+    m_TableEntryReference:
+      m_KeyId: 12946759680
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1745591578}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &1755811465
 GameObject:
   m_ObjectHideFlags: 0
@@ -7820,7 +7930,14 @@ MonoBehaviour:
   DetailText: {fileID: 149705173}
   NewspaperImage: {fileID: 1240186247}
   NewspaperText: {fileID: 2126151857}
-  NewsSpriteAtlas: {fileID: 100100200, guid: d84798afe1cddba4db0a41413d59cef9, type: 3}
+  NewsLocalizedSpriteAtlas:
+    m_TableReference:
+      m_TableCollectionName: GUID:02d59ab2d0be4614b9fbc1e15729073c
+    m_TableEntryReference:
+      m_KeyId: 7041179648
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
 --- !u!4 &1755811467
 Transform:
   m_ObjectHideFlags: 0

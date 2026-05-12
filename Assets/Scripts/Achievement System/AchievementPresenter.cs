@@ -113,7 +113,16 @@ namespace Game.Systems.Achievement
                 if (NotificationDescriptions[i].objectPresentation)
                 {
                     NotificationDescriptions[i].text.ShowText(string.Format(NotificationDescriptions[i].template.GetLocalizedString(), achievement.localizedObjectName.GetLocalizedString()));
-                    NotificationImage.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, achievement.spriteAtlasID);
+                    
+                    if (achievement.spriteLocalizationNeeded)
+                    {
+                        NotificationImage.sprite = SpriteAtlasHandling.GetLocalizedSprite(SpriteAtlas, achievement.spriteAtlasID);
+                    }
+                    else
+                    {
+                        NotificationImage.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, achievement.spriteAtlasID);
+                    }
+
                     NotificationImage.gameObject.SetActive(true);
                 }
 

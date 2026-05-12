@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: bca65bde7c37ca04c8accab547efaae7
   m_SerializeEntries:
+  - m_GUID: 02d59ab2d0be4614b9fbc1e15729073c
+    m_Address: Assets/Locales/MilestonesLocalization/Asset Table/Milestone AT Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 056eddd1778355949a6853b91aecfe13
     m_Address: Assets/Locales/MainScreenLocalization/Asset Table/Main Screen AT Shared
       Data.asset

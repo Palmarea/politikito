@@ -2,11 +2,14 @@
 using Game.Systems.Achievement;
 using Game.Systems.CameraControl;
 using Game.Systems.Milestone.Inspect;
+using Game.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 namespace Game.Systems.Milestone
@@ -27,8 +30,11 @@ namespace Game.Systems.Milestone
         [SerializeField] private Button MilestoneNext;
         [SerializeField] private GameObject TutorialPostIt;
 
-        [Header("Milestone Images")]
-        [SerializeField] private List<Sprite> MilestoneImages;
+        //[Header("Milestone Images")]
+        [Header("Data")]
+        [SerializeField] private LocalizedAsset<SpriteAtlas> NewsLocalizedSpriteAtlas;
+
+        private SpriteAtlas NewsSpriteAtlas;
 
         public event Action<int> OnMilestoneShown;
         public event Action OnLastMilestoneShown;
@@ -43,6 +49,16 @@ namespace Game.Systems.Milestone
         {
             MilestoneCanvasUI.SetActive(false);
             MilestoneNext.gameObject.SetActive(false);
+        }
+
+        private void Start()
+        {
+            LoadAtlas();
+        }
+
+        private async void LoadAtlas()
+        {
+            NewsSpriteAtlas = await NewsLocalizedSpriteAtlas.LoadAssetAsync().Task;
         }
 
         private void RequestButWait(Milestone milestone)
@@ -68,7 +84,7 @@ namespace Game.Systems.Milestone
 
             InspectSystem.RequestMDOCreation(currentMilestone);
 
-            MilestoneImageUI.sprite = MilestoneImages[currentMilestone.level - 1];
+            MilestoneImageUI.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(NewsSpriteAtlas, currentMilestone.spriteAtlasID);
             MilestoneImageUI.gameObject.SetActive(true);
 
             MilestoneNext.gameObject.SetActive(false);
