@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 63077081088
-    m_Localized: '{} - NIVEL {1}'
+    m_Localized: '{0} - NIVEL {1}'
     m_Metadata:
       m_Items: []
   - m_Id: 268757360640
@@ -40,6 +40,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 391314923520
     m_Localized: Entrenarlo con mancuerna de voluntad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2546530216042496
+    m_Localized: Revisar uno de los items adquiridos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2546532648738816
+    m_Localized: "Revisar el recorte de peri\xF3dico en la refri"
     m_Metadata:
       m_Items: []
   references:

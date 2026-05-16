@@ -1,4 +1,5 @@
-﻿using Game.Systems.Input;
+﻿using Game.Managers.Timing;
+using Game.Systems.Input;
 using Game.Systems.Interaction;
 using Game.Systems.Interaction.Detail;
 using Game.Systems.Interaction.DragNDrop;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace Game.Managers.Mouse
 {
-    public class MouseManager : MonoBehaviour
+    public class MouseManager : MonoBehaviour, IInterruptible
     {
         public static MouseManager Instance;
 
@@ -17,9 +18,9 @@ namespace Game.Managers.Mouse
         public event Action OnSimpleClickPerformed;
 
         private ClickableObject currentHover;
-        private bool ocuppied = false;
         private bool suscribed = false;
         private bool clickBlocked = false;
+        private bool hoverBlocked = false;
         private bool holdingObject = false;
 
         #region Singleton
@@ -55,7 +56,7 @@ namespace Game.Managers.Mouse
 
         private void CheckHover()
         {
-            if (clickBlocked || holdingObject)
+            if (hoverBlocked || holdingObject)
                 return;
 
             RaycastHit2D hit = Physics2D.Raycast(
@@ -66,34 +67,42 @@ namespace Game.Managers.Mouse
 
             ClickableObject newHover = null;
 
-            if (hit.collider != null && !ocuppied)
+            if (hit.collider != null)
             {
                 newHover = hit.collider.GetComponent<ClickableObject>();
             }
 
-            if (newHover != currentHover)
+            if (currentHover != null)
+                currentHover.SetHover(false);
+
+            currentHover = newHover;
+
+            if (currentHover != null)
             {
-                if (currentHover != null)
-                    currentHover.SetHover(false);
+                currentHover.SetHover(true);
 
-                currentHover = newHover;
+                bool isDraggable = currentHover.GetComponent<DragDropObject>() != null;
 
-                if (currentHover != null)
+                if (isDraggable)
                 {
-                    currentHover.SetHover(true);
+                    if (currentHover.IsInteractable)
+                    {
+                        CursorManager.Instance.SetCursorState(CursorStateType.GRABABLE);
+                    }
+                    else
+                    {
+                        CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
+                    }
 
-                    bool isDraggable = currentHover.GetComponent<DragDropObject>() != null;
-
-                    CursorManager.Instance.SetCursorState(
-                        isDraggable
-                            ? CursorStateType.GRABABLE
-                            : CursorStateType.INTEREST
-                    );
                 }
                 else
                 {
-                    CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
+                    CursorManager.Instance.SetCursorState(CursorStateType.INTEREST);
                 }
+            }
+            else
+            {
+                CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
             }
         }
 
@@ -107,7 +116,7 @@ namespace Game.Managers.Mouse
                 ClickableLayerMask
             );
 
-            if (hit.collider != null && !ocuppied)
+            if (hit.collider != null)
             {
                 ClickableObject clickable = hit.collider.GetComponent<ClickableObject>();
 
@@ -127,8 +136,6 @@ namespace Game.Managers.Mouse
                         holdingObject = false;
                         CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
                     }
-
-                    DetailObject detObj = hit.collider.GetComponent<DetailObject>();
                 }
             }
             else
@@ -144,35 +151,44 @@ namespace Game.Managers.Mouse
         {
             holdingObject = false;
 
-            if (currentHover != null)
-            {
-                bool isDraggable = currentHover.GetComponent<DragDropObject>() != null;
+            //if (currentHover != null)
+            //{
+            //    bool isDraggable = currentHover.GetComponent<DragDropObject>() != null;
 
-                CursorManager.Instance.SetCursorState(
-                    isDraggable
-                        ? CursorStateType.GRABABLE
-                        : CursorStateType.INTEREST
-                );
-            }
-            else
-            {
+            //    CursorManager.Instance.SetCursorState(
+            //        isDraggable
+            //            ? CursorStateType.GRABABLE
+            //            : CursorStateType.INTEREST
+            //    );
+
+            //    currentHover = null;
+            //}
+            //else
+            //{
                 CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
-            }
+            //}
         }
 
-        public void UpdateOcuppiedState(bool state)
-        {
-            ocuppied = state;
-            clickBlocked = !state;
-        }
+        public void BlockClick(bool state) => clickBlocked = state;
+
+        public void BlockHover(bool state) => hoverBlocked = state;
 
         public void SetHorizontalRestriction(bool state)
         {
             Cursor.lockState = state ? CursorLockMode.Confined : CursorLockMode.None;
-
-            //Cursor.visible = !state;
-
             CursorManager.Instance.SetCursorConstrainedAxis(state);
+        }
+
+        public void HandleInterruptionStart(InterruptionType type)
+        {
+            BlockHover(true);
+            CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
+        }
+
+        public void HandleInterruptionEnd()
+        {
+            BlockHover(false);
+            CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
         }
 
         private void OnEnable()
@@ -182,11 +198,17 @@ namespace Game.Managers.Mouse
                 InputManager.Instance.OnSelectPerformed += CheckForHitClickableObject;
                 suscribed = true;
             }
+
+            InterruptionManager.OnInterruptStart += HandleInterruptionStart;
+            InterruptionManager.OnInterruptEnd += HandleInterruptionEnd;
         }
 
         private void OnDisable()
         {
             InputManager.Instance.OnSelectPerformed -= CheckForHitClickableObject;
+
+            InterruptionManager.OnInterruptStart += HandleInterruptionStart;
+            InterruptionManager.OnInterruptEnd += HandleInterruptionEnd;
         }
     }
 }

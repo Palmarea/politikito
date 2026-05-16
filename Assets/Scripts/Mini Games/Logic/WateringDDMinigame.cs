@@ -60,7 +60,7 @@ namespace Game.Systems.Minigames
 
         protected override void OnCompleted()
         {
-            if (!Context.TutorialData.IsTutorialComplete())
+            if (!Context.TutorialData.IsTutorialStepCompleted(TutorialData.WATERING_CAN_STEP_INDEX))
             {
                 Context.TutorialData.CompleteTutorialStep(TutorialData.WATERING_CAN_STEP_INDEX);
             }

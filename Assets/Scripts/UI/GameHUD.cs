@@ -22,17 +22,30 @@ namespace Game.UI
         private Color m_hidedColor;
         private readonly Color m_cooldownColor = new(0.4f, 0.4f, 0.4f, 1f);
 
+        private bool cooling = false;
+        private bool visible = true;
+
         public void SetupObject()
         {
             m_normalColor = ObjectSprite.color;
-            m_hidedColor = new Color(m_normalColor.r, m_normalColor.g, m_normalColor.r, 0f);
-        } 
+            m_hidedColor = new Color(
+                m_normalColor.r,
+                m_normalColor.g,
+                m_normalColor.b,
+                0f);
+
+            RefreshSpriteColor();
+        }
 
         public void UpdateUIState(bool state)
-        {            
+        {
+            visible = state;
+
             CanvasGroup.alpha = state ? 1 : 0;
+
             UpdateInteraction(state);
-            UpdateSpriteState(state);
+
+            RefreshSpriteColor();
         }
 
         public void UpdateInteraction(bool state)
@@ -40,16 +53,29 @@ namespace Game.UI
             ClickObject.IsInteractable = state;
         }
 
-        private void UpdateSpriteState(bool state)
-        {
-            ObjectSprite.color = state ? m_normalColor : m_hidedColor;
-        }
-
         public void UpdateSpriteCooldown(bool state)
         {
-            if (ObjectSprite.color == m_hidedColor) return;
+            cooling = state;
 
-            ObjectSprite.color = state ? m_cooldownColor : m_normalColor;
+            RefreshSpriteColor();
+        }
+
+        private void RefreshSpriteColor()
+        {
+            if (!visible)
+            {
+                ObjectSprite.color = m_hidedColor;
+                return;
+            }
+
+            if (cooling)
+            {
+                ObjectSprite.color = m_cooldownColor;
+            }
+            else
+            {
+                ObjectSprite.color = m_normalColor;
+            }
         }
     }   
 

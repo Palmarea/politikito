@@ -1,4 +1,7 @@
+using Gaskellgames;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class GameData : MonoBehaviour
 {
@@ -9,11 +12,11 @@ public class GameData : MonoBehaviour
 
     public enum Language
     {
-        SPANISH,
-        ENGLISH
+        ENGLISH,
+        SPANISH
     }
 
-    public Language GameLanguage;
+    public Language GameLanguage = Language.ENGLISH;
 
     private void Awake()
     {
@@ -24,6 +27,7 @@ public class GameData : MonoBehaviour
         }
 
         Instance = this;
+        ChangeLanguage(GameLanguage);
         DontDestroyOnLoad(gameObject);
     }
 
@@ -33,4 +37,24 @@ public class GameData : MonoBehaviour
     }
 
     public Language GetCurrentLanguage() => GameLanguage;
+
+    public void ChangeLanguage(Language newLanguage)
+    {
+        GameLanguage = newLanguage;
+        
+        StartCoroutine(SetLocale(GameLanguage.ToInt()));
+    }
+
+    public void Change(int index)
+    {
+        StartCoroutine(SetLocale(index));
+
+    }
+
+    private IEnumerator SetLocale(int _localeID)
+    {
+        yield return LocalizationSettings.InitializationOperation;
+
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
+    }
 }

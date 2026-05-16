@@ -42,6 +42,14 @@ MonoBehaviour:
     m_Localized: Customize politician
     m_Metadata:
       m_Items: []
+  - m_Id: 2546530216042496
+    m_Localized: Check one of the new obtain items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2546532648738816
+    m_Localized: Check the newspaper clipping in the fridge
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

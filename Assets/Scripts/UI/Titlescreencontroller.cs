@@ -1,10 +1,8 @@
-using System;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Game.UI
 {
@@ -12,10 +10,10 @@ namespace Game.UI
     {
         [Header("Splash")]
         [SerializeField] private GameObject splashFocus;
-        
+
         [Header("Title")]
         [SerializeField] private GameObject gameLogo;
-        
+
         [Header("Stamp")]
         [SerializeField] private GameObject stampMark;
         [SerializeField] private GameObject stampMarkBase;
@@ -40,21 +38,12 @@ namespace Game.UI
         {
             if (stampMark != null)
                 stampMark.SetActive(false);
-            
+
             if (gameLogo != null)
                 gameLogo.SetActive(false);
-            
+
             splashFocus.SetActive(true);
             TweenSplashFocus();
-        }
-
-        private void TweenSplashFocus()
-        {
-            tweenSequence = DOTween.Sequence();
-            tweenSequence.AppendInterval(1);
-            tweenSequence.Append(splashFocus.transform.DOPunchScale(-1 * Vector3.one * 0.25f, 0.2f).SetEase(Ease.InOutBack));
-            tweenSequence.AppendInterval(1);
-            tweenSequence.SetLoops(-1, LoopType.Restart).Play();
         }
 
         private void Update()
@@ -63,41 +52,78 @@ namespace Game.UI
             {
                 if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
                 {
-                    FocusScreen();
-                    SFXCaller.Play("event:/uiButton");
+                    OnFocusButtonPressed();
                 }
 
                 return;
             }
-            
-            if (hasStamped) 
-                return;
-
-            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                hasStamped = true;
-                PlaceStamp();
-                StartCoroutine(StampAnimation());
-                SFXCaller.Play("event:/uiButton");
-                StartCoroutine(TransitionAfterDelay());
-            }
         }
 
-        private void FocusScreen()
+        private void TweenSplashFocus()
         {
+            tweenSequence = DOTween.Sequence();
+            tweenSequence.AppendInterval(1);
+            tweenSequence.Append(
+                splashFocus.transform
+                    .DOPunchScale(-1 * Vector3.one * 0.25f, 0.2f)
+                    .SetEase(Ease.InOutBack)
+            );
+
+            tweenSequence.AppendInterval(1);
+            tweenSequence.SetLoops(-1, LoopType.Restart).Play();
+        }
+
+        public void OnFocusButtonPressed()
+        {
+            if (hasFocused)
+                return;
+
             hasFocused = true;
-            splashFocus.SetActive(false);
-            gameLogo.SetActive(true);
-            StartLoadingNextScene();
-            gameLogo.GetComponent<BrushRevealController>().PlayReveal(() =>
+
+            SFXCaller.Play("event:/uiButton");
+
+            tweenSequence?.Kill();
+
+            BrushRevealController splashReveal =
+                splashFocus.GetComponent<BrushRevealController>();
+
+            splashReveal.PlayHide(() =>
             {
-                stampMarkBase.SetActive(true);
+                splashFocus.SetActive(false);
+
+                gameLogo.SetActive(true);
+
+                StartLoadingNextScene();
+
+                BrushRevealController logoReveal =
+                    gameLogo.GetComponent<BrushRevealController>();
+
+                logoReveal.PlayReveal(() =>
+                {
+                    stampMarkBase.SetActive(true);
+                });
             });
+        }
+
+        public void OnStampButtonPressed()
+        {
+            if (!hasFocused || hasStamped)
+                return;
+
+            hasStamped = true;
+
+            PlaceStamp();
+
+            StartCoroutine(StampAnimation());
+            StartCoroutine(TransitionAfterDelay());
+
+            SFXCaller.Play("event:/uiButton");
         }
 
         private void PlaceStamp()
         {
-            if (stampMark == null || stampRect == null) return;
+            if (stampMark == null || stampRect == null)
+                return;
 
             stampMark.SetActive(true);
             stampMarkBase.SetActive(false);
@@ -105,17 +131,23 @@ namespace Game.UI
 
         private IEnumerator StampAnimation()
         {
-            if (stampRect == null) yield break;
+            if (stampRect == null)
+                yield break;
 
             float elapsed = 0f;
+
             while (elapsed < stampAnimDuration)
             {
                 elapsed += Time.deltaTime;
+
                 float t = elapsed / stampAnimDuration;
                 float scale = Mathf.Lerp(stampScaleStart, stampScaleEnd, t);
+
                 stampRect.localScale = new Vector3(scale, scale, 1f);
+
                 yield return null;
             }
+
             stampRect.localScale = new Vector3(stampScaleEnd, stampScaleEnd, 1f);
         }
 
@@ -128,15 +160,19 @@ namespace Game.UI
         private IEnumerator TransitionAfterDelay()
         {
             gameLogo.GetComponent<BrushRevealController>().PlayHide();
+
             yield return new WaitForSeconds(0.5f);
+
             stampMark.SetActive(false);
+
             yield return new WaitForSeconds(delayBeforeTransition);
+
             sceneLoadOperation.allowSceneActivation = true;
         }
 
         private void OnDestroy()
         {
-            tweenSequence.Kill();
+            tweenSequence?.Kill();
         }
     }
 }

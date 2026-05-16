@@ -1,28 +1,56 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PostItUI : MonoBehaviour
 {
+    [SerializeField] private int stepStartIndex;
+
     public List<Toggle> tutorialStepToggles;
     public List<TMP_Text> tutorialStepLabels;
 
-    public void Awake()
+    public UnityEvent OnSectionCompleted;
+
+    public bool hideOnAwake = false;
+
+    private void Awake()
     {
         Context.TutorialData.OnTutorialStepComplete += HandleOnTutorialStepCompleted;
+
+        if (hideOnAwake)
+            gameObject.SetActive(false);
     }
 
-    private void HandleOnTutorialStepCompleted(int stepIndex)
+    private void OnDestroy()
     {
-        if (Context.TutorialData.IsTutorialComplete())
-        {
-            gameObject.SetActive(false);
+        Context.TutorialData.OnTutorialStepComplete -= HandleOnTutorialStepCompleted;
+    }
+
+    private void HandleOnTutorialStepCompleted(int globalStepIndex)
+    {
+        int localIndex = globalStepIndex - stepStartIndex;
+
+        if (localIndex < 0 || localIndex >= tutorialStepToggles.Count)
             return;
+
+        // EFECTO DE SONIDO ACA
+
+        tutorialStepToggles[localIndex].isOn = true;
+        tutorialStepLabels[localIndex].fontStyle = FontStyles.Strikethrough;
+
+        CheckSectionCompleted();
+    }
+
+    private void CheckSectionCompleted()
+    {
+        for (int i = 0; i < tutorialStepToggles.Count; i++)
+        {
+            if (!tutorialStepToggles[i].isOn)
+                return;
         }
-        
-        // EFECTO DE SONIDO ACAA
-        tutorialStepToggles[stepIndex].isOn = true;
-        tutorialStepLabels[stepIndex].fontStyle = FontStyles.Strikethrough;
+
+        OnSectionCompleted?.Invoke();
     }
 }

@@ -32,6 +32,9 @@ namespace Game.Managers.Mouse
         [SerializeField] private Image CursorTexture;
         [SerializeField] private CursorObject[] CursorReferences = new CursorObject[4];
 
+        public Color NormalColor;
+        public Color SelectedColor;
+
         #region Singleton
         private void Awake()
         {
@@ -56,6 +59,15 @@ namespace Game.Managers.Mouse
         public void SetCursorState(CursorStateType TYPE)
         {
             CursorTexture.sprite = GetCursorOfType(TYPE).Sprite;
+
+            if (TYPE == CursorStateType.INTEREST)
+            {
+                CursorTexture.color = SelectedColor;
+            }
+            else
+            {
+                CursorTexture.color = NormalColor;
+            }
         }
 
         public void SetCursorVisibility(bool visible)

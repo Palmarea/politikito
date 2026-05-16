@@ -350,7 +350,7 @@ namespace Game.Systems.CameraControl
 
         private void CheckTutorialCompletition()
         {
-            if (Context.TutorialData.IsTutorialComplete()) return;
+            if (Context.TutorialData.IsTutorialStepCompleted(TutorialData.EXPLORE_ROOM_INDEX)) return;
 
             if (visitedSections.Contains(currentSection.Type)) return;
 

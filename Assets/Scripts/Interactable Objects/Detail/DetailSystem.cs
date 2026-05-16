@@ -82,6 +82,17 @@ namespace Game.Systems.Interaction.Detail
             
             if (!DetailCanvasUI.activeInHierarchy) DetailCanvasUI.SetActive(true);
 
+            if (data.type == DetailType.ACHIEVEMENT)
+            {
+                if (Context.TutorialData.IsTutorialStepCompleted(TutorialData.OBJECT_INTERACT_STEP_INDEX)) return;
+                Context.TutorialData.CompleteTutorialStep(TutorialData.OBJECT_INTERACT_STEP_INDEX);
+            }
+            else
+            {
+                if (Context.TutorialData.IsTutorialStepCompleted(TutorialData.NEWS_INTERACT_STEP_INDEX)) return;
+                Context.TutorialData.CompleteTutorialStep(TutorialData.NEWS_INTERACT_STEP_INDEX);
+            }
+
             m_Occupied = true;
 
             lastDetailObj = data;

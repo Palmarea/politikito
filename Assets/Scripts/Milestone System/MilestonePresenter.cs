@@ -104,7 +104,7 @@ namespace Game.Systems.Milestone
 
             if (counter == 0)
             {
-                TutorialPostIt.SetActive(false);
+                TutorialPostIt.SetActive(true);
                 counter++;
             }   
         }
