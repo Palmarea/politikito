@@ -6346,6 +6346,7 @@ MonoBehaviour:
   PairSystem: {fileID: 524734184}
   InspectSystem: {fileID: 942613048}
   CameraController: {fileID: 519420034}
+  FridgeController: {fileID: 1476482437}
   MilestoneCanvasUI: {fileID: 943818754}
   MilestoneImageUI: {fileID: 964553026}
   MilestoneDescriptionUI: {fileID: 306700967}
@@ -8917,8 +8918,8 @@ MonoBehaviour:
     - -10
     - -13
     - -12
-    - -7
-    - -10
+    - -13
+    - -11
 --- !u!114 &1323785658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9846,6 +9847,7 @@ GameObject:
   - component: {fileID: 1476482435}
   - component: {fileID: 1476482434}
   - component: {fileID: 1476482433}
+  - component: {fileID: 1476482437}
   m_Layer: 0
   m_Name: RefrigeratorInteractableObject
   m_TagString: Untagged
@@ -10071,6 +10073,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1476482437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476482432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40dfbd93a0a9774d9d6fde05b0a08ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Systems.Milestone.FridgeSpriteController
+  Phases:
+  - {fileID: 21300000, guid: 0043c5cbda7b6a4418dcff8eb7bc0b69, type: 3}
+  - {fileID: 21300000, guid: b95785e5d93e41e4284594bc25448c37, type: 3}
+  - {fileID: 21300000, guid: 7f92b5b57f876064580521f33721ad7c, type: 3}
+  - {fileID: 21300000, guid: 035a68660f2b5944f8ec7a6ce0dc6d7f, type: 3}
+  - {fileID: 21300000, guid: d517708c3c35f314c92f58d3e4b4eb06, type: 3}
 --- !u!1 &1500092827
 GameObject:
   m_ObjectHideFlags: 0

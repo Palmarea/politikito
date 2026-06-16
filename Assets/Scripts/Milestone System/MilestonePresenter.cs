@@ -22,6 +22,7 @@ namespace Game.Systems.Milestone
         [SerializeField] private AchievementPresenter PairSystem;
         [SerializeField] private MilestoneInspectSystem InspectSystem;
         [SerializeField] private CameraController CameraController;
+        [SerializeField] private FridgeSpriteController FridgeController;
 
         [Header("UI References")]
         [SerializeField] private GameObject MilestoneCanvasUI;
@@ -30,7 +31,6 @@ namespace Game.Systems.Milestone
         [SerializeField] private Button MilestoneNext;
         [SerializeField] private GameObject TutorialPostIt;
 
-        //[Header("Milestone Images")]
         [Header("Data")]
         [SerializeField] private LocalizedAsset<SpriteAtlas> NewsLocalizedSpriteAtlas;
 
@@ -97,6 +97,11 @@ namespace Game.Systems.Milestone
 
         public void OnPresentAnimationFinished()
         {
+            if (currentMilestone.level != 3)
+            {
+                FridgeController.AdvancePhase();
+            }
+
             MilestoneNext.gameObject.SetActive(true);
             MilestoneNext.onClick.RemoveListener(OnNextPressed);
             MilestoneNext.onClick.AddListener(OnNextPressed);

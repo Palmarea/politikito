@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0043c5cbda7b6a4418dcff8eb7bc0b69
+guid: b95785e5d93e41e4284594bc25448c37
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1445433397756692169
-    second: refri01_0
+      213: 1235365936394455116
+    second: Fridge_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 17, y: 22, z: 23, w: 25}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: refri01_0
+      name: Fridge_2_0
       rect:
         serializedVersion: 2
         x: 7
@@ -121,15 +121,15 @@ TextureImporter:
         width: 408
         height: 639
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 739f934abf9c0fbe0800000000000000
-      internalID: -1445433397756692169
+      spriteID: c48c86e16c6e42110800000000000000
+      internalID: 1235365936394455116
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      refri01_0: -1445433397756692169
+      Fridge_2_0: 1235365936394455116
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
