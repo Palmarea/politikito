@@ -880,7 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c170efc207974d7b9d7c8de90465749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrushRevealController
-  revealDuration: 1.5
+  revealDuration: 0.8
   hideDuration: 1
   easeCurve:
     serializedVersion: 2

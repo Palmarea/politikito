@@ -34,6 +34,10 @@ namespace Game.UI
         private Sequence tweenSequence;
         private AsyncOperation sceneLoadOperation;
 
+        private float initialCounter = 1f;
+        private float counter = 0f;
+
+
         private void Start()
         {
             if (stampMark != null)
@@ -44,18 +48,27 @@ namespace Game.UI
 
             splashFocus.SetActive(true);
             TweenSplashFocus();
+
+            counter = initialCounter;
         }
 
         private void Update()
         {
-            if (!hasFocused)
+            if (counter <= 0)
             {
-                if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+                if (!hasFocused)
                 {
-                    OnFocusButtonPressed();
-                }
+                    if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+                    {
+                        OnFocusButtonPressed();
+                    }
 
-                return;
+                    return;
+                }
+            }
+            else
+            {
+                counter -= Time.deltaTime;
             }
         }
 

@@ -21,8 +21,8 @@ public class TutorialScreen : MonoBehaviour
     private Sequence tweenSequence;
     private AsyncOperation sceneLoadOperation;
 
-    [SerializeField] private List<TMPBrushHideController> BrushHideTextList;
-    [SerializeField] private List<UIImageBrushController> BrushHideImagesList;
+    [SerializeField] private List<TMPBrushController> BrushTextList;
+    [SerializeField] private List<UIImageBrushController> BrushImagesList;
 
     private void Start()
     {
@@ -77,17 +77,17 @@ public class TutorialScreen : MonoBehaviour
 
     private IEnumerator OnButtonClicked()
     {
-        foreach (var b in BrushHideTextList)
+        foreach (var b in BrushTextList)
         {
-            b.HideBrush();
+            b.Hide();
         }
 
-        foreach (var b in BrushHideImagesList)
+        foreach (var b in BrushImagesList)
         {
-            b.HideBrush();
+            b.Hide();
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         sceneLoadOperation.allowSceneActivation = true;
     }

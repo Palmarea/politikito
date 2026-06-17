@@ -463,6 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e1421df38ae7c4d949632f56a6975c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPBrushHideController
+  revealDuration: 0.8
   hideDuration: 1.5
   easeCurve:
     serializedVersion: 2
@@ -493,8 +494,6 @@ MonoBehaviour:
   noiseScaleY: 30
   edgeWidth: 0.12
   strokeAngle: 1.5
-  debugMode: 0
-  debugReveal: 1
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53033f795efcc14592eda1c4cabecee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIImageBrushController
+  revealDuration: 0.8
   hideDuration: 1.5
   easeCurve:
     serializedVersion: 2
@@ -1005,6 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e1421df38ae7c4d949632f56a6975c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPBrushHideController
+  revealDuration: 0.8
   hideDuration: 1.5
   easeCurve:
     serializedVersion: 2
@@ -1035,8 +1036,6 @@ MonoBehaviour:
   noiseScaleY: 30
   edgeWidth: 0.12
   strokeAngle: 1.5
-  debugMode: 0
-  debugReveal: 1
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,6 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e1421df38ae7c4d949632f56a6975c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPBrushHideController
+  revealDuration: 0.8
   hideDuration: 1.5
   easeCurve:
     serializedVersion: 2
@@ -1473,8 +1473,6 @@ MonoBehaviour:
   noiseScaleY: 30
   edgeWidth: 0.12
   strokeAngle: 1.5
-  debugMode: 0
-  debugReveal: 1
 --- !u!1 &1250255775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,6 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53033f795efcc14592eda1c4cabecee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIImageBrushController
+  revealDuration: 0.8
   hideDuration: 1.5
   easeCurve:
     serializedVersion: 2
@@ -1913,14 +1912,14 @@ MonoBehaviour:
   tutorialStepLabels:
   - {fileID: 1199907265}
   nextButton: {fileID: 1250255777}
-  BrushHideTextList:
+  BrushTextList:
   - {fileID: 2100406440}
   - {fileID: 184355105}
   - {fileID: 773923572}
   - {fileID: 1199907270}
-  BrushHideImagesList:
-  - {fileID: 300349387}
+  BrushImagesList:
   - {fileID: 1250255781}
+  - {fileID: 300349387}
 --- !u!1001 &1741339397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2479,6 +2478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e1421df38ae7c4d949632f56a6975c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPBrushHideController
+  revealDuration: 0.8
   hideDuration: 1.5
   easeCurve:
     serializedVersion: 2
@@ -2509,8 +2509,6 @@ MonoBehaviour:
   noiseScaleY: 30
   edgeWidth: 0.12
   strokeAngle: 1.5
-  debugMode: 0
-  debugReveal: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

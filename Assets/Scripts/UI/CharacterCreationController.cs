@@ -1,11 +1,12 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using TMPro;
-using System.Collections;
 using DG.Tweening;
-using UnityEngine.Localization.Settings;
 using MaskTransitions;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Localization.Settings;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Game.UI
 {
@@ -23,6 +24,10 @@ namespace Game.UI
         [Header("Feedback")]
         [SerializeField] private TMP_Text feedbackText;
 
+        [Header("Brush Effect")]
+        [SerializeField] private List<TMPBrushController> BrushTextList;
+        [SerializeField] private List<UIImageBrushController> BrushImagesList;
+
         private Coroutine feedbackCoroutine;
 
         private void Start()
@@ -32,6 +37,39 @@ namespace Game.UI
 
             if (feedbackText != null)
                 feedbackText.gameObject.SetActive(false);
+
+            confirmButton.enabled = false;
+            nameInput.enabled = false;
+
+            foreach (var b in BrushTextList)
+            {
+                b.HideInstant();
+            }
+
+            foreach (var b in BrushImagesList)
+            {
+                b.HideInstant();
+            }
+
+            StartCoroutine(OnShow());
+        }
+
+        private IEnumerator OnShow()
+        {
+            foreach (var b in BrushTextList)
+            {
+                b.Show();
+            }
+
+            foreach (var b in BrushImagesList)
+            {
+                b.Show();
+            }
+
+            yield return new WaitForSeconds(1f);
+
+            confirmButton.enabled = true;
+            nameInput.enabled = true;
         }
 
         private void ConfirmCharacter()
@@ -44,8 +82,7 @@ namespace Game.UI
                 return;
             }
 
-            GameData.Instance.PlayerName = nameInput != null ? nameInput.text : "TIKO";
-            //SceneManager.LoadScene(nextSceneName);
+            if (GameData.Instance != null) GameData.Instance.PlayerName = nameInput != null ? nameInput.text : "TIKO";
             TransitionManager.Instance.LoadLevel(nextSceneName);
         }
 
@@ -58,6 +95,7 @@ namespace Game.UI
 
             if (feedbackCoroutine != null)
                 StopCoroutine(feedbackCoroutine);
+
             feedbackCoroutine = StartCoroutine(HideFeedbackAfterDelay(3f));
         }
 

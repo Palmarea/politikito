@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
 public class UIImageBrushController : MonoBehaviour
 {
-    public Action Hidden;
-
-    [Header("Animation")]
+    [Header("Parameters")]
+    [SerializeField] private float revealDuration = 0.8f;
     [SerializeField] private float hideDuration = 0.8f;
 
-    [SerializeField]
-    private AnimationCurve easeCurve =
-        AnimationCurve.EaseInOut(0, 0, 1, 1);
-
-    private static readonly int RevealAmountID =
-        Shader.PropertyToID("_RevealAmount");
-
+    [SerializeField] private AnimationCurve easeCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    
+    private static readonly int RevealAmountID = Shader.PropertyToID("_RevealAmount");
     private Image imageComponent;
     private Material materialInstance;
     private Coroutine currentAnimation;
@@ -34,8 +28,25 @@ public class UIImageBrushController : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (materialInstance != null)
-            Destroy(materialInstance);
+        if (materialInstance != null) Destroy(materialInstance);
+    }
+
+    public void Show()
+    {
+        StopCurrentAnimation();
+
+        imageComponent.enabled = true;
+
+        currentAnimation = StartCoroutine(AnimateReveal(GetRevealAmount(), 1f, revealDuration));
+    }
+
+    public void Hide()
+    {
+        StopCurrentAnimation();
+
+        imageComponent.enabled = true;
+
+        currentAnimation = StartCoroutine(AnimateReveal(GetRevealAmount(), 0f, hideDuration, () => imageComponent.enabled = false));
     }
 
     public void ShowInstant()
@@ -43,6 +54,7 @@ public class UIImageBrushController : MonoBehaviour
         StopCurrentAnimation();
 
         imageComponent.enabled = true;
+
         SetRevealAmount(1f);
     }
 
@@ -51,61 +63,47 @@ public class UIImageBrushController : MonoBehaviour
         StopCurrentAnimation();
 
         SetRevealAmount(0f);
+
         imageComponent.enabled = false;
     }
 
-    public void HideBrush(Action onHidden = null)
+    public float GetRevealAmount()
     {
-        StopCurrentAnimation();
-
-        imageComponent.enabled = true;
-        SetRevealAmount(1f);
-
-        currentAnimation = StartCoroutine(
-            AnimateHide(() =>
-            {
-                imageComponent.enabled = false;
-
-                Hidden?.Invoke();
-                onHidden?.Invoke();
-            }));
+        return materialInstance.GetFloat(RevealAmountID);
     }
 
     private void SetRevealAmount(float value)
     {
-        materialInstance.SetFloat(
-            RevealAmountID,
-            value);
+        materialInstance.SetFloat(RevealAmountID, value);
     }
 
-    private IEnumerator AnimateHide(Action callback)
+    private IEnumerator AnimateReveal(float startValue, float endValue, float duration, System.Action onComplete = null)
     {
         float elapsed = 0f;
 
-        while (elapsed < hideDuration)
+        while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
 
-            float t = Mathf.Clamp01(elapsed / hideDuration);
+            float t = Mathf.Clamp01(elapsed / duration);
+
             float eased = easeCurve.Evaluate(t);
 
-            SetRevealAmount(
-                Mathf.Lerp(1f, 0f, eased));
+            SetRevealAmount(Mathf.Lerp(startValue, endValue, eased));
 
             yield return null;
         }
 
-        SetRevealAmount(0f);
+        SetRevealAmount(endValue);
 
-        callback?.Invoke();
+        onComplete?.Invoke();
 
         currentAnimation = null;
     }
 
     private void StopCurrentAnimation()
     {
-        if (currentAnimation == null)
-            return;
+        if (currentAnimation == null) return;
 
         StopCoroutine(currentAnimation);
         currentAnimation = null;
