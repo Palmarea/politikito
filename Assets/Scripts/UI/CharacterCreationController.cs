@@ -5,6 +5,7 @@ using TMPro;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine.Localization.Settings;
+using MaskTransitions;
 
 namespace Game.UI
 {
@@ -44,7 +45,8 @@ namespace Game.UI
             }
 
             GameData.Instance.PlayerName = nameInput != null ? nameInput.text : "TIKO";
-            SceneManager.LoadScene(nextSceneName);
+            //SceneManager.LoadScene(nextSceneName);
+            TransitionManager.Instance.LoadLevel(nextSceneName);
         }
 
         private void ShowFeedback()

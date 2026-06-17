@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Febucci.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +20,9 @@ public class TutorialScreen : MonoBehaviour
     
     private Sequence tweenSequence;
     private AsyncOperation sceneLoadOperation;
+
+    [SerializeField] private List<TMPBrushHideController> BrushHideTextList;
+    [SerializeField] private List<UIImageBrushController> BrushHideImagesList;
 
     private void Start()
     {
@@ -70,6 +72,23 @@ public class TutorialScreen : MonoBehaviour
     
     private void HandleOnNextButtonClick()
     {
+        StartCoroutine(OnButtonClicked());
+    }
+
+    private IEnumerator OnButtonClicked()
+    {
+        foreach (var b in BrushHideTextList)
+        {
+            b.HideBrush();
+        }
+
+        foreach (var b in BrushHideImagesList)
+        {
+            b.HideBrush();
+        }
+
+        yield return new WaitForSeconds(2f);
+
         sceneLoadOperation.allowSceneActivation = true;
     }
 

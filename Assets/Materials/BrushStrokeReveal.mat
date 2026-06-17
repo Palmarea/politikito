@@ -42,11 +42,12 @@ Material:
     m_Ints: []
     m_Floats:
     - PixelSnap: 0
+    - _Brushiness: 0.65
     - _EdgeWidth: 0.12
     - _EnableExternalAlpha: 0
     - _NoiseScaleX: 5
     - _NoiseScaleY: 3
-    - _RevealAmount: 0
+    - _RevealAmount: 1
     - _StrokeAngle: 1.5
     - _ZWrite: 0
     m_Colors:
