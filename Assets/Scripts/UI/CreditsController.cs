@@ -9,6 +9,8 @@ namespace Game.UI
     {
         [Header("Credit Sections (show in order)")]
         [SerializeField] private CanvasGroup[] creditSections;
+        [SerializeField] private SpriteRenderer[] section1Doodles;
+        [SerializeField] private SpriteRenderer[] section2Doodles;
 
         [Header("Timing")]
         [SerializeField] private float fadeInDuration = 1f;
@@ -22,13 +24,29 @@ namespace Game.UI
 
         private void Start()
         {
-            // Hide all sections at start
             foreach (var section in creditSections)
             {
-                if (section != null)
-                    section.alpha = 0f;
+                if (section != null) section.alpha = 0f;
+            }
+
+            foreach (var sprite in section1Doodles)
+            {
+                if (sprite == null) continue;
+
+                Color color = sprite.color;
+                color.a = 0f;
+                sprite.color = color;
             }
             
+            foreach (var sprite in section2Doodles)
+            {
+                if (sprite == null) continue;
+
+                Color color = sprite.color;
+                color.a = 0f;
+                sprite.color = color;
+            }
+
             StartCoroutine(PlayCredits());
         }
 
@@ -37,23 +55,40 @@ namespace Game.UI
             emitter.SetParameter("creditsVolume", 0.9f);
             yield return new WaitForSeconds(1f);
 
-            foreach (var section in creditSections)
+            for (int i = 0; i < creditSections.Length; i++)
             {
+                CanvasGroup section = creditSections[i];
+
                 if (section == null) continue;
 
-                // Fade in
-                yield return StartCoroutine(FadeCanvasGroup(section, 0f, 1f, fadeInDuration));
+                SpriteRenderer[] doodles = GetDoodlesForSection(i);
+
+                // Fade in simultáneo
+                StartCoroutine(FadeCanvasGroup(section, 0f, 1f, fadeInDuration));
+
+                if (doodles != null)
+                {
+                    StartCoroutine(FadeSprites(doodles, 0f, 1f, fadeInDuration));
+                }
+
+                yield return new WaitForSeconds(fadeInDuration);
 
                 // Display
                 yield return new WaitForSeconds(displayDuration);
 
-                // Fade out
-                yield return StartCoroutine(FadeCanvasGroup(section, 1f, 0f, fadeOutDuration));
+                // Fade out simultáneo
+                StartCoroutine(FadeCanvasGroup(section, 1f, 0f, fadeOutDuration));
 
-                // Pause
+                if (doodles != null)
+                {
+                    StartCoroutine(FadeSprites(doodles, 1f, 0f, fadeOutDuration));
+                }
+
+                yield return new WaitForSeconds(fadeOutDuration);
+
                 yield return new WaitForSeconds(pauseBetweenSections);
             }
-            
+
             yield return new WaitForSeconds(1f);
             yield return StartCoroutine(FadeOutVolume(2f));
             SceneManager.LoadScene(titleSceneName);
@@ -86,6 +121,49 @@ namespace Game.UI
             }
 
             emitter.SetParameter("creditsVolume", 0f);
+        }
+
+        private IEnumerator FadeSprites(SpriteRenderer[] sprites, float from, float to, float duration)
+        {
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+
+                float t = Mathf.Clamp01(elapsed / duration);
+                float alpha = Mathf.Lerp(from, to, t);
+
+                foreach (var sprite in sprites)
+                {
+                    if (sprite == null) continue;
+
+                    Color color = sprite.color;
+                    color.a = alpha;
+                    sprite.color = color;
+                }
+
+                yield return null;
+            }
+
+            foreach (var sprite in sprites)
+            {
+                if (sprite == null) continue;
+
+                Color color = sprite.color;
+                color.a = to;
+                sprite.color = color;
+            }
+        }
+
+        private SpriteRenderer[] GetDoodlesForSection(int index)
+        {
+            switch (index)
+            {
+                case 1: return section1Doodles;
+                case 2: return section2Doodles;
+                default: return null;
+            }
         }
     }
 }
