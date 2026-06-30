@@ -45,12 +45,6 @@ public class GameData : MonoBehaviour
         StartCoroutine(SetLocale(GameLanguage.ToInt()));
     }
 
-    public void Change(int index)
-    {
-        StartCoroutine(SetLocale(index));
-
-    }
-
     private IEnumerator SetLocale(int _localeID)
     {
         yield return LocalizationSettings.InitializationOperation;

@@ -13,7 +13,7 @@ namespace Game.Systems.Interaction.DragNDrop
 
         public event Action OnStoppedDragging;
 
-        private void Start()
+        protected virtual void Start()
         {
             if (!suscribed)
             {

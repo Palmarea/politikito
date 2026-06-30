@@ -150,23 +150,8 @@ namespace Game.Managers.Mouse
         public void ReleaseHold()
         {
             holdingObject = false;
-
-            //if (currentHover != null)
-            //{
-            //    bool isDraggable = currentHover.GetComponent<DragDropObject>() != null;
-
-            //    CursorManager.Instance.SetCursorState(
-            //        isDraggable
-            //            ? CursorStateType.GRABABLE
-            //            : CursorStateType.INTEREST
-            //    );
-
-            //    currentHover = null;
-            //}
-            //else
-            //{
-                CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
-            //}
+            
+            CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
         }
 
         public void BlockClick(bool state) => clickBlocked = state;
@@ -183,11 +168,19 @@ namespace Game.Managers.Mouse
         {
             BlockHover(true);
             CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
+
+            switch (type)
+            {
+                case InterruptionType.CINEMATIC:
+                    BlockClick(true);
+                    break;
+            }
         }
 
         public void HandleInterruptionEnd()
         {
             BlockHover(false);
+            BlockClick(false);
             CursorManager.Instance.SetCursorState(CursorStateType.DEFAULT);
         }
 

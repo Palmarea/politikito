@@ -103,19 +103,24 @@ namespace Game.UI
 
         private void Start()
         {
-            RefreshBars();
+            //RefreshBars();
             SetPlayerLabel(0);
         }
 
         private void SetupUIStats()
         {
             CharismaUIO.ClickObject.gameObject.transform.parent = CharismaUIO.AnchorPoint;
+            CharismaUIO.ClickObject.gameObject.transform.localPosition = Vector3.zero;
             CharismaUIO.SetupObject();
 
             WisdomUIO.ClickObject.gameObject.transform.parent = WisdomUIO.AnchorPoint;
+            WisdomUIO.ClickObject.gameObject.transform.localPosition = Vector3.zero;
+            WisdomUIO.ClickObject.GetComponent<Rigidbody2D>().position = WisdomUIO.ClickObject.gameObject.transform.position;
+            WisdomUIO.ClickObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
             WisdomUIO.SetupObject();
             
             WillpowerUIO.ClickObject.gameObject.transform.parent = WillpowerUIO.AnchorPoint;
+            WillpowerUIO.ClickObject.gameObject.transform.localPosition = Vector3.zero;
             WillpowerUIO.SetupObject();
         }
 
@@ -171,7 +176,7 @@ namespace Game.UI
                     WisdomUIO.UpdateInteraction(false);
                     WillpowerUIO.UpdateInteraction(false);
                     break;
-                case (InterruptionType.CINEMATIC or InterruptionType.NOTIFICATION):
+                case InterruptionType.NOTIFICATION:
                     CharismaUIO.UpdateUIState(false);
                     WisdomUIO.UpdateUIState(false);
                     WillpowerUIO.UpdateUIState(false);

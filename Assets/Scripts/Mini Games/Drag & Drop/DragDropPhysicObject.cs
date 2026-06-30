@@ -90,6 +90,17 @@ namespace Game.Systems.Interaction.DragNDrop
 
         }
 
+        public void SnapToAnchor()
+        {
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+
+            transform.localPosition = Vector3.zero;
+            rb.position = transform.position;
+            Physics2D.SyncTransforms();
+        }
+
         public override bool AllowToDrop()
         {
             return freeFall;

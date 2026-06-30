@@ -28,6 +28,15 @@ namespace Game.UI
         [SerializeField] private float stampScaleEnd = 1f;
         [SerializeField] private float stampAnimDuration = 0.15f;
 
+        [Header("Post It")]
+        [SerializeField] private RectTransform postItRect;
+        [SerializeField] private float postItRevealDistance = 100f;
+        [SerializeField] private float postItHideDistance = 100f;
+        [SerializeField] private float postItMoveDuration = 0.3f;
+
+        private Vector2 postItOriginalPos;
+        private Tween postItTween;
+
         private bool hasFocused = false;
         private bool hasStamped = false;
 
@@ -50,6 +59,14 @@ namespace Game.UI
             TweenSplashFocus();
 
             counter = initialCounter;
+
+            if (postItRect != null)
+            {
+                postItOriginalPos = postItRect.anchoredPosition;
+
+                postItRect.anchoredPosition =
+                    postItOriginalPos - Vector2.up * postItRevealDistance;
+            }
         }
 
         private void Update()
@@ -114,8 +131,41 @@ namespace Game.UI
                 logoReveal.PlayReveal(() =>
                 {
                     stampMarkBase.SetActive(true);
+
+                    PlayPostItReveal();
                 });
             });
+        }
+
+        private void PlayPostItReveal()
+        {
+            if (postItRect == null)
+                return;
+
+            postItTween?.Kill();
+
+            postItTween = postItRect
+                .DOAnchorPos(postItOriginalPos, postItMoveDuration)
+                .SetEase(Ease.OutBack);
+        }
+
+        private void PlayPostItHide(System.Action onComplete = null)
+        {
+            if (postItRect == null)
+            {
+                onComplete?.Invoke();
+                return;
+            }
+
+            postItTween?.Kill();
+
+            Vector2 targetPos =
+                postItOriginalPos - Vector2.up * postItHideDistance;
+
+            postItTween = postItRect
+                .DOAnchorPos(targetPos, postItMoveDuration)
+                .SetEase(Ease.InBack)
+                .OnComplete(() => onComplete?.Invoke());
         }
 
         public void OnStampButtonPressed()
@@ -128,9 +178,13 @@ namespace Game.UI
             PlaceStamp();
 
             StartCoroutine(StampAnimation());
-            StartCoroutine(TransitionAfterDelay());
 
-            SFXCaller.Play("event:/uiButton");
+            PlayPostItHide(() =>
+            {
+                StartCoroutine(TransitionAfterDelay());
+
+                SFXCaller.Play("event:/uiButton");
+            });
         }
 
         private void PlaceStamp()
