@@ -2831,7 +2831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &411673477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6036,7 +6036,6 @@ MonoBehaviour:
     SoundSfx: uiPaper
   - Go: {fileID: 1857531313}
     SoundSfx: uiButton
-  PhysicObject: {fileID: 310439870}
   DelayBetweenObjects: 0.3
   PopDuration: 0.5
   PopOvershoot: 1.15
