@@ -84,13 +84,17 @@ namespace Game.Systems.Interaction.Detail
 
             if (data.type == DetailType.ACHIEVEMENT)
             {
-                if (Context.TutorialData.IsTutorialStepCompleted(TutorialData.OBJECT_INTERACT_STEP_INDEX)) return;
-                Context.TutorialData.CompleteTutorialStep(TutorialData.OBJECT_INTERACT_STEP_INDEX);
+                if (!Context.TutorialData.IsTutorialStepCompleted(TutorialData.OBJECT_INTERACT_STEP_INDEX))
+                {
+                    Context.TutorialData.CompleteTutorialStep(TutorialData.OBJECT_INTERACT_STEP_INDEX);
+                }
             }
-            else
+            else if (data.type == DetailType.MILESTONE)
             {
-                if (Context.TutorialData.IsTutorialStepCompleted(TutorialData.NEWS_INTERACT_STEP_INDEX)) return;
-                Context.TutorialData.CompleteTutorialStep(TutorialData.NEWS_INTERACT_STEP_INDEX);
+                if (!Context.TutorialData.IsTutorialStepCompleted(TutorialData.NEWS_INTERACT_STEP_INDEX))
+                {
+                    Context.TutorialData.CompleteTutorialStep(TutorialData.NEWS_INTERACT_STEP_INDEX);
+                }
             }
 
             m_Occupied = true;

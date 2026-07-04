@@ -1,4 +1,3 @@
-using Gaskellgames;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
@@ -42,7 +41,7 @@ public class GameData : MonoBehaviour
     {
         GameLanguage = newLanguage;
         
-        StartCoroutine(SetLocale(GameLanguage.ToInt()));
+        StartCoroutine(SetLocale((int)GameLanguage));
     }
 
     private IEnumerator SetLocale(int _localeID)
